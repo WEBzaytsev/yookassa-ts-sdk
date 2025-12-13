@@ -21,4 +21,6 @@ __exportStar(require("./api.types"), exports);
 __exportStar(require("./customer.type"), exports);
 __exportStar(require("./receiver.type"), exports);
 __exportStar(require("./general.types"), exports);
+__exportStar(require("./webhook.type"), exports);
+__exportStar(require("./shop.type"), exports);
 //# sourceMappingURL=index.js.map

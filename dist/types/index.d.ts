@@ -5,3 +5,5 @@ export * from './api.types';
 export * from './customer.type';
 export * from './receiver.type';
 export * from './general.types';
+export * from './webhook.type';
+export * from './shop.type';

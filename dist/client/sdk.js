@@ -23,76 +23,68 @@ class YooKassaSdk extends connector_1.Connector {
                 method: 'GET',
                 endpoint: `/payments/${id}`,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const payment = response.data;
-            return payment;
+            return response.data;
         });
         /** ****Получить список платежей****
          *
          * Запрос позволяет получить список платежей, отфильтрованный по заданным критериям. [Подробнее о работе со списками](https://yookassa.ru/developers/using-api/lists)
          */
         this.getPaymentList = (filter) => __awaiter(this, void 0, void 0, function* () {
-            filter !== null && filter !== void 0 ? filter : (filter = {});
-            const payments = [];
-            const params = filter;
-            const opts = {
-                method: 'GET',
-                endpoint: '/payments',
-                params,
-            };
-            do {
-                const response = yield this.request(opts);
-                if (response.success == 'NO_OK') {
-                    throw new api_types_1.YooKassaErr(response.errorData);
-                }
-                opts.requestId = response.requestId;
-                payments.push(...response.data.items);
-                if (!response.data.next_cursor) {
-                    break;
-                }
-                params.cursor = response.data.next_cursor;
-            } while (true);
-            return payments;
+            return this.fetchList('/payments', filter);
         });
-        /** Создать платеж */
-        this.createPayment = (newPayment) => __awaiter(this, void 0, void 0, function* () {
+        /** Создать платеж
+         * @param newPayment - данные для создания платежа
+         * @param idempotenceKey - ключ идемпотентности (опционально, генерируется автоматически)
+         */
+        this.createPayment = (newPayment, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
+            // Применяем default_return_url если confirmation.type === 'redirect' и return_url не указан
+            const paymentData = this.applyDefaultReturnUrl(newPayment);
             const response = yield this.request({
                 method: 'POST',
                 endpoint: '/payments',
-                data: newPayment,
+                data: paymentData,
+                requestId: idempotenceKey,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const createdPayment = response.data;
-            return createdPayment;
+            return response.data;
         });
-        /** Подтвердить платеж по идентификатору */
-        this.capturePaymentById = (paymentId) => __awaiter(this, void 0, void 0, function* () {
+        /** Подтвердить платеж по идентификатору
+         * @param paymentId - идентификатор платежа
+         * @param payload - данные для подтверждения (сумма, чек, данные авиабилетов, распределение)
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         */
+        this.capturePaymentById = (paymentId, payload, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
             const response = yield this.request({
                 method: 'POST',
                 endpoint: `/payments/${paymentId}/capture`,
-                data: {},
+                data: payload !== null && payload !== void 0 ? payload : {},
+                requestId: idempotenceKey,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const capturedPayment = response.data;
-            return capturedPayment;
+            return response.data;
         });
-        this.cancelPaymentById = (paymentId) => __awaiter(this, void 0, void 0, function* () {
+        /** Отменить платеж по идентификатору
+         * @param paymentId - идентификатор платежа
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         */
+        this.cancelPaymentById = (paymentId, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
             const response = yield this.request({
                 method: 'POST',
                 endpoint: `/payments/${paymentId}/cancel`,
                 data: {},
+                requestId: idempotenceKey,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const canceledPayment = response.data;
-            return canceledPayment;
+            return response.data;
         });
         // ========== Payments end========== //
         // ========== Refunds ========== //
@@ -101,46 +93,29 @@ class YooKassaSdk extends connector_1.Connector {
                 method: 'GET',
                 endpoint: `/refunds/${refundId}`,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const refund = response.data;
-            return refund;
+            return response.data;
         });
         this.getRefundList = (filter) => __awaiter(this, void 0, void 0, function* () {
-            filter !== null && filter !== void 0 ? filter : (filter = {});
-            const refunds = [];
-            const params = filter;
-            const opts = {
-                method: 'GET',
-                endpoint: '/refunds',
-                params,
-            };
-            do {
-                const response = yield this.request(opts);
-                if (response.success == 'NO_OK') {
-                    throw new api_types_1.YooKassaErr(response.errorData);
-                }
-                opts.requestId = response.requestId;
-                refunds.push(...response.data.items);
-                if (!response.data.next_cursor) {
-                    break;
-                }
-                params.cursor = response.data.next_cursor;
-            } while (true);
-            return refunds;
+            return this.fetchList('/refunds', filter);
         });
-        this.createRefund = (newRefund) => __awaiter(this, void 0, void 0, function* () {
+        /** Создать возврат
+         * @param newRefund - данные для создания возврата
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         */
+        this.createRefund = (newRefund, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
             const response = yield this.request({
                 method: 'POST',
                 endpoint: '/refunds',
                 data: newRefund,
+                requestId: idempotenceKey,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const createdRefund = response.data;
-            return createdRefund;
+            return response.data;
         });
         // ========== Refunds end ========== //
         // ========== Receipts ========== //
@@ -149,48 +124,89 @@ class YooKassaSdk extends connector_1.Connector {
                 method: 'GET',
                 endpoint: `/receipts/${receiptId}`,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const receipt = response.data;
-            return receipt;
+            return response.data;
         });
-        this.createReceipt = (newReceipt) => __awaiter(this, void 0, void 0, function* () {
+        /** Создать чек
+         * @param newReceipt - данные для создания чека
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         */
+        this.createReceipt = (newReceipt, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
             const response = yield this.request({
                 method: 'POST',
                 endpoint: '/receipts',
                 data: newReceipt,
+                requestId: idempotenceKey,
             });
-            if (response.success == 'NO_OK') {
+            if (response.success === 'NO_OK') {
                 throw new api_types_1.YooKassaErr(response.errorData);
             }
-            const createdReceipt = response.data;
-            return createdReceipt;
+            return response.data;
         });
         this.getReceiptList = (filter) => __awaiter(this, void 0, void 0, function* () {
-            filter !== null && filter !== void 0 ? filter : (filter = {});
-            const receipts = [];
-            const params = filter;
-            const opts = {
-                method: 'GET',
-                endpoint: '/receipts',
-                params,
-            };
-            do {
-                const response = yield this.request(opts);
-                if (response.success == 'NO_OK') {
-                    throw new api_types_1.YooKassaErr(response.errorData);
-                }
-                opts.requestId = response.requestId;
-                receipts.push(...response.data.items);
-                if (!response.data.next_cursor) {
-                    break;
-                }
-                params.cursor = response.data.next_cursor;
-            } while (true);
-            return receipts;
+            return this.fetchList('/receipts', filter);
         });
         // ========== Receipts end ========== //
+        // ========== Webhooks ========== //
+        /** Создать вебхук (требуется OAuth-токен)
+         * @param webhook - данные для создания вебхука
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         */
+        this.createWebhook = (webhook, idempotenceKey) => __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.request({
+                method: 'POST',
+                endpoint: '/webhooks',
+                data: webhook,
+                requestId: idempotenceKey,
+                useOAuth: true,
+            });
+            if (response.success === 'NO_OK') {
+                throw new api_types_1.YooKassaErr(response.errorData);
+            }
+            return response.data;
+        });
+        /** Получить список вебхуков (требуется OAuth-токен) */
+        this.getWebhookList = () => __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.request({
+                method: 'GET',
+                endpoint: '/webhooks',
+                useOAuth: true,
+            });
+            if (response.success === 'NO_OK') {
+                throw new api_types_1.YooKassaErr(response.errorData);
+            }
+            return response.data.items;
+        });
+        /** Удалить вебхук по идентификатору (требуется OAuth-токен)
+         * @param webhookId - идентификатор вебхука
+         */
+        this.deleteWebhook = (webhookId) => __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.request({
+                method: 'DELETE',
+                endpoint: `/webhooks/${webhookId}`,
+                useOAuth: true,
+            });
+            if (response.success === 'NO_OK') {
+                throw new api_types_1.YooKassaErr(response.errorData);
+            }
+        });
+        // ========== Webhooks end ========== //
+        // ========== Shop ========== //
+        /** Получить информацию о магазине (требуется OAuth-токен) */
+        this.getShopInfo = () => __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.request({
+                method: 'GET',
+                endpoint: '/me',
+                useOAuth: true,
+            });
+            if (response.success === 'NO_OK') {
+                throw new api_types_1.YooKassaErr(response.errorData);
+            }
+            return response.data;
+        });
+        // ========== Shop end ========== //
         /** Методы для работы с платежами */
         this.payments = {
             /**
@@ -199,6 +215,9 @@ class YooKassaSdk extends connector_1.Connector {
              * Чтобы принять оплату, необходимо создать объект платежа — `Payment`.
              * Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус).
              * У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
+             *
+             * @param payment - данные платежа
+             * @param idempotenceKey - ключ идемпотентности (опционально, генерируется автоматически)
              */
             create: this.createPayment,
             /**
@@ -276,6 +295,10 @@ class YooKassaSdk extends connector_1.Connector {
              * перейдет в статус `canceled`, и деньги вернутся пользователю.
              *
              * [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel)
+             *
+             * @param paymentId - идентификатор платежа
+             * @param payload - данные для подтверждения (сумма, чек, авиабилеты, распределение)
+             * @param idempotenceKey - ключ идемпотентности (опционально)
              */
             capture: this.capturePaymentById,
             /**
@@ -288,6 +311,9 @@ class YooKassaSdk extends connector_1.Connector {
              * Для остальных способов оплаты возврат может занимать до нескольких дней.
              *
              * [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel)
+             *
+             * @param paymentId - идентификатор платежа
+             * @param idempotenceKey - ключ идемпотентности (опционально)
              */
             cancel: this.cancelPaymentById,
         };
@@ -299,6 +325,9 @@ class YooKassaSdk extends connector_1.Connector {
              * Создает возврат успешного платежа на указанную сумму.
              * Платеж можно вернуть только в течение трех лет с момента его создания.
              * Комиссия ЮKassa за проведение платежа не возвращается.
+             *
+             * @param refund - данные возврата
+             * @param idempotenceKey - ключ идемпотентности (опционально)
              * @see https://yookassa.ru/developers/api#create_refund
              */
             create: this.createRefund,
@@ -332,6 +361,9 @@ class YooKassaSdk extends connector_1.Connector {
              * Используйте этот запрос при оплате с соблюдением требований 54-ФЗ, чтобы создать чек зачета предоплаты.
              * Если вы работаете по сценарию [Сначала платеж, потом чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#receipt-after-payment),
              * в запросе также нужно передавать данные для формирования чека прихода и чека возврата прихода.
+             *
+             * @param receipt - данные чека
+             * @param idempotenceKey - ключ идемпотентности (опционально)
              * @see https://yookassa.ru/developers/api#create_receipt
              */
             create: this.createReceipt,
@@ -352,6 +384,103 @@ class YooKassaSdk extends connector_1.Connector {
              */
             list: this.getReceiptList,
         };
+        /**
+         * ****Методы для работы с вебхуками****
+         *
+         * Вебхуки позволяют получать уведомления о событиях в ЮKassa.
+         * **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
+         *
+         * @see https://yookassa.ru/developers/api#webhook
+         */
+        this.webhooks = {
+            /**
+             * ****Создание вебхука****
+             *
+             * Создаёт вебхук для получения уведомлений о событиях.
+             *
+             * @param webhook - данные вебхука (event, url)
+             * @param idempotenceKey - ключ идемпотентности (опционально)
+             * @see https://yookassa.ru/developers/api#create_webhook
+             */
+            create: this.createWebhook,
+            /**
+             * ****Список вебхуков****
+             *
+             * Возвращает список созданных вебхуков.
+             * @see https://yookassa.ru/developers/api#get_webhook_list
+             */
+            list: this.getWebhookList,
+            /**
+             * ****Удаление вебхука****
+             *
+             * Удаляет вебхук по идентификатору.
+             *
+             * @param webhookId - идентификатор вебхука
+             * @see https://yookassa.ru/developers/api#delete_webhook
+             */
+            delete: this.deleteWebhook,
+        };
+        /**
+         * ****Информация о магазине****
+         *
+         * Позволяет получить информацию о подключённом магазине.
+         * **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
+         *
+         * @see https://yookassa.ru/developers/api#get_me
+         */
+        this.shop = {
+            /**
+             * ****Получить информацию о магазине****
+             *
+             * Возвращает информацию об аккаунте: идентификатор, статус, доступные способы оплаты и т.д.
+             * @see https://yookassa.ru/developers/api#get_me
+             */
+            info: this.getShopInfo,
+        };
+    }
+    /**
+     * Generic метод для получения списка с автоматической пагинацией
+     */
+    fetchList(endpoint, filter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const items = [];
+            const params = (filter !== null && filter !== void 0 ? filter : {});
+            const opts = {
+                method: 'GET',
+                endpoint,
+                params,
+            };
+            do {
+                const response = yield this.request(opts);
+                if (response.success === 'NO_OK') {
+                    throw new api_types_1.YooKassaErr(response.errorData);
+                }
+                opts.requestId = response.requestId;
+                items.push(...response.data.items);
+                if (!response.data.next_cursor) {
+                    break;
+                }
+                params.cursor = response.data.next_cursor;
+            } while (true);
+            return items;
+        });
+    }
+    /**
+     * Применяет default_return_url к запросу если нужно
+     */
+    applyDefaultReturnUrl(payment) {
+        if (!this.defaultReturnUrl) {
+            return payment;
+        }
+        const confirmation = payment.confirmation;
+        if (!confirmation || confirmation.type !== 'redirect') {
+            return payment;
+        }
+        // Если return_url уже указан — не перезаписываем
+        if ('return_url' in confirmation && confirmation.return_url) {
+            return payment;
+        }
+        return Object.assign(Object.assign({}, payment), { confirmation: Object.assign(Object.assign({}, confirmation), { return_url: this.defaultReturnUrl }) });
     }
 }
 exports.YooKassaSdk = YooKassaSdk;

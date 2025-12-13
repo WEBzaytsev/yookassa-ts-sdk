@@ -1,11 +1,11 @@
-import { LocaleEnum } from '../general.types';
+import type { LocaleEnum } from '../general.types'
 
 export type IConfirmation =
     | IConfirmationRedirect
     | IConfirmationEmbedded
     | IConfirmationQR
     | IConfirmationExternal
-    | IConfirmationMobileApp;
+    | IConfirmationMobileApp
 
 export enum ConfirmationTypesEnum {
     embedded = 'embedded',
@@ -14,18 +14,13 @@ export enum ConfirmationTypesEnum {
     qr = 'qr',
     redirect = 'redirect',
 }
-export type ConfirmationTypes =
-    | 'embedded'
-    | 'external'
-    | 'mobile_application'
-    | 'qr'
-    | 'redirect';
+export type ConfirmationTypes = 'embedded' | 'external' | 'mobile_application' | 'qr' | 'redirect'
 
 interface IGeneralConfirmation {
     /** Код сценария подтверждения. */
-    type: ConfirmationTypes;
+    type: ConfirmationTypes
     /** Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен. */
-    locale?: LocaleEnum;
+    locale?: LocaleEnum
 }
 /**
  * ***Сценарий подтверждения Embedded***
@@ -33,9 +28,9 @@ interface IGeneralConfirmation {
  * действия, необходимые для подтверждения платежа, будут зависеть от способа оплаты, который пользователь выберет в виджете ЮKassa. Подтверждение от пользователя получит ЮKassa — вам необходимо только встроить виджет к себе на страницу.
  */
 export interface IConfirmationEmbedded extends IGeneralConfirmation {
-    type: 'embedded';
+    type: 'embedded'
     /** Токен для инициализации [платежного виджета ЮKassa](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)  */
-    confirmation_token: string;
+    confirmation_token: string
 }
 
 /**
@@ -45,13 +40,18 @@ export interface IConfirmationEmbedded extends IGeneralConfirmation {
  */
 export interface IConfirmationRedirect extends IGeneralConfirmation {
     /** Код сценария подтверждения. */
-    type: 'redirect';
+    type: 'redirect'
     /** URL, на который необходимо перенаправить пользователя для подтверждения оплаты. */
-    confirmation_url?: string;
+    confirmation_url?: string
     /** Запрос на проведение платежа с аутентификацией по 3-D Secure. Будет работать, если оплату банковской картой вы по умолчанию принимаете без подтверждения платежа пользователем. В остальных случаях аутентификацией по 3-D Secure будет управлять ЮKassa. Если хотите принимать платежи без дополнительного подтверждения пользователем, напишите вашему менеджеру ЮKassa. */
-    enforce?: boolean;
-    /** URL, на который вернется пользователь после подтверждения или отмены платежа на веб-странице. Не более 2048 символов. */
-    return_url: string;
+    enforce?: boolean
+    /**
+     * URL, на который вернется пользователь после подтверждения или отмены платежа на веб-странице. Не более 2048 символов.
+     *
+     * Можно не указывать если настроен `default_return_url` в ConnectorOpts.
+     * @see https://yookassa.ru/developers/api#create_payment
+     */
+    return_url?: string
 }
 
 /**
@@ -60,9 +60,9 @@ export interface IConfirmationRedirect extends IGeneralConfirmation {
  * для подтверждения платежа пользователю необходимо просканировать QR-код. От вас требуется сгенерировать QR-код, используя любой доступный инструмент, и отобразить его на странице оплаты.
  */
 export interface IConfirmationQR extends IGeneralConfirmation {
-    type: 'qr';
+    type: 'qr'
     /** Данные для генерации QR-кода. */
-    confirmation_data: string;
+    confirmation_data: string
 }
 
 /**
@@ -71,9 +71,9 @@ export interface IConfirmationQR extends IGeneralConfirmation {
  * для подтверждения платежа пользователю необходимо совершить действия в мобильном приложении (например, в приложении интернет-банка). Вам нужно перенаправить пользователя на confirmation_url, полученный в платеже
  */
 export interface IConfirmationMobileApp {
-    type: 'mobile_application';
+    type: 'mobile_application'
     /** Диплинк на мобильное приложение, в котором пользователь подтверждает платеж. */
-    confirmation_url: string;
+    confirmation_url: string
 }
 
 /**
@@ -82,5 +82,5 @@ export interface IConfirmationMobileApp {
  *  для подтверждения платежа пользователю необходимо совершить действия во внешней системе (например, ответить на смс). От вас требуется только сообщить пользователю о дальнейших шагах.
  */
 export interface IConfirmationExternal extends IGeneralConfirmation {
-    type: 'external';
+    type: 'external'
 }

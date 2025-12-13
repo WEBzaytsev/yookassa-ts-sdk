@@ -7,11 +7,17 @@ var PaymentMethodsEnum;
     PaymentMethodsEnum["bank_card"] = "bank_card";
     /** ЮMoney */
     PaymentMethodsEnum["yoo_money"] = "yoo_money";
-    /** QIWI Кошелек */
+    /**
+     * QIWI Кошелек
+     * @deprecated QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ оплаты не работает.
+     */
     PaymentMethodsEnum["qiwi"] = "qiwi";
     /** SberPay */
     PaymentMethodsEnum["sberbank"] = "sberbank";
-    /** Альфа-Клик */
+    /**
+     * Альфа-Клик
+     * @deprecated Сервис устарел. Рекомендуется использовать другие способы оплаты.
+     */
     PaymentMethodsEnum["alfabank"] = "alfabank";
     /** Тинькофф */
     PaymentMethodsEnum["tinkoff_bank"] = "tinkoff_bank";
@@ -27,5 +33,7 @@ var PaymentMethodsEnum;
     PaymentMethodsEnum["installments"] = "installments";
     /** "Покупки в кредит" от Сбербанка" */
     PaymentMethodsEnum["sber_loan"] = "sber_loan";
+    /** Плати частями (BNPL от СберБанка) */
+    PaymentMethodsEnum["sber_bnpl"] = "sber_bnpl";
 })(PaymentMethodsEnum || (exports.PaymentMethodsEnum = PaymentMethodsEnum = {}));
 //# sourceMappingURL=paymentMethod.type.js.map

@@ -45,7 +45,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Connector = exports.endpoints = void 0;
+exports.Connector = void 0;
 const axios_1 = __importDefault(require("axios"));
 const AxiosLogger = __importStar(require("axios-logger"));
 const axios_rate_limit_1 = __importDefault(require("axios-rate-limit"));
@@ -82,64 +82,6 @@ function isRetryableError(error) {
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-exports.endpoints = {
-    refunds: {
-        create: {
-            method: 'POST',
-            endpoint: '/refunds',
-            description: 'Создание возврата',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/refunds',
-            description: 'Список возвратов',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/refunds/{refund_id}',
-            description: 'Информация о возврате',
-        },
-    },
-    payments: {
-        create: {
-            method: 'POST',
-            endpoint: '/payments',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/payments',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/payments/{payment_id}',
-        },
-        capture: {
-            method: 'POST',
-            endpoint: '/payments/{payment_id}/capture',
-        },
-        cancel: {
-            method: 'POST',
-            endpoint: '/payments/{payment_id}/cancel',
-        },
-    },
-    receipts: {
-        create: {
-            method: 'POST',
-            endpoint: '/receipts',
-            description: 'Создание чека',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/receipts',
-            description: 'Список чеков',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/receipts/{receipt_id}',
-            description: 'Информация о чеке',
-        },
-    },
-};
 /**
  * Базовый класс для работы с API YooKassa
  */
@@ -152,13 +94,18 @@ class Connector {
         this.maxRPS = (_b = init.maxRPS) !== null && _b !== void 0 ? _b : 5;
         this.timeout = (_c = init.timeout) !== null && _c !== void 0 ? _c : DEFAULT_TIMEOUT;
         this.retries = (_d = init.retries) !== null && _d !== void 0 ? _d : DEFAULT_RETRIES;
+        this.token = init.token;
+        this.shopId = init.shop_id;
+        this.secretKey = init.secret_key;
+        this.defaultReturnUrl = init.default_return_url;
         const axiosConfig = {
             baseURL: this.endpoint,
             timeout: this.timeout,
-            auth: { username: init.shop_id, password: init.secret_key },
+            // auth НЕ устанавливаем здесь — передаём в каждом запросе явно,
+            // чтобы можно было отключить для OAuth
             headers: {
                 'Content-Type': 'application/json',
-                'User-Agent': 'awardix/yookassa-sdk',
+                'User-Agent': 'yookassa-api-sdk',
             },
             // Используем https-proxy-agent вместо встроенного axios proxy
             // Это работает корректно в Next.js server actions
@@ -184,6 +131,26 @@ class Connector {
             var _a, _b, _c, _d;
             // Генерируем или используем переданный Idempotence-Key
             const idempotenceKey = (_a = opts.requestId) !== null && _a !== void 0 ? _a : (0, crypto_1.randomUUID)();
+            // Формируем заголовки
+            const headers = {
+                'Idempotence-Key': idempotenceKey,
+            };
+            // OAuth авторизация для партнёрского API
+            if (opts.useOAuth) {
+                if (!this.token) {
+                    return {
+                        success: 'NO_OK',
+                        errorData: {
+                            type: 'error',
+                            id: idempotenceKey,
+                            code: 'MISSING_OAUTH_TOKEN',
+                            description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
+                        },
+                        requestId: idempotenceKey,
+                    };
+                }
+                headers['Authorization'] = `Bearer ${this.token}`;
+            }
             let lastError = null;
             for (let attempt = 0; attempt <= this.retries; attempt++) {
                 try {
@@ -192,9 +159,9 @@ class Connector {
                         url: opts.endpoint, // baseURL уже задан, endpoint начинается с /
                         data: opts.method === 'POST' ? opts.data : undefined,
                         params: opts.params,
-                        headers: {
-                            'Idempotence-Key': idempotenceKey,
-                        },
+                        headers,
+                        // Для OAuth отключаем Basic Auth
+                        auth: opts.useOAuth ? undefined : { username: this.shopId, password: this.secretKey },
                     });
                     return {
                         success: 'OK',

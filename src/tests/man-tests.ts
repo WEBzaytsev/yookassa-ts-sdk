@@ -1,4 +1,4 @@
-import { ConnectorOpts, YooKassa } from '../client'
+import { type ConnectorOpts, YooKassa } from '../client'
 import { CurrencyEnum } from '../types/general.types'
 
 const initOpts: ConnectorOpts = {
@@ -10,7 +10,7 @@ const initOpts: ConnectorOpts = {
 if (!initOpts.secret_key || !initOpts.shop_id) {
     throw new Error('YOO_SECRET_KEY and YOO_SHOP_ID must be set')
 }
-async function test() {
+async function _test() {
     const sdk = YooKassa(initOpts)
     const response = await sdk.payments.create({
         receipt: {
@@ -41,14 +41,14 @@ async function test() {
 }
 //test()
 
-async function testGetPayment() {
+async function _testGetPayment() {
     const sdk = YooKassa(initOpts)
     const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
     const payment = await sdk.payments.load(paymentId)
     console.log(JSON.stringify(payment, null, 2))
 }
 // testGetPayment();
-async function testCapturePayment() {
+async function _testCapturePayment() {
     const sdk = YooKassa(initOpts)
     const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
     const payment = await sdk.payments.capture(paymentId)
@@ -56,14 +56,14 @@ async function testCapturePayment() {
 }
 // testCapturePayment();
 
-async function testCancelPayment() {
+async function _testCancelPayment() {
     const sdk = YooKassa(initOpts)
     const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
     const payment = await sdk.payments.cancel(paymentId)
     console.log(JSON.stringify(payment, null, 2))
 }
 // testCancelPayment();
-async function testCreateRefund() {
+async function _testCreateRefund() {
     const sdk = YooKassa(initOpts)
     const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
     const refund = await sdk.refunds.create({
@@ -76,18 +76,18 @@ async function testCreateRefund() {
     console.log(JSON.stringify(refund, null, 2))
 }
 // testCreateRefund();
-async function testGetRefund() {
+async function _testGetRefund() {
     const sdk = YooKassa(initOpts)
-    const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
+    const _paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
     const refundId = '2e40b923-0015-5000-a000-1f4e75af689e'
     const refund = await sdk.refunds.load(refundId)
     console.log(JSON.stringify(refund, null, 2))
 }
 // testGetRefund();
-async function testGetListRefund() {
+async function _testGetListRefund() {
     const sdk = YooKassa(initOpts)
     const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7'
-    const refundId = '2e40b923-0015-5000-a000-1f4e75af689e'
+    const _refundId = '2e40b923-0015-5000-a000-1f4e75af689e'
     const refund = await sdk.refunds.list({
         created_at: {
             gt: new Date('2024-01-01').toISOString(),

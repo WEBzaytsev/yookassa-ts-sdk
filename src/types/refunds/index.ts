@@ -1,2 +1,2 @@
-export * from './refund.type';
-export * from './refundMethod.type';
+export * from './refund.type'
+export * from './refundMethod.type'

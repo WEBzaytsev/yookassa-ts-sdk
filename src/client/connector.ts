@@ -1,9 +1,9 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios'
+import { randomUUID } from 'node:crypto'
+import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
 import * as AxiosLogger from 'axios-logger'
-import rateLimit, { RateLimitedAxiosInstance } from 'axios-rate-limit'
-import { randomUUID } from 'crypto'
+import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit'
 import { HttpsProxyAgent } from 'https-proxy-agent'
-import { YooKassaErrResponse } from '../types/api.types'
+import type { YooKassaErrResponse } from '../types/api.types'
 
 /** Таймаут запроса по умолчанию (мс) */
 const DEFAULT_TIMEOUT = 5000
@@ -43,7 +43,7 @@ function isRetryableError(error: AxiosError): boolean {
  * Задержка выполнения
  */
 function delay(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms))
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 /**
@@ -59,14 +59,18 @@ export type ConnectorOpts = {
      */
     secret_key: string
     /**
+     * OAuth-токен для партнёрского API.
+     * Необходим для работы с вебхуками и получения информации о магазине.
+     * @see https://yookassa.ru/developers/partners-api/basics
+     */
+    token?: string
+    /**
      * Эндпоинт API (без слэша в конце)
      * @default "https://api.yookassa.ru/v3"
      */
     endpoint?: string
     /** Отладочный режим */
     debug?: boolean
-    /** URL для редиректа */
-    redirect_url?: string
     /**
      * Количество запросов в секунду
      * @default 5
@@ -90,89 +94,33 @@ export type ConnectorOpts = {
     proxy?: ProxyConfig
 }
 
-export const endpoints = {
-    refunds: {
-        create: {
-            method: 'POST',
-            endpoint: '/refunds',
-            description: 'Создание возврата',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/refunds',
-            description: 'Список возвратов',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/refunds/{refund_id}',
-            description: 'Информация о возврате',
-        },
-    },
-    payments: {
-        create: {
-            method: 'POST',
-            endpoint: '/payments',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/payments',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/payments/{payment_id}',
-        },
-        capture: {
-            method: 'POST',
-            endpoint: '/payments/{payment_id}/capture',
-        },
-        cancel: {
-            method: 'POST',
-            endpoint: '/payments/{payment_id}/cancel',
-        },
-    },
-    receipts: {
-        create: {
-            method: 'POST',
-            endpoint: '/receipts',
-            description: 'Создание чека',
-        },
-        list: {
-            method: 'GET',
-            endpoint: '/receipts',
-            description: 'Список чеков',
-        },
-        info: {
-            method: 'GET',
-            endpoint: '/receipts/{receipt_id}',
-            description: 'Информация о чеке',
-        },
-    },
-}
-
 interface IGenReqOpts<P> {
     method: 'GET' | 'POST' | 'DELETE'
     endpoint: string
     params?: P
-    maxRPS?: number
+    /** Ключ идемпотентности. Если не указан, генерируется автоматически. */
     requestId?: string
-    debug?: boolean
+    /** Использовать OAuth-токен вместо Basic Auth */
+    useOAuth?: boolean
 }
 
 export type GetRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
     method: 'GET'
 }
 
-export type PostRequestOpts<
-    P = Record<string, any>,
-    D = Record<string, any>,
-> = IGenReqOpts<P> & {
+export type PostRequestOpts<P = Record<string, any>, D = Record<string, any>> = IGenReqOpts<P> & {
     method: 'POST'
     data: D
+}
+
+export type DeleteRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
+    method: 'DELETE'
 }
 
 export type RequestOpts<P = Record<string, any>, D = Record<string, any>> =
     | GetRequestOpts<P>
     | PostRequestOpts<P, D>
+    | DeleteRequestOpts<P>
 
 type BadApiResponse = {
     success: 'NO_OK'
@@ -198,6 +146,9 @@ export class Connector {
     protected maxRPS: number
     protected timeout: number
     protected retries: number
+    protected token?: string
+    protected shopId: string
+    protected secretKey: string
 
     constructor(init: ConnectorOpts) {
         // Убираем trailing slash из endpoint
@@ -206,14 +157,18 @@ export class Connector {
         this.maxRPS = init.maxRPS ?? 5
         this.timeout = init.timeout ?? DEFAULT_TIMEOUT
         this.retries = init.retries ?? DEFAULT_RETRIES
+        this.token = init.token
+        this.shopId = init.shop_id
+        this.secretKey = init.secret_key
 
         const axiosConfig: AxiosRequestConfig = {
             baseURL: this.endpoint,
             timeout: this.timeout,
-            auth: { username: init.shop_id, password: init.secret_key },
+            // auth НЕ устанавливаем здесь — передаём в каждом запросе явно,
+            // чтобы можно было отключить для OAuth
             headers: {
                 'Content-Type': 'application/json',
-                'User-Agent': 'awardix/yookassa-sdk',
+                'User-Agent': 'yookassa-api-sdk',
             },
             // Используем https-proxy-agent вместо встроенного axios proxy
             // Это работает корректно в Next.js server actions
@@ -229,26 +184,41 @@ export class Connector {
 
         // Логирование запросов и ответов в debug режиме
         if (this.debug) {
-            this.axiosInstance.interceptors.request.use(
-                AxiosLogger.requestLogger,
-                AxiosLogger.errorLogger,
-            )
-            this.axiosInstance.interceptors.response.use(
-                AxiosLogger.responseLogger,
-                AxiosLogger.errorLogger,
-            )
+            this.axiosInstance.interceptors.request.use(AxiosLogger.requestLogger, AxiosLogger.errorLogger)
+            this.axiosInstance.interceptors.response.use(AxiosLogger.responseLogger, AxiosLogger.errorLogger)
         }
     }
 
     /**
      * Выполняет запрос к API с поддержкой retry и идемпотентности
      */
-    protected async request<
-        Res = Record<string, any>,
-        Data = Record<string, any>,
-    >(opts: RequestOpts<Data>): Promise<ApiResponse<Res>> {
+    protected async request<Res = Record<string, any>, Data = Record<string, any>>(
+        opts: RequestOpts<Data>,
+    ): Promise<ApiResponse<Res>> {
         // Генерируем или используем переданный Idempotence-Key
         const idempotenceKey = opts.requestId ?? randomUUID()
+
+        // Формируем заголовки
+        const headers: Record<string, string> = {
+            'Idempotence-Key': idempotenceKey,
+        }
+
+        // OAuth авторизация для партнёрского API
+        if (opts.useOAuth) {
+            if (!this.token) {
+                return {
+                    success: 'NO_OK',
+                    errorData: {
+                        type: 'error',
+                        id: idempotenceKey,
+                        code: 'MISSING_OAUTH_TOKEN',
+                        description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
+                    },
+                    requestId: idempotenceKey,
+                }
+            }
+            headers.Authorization = `Bearer ${this.token}`
+        }
 
         let lastError: AxiosError | null = null
 
@@ -259,9 +229,9 @@ export class Connector {
                     url: opts.endpoint, // baseURL уже задан, endpoint начинается с /
                     data: opts.method === 'POST' ? (opts as PostRequestOpts<any, Data>).data : undefined,
                     params: opts.params,
-                    headers: {
-                        'Idempotence-Key': idempotenceKey,
-                    },
+                    headers,
+                    // Для OAuth отключаем Basic Auth
+                    auth: opts.useOAuth ? undefined : { username: this.shopId, password: this.secretKey },
                 })
 
                 return {
@@ -274,7 +244,8 @@ export class Connector {
 
                 // Проверяем, является ли ответ валидным JSON от YooKassa API
                 const responseData = axiosError.response?.data
-                const isValidYooKassaError = responseData &&
+                const isValidYooKassaError =
+                    responseData &&
                     typeof responseData === 'object' &&
                     'type' in responseData &&
                     responseData.type === 'error'
@@ -297,7 +268,7 @@ export class Connector {
 
                 // Если это не последняя попытка и ошибка retryable
                 if (attempt < this.retries && isRetryableError(axiosError)) {
-                    const waitTime = RETRY_DELAY * Math.pow(2, attempt) // Exponential backoff
+                    const waitTime = RETRY_DELAY * 2 ** attempt // Exponential backoff
                     if (this.debug) {
                         console.log(`[YooKassa] Retry attempt ${attempt + 1}/${this.retries}, waiting ${waitTime}ms...`)
                     }
@@ -322,10 +293,10 @@ export class Connector {
                     errorData: {
                         type: 'error',
                         id: idempotenceKey,
-                        code: statusCode ? `HTTP_${statusCode}` : (axiosError.code || 'NETWORK_ERROR'),
+                        code: statusCode ? `HTTP_${statusCode}` : axiosError.code || 'NETWORK_ERROR',
                         description: statusCode
                             ? `HTTP ${statusCode}: ${statusText}`
-                            : (axiosError.message || 'Network error occurred'),
+                            : axiosError.message || 'Network error occurred',
                     },
                     requestId: idempotenceKey,
                 }

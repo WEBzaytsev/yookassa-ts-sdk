@@ -17,14 +17,18 @@ export type ConnectorOpts = {
      */
     secret_key: string;
     /**
+     * OAuth-токен для партнёрского API.
+     * Необходим для работы с вебхуками и получения информации о магазине.
+     * @see https://yookassa.ru/developers/partners-api/basics
+     */
+    token?: string;
+    /**
      * Эндпоинт API (без слэша в конце)
      * @default "https://api.yookassa.ru/v3"
      */
     endpoint?: string;
     /** Отладочный режим */
     debug?: boolean;
-    /** URL для редиректа */
-    redirect_url?: string;
     /**
      * Количество запросов в секунду
      * @default 5
@@ -46,72 +50,21 @@ export type ConnectorOpts = {
      * или объект AxiosProxyConfig
      */
     proxy?: ProxyConfig;
-};
-export declare const endpoints: {
-    refunds: {
-        create: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-        list: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-        info: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-    };
-    payments: {
-        create: {
-            method: string;
-            endpoint: string;
-        };
-        list: {
-            method: string;
-            endpoint: string;
-        };
-        info: {
-            method: string;
-            endpoint: string;
-        };
-        capture: {
-            method: string;
-            endpoint: string;
-        };
-        cancel: {
-            method: string;
-            endpoint: string;
-        };
-    };
-    receipts: {
-        create: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-        list: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-        info: {
-            method: string;
-            endpoint: string;
-            description: string;
-        };
-    };
+    /**
+     * URL по умолчанию для возврата пользователя после оплаты.
+     * Используется в confirmation.return_url, если не указан явно при создании платежа.
+     * @see https://yookassa.ru/developers/api#create_payment
+     */
+    default_return_url?: string;
 };
 interface IGenReqOpts<P> {
     method: 'GET' | 'POST' | 'DELETE';
     endpoint: string;
     params?: P;
-    maxRPS?: number;
+    /** Ключ идемпотентности. Если не указан, генерируется автоматически. */
     requestId?: string;
-    debug?: boolean;
+    /** Использовать OAuth-токен вместо Basic Auth */
+    useOAuth?: boolean;
 }
 export type GetRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
     method: 'GET';
@@ -120,7 +73,10 @@ export type PostRequestOpts<P = Record<string, any>, D = Record<string, any>> = 
     method: 'POST';
     data: D;
 };
-export type RequestOpts<P = Record<string, any>, D = Record<string, any>> = GetRequestOpts<P> | PostRequestOpts<P, D>;
+export type DeleteRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
+    method: 'DELETE';
+};
+export type RequestOpts<P = Record<string, any>, D = Record<string, any>> = GetRequestOpts<P> | PostRequestOpts<P, D> | DeleteRequestOpts<P>;
 type BadApiResponse = {
     success: 'NO_OK';
     errorData: YooKassaErrResponse;
@@ -142,6 +98,10 @@ export declare class Connector {
     protected maxRPS: number;
     protected timeout: number;
     protected retries: number;
+    protected token?: string;
+    protected shopId: string;
+    protected secretKey: string;
+    protected defaultReturnUrl?: string;
     constructor(init: ConnectorOpts);
     /**
      * Выполняет запрос к API с поддержкой retry и идемпотентности

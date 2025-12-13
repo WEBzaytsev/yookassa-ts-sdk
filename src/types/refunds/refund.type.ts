@@ -1,44 +1,41 @@
-import { refundCancelReasonMap } from '../../dictionaries';
-import { IAmount } from '../general.types';
-import { Payments } from '../payments/payment.type';
-import { Receipts } from '../receipt/';
-import {
-    ElectronicCertificateRefundMethod,
-    RefundMethod,
-} from './refundMethod.type';
+import type { refundCancelReasonMap } from '../../dictionaries'
+import type { IAmount } from '../general.types'
+import type { Payments } from '../payments/payment.type'
+import type { Receipts } from '../receipt/'
+import type { ElectronicCertificateRefundMethod, RefundMethod } from './refundMethod.type'
 
 export namespace Refunds {
     type RefundDealType = {
         /** Идентификатор сделки. Берется из возвращаемого платежа. */
-        id: string;
+        id: string
         /**Данные о распределении денег. */
-        refund_settlements: Payments.DealType['settlements'];
-    };
+        refund_settlements: Payments.DealType['settlements']
+    }
 
-    type RefundCancelReason = keyof typeof refundCancelReasonMap;
+    type RefundCancelReason = keyof typeof refundCancelReasonMap
     export interface IRefundCancellationDetails {
         /**Инициатор отмены возврата
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#declined-refunds-cancellation-details-party
          */
-        party: 'yoo_money' | 'payment_network';
+        party: 'yoo_money' | 'payment_network'
         /**Причина отмены возврата
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#declined-refunds-cancellation-details-reason
          */
-        reason: RefundCancelReason;
+        reason: RefundCancelReason
     }
 
     export interface IRefundSource {
         /**
          * Идентификатор магазина, для которого вы хотите провести возврат. Выдается ЮKassa, отображается в разделе Продавцы личного кабинета (столбец shopId).
          */
-        account_id: string;
+        account_id: string
         /**Сумма возврата. */
-        amount: IAmount;
+        amount: IAmount
         /** Комиссия, которую вы удержали при оплате, и хотите вернуть. */
-        platform_fee_amount?: IAmount;
+        platform_fee_amount?: IAmount
     }
 
-    export type RefundStatus = 'pending' | 'succeeded' | 'canceled';
+    export type RefundStatus = 'pending' | 'succeeded' | 'canceled'
 
     /**
      * ****Объект возврата****
@@ -48,9 +45,9 @@ export namespace Refunds {
      */
     export interface IRefund {
         /** Идентификатор возврата платежа в ЮKassa. */
-        id: string;
+        id: string
         /** Идентификатор платежа в ЮKassa. */
-        payment_id: string;
+        payment_id: string
         /**
          * Статус возврата платежа. Возможные значения:
          * - `pending` — возврат создан, но пока еще обрабатывается;
@@ -62,9 +59,9 @@ export namespace Refunds {
          * Чтобы узнать статус возврата, периодически отправляйте запросы, чтобы получить информацию о возврате, или подождите, когда придет уведомление от ЮKassa.
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#status
          */
-        status: RefundStatus;
+        status: RefundStatus
         /** Комментарий к статусу `canceled`: кто отменил возврат и по какой причине. */
-        cancellation_details?: IRefundCancellationDetails;
+        cancellation_details?: IRefundCancellationDetails
         /**
          * Статус регистрации чека. Возможные значения:
          * - `pending` — данные в обработке;
@@ -72,34 +69,31 @@ export namespace Refunds {
          * - `canceled` — чек зарегистрировать не удалось; если используете Чеки от ЮKassa, обратитесь в техническую поддержку, в остальных случаях сформируйте чек вручную.
          * Присутствует, если вы используете [решения ЮKassa для отправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/basics) в налоговую.
          */
-        receipt_registration?: Receipts.ReceiptRegistrationStatus;
+        receipt_registration?: Receipts.ReceiptRegistrationStatus
         /**
          * Время создания возврата. Указывается по UTC и передается в формате ISO 8601, например `2017-11-03T11:52:31.827Z`
          */
-        created_at: string;
+        created_at: string
         /** Сумма, возвращенная пользователю. */
-        amount: IAmount;
+        amount: IAmount
         /** Основание для возврата денег пользователю. */
-        description?: string;
+        description?: string
         /**
          * Данные о том, с какого магазина и какую сумму нужно удержать для проведения возврата.
          * Присутствует, если вы используете [Сплитование платежей](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics).
          */
-        sources?: IRefundSource[];
+        sources?: IRefundSource[]
         /** Данные о сделке, в составе которой проходит возврат.
          * Присутствует, если вы проводите [Безопасную сделку](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics).
          */
-        deal?: RefundDealType;
+        deal?: RefundDealType
         /**Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
-        refund_method?: RefundMethod;
+        refund_method?: RefundMethod
 
         /** Дата и время создания возврата платежа. */
     }
 
-    export type CreateRefundRequest = Pick<
-        IRefund,
-        'payment_id' | 'amount' | 'description' | 'sources' | 'deal'
-    > & {
+    export type CreateRefundRequest = Pick<IRefund, 'payment_id' | 'amount' | 'description' | 'sources' | 'deal'> & {
         /**
          * ***Данные для формирования чека.***
          *
@@ -114,8 +108,8 @@ export namespace Refunds {
          * [4]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt
          * [5]: https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics
          */
-        receipt?: Receipts.CreateReceiptType;
+        receipt?: Receipts.CreateReceiptType
         /** Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
-        refund_method_data?: ElectronicCertificateRefundMethod;
-    };
+        refund_method_data?: ElectronicCertificateRefundMethod
+    }
 }

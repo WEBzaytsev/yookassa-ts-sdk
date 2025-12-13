@@ -1,17 +1,17 @@
-import { IAmount } from '../general.types';
+import type { IAmount } from '../general.types'
 
 interface IElectronicCertificate {
     /** Идентификатор корзины возврата, сформированной в НСПК. */
-    basket_id: string;
+    basket_id: string
     /** Сумма, которая вернется на электронный сертификат. */
-    amount: IAmount;
+    amount: IAmount
 }
 
 interface IArticle {
     /** Порядковый номер товара в корзине возврата. От 1 до 999 включительно. */
-    article_number: number;
+    article_number: number
     /** Порядковый номер товара в одобренной корзине покупки (`article_number` в объекте платежа). От 1 до 999 включительно. */
-    payment_article_number: number;
+    payment_article_number: number
     /**
      * Код ТРУ. 30 символов, две группы цифр, разделенные точкой.
      * Формат: `NNNNNNNNN.NNNNNNNNNYYYYMMMMZZZ`,
@@ -22,32 +22,32 @@ interface IArticle {
      *
      * [Как сформировать код ТРУ](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/other/electronic-certificate#payments-preparation-tru-code)
      */
-    tru_code: string;
+    tru_code: string
     /** Количество возвращаемых единиц товара. Формат: целое положительное число. */
-    quantity: number;
+    quantity: number
 }
 
-type RefundMethodTypeName = 'sbp' | 'electronic_certificate';
+type RefundMethodTypeName = 'sbp' | 'electronic_certificate'
 interface IRefundMethodGeneral {
-    type: RefundMethodTypeName;
+    type: RefundMethodTypeName
 }
 type SbpRefundMethod = IRefundMethodGeneral & {
-    type: 'sbp';
+    type: 'sbp'
     /** Идентификатор операции в СБП (НСПК).
      * Пример: `1027088AE4CB48CB81287833347A8777`.
      * Обязательный параметр для возвратов в статусе `succeeded`.
      * В остальных случаях может отсутствовать. */
-    sbp_operation_id?: string;
-};
+    sbp_operation_id?: string
+}
 
 export type ElectronicCertificateRefundMethod = IRefundMethodGeneral & {
-    type: 'electronic_certificate';
+    type: 'electronic_certificate'
     /** Корзина возврата — список возвращаемых товаров, для оплаты которых использовался электронный сертификат.
      * Присутствует, если оплата была на готовой странице ЮKassa.
      */
-    articles: IArticle[];
+    articles: IArticle[]
     /** Данные от ФЭС НСПК для возврата на электронный сертификат. */
-    electronic_certificate?: IElectronicCertificate;
-};
+    electronic_certificate?: IElectronicCertificate
+}
 
-export type RefundMethod = SbpRefundMethod | ElectronicCertificateRefundMethod;
+export type RefundMethod = SbpRefundMethod | ElectronicCertificateRefundMethod

@@ -3,7 +3,7 @@ import { IAmount } from '../general.types';
 import { Receipts } from '../receipt';
 import { Receiver } from '../receiver.type';
 import { IAirline } from './airline.type';
-import { IPaymentMethod } from './paymentMethod.type';
+import { IPaymentMethod, PaymentMethodData } from './paymentMethod.type';
 import { IConfirmation } from './paymentsConfirmation.type';
 /** Все, что касается платежей в ЮКассе */
 export declare namespace Payments {
@@ -44,7 +44,7 @@ export declare namespace Payments {
         };
     };
     /** Получатель платежа. */
-    interface IRecepient {
+    interface IRecipient {
         /** Идентификатор магазина в ЮKassa. */
         account_id: string;
         /** Идентификатор субаккаунта. Используется для разделения потоков платежей в рамках одного аккаунта. */
@@ -114,7 +114,7 @@ export declare namespace Payments {
          */
         description?: string;
         /** Получатель платежа. */
-        recipient?: IRecepient;
+        recipient?: IRecipient;
         /** [Способ оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all), который был использован для этого платежа. */
         payment_method?: IPaymentMethod;
         /**
@@ -161,7 +161,7 @@ export declare namespace Payments {
          * ***Ограничения***: максимум 16 ключей, имя ключа не больше 32 символов,
          * значение ключа не больше 512 символов, тип данных — строка в формате UTF-8.
          */
-        metadata?: Record<string, any>;
+        metadata?: Record<string, string>;
         /** Комментарий к статусу `canceled`
          *  кто отменил платеж и по какой причине.
          *
@@ -230,4 +230,39 @@ export declare namespace Payments {
         /** Реквизиты получателя оплаты при [пополнении электронного кошелька, банковского счета или баланса телефона](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/receiver-data)  */
         receiver?: Receiver;
     };
+    /**
+     * Запрос на подтверждение платежа.
+     * Используется при двухстадийной оплате для списания денег.
+     * @see https://yookassa.ru/developers/api#capture_payment
+     */
+    interface CapturePaymentRequest {
+        /** Сумма к списанию.
+         * Можно списать сумму меньше, чем была авторизована (частичное подтверждение).
+         * Если не передано, списывается полная сумма платежа.
+         */
+        amount?: IAmount;
+        /** Данные для формирования чека.
+         * Передаются, если вы работаете по 54-ФЗ.
+         */
+        receipt?: Receipts.ReceiptinPaymentType;
+        /** Данные для продажи авиабилетов.
+         * Используется только при оплате банковской картой.
+         */
+        airline?: IAirline;
+        /** Данные о распределении денег между магазинами.
+         * Используется при сплитовании платежей.
+         */
+        transfers?: Array<{
+            /** Идентификатор магазина, в пользу которого принимается оплата */
+            account_id: string;
+            /** Сумма, которую необходимо перечислить магазину */
+            amount: IAmount;
+            /** Комиссия за проданные товары и услуги, удерживаемая с магазина */
+            platform_fee_amount?: IAmount;
+            /** Описание транзакции (до 128 символов) */
+            description?: string;
+            /** Любые дополнительные данные */
+            metadata?: Record<string, string>;
+        }>;
+    }
 }
