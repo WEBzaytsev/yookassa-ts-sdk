@@ -1,6 +1,6 @@
 {
     "name": "yookassa-ts-sdk",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "TypeScript SDK for the YooKassa API with retries, idempotence helpers, rate limiting, proxy support, and Bun/Node compatibility.",
     "author": "WEBzaytsev <@WEBzaytsev>",
     "contributors": [
