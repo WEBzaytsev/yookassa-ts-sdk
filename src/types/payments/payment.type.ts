@@ -191,6 +191,18 @@ export namespace Payments {
         deal?: DealType
         /** Идентификатор покупателя в вашей системе, например электронная почта или номер телефона. Не более 200 символов. Присутствует, если вы хотите запомнить банковскую карту и отобразить ее при повторном платеже в [виджете ЮKassa](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)  */
         merchant_customer_id?: string
+        /**
+         * Статус регистрации чека. Присутствует, если вы используете решения ЮKassa для отправки чеков.
+         * - `pending` — данные в обработке
+         * - `succeeded` — чек успешно зарегистрирован
+         * - `canceled` — чек зарегистрировать не удалось
+         */
+        receipt_registration?: 'pending' | 'succeeded' | 'canceled'
+        /** Данные о выставленном счете, в рамках которого проведен платеж. */
+        invoice_details?: {
+            /** Идентификатор счета */
+            id?: string
+        }
     }
 
     /**

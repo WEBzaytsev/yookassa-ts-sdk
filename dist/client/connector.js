@@ -46,11 +46,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Connector = void 0;
+const node_crypto_1 = require("node:crypto");
 const axios_1 = __importDefault(require("axios"));
 const AxiosLogger = __importStar(require("axios-logger"));
 const axios_rate_limit_1 = __importDefault(require("axios-rate-limit"));
-const crypto_1 = require("crypto");
 const https_proxy_agent_1 = require("https-proxy-agent");
+const api_types_1 = require("../types/api.types");
 /** Таймаут запроса по умолчанию (мс) */
 const DEFAULT_TIMEOUT = 5000;
 /** Количество повторных попыток по умолчанию */
@@ -80,7 +81,7 @@ function isRetryableError(error) {
  * Задержка выполнения
  */
 function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 /**
  * Базовый класс для работы с API YooKassa
@@ -97,7 +98,6 @@ class Connector {
         this.token = init.token;
         this.shopId = init.shop_id;
         this.secretKey = init.secret_key;
-        this.defaultReturnUrl = init.default_return_url;
         const axiosConfig = {
             baseURL: this.endpoint,
             timeout: this.timeout,
@@ -105,7 +105,7 @@ class Connector {
             // чтобы можно было отключить для OAuth
             headers: {
                 'Content-Type': 'application/json',
-                'User-Agent': 'yookassa-api-sdk',
+                'User-Agent': 'yookassa-ts-sdk',
             },
             // Используем https-proxy-agent вместо встроенного axios proxy
             // Это работает корректно в Next.js server actions
@@ -124,13 +124,16 @@ class Connector {
         }
     }
     /**
-     * Выполняет запрос к API с поддержкой retry и идемпотентности
+     * Выполняет запрос к API с поддержкой retry и идемпотентности.
+     * При ошибке бросает YooKassaErr.
+     *
+     * @throws {YooKassaErr} При ошибке API или сети
      */
     request(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             var _a, _b, _c, _d;
             // Генерируем или используем переданный Idempotence-Key
-            const idempotenceKey = (_a = opts.requestId) !== null && _a !== void 0 ? _a : (0, crypto_1.randomUUID)();
+            const idempotenceKey = (_a = opts.requestId) !== null && _a !== void 0 ? _a : (0, node_crypto_1.randomUUID)();
             // Формируем заголовки
             const headers = {
                 'Idempotence-Key': idempotenceKey,
@@ -138,36 +141,27 @@ class Connector {
             // OAuth авторизация для партнёрского API
             if (opts.useOAuth) {
                 if (!this.token) {
-                    return {
-                        success: 'NO_OK',
-                        errorData: {
-                            type: 'error',
-                            id: idempotenceKey,
-                            code: 'MISSING_OAUTH_TOKEN',
-                            description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
-                        },
-                        requestId: idempotenceKey,
-                    };
+                    throw new api_types_1.YooKassaErr({
+                        type: 'error',
+                        id: idempotenceKey,
+                        code: 'MISSING_OAUTH_TOKEN',
+                        description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
+                    });
                 }
-                headers['Authorization'] = `Bearer ${this.token}`;
+                headers.Authorization = `Bearer ${this.token}`;
             }
             let lastError = null;
             for (let attempt = 0; attempt <= this.retries; attempt++) {
                 try {
                     const response = yield this.axiosInstance.request({
                         method: opts.method,
-                        url: opts.endpoint, // baseURL уже задан, endpoint начинается с /
+                        url: opts.endpoint,
                         data: opts.method === 'POST' ? opts.data : undefined,
                         params: opts.params,
                         headers,
-                        // Для OAuth отключаем Basic Auth
                         auth: opts.useOAuth ? undefined : { username: this.shopId, password: this.secretKey },
                     });
-                    return {
-                        success: 'OK',
-                        data: response.data,
-                        requestId: idempotenceKey,
-                    };
+                    return response.data;
                 }
                 catch (error) {
                     const axiosError = error;
@@ -177,17 +171,9 @@ class Connector {
                         typeof responseData === 'object' &&
                         'type' in responseData &&
                         responseData.type === 'error';
-                    // Если есть валидный ответ от API YooKassa
-                    if (isValidYooKassaError) {
-                        const errorData = responseData;
-                        // Если ошибка не retryable, сразу возвращаем
-                        if (!isRetryableError(axiosError)) {
-                            return {
-                                success: 'NO_OK',
-                                errorData,
-                                requestId: idempotenceKey,
-                            };
-                        }
+                    // Если есть валидный ответ от API YooKassa и ошибка не retryable
+                    if (isValidYooKassaError && !isRetryableError(axiosError)) {
+                        throw new api_types_1.YooKassaErr(responseData);
                     }
                     lastError = axiosError;
                     // Если это не последняя попытка и ошибка retryable
@@ -201,40 +187,28 @@ class Connector {
                     }
                     // Последняя попытка или не retryable ошибка
                     if (isValidYooKassaError) {
-                        return {
-                            success: 'NO_OK',
-                            errorData: responseData,
-                            requestId: idempotenceKey,
-                        };
+                        throw new api_types_1.YooKassaErr(responseData);
                     }
-                    // Сетевая ошибка или невалидный ответ (HTML, прокси-ошибка и т.д.)
+                    // Сетевая ошибка или невалидный ответ
                     const statusCode = (_c = axiosError.response) === null || _c === void 0 ? void 0 : _c.status;
                     const statusText = ((_d = axiosError.response) === null || _d === void 0 ? void 0 : _d.statusText) || axiosError.message;
-                    return {
-                        success: 'NO_OK',
-                        errorData: {
-                            type: 'error',
-                            id: idempotenceKey,
-                            code: statusCode ? `HTTP_${statusCode}` : (axiosError.code || 'NETWORK_ERROR'),
-                            description: statusCode
-                                ? `HTTP ${statusCode}: ${statusText}`
-                                : (axiosError.message || 'Network error occurred'),
-                        },
-                        requestId: idempotenceKey,
-                    };
+                    throw new api_types_1.YooKassaErr({
+                        type: 'error',
+                        id: idempotenceKey,
+                        code: statusCode ? `HTTP_${statusCode}` : axiosError.code || 'NETWORK_ERROR',
+                        description: statusCode
+                            ? `HTTP ${statusCode}: ${statusText}`
+                            : axiosError.message || 'Network error occurred',
+                    });
                 }
             }
-            // Если все попытки исчерпаны (не должно сюда дойти, но на всякий случай)
-            return {
-                success: 'NO_OK',
-                errorData: {
-                    type: 'error',
-                    id: idempotenceKey,
-                    code: (lastError === null || lastError === void 0 ? void 0 : lastError.code) || 'RETRY_EXHAUSTED',
-                    description: (lastError === null || lastError === void 0 ? void 0 : lastError.message) || 'All retry attempts failed',
-                },
-                requestId: idempotenceKey,
-            };
+            // Если все попытки исчерпаны
+            throw new api_types_1.YooKassaErr({
+                type: 'error',
+                id: idempotenceKey,
+                code: (lastError === null || lastError === void 0 ? void 0 : lastError.code) || 'RETRY_EXHAUSTED',
+                description: (lastError === null || lastError === void 0 ? void 0 : lastError.message) || 'All retry attempts failed',
+            });
         });
     }
 }

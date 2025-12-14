@@ -89,8 +89,16 @@ export namespace Refunds {
         deal?: RefundDealType
         /**Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
         refund_method?: RefundMethod
-
-        /** Дата и время создания возврата платежа. */
+        /**
+         * Данные об авторизации возврата при оплате банковской картой.
+         * Присутствует для возвратов по платежам банковской картой.
+         */
+        refund_authorization_details?: {
+            /** Retrieval Reference Number — уникальный идентификатор транзакции в системе эмитента */
+            rrn?: string
+        }
+        /** Любые дополнительные данные, которые нужны вам для работы. */
+        metadata?: Record<string, string>
     }
 
     export type CreateRefundRequest = Pick<IRefund, 'payment_id' | 'amount' | 'description' | 'sources' | 'deal'> & {

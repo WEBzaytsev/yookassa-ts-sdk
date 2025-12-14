@@ -1,7 +1,7 @@
-import { SettlementTypeMap } from '../../dictionaries';
-import { Customer } from '../customer.type';
-import { IAmount } from '../general.types';
-import { Items } from './item.type';
+import type { SettlementTypeMap } from '../../dictionaries';
+import type { Customer } from '../customer.type';
+import type { IAmount } from '../general.types';
+import type { Items } from './item.type';
 export declare namespace Receipts {
     /**
      * Статус регистрации чека. Возможные значения:

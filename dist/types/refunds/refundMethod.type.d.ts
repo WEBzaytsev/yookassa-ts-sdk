@@ -1,4 +1,4 @@
-import { IAmount } from '../general.types';
+import type { IAmount } from '../general.types';
 interface IElectronicCertificate {
     /** Идентификатор корзины возврата, сформированной в НСПК. */
     basket_id: string;

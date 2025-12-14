@@ -1,5 +1,4 @@
-import { RateLimitedAxiosInstance } from 'axios-rate-limit';
-import { YooKassaErrResponse } from '../types/api.types';
+import { type RateLimitedAxiosInstance } from 'axios-rate-limit';
 /**
  * Конфигурация прокси-сервера (URL строка)
  */
@@ -50,12 +49,6 @@ export type ConnectorOpts = {
      * или объект AxiosProxyConfig
      */
     proxy?: ProxyConfig;
-    /**
-     * URL по умолчанию для возврата пользователя после оплаты.
-     * Используется в confirmation.return_url, если не указан явно при создании платежа.
-     * @see https://yookassa.ru/developers/api#create_payment
-     */
-    default_return_url?: string;
 };
 interface IGenReqOpts<P> {
     method: 'GET' | 'POST' | 'DELETE';
@@ -77,17 +70,6 @@ export type DeleteRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
     method: 'DELETE';
 };
 export type RequestOpts<P = Record<string, any>, D = Record<string, any>> = GetRequestOpts<P> | PostRequestOpts<P, D> | DeleteRequestOpts<P>;
-type BadApiResponse = {
-    success: 'NO_OK';
-    errorData: YooKassaErrResponse;
-    requestId: string;
-};
-type GoodApiResponse<Res> = {
-    success: 'OK';
-    data: Res;
-    requestId: string;
-};
-export type ApiResponse<Res> = BadApiResponse | GoodApiResponse<Res>;
 /**
  * Базовый класс для работы с API YooKassa
  */
@@ -101,11 +83,13 @@ export declare class Connector {
     protected token?: string;
     protected shopId: string;
     protected secretKey: string;
-    protected defaultReturnUrl?: string;
     constructor(init: ConnectorOpts);
     /**
-     * Выполняет запрос к API с поддержкой retry и идемпотентности
+     * Выполняет запрос к API с поддержкой retry и идемпотентности.
+     * При ошибке бросает YooKassaErr.
+     *
+     * @throws {YooKassaErr} При ошибке API или сети
      */
-    protected request<Res = Record<string, any>, Data = Record<string, any>>(opts: RequestOpts<Data>): Promise<ApiResponse<Res>>;
+    protected request<Res = Record<string, any>, Data = Record<string, any>>(opts: RequestOpts<Data>): Promise<Res>;
 }
 export {};

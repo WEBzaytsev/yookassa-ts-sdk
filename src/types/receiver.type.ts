@@ -1,5 +1,3 @@
-type ReceiverType = 'bank_account' | 'mobile_balance' | 'digital_wallet'
-
 type BankReceiver = {
     type: 'bank_account'
     /** Номер банковского счета. Формат — 20 символов. */

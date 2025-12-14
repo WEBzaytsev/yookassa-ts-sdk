@@ -1,49 +1,5 @@
 # YooKassa SDK — Planned Features
 
-## Refactor `ApiResponse` (Breaking Change)
-
-**Status:** Planned for v1.0.0  
-**Priority:** Medium  
-**Breaking:** Yes
-
-### Current implementation
-
-```typescript
-type ApiResponse<Res> = 
-    | { success: 'OK', data: Res, requestId: string }
-    | { success: 'NO_OK', errorData: YooKassaErrResponse, requestId: string }
-```
-
-### Problem
-
-- `'OK'` / `'NO_OK'` — нестандартный паттерн, не из API YooKassa
-- API YooKassa не возвращает поле `success` вообще
-- Стандартные варианты: `boolean`, `'success'/'error'`, или Result type
-
-### Proposed solution
-
-**Option A:** Boolean
-```typescript
-type ApiResponse<Res> = 
-    | { success: true, data: Res, requestId: string }
-    | { success: false, error: YooKassaErrResponse, requestId: string }
-```
-
-**Option B:** Result type (более типобезопасно)
-```typescript
-type ApiResult<T> = 
-    | { ok: true, value: T, requestId: string }
-    | { ok: false, error: YooKassaErrResponse, requestId: string }
-```
-
-### Migration notes
-
-- Breaking change для пользователей, которые используют `response.success === 'OK'`
-- Публичные методы SDK (payments.create, etc.) уже бросают `YooKassaErr`, поэтому большинство пользователей не затронуты
-- Изменение затрагивает только тех, кто использует protected метод `request()` напрямую
-
----
-
 ## Electronic Certificate (`electronic_certificate`)
 
 **Status:** Not implemented  

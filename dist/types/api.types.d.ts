@@ -1,6 +1,6 @@
-import { Payments } from './payments/payment.type';
-import { PaymentMethodsEnum } from './payments/paymentMethod.type';
-import { Refunds } from './refunds/refund.type';
+import type { Payments } from './payments/payment.type';
+import type { PaymentMethodsEnum } from './payments/paymentMethod.type';
+import type { Refunds } from './refunds/refund.type';
 /** Фильтр по времени
  *
  * Время указывается в формате ISO 8601. Пример: `created_at.gte=2018-07-18T10:51:18.139Z`

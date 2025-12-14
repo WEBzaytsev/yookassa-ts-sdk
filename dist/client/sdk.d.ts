@@ -1,13 +1,12 @@
-import { type CreatePaymentResponse, type GetPaymentListFilter, type GetReceiptListFilter, type GetRefundListFilter } from '../types/api.types';
+import type { CreatePaymentResponse, GetPaymentListFilter, GetReceiptListFilter, GetRefundListFilter } from '../types/api.types';
 import type { Payments } from '../types/payments';
-import { Connector } from './connector';
-import type { ConnectorOpts } from './connector';
-import type { Refunds } from '../types/refunds';
 import type { Receipts } from '../types/receipt';
-import type { CreateWebhookRequest, IWebhook } from '../types/webhook.type';
+import type { Refunds } from '../types/refunds';
 import type { IShopInfo } from '../types/shop.type';
+import type { CreateWebhookRequest, IWebhook } from '../types/webhook.type';
+import type { ConnectorOpts } from './connector';
+import { Connector } from './connector';
 export declare class YooKassaSdk extends Connector {
-    constructor(opts: ConnectorOpts);
     /**
      * Generic метод для получения списка с автоматической пагинацией
      */
@@ -23,10 +22,6 @@ export declare class YooKassaSdk extends Connector {
      * @param idempotenceKey - ключ идемпотентности (опционально, генерируется автоматически)
      */
     protected createPayment: (newPayment: Payments.CreatePaymentRequest, idempotenceKey?: string) => Promise<CreatePaymentResponse>;
-    /**
-     * Применяет default_return_url к запросу если нужно
-     */
-    private applyDefaultReturnUrl;
     /** Подтвердить платеж по идентификатору
      * @param paymentId - идентификатор платежа
      * @param payload - данные для подтверждения (сумма, чек, данные авиабилетов, распределение)

@@ -1,8 +1,8 @@
-import { refundCancelReasonMap } from '../../dictionaries';
-import { IAmount } from '../general.types';
-import { Payments } from '../payments/payment.type';
-import { Receipts } from '../receipt/';
-import { ElectronicCertificateRefundMethod, RefundMethod } from './refundMethod.type';
+import type { refundCancelReasonMap } from '../../dictionaries';
+import type { IAmount } from '../general.types';
+import type { Payments } from '../payments/payment.type';
+import type { Receipts } from '../receipt/';
+import type { ElectronicCertificateRefundMethod, RefundMethod } from './refundMethod.type';
 export declare namespace Refunds {
     type RefundDealType = {
         /** Идентификатор сделки. Берется из возвращаемого платежа. */
@@ -84,6 +84,16 @@ export declare namespace Refunds {
         deal?: RefundDealType;
         /**Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
         refund_method?: RefundMethod;
+        /**
+         * Данные об авторизации возврата при оплате банковской картой.
+         * Присутствует для возвратов по платежам банковской картой.
+         */
+        refund_authorization_details?: {
+            /** Retrieval Reference Number — уникальный идентификатор транзакции в системе эмитента */
+            rrn?: string;
+        };
+        /** Любые дополнительные данные, которые нужны вам для работы. */
+        metadata?: Record<string, string>;
     }
     export type CreateRefundRequest = Pick<IRefund, 'payment_id' | 'amount' | 'description' | 'sources' | 'deal'> & {
         /**

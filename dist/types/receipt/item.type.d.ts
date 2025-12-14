@@ -1,5 +1,5 @@
-import { AgentTypeMap, measureTypeMap, paymentSubjectMap } from '../../dictionaries';
-import { IAmount } from '../general.types';
+import type { AgentTypeMap, measureTypeMap, paymentSubjectMap } from '../../dictionaries';
+import type { IAmount } from '../general.types';
 export declare namespace Items {
     /**
      * Отраслевой реквизит предмета расчета (тег в 54 ФЗ — 1260). Можно передавать, если используете Чеки от ЮKassa или онлайн-кассу, обновленную до ФФД 1.2.

@@ -35,5 +35,19 @@ var PaymentMethodsEnum;
     PaymentMethodsEnum["sber_loan"] = "sber_loan";
     /** Плати частями (BNPL от СберБанка) */
     PaymentMethodsEnum["sber_bnpl"] = "sber_bnpl";
+    /** Apple Pay (обычно используется через payment_token) */
+    PaymentMethodsEnum["apple_pay"] = "apple_pay";
+    /** Google Pay (обычно используется через payment_token) */
+    PaymentMethodsEnum["google_pay"] = "google_pay";
+    /**
+     * WebMoney
+     * @deprecated WebMoney прекратил работу в РФ в 2022 году.
+     */
+    PaymentMethodsEnum["webmoney"] = "webmoney";
+    /**
+     * WeChat Pay
+     * @deprecated Специфичный способ оплаты для китайских пользователей.
+     */
+    PaymentMethodsEnum["wechat"] = "wechat";
 })(PaymentMethodsEnum || (exports.PaymentMethodsEnum = PaymentMethodsEnum = {}));
 //# sourceMappingURL=paymentMethod.type.js.map

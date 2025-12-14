@@ -1,17 +1,16 @@
-import {
-    type CreatePaymentResponse,
-    type GetListResponse,
-    type GetPaymentListFilter,
-    type GetReceiptListFilter,
-    type GetRefundListFilter,
-    YooKassaErr,
+import type {
+    CreatePaymentResponse,
+    GetListResponse,
+    GetPaymentListFilter,
+    GetReceiptListFilter,
+    GetRefundListFilter,
 } from '../types/api.types'
 import type { Payments } from '../types/payments'
 import type { Receipts } from '../types/receipt'
 import type { Refunds } from '../types/refunds'
 import type { IShopInfo } from '../types/shop.type'
 import type { CreateWebhookRequest, IWebhook, WebhookList } from '../types/webhook.type'
-import type { ConnectorOpts, RequestOpts } from './connector'
+import type { ConnectorOpts } from './connector'
 import { Connector } from './connector'
 
 export class YooKassaSdk extends Connector {
@@ -24,36 +23,30 @@ export class YooKassaSdk extends Connector {
     ): Promise<T[]> {
         const items: T[] = []
         const params = (filter ?? {}) as F
-        const opts: RequestOpts<F> = {
-            method: 'GET',
-            endpoint,
-            params,
-        }
+        let cursor: string | undefined
+
         do {
-            const response = await this.request<GetListResponse<T>>(opts)
-            if (response.success === 'NO_OK') {
-                throw new YooKassaErr(response.errorData)
+            const response = await this.request<GetListResponse<T>>({
+                method: 'GET',
+                endpoint,
+                params,
+            })
+            items.push(...response.items)
+            cursor = response.next_cursor
+            if (cursor) {
+                params.cursor = cursor
             }
-            opts.requestId = response.requestId
-            items.push(...response.data.items)
-            if (!response.data.next_cursor) {
-                break
-            }
-            params.cursor = response.data.next_cursor
-        } while (true)
+        } while (cursor)
+
         return items
     }
 
     // ========== Payments ========== //
     protected getPaymentById = async (id: string): Promise<Payments.IPayment> => {
-        const response = await this.request<Payments.IPayment>({
+        return this.request<Payments.IPayment>({
             method: 'GET',
             endpoint: `/payments/${id}`,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
     /** ****Получить список платежей****
      *
@@ -70,16 +63,12 @@ export class YooKassaSdk extends Connector {
         newPayment: Payments.CreatePaymentRequest,
         idempotenceKey?: string,
     ): Promise<CreatePaymentResponse> => {
-        const response = await this.request<CreatePaymentResponse>({
+        return this.request<CreatePaymentResponse>({
             method: 'POST',
             endpoint: '/payments',
             data: newPayment,
             requestId: idempotenceKey,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     /** Подтвердить платеж по идентификатору
@@ -92,16 +81,12 @@ export class YooKassaSdk extends Connector {
         payload?: Payments.CapturePaymentRequest,
         idempotenceKey?: string,
     ): Promise<Payments.IPayment> => {
-        const response = await this.request<Payments.IPayment>({
+        return this.request<Payments.IPayment>({
             method: 'POST',
             endpoint: `/payments/${paymentId}/capture`,
             data: payload ?? {},
             requestId: idempotenceKey,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     /** Отменить платеж по идентификатору
@@ -109,28 +94,20 @@ export class YooKassaSdk extends Connector {
      * @param idempotenceKey - ключ идемпотентности (опционально)
      */
     protected cancelPaymentById = async (paymentId: string, idempotenceKey?: string): Promise<Payments.IPayment> => {
-        const response = await this.request<Payments.IPayment>({
+        return this.request<Payments.IPayment>({
             method: 'POST',
             endpoint: `/payments/${paymentId}/cancel`,
             data: {},
             requestId: idempotenceKey,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
     // ========== Payments end========== //
     // ========== Refunds ========== //
     protected getRefundById = async (refundId: string): Promise<Refunds.IRefund> => {
-        const response = await this.request<Refunds.IRefund>({
+        return this.request<Refunds.IRefund>({
             method: 'GET',
             endpoint: `/refunds/${refundId}`,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     protected getRefundList = async (filter?: Omit<GetRefundListFilter, 'cursor'>): Promise<Refunds.IRefund[]> => {
@@ -145,28 +122,20 @@ export class YooKassaSdk extends Connector {
         newRefund: Refunds.CreateRefundRequest,
         idempotenceKey?: string,
     ): Promise<Refunds.IRefund> => {
-        const response = await this.request<Refunds.IRefund>({
+        return this.request<Refunds.IRefund>({
             method: 'POST',
             endpoint: '/refunds',
             data: newRefund,
             requestId: idempotenceKey,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
     // ========== Refunds end ========== //
     // ========== Receipts ========== //
     protected getReceiptById = async (receiptId: string): Promise<Receipts.ReceiptType> => {
-        const response = await this.request<Receipts.ReceiptType>({
+        return this.request<Receipts.ReceiptType>({
             method: 'GET',
             endpoint: `/receipts/${receiptId}`,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     /** Создать чек
@@ -177,16 +146,12 @@ export class YooKassaSdk extends Connector {
         newReceipt: Receipts.CreateReceiptType,
         idempotenceKey?: string,
     ): Promise<Receipts.ReceiptType> => {
-        const response = await this.request<Receipts.ReceiptType>({
+        return this.request<Receipts.ReceiptType>({
             method: 'POST',
             endpoint: '/receipts',
             data: newReceipt,
             requestId: idempotenceKey,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     protected getReceiptList = async (
@@ -202,17 +167,13 @@ export class YooKassaSdk extends Connector {
      * @param idempotenceKey - ключ идемпотентности (опционально)
      */
     protected createWebhook = async (webhook: CreateWebhookRequest, idempotenceKey?: string): Promise<IWebhook> => {
-        const response = await this.request<IWebhook>({
+        return this.request<IWebhook>({
             method: 'POST',
             endpoint: '/webhooks',
             data: webhook,
             requestId: idempotenceKey,
             useOAuth: true,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
 
     /** Получить список вебхуков (требуется OAuth-токен) */
@@ -222,39 +183,29 @@ export class YooKassaSdk extends Connector {
             endpoint: '/webhooks',
             useOAuth: true,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data.items
+        return response.items
     }
 
     /** Удалить вебхук по идентификатору (требуется OAuth-токен)
      * @param webhookId - идентификатор вебхука
      */
     protected deleteWebhook = async (webhookId: string): Promise<void> => {
-        const response = await this.request<{}>({
+        await this.request<Record<string, never>>({
             method: 'DELETE',
             endpoint: `/webhooks/${webhookId}`,
             useOAuth: true,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
     }
     // ========== Webhooks end ========== //
 
     // ========== Shop ========== //
     /** Получить информацию о магазине (требуется OAuth-токен) */
     protected getShopInfo = async (): Promise<IShopInfo> => {
-        const response = await this.request<IShopInfo>({
+        return this.request<IShopInfo>({
             method: 'GET',
             endpoint: '/me',
             useOAuth: true,
         })
-        if (response.success === 'NO_OK') {
-            throw new YooKassaErr(response.errorData)
-        }
-        return response.data
     }
     // ========== Shop end ========== //
 
@@ -535,8 +486,9 @@ const clientCache = new Map<string, YooKassaSdk>()
 export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
     const cacheKey = init.shop_id
 
-    if (!forceNew && clientCache.has(cacheKey)) {
-        return clientCache.get(cacheKey)!
+    const cached = clientCache.get(cacheKey)
+    if (!forceNew && cached) {
+        return cached
     }
 
     const client = new YooKassaSdk(init)

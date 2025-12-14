@@ -3,7 +3,7 @@ import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
 import * as AxiosLogger from 'axios-logger'
 import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit'
 import { HttpsProxyAgent } from 'https-proxy-agent'
-import type { YooKassaErrResponse } from '../types/api.types'
+import { YooKassaErr, type YooKassaErrResponse } from '../types/api.types'
 
 /** Таймаут запроса по умолчанию (мс) */
 const DEFAULT_TIMEOUT = 5000
@@ -122,20 +122,6 @@ export type RequestOpts<P = Record<string, any>, D = Record<string, any>> =
     | PostRequestOpts<P, D>
     | DeleteRequestOpts<P>
 
-type BadApiResponse = {
-    success: 'NO_OK'
-    errorData: YooKassaErrResponse
-    requestId: string
-}
-
-type GoodApiResponse<Res> = {
-    success: 'OK'
-    data: Res
-    requestId: string
-}
-
-export type ApiResponse<Res> = BadApiResponse | GoodApiResponse<Res>
-
 /**
  * Базовый класс для работы с API YooKassa
  */
@@ -168,7 +154,7 @@ export class Connector {
             // чтобы можно было отключить для OAuth
             headers: {
                 'Content-Type': 'application/json',
-                'User-Agent': 'yookassa-api-sdk',
+                'User-Agent': 'yookassa-ts-sdk',
             },
             // Используем https-proxy-agent вместо встроенного axios proxy
             // Это работает корректно в Next.js server actions
@@ -190,11 +176,14 @@ export class Connector {
     }
 
     /**
-     * Выполняет запрос к API с поддержкой retry и идемпотентности
+     * Выполняет запрос к API с поддержкой retry и идемпотентности.
+     * При ошибке бросает YooKassaErr.
+     *
+     * @throws {YooKassaErr} При ошибке API или сети
      */
     protected async request<Res = Record<string, any>, Data = Record<string, any>>(
         opts: RequestOpts<Data>,
-    ): Promise<ApiResponse<Res>> {
+    ): Promise<Res> {
         // Генерируем или используем переданный Idempotence-Key
         const idempotenceKey = opts.requestId ?? randomUUID()
 
@@ -206,16 +195,12 @@ export class Connector {
         // OAuth авторизация для партнёрского API
         if (opts.useOAuth) {
             if (!this.token) {
-                return {
-                    success: 'NO_OK',
-                    errorData: {
-                        type: 'error',
-                        id: idempotenceKey,
-                        code: 'MISSING_OAUTH_TOKEN',
-                        description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
-                    },
-                    requestId: idempotenceKey,
-                }
+                throw new YooKassaErr({
+                    type: 'error',
+                    id: idempotenceKey,
+                    code: 'MISSING_OAUTH_TOKEN',
+                    description: 'OAuth token is required for this operation. Pass `token` in SDK options.',
+                })
             }
             headers.Authorization = `Bearer ${this.token}`
         }
@@ -226,19 +211,14 @@ export class Connector {
             try {
                 const response = await this.axiosInstance.request<Res>({
                     method: opts.method,
-                    url: opts.endpoint, // baseURL уже задан, endpoint начинается с /
+                    url: opts.endpoint,
                     data: opts.method === 'POST' ? (opts as PostRequestOpts<any, Data>).data : undefined,
                     params: opts.params,
                     headers,
-                    // Для OAuth отключаем Basic Auth
                     auth: opts.useOAuth ? undefined : { username: this.shopId, password: this.secretKey },
                 })
 
-                return {
-                    success: 'OK',
-                    data: response.data,
-                    requestId: idempotenceKey,
-                }
+                return response.data
             } catch (error) {
                 const axiosError = error as AxiosError
 
@@ -250,18 +230,9 @@ export class Connector {
                     'type' in responseData &&
                     responseData.type === 'error'
 
-                // Если есть валидный ответ от API YooKassa
-                if (isValidYooKassaError) {
-                    const errorData = responseData as YooKassaErrResponse
-
-                    // Если ошибка не retryable, сразу возвращаем
-                    if (!isRetryableError(axiosError)) {
-                        return {
-                            success: 'NO_OK',
-                            errorData,
-                            requestId: idempotenceKey,
-                        }
-                    }
+                // Если есть валидный ответ от API YooKassa и ошибка не retryable
+                if (isValidYooKassaError && !isRetryableError(axiosError)) {
+                    throw new YooKassaErr(responseData as YooKassaErrResponse)
                 }
 
                 lastError = axiosError
@@ -278,41 +249,29 @@ export class Connector {
 
                 // Последняя попытка или не retryable ошибка
                 if (isValidYooKassaError) {
-                    return {
-                        success: 'NO_OK',
-                        errorData: responseData as YooKassaErrResponse,
-                        requestId: idempotenceKey,
-                    }
+                    throw new YooKassaErr(responseData as YooKassaErrResponse)
                 }
 
-                // Сетевая ошибка или невалидный ответ (HTML, прокси-ошибка и т.д.)
+                // Сетевая ошибка или невалидный ответ
                 const statusCode = axiosError.response?.status
                 const statusText = axiosError.response?.statusText || axiosError.message
-                return {
-                    success: 'NO_OK',
-                    errorData: {
-                        type: 'error',
-                        id: idempotenceKey,
-                        code: statusCode ? `HTTP_${statusCode}` : axiosError.code || 'NETWORK_ERROR',
-                        description: statusCode
-                            ? `HTTP ${statusCode}: ${statusText}`
-                            : axiosError.message || 'Network error occurred',
-                    },
-                    requestId: idempotenceKey,
-                }
+                throw new YooKassaErr({
+                    type: 'error',
+                    id: idempotenceKey,
+                    code: statusCode ? `HTTP_${statusCode}` : axiosError.code || 'NETWORK_ERROR',
+                    description: statusCode
+                        ? `HTTP ${statusCode}: ${statusText}`
+                        : axiosError.message || 'Network error occurred',
+                })
             }
         }
 
-        // Если все попытки исчерпаны (не должно сюда дойти, но на всякий случай)
-        return {
-            success: 'NO_OK',
-            errorData: {
-                type: 'error',
-                id: idempotenceKey,
-                code: lastError?.code || 'RETRY_EXHAUSTED',
-                description: lastError?.message || 'All retry attempts failed',
-            },
-            requestId: idempotenceKey,
-        }
+        // Если все попытки исчерпаны
+        throw new YooKassaErr({
+            type: 'error',
+            id: idempotenceKey,
+            code: lastError?.code || 'RETRY_EXHAUSTED',
+            description: lastError?.message || 'All retry attempts failed',
+        })
     }
 }

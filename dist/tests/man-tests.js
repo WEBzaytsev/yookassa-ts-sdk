@@ -20,7 +20,7 @@ const initOpts = {
 if (!initOpts.secret_key || !initOpts.shop_id) {
     throw new Error('YOO_SECRET_KEY and YOO_SHOP_ID must be set');
 }
-function test() {
+function _test() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const response = yield sdk.payments.create({
@@ -51,7 +51,7 @@ function test() {
     });
 }
 //test()
-function testGetPayment() {
+function _testGetPayment() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
@@ -60,7 +60,7 @@ function testGetPayment() {
     });
 }
 // testGetPayment();
-function testCapturePayment() {
+function _testCapturePayment() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
@@ -69,7 +69,7 @@ function testCapturePayment() {
     });
 }
 // testCapturePayment();
-function testCancelPayment() {
+function _testCancelPayment() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
@@ -78,7 +78,7 @@ function testCancelPayment() {
     });
 }
 // testCancelPayment();
-function testCreateRefund() {
+function _testCreateRefund() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
@@ -93,21 +93,21 @@ function testCreateRefund() {
     });
 }
 // testCreateRefund();
-function testGetRefund() {
+function _testGetRefund() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
-        const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
+        const _paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
         const refundId = '2e40b923-0015-5000-a000-1f4e75af689e';
         const refund = yield sdk.refunds.load(refundId);
         console.log(JSON.stringify(refund, null, 2));
     });
 }
 // testGetRefund();
-function testGetListRefund() {
+function _testGetListRefund() {
     return __awaiter(this, void 0, void 0, function* () {
         const sdk = (0, client_1.YooKassa)(initOpts);
         const paymentId = '2e3f90e3-000f-5000-a000-14f0028604a7';
-        const refundId = '2e40b923-0015-5000-a000-1f4e75af689e';
+        const _refundId = '2e40b923-0015-5000-a000-1f4e75af689e';
         const refund = yield sdk.refunds.list({
             created_at: {
                 gt: new Date('2024-01-01').toISOString(),

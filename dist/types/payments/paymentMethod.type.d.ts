@@ -1,6 +1,6 @@
-import { IAmount } from '../general.types';
+import type { IAmount } from '../general.types';
 /** Способы оплаты */
-export type IPaymentMethod = IPaymentMethodAlfabank | IPaymentMethodMobileBalance | IPaymentMethodCard | IPaymentMethodInstallments | IPaymentMethodCash | IPaymentMethodSbp | IPaymentMethodB2b_sberbank | IPaymentMethodTinkoff_bank | IPaymentMethodYooMoney | IPaymentMethodQiwi | IPaymentMethodSberbank | IPaymentMethodSberLoan | IPaymentMethodSberBnpl;
+export type IPaymentMethod = IPaymentMethodAlfabank | IPaymentMethodMobileBalance | IPaymentMethodCard | IPaymentMethodInstallments | IPaymentMethodCash | IPaymentMethodSbp | IPaymentMethodB2b_sberbank | IPaymentMethodTinkoff_bank | IPaymentMethodYooMoney | IPaymentMethodQiwi | IPaymentMethodSberbank | IPaymentMethodSberLoan | IPaymentMethodSberBnpl | IPaymentMethodApplePay | IPaymentMethodGooglePay | IPaymentMethodWebmoney | IPaymentMethodWechat;
 export declare enum PaymentMethodsEnum {
     /** Банковская карта или карта МИР */
     bank_card = "bank_card",
@@ -33,7 +33,21 @@ export declare enum PaymentMethodsEnum {
     /** "Покупки в кредит" от Сбербанка" */
     sber_loan = "sber_loan",
     /** Плати частями (BNPL от СберБанка) */
-    sber_bnpl = "sber_bnpl"
+    sber_bnpl = "sber_bnpl",
+    /** Apple Pay (обычно используется через payment_token) */
+    apple_pay = "apple_pay",
+    /** Google Pay (обычно используется через payment_token) */
+    google_pay = "google_pay",
+    /**
+     * WebMoney
+     * @deprecated WebMoney прекратил работу в РФ в 2022 году.
+     */
+    webmoney = "webmoney",
+    /**
+     * WeChat Pay
+     * @deprecated Специфичный способ оплаты для китайских пользователей.
+     */
+    wechat = "wechat"
 }
 interface IGeneralPayMethod {
     type: PaymentMethodsEnum;
@@ -151,6 +165,28 @@ export interface IPaymentMethodSberBnpl {
     saved: boolean;
     /** Статус способа оплаты */
     status?: 'inactive' | 'active';
+}
+/** Apple Pay (обычно используется через payment_token) */
+export interface IPaymentMethodApplePay extends IGeneralPayMethod {
+    type: PaymentMethodsEnum.apple_pay;
+}
+/** Google Pay (обычно используется через payment_token) */
+export interface IPaymentMethodGooglePay extends IGeneralPayMethod {
+    type: PaymentMethodsEnum.google_pay;
+}
+/**
+ * WebMoney
+ * @deprecated WebMoney прекратил работу в РФ в 2022 году.
+ */
+export interface IPaymentMethodWebmoney extends IGeneralPayMethod {
+    type: PaymentMethodsEnum.webmoney;
+}
+/**
+ * WeChat Pay
+ * @deprecated Специфичный способ оплаты для китайских пользователей.
+ */
+export interface IPaymentMethodWechat extends IGeneralPayMethod {
+    type: PaymentMethodsEnum.wechat;
 }
 /** Данные банковской карты для создания платежа */
 export interface PaymentMethodDataCard {

@@ -1,10 +1,10 @@
-import { paymentCancelReasonMap } from '../../dictionaries';
-import { IAmount } from '../general.types';
-import { Receipts } from '../receipt';
-import { Receiver } from '../receiver.type';
-import { IAirline } from './airline.type';
-import { IPaymentMethod, PaymentMethodData } from './paymentMethod.type';
-import { IConfirmation } from './paymentsConfirmation.type';
+import type { paymentCancelReasonMap } from '../../dictionaries';
+import type { IAmount } from '../general.types';
+import type { Receipts } from '../receipt';
+import type { Receiver } from '../receiver.type';
+import type { IAirline } from './airline.type';
+import type { IPaymentMethod, PaymentMethodData } from './paymentMethod.type';
+import type { IConfirmation } from './paymentsConfirmation.type';
 /** Все, что касается платежей в ЮКассе */
 export declare namespace Payments {
     /**
@@ -185,6 +185,18 @@ export declare namespace Payments {
         deal?: DealType;
         /** Идентификатор покупателя в вашей системе, например электронная почта или номер телефона. Не более 200 символов. Присутствует, если вы хотите запомнить банковскую карту и отобразить ее при повторном платеже в [виджете ЮKassa](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)  */
         merchant_customer_id?: string;
+        /**
+         * Статус регистрации чека. Присутствует, если вы используете решения ЮKassa для отправки чеков.
+         * - `pending` — данные в обработке
+         * - `succeeded` — чек успешно зарегистрирован
+         * - `canceled` — чек зарегистрировать не удалось
+         */
+        receipt_registration?: 'pending' | 'succeeded' | 'canceled';
+        /** Данные о выставленном счете, в рамках которого проведен платеж. */
+        invoice_details?: {
+            /** Идентификатор счета */
+            id?: string;
+        };
     }
     /**
      * Чтобы принять оплату, необходимо создать объект платежа — `Payment`. Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус). У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.

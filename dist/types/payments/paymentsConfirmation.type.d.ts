@@ -1,4 +1,4 @@
-import { LocaleEnum } from '../general.types';
+import type { LocaleEnum } from '../general.types';
 export type IConfirmation = IConfirmationRedirect | IConfirmationEmbedded | IConfirmationQR | IConfirmationExternal | IConfirmationMobileApp;
 export declare enum ConfirmationTypesEnum {
     embedded = "embedded",
@@ -36,8 +36,13 @@ export interface IConfirmationRedirect extends IGeneralConfirmation {
     confirmation_url?: string;
     /** Запрос на проведение платежа с аутентификацией по 3-D Secure. Будет работать, если оплату банковской картой вы по умолчанию принимаете без подтверждения платежа пользователем. В остальных случаях аутентификацией по 3-D Secure будет управлять ЮKassa. Если хотите принимать платежи без дополнительного подтверждения пользователем, напишите вашему менеджеру ЮKassa. */
     enforce?: boolean;
-    /** URL, на который вернется пользователь после подтверждения или отмены платежа на веб-странице. Не более 2048 символов. */
-    return_url: string;
+    /**
+     * URL, на который вернется пользователь после подтверждения или отмены платежа на веб-странице. Не более 2048 символов.
+     *
+     * Можно не указывать если настроен `default_return_url` в ConnectorOpts.
+     * @see https://yookassa.ru/developers/api#create_payment
+     */
+    return_url?: string;
 }
 /**
  * ***Сценарий подтверждения `QR-код`***
