@@ -1,4 +1,4 @@
-name: 🚀 Release & Publish
+name: Release & Publish
 
 on:
   workflow_dispatch:
@@ -27,48 +27,45 @@ jobs:
     name: Release & Publish
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🟢 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: 🔍 Run checks
+      - name: Run checks
         run: |
           npm run lint
           npx tsc --noEmit
 
-      - name: 🏗️ Build
+      - name: Build
         run: npm run build
 
-      - name: 🧹 Commit any formatting changes
+      - name: Commit formatting changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --staged --quiet || git commit -m "chore: format code"
 
-      - name: 🔖 Bump version
+      - name: Bump version
         id: version
         run: |
-          # Bump version and capture new version
           NEW_VERSION=$(npm version ${{ inputs.version }} -m "chore(release): v%s")
           echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
-          echo "📦 New version: ${NEW_VERSION}"
 
-      - name: 📝 Generate changelog
+      - name: Generate changelog
         id: changelog
         run: |
-          # Get previous tag
           PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
           
           if [ -z "$PREV_TAG" ]; then
@@ -77,23 +74,20 @@ jobs:
             COMMITS=$(git log --pretty=format:"- %s (%h)" --no-merges ${PREV_TAG}..HEAD^)
           fi
           
-          # Create changelog
           CHANGELOG="## What's Changed
           
           ${COMMITS}
           
           **Full Changelog**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${{ steps.version.outputs.new_version }}"
           
-          # Save to file for release
           echo "$CHANGELOG" > RELEASE_NOTES.md
-          echo "Generated changelog for ${{ steps.version.outputs.new_version }}"
 
-      - name: 🚀 Push changes & tag
+      - name: Push changes & tag
         if: ${{ !inputs.dry_run }}
         run: |
           git push origin HEAD --follow-tags
 
-      - name: 📋 Create GitHub Release
+      - name: Create GitHub Release
         if: ${{ !inputs.dry_run }}
         uses: softprops/action-gh-release@v2
         with:
@@ -105,18 +99,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📤 Publish to npm
+      - name: Publish to npm
         if: ${{ !inputs.dry_run }}
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: 🧪 Dry run summary
+      - name: Dry run summary
         if: ${{ inputs.dry_run }}
         run: |
-          echo "🧪 DRY RUN - No changes were published"
+          echo "DRY RUN - No changes were published"
           echo "Would have released: ${{ steps.version.outputs.new_version }}"
-          echo ""
-          echo "📝 Release notes:"
           cat RELEASE_NOTES.md
-
