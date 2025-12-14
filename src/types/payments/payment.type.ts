@@ -205,6 +205,27 @@ export namespace Payments {
         }
     }
 
+    /** Тип справки для отправки пользователю */
+    export type StatementType = 'payment_overview'
+
+    /** Способ доставки справки */
+    export interface StatementDeliveryMethod {
+        /** Тип доставки (сейчас доступен только email) */
+        type: 'email'
+        /** Email для отправки квитанции */
+        email: string
+    }
+
+    /** Данные для отправки справки (квитанции) пользователю после оплаты
+     * @see https://yookassa.ru/developers/payment-acceptance/getting-started/selecting-integration-scenario
+     */
+    export interface Statement {
+        /** Тип справки. Сейчас доступен только `payment_overview` — квитанция по платежу */
+        type: StatementType
+        /** Способ доставки справки */
+        delivery_method: StatementDeliveryMethod
+    }
+
     /**
      * Чтобы принять оплату, необходимо создать объект платежа — `Payment`. Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус). У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
      */
@@ -258,6 +279,11 @@ export namespace Payments {
         airline?: IAirline
         /** Реквизиты получателя оплаты при [пополнении электронного кошелька, банковского счета или баланса телефона](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/receiver-data)  */
         receiver?: Receiver
+        /** Данные для отправки квитанции по платежу на email пользователя.
+         * Доступно для оплаты банковской картой, SberPay или СБП.
+         * @see https://yookassa.ru/developers/payment-acceptance/getting-started/selecting-integration-scenario
+         */
+        statements?: Statement[]
     }
 
     /**
