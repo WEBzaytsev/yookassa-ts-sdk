@@ -85,6 +85,68 @@ export enum PaymentMethodsEnum {
     wechat = 'wechat',
 }
 
+/** Тип банковской карты
+ * @see https://yookassa.ru/developers/api#payment_object_payment_method_card_card_type
+ */
+export enum BankCardTypeEnum {
+    MasterCard = 'MasterCard',
+    Visa = 'Visa',
+    Mir = 'Mir',
+    UnionPay = 'UnionPay',
+    JCB = 'JCB',
+    AmericanExpress = 'AmericanExpress',
+    DinersClub = 'DinersClub',
+    DiscoverCard = 'DiscoverCard',
+    InstaPayment = 'InstaPayment',
+    InstaPaymentTM = 'InstaPaymentTM',
+    Laser = 'Laser',
+    Dankort = 'Dankort',
+    Solo = 'Solo',
+    Switch = 'Switch',
+    Unknown = 'Unknown',
+}
+
+/** Источник данных банковской карты (если использовался Pay-сервис)
+ * @see https://yookassa.ru/developers/api#payment_object_payment_method_card_source
+ */
+export enum BankCardSourceEnum {
+    /** Apple Pay */
+    apple_pay = 'apple_pay',
+    /** Google Pay */
+    google_pay = 'google_pay',
+    /** Mir Pay */
+    mir_pay = 'mir_pay',
+}
+
+/** Данные банковской карты в ответе API
+ * @see https://yookassa.ru/developers/api#payment_object_payment_method_card
+ */
+export interface IBankCardData {
+    /** Первые 6 цифр номера карты (BIN) */
+    first6?: string
+    /** Последние 4 цифры номера карты */
+    last4: string
+    /** Срок действия, год (YYYY) */
+    expiry_year: string
+    /** Срок действия, месяц (MM) */
+    expiry_month: string
+    /** Тип банковской карты */
+    card_type: BankCardTypeEnum | string
+    /** Продукт банковской карты */
+    card_product?: {
+        /** Код продукта карты */
+        code: string
+        /** Название продукта карты */
+        name?: string
+    }
+    /** Код страны банка-эмитента (ISO 3166-1 alpha-2) */
+    issuer_country?: string
+    /** Название банка-эмитента */
+    issuer_name?: string
+    /** Источник данных карты (если использовался Pay-сервис) */
+    source?: BankCardSourceEnum | string
+}
+
 interface IGeneralPayMethod {
     type: PaymentMethodsEnum
     /** Идентификатор способа оплаты. */
@@ -95,23 +157,14 @@ interface IGeneralPayMethod {
     title?: string
 }
 
-/** Банковская карта */
+/** Банковская карта (ответ API)
+ * @see https://yookassa.ru/developers/api#payment_object_payment_method_bank_card
+ */
 export interface IPaymentMethodCard extends IGeneralPayMethod {
-    /** Код способа оплаты. */
+    /** Код способа оплаты */
     type: PaymentMethodsEnum.bank_card
-    /** Данные банковской карты (необходимы, если вы собираете данные карты пользователей на своей стороне). */
-    card?: {
-        /** Номер банковской карты. */
-        number: string
-        /** Срок действия, год, YYYY. */
-        expiry_year?: string
-        /** Срок действия, месяц, MM. */
-        expiry_month: string
-        /** Код CVC2 или CVV2, 3 или 4 символа, печатается на обратной стороне карты. */
-        csc?: string
-        /** Имя владельца карты. */
-        cardholder?: string
-    }
+    /** Данные банковской карты */
+    card?: IBankCardData
 }
 
 /** Баланс телефона */
