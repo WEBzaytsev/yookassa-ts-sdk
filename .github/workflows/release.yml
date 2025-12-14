@@ -101,24 +101,36 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to npm
+        id: npm_publish
         if: ${{ !inputs.dry_run }}
+        continue-on-error: true
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Node.js for GitHub Packages
+        if: ${{ !inputs.dry_run }}
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
 
       - name: Publish to GitHub Packages
+        id: ghp_publish
         if: ${{ !inputs.dry_run }}
+        continue-on-error: true
         run: |
           npm pkg set name="@webzaytsev/yookassa-ts-sdk"
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish summary
+        if: ${{ !inputs.dry_run }}
+        run: |
+          echo "### Publish Results" >> $GITHUB_STEP_SUMMARY
+          echo "- npm: ${{ steps.npm_publish.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "- GitHub Packages: ${{ steps.ghp_publish.outcome }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Dry run summary
         if: ${{ inputs.dry_run }}
