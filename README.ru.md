@@ -26,6 +26,12 @@
 npm install yookassa-ts-sdk
 ```
 
+Или из GitHub Packages:
+
+```sh
+npm install @webzaytsev/yookassa-ts-sdk --registry=https://npm.pkg.github.com
+```
+
 ## Быстрый старт
 
 ```ts

@@ -26,6 +26,12 @@ Modern TypeScript SDK for [YooKassa API](https://yookassa.ru/developers/api) int
 npm install yookassa-ts-sdk
 ```
 
+Or from GitHub Packages:
+
+```sh
+npm install @webzaytsev/yookassa-ts-sdk --registry=https://npm.pkg.github.com
+```
+
 ## Quick Start
 
 ```ts
