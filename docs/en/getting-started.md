@@ -88,7 +88,7 @@ const shop2 = YooKassa({ shop_id: '222', secret_key: 'key2' });
 const newSdk = YooKassa({ shop_id: '123', secret_key: 'new_key' }, true);
 
 // Clear cache
-import { clearYooKassaCache } from 'yookassa-ts-sdk';
+import { clearYooKassaCache } from '@webzaytsev/yookassa-ts-sdk';
 clearYooKassaCache('123'); // Remove specific shop
 clearYooKassaCache(); // Clear entire cache
 ```

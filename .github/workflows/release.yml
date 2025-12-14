@@ -121,9 +121,7 @@ jobs:
         id: ghp_publish
         if: ${{ !inputs.dry_run }}
         continue-on-error: true
-        run: |
-          npm pkg set name="@webzaytsev/yookassa-ts-sdk"
-          npm publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

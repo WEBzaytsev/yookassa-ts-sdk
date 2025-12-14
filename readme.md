@@ -1,6 +1,6 @@
 # YooKassa SDK
 
-[![npm version](https://img.shields.io/npm/v/yookassa-ts-sdk.svg)](https://www.npmjs.com/package/yookassa-ts-sdk)
+[![npm version](https://img.shields.io/npm/v/@webzaytsev/yookassa-ts-sdk.svg)](https://www.npmjs.com/package/@webzaytsev/yookassa-ts-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-compatible-f9f1e1.svg)](https://bun.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -23,19 +23,13 @@ Modern TypeScript SDK for [YooKassa API](https://yookassa.ru/developers/api) int
 ## Installation
 
 ```sh
-npm install yookassa-ts-sdk
-```
-
-Or from GitHub Packages:
-
-```sh
-npm install @webzaytsev/yookassa-ts-sdk --registry=https://npm.pkg.github.com
+npm install @webzaytsev/yookassa-ts-sdk
 ```
 
 ## Quick Start
 
 ```ts
-import { YooKassa } from 'yookassa-ts-sdk';
+import { YooKassa } from '@webzaytsev/yookassa-ts-sdk';
 
 const sdk = YooKassa({
     shop_id: 'your_shop_id',
@@ -109,7 +103,7 @@ console.log(payment.confirmation.confirmation_url);
 ## Error Handling
 
 ```ts
-import { YooKassaErr } from 'yookassa-ts-sdk';
+import { YooKassaErr } from '@webzaytsev/yookassa-ts-sdk';
 
 try {
     const payment = await sdk.payments.create({ ... });

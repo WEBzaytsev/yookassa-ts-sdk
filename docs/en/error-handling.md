@@ -3,7 +3,7 @@
 ## YooKassaErr
 
 ```ts
-import { YooKassaErr } from 'yookassa-ts-sdk';
+import { YooKassaErr } from '@webzaytsev/yookassa-ts-sdk';
 
 try {
     const payment = await sdk.payments.create({ ... });

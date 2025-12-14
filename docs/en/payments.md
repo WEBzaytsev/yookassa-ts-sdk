@@ -3,7 +3,7 @@
 ## Create Payment
 
 ```ts
-import { CurrencyEnum } from 'yookassa-ts-sdk';
+import { CurrencyEnum } from '@webzaytsev/yookassa-ts-sdk';
 
 const payment = await sdk.payments.create({
     amount: {

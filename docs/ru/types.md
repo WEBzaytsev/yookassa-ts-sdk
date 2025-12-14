@@ -39,7 +39,7 @@ import type {
     GetRefundListFilter,
     GetReceiptListFilter,
     DateFilter,
-} from 'yookassa-ts-sdk';
+} from '@webzaytsev/yookassa-ts-sdk';
 ```
 
 ## Перечисления (Enums)
@@ -53,7 +53,7 @@ import {
     PaymentMethodsEnum,
     ConfirmationTypesEnum,
     WebhookEventEnum,
-} from 'yookassa-ts-sdk';
+} from '@webzaytsev/yookassa-ts-sdk';
 ```
 
 | Enum | Описание |
@@ -71,7 +71,7 @@ import {
 ### Пример
 
 ```ts
-import { CurrencyEnum, PaymentMethodsEnum, ConfirmationTypesEnum } from 'yookassa-ts-sdk';
+import { CurrencyEnum, PaymentMethodsEnum, ConfirmationTypesEnum } from '@webzaytsev/yookassa-ts-sdk';
 
 const payment = await sdk.payments.create({
     amount: { value: '100.00', currency: CurrencyEnum.RUB },
@@ -92,7 +92,7 @@ import {
     AgentTypeMap,
     measureTypeMap,
     SettlementTypeMap,
-} from 'yookassa-ts-sdk';
+} from '@webzaytsev/yookassa-ts-sdk';
 ```
 
 | Справочник | Описание |
@@ -107,7 +107,7 @@ import {
 ### Пример
 
 ```ts
-import { paymentCancelReasonMap } from 'yookassa-ts-sdk';
+import { paymentCancelReasonMap } from '@webzaytsev/yookassa-ts-sdk';
 
 const payment = await sdk.payments.load('payment_id');
 

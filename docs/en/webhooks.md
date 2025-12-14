@@ -42,7 +42,7 @@ SDK provides helpers for processing incoming webhook notifications from YooKassa
 ### Parse Notification
 
 ```ts
-import { parseNotification, isYooKassaIP, WebhookValidationError } from 'yookassa-ts-sdk'
+import { parseNotification, isYooKassaIP, WebhookValidationError } from '@webzaytsev/yookassa-ts-sdk'
 
 app.post('/webhook', (req, res) => {
     // Optional: Validate IP address
@@ -84,7 +84,7 @@ app.post('/webhook', (req, res) => {
 ### Typed Parsers
 
 ```ts
-import { parsePaymentNotification, parseRefundNotification } from 'yookassa-ts-sdk'
+import { parsePaymentNotification, parseRefundNotification } from '@webzaytsev/yookassa-ts-sdk'
 
 // For payment events only
 const paymentNotification = parsePaymentNotification(req.body)
@@ -98,7 +98,7 @@ const refundNotification = parseRefundNotification(req.body)
 ### YooKassa IP Addresses
 
 ```ts
-import { YOOKASSA_IP_RANGES, YOOKASSA_IPV6_RANGE, isYooKassaIP } from 'yookassa-ts-sdk'
+import { YOOKASSA_IP_RANGES, YOOKASSA_IPV6_RANGE, isYooKassaIP } from '@webzaytsev/yookassa-ts-sdk'
 
 // IP ranges for firewall/nginx configuration
 console.log(YOOKASSA_IP_RANGES)
