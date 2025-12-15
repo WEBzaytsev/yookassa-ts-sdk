@@ -47,7 +47,10 @@ export type RefundNotification = WebhookNotification<Refunds.IRefund>
  * Ошибка валидации уведомления
  */
 export class WebhookValidationError extends Error {
-    constructor(message: string, public readonly code?: string) {
+    constructor(
+        message: string,
+        public readonly code?: string,
+    ) {
         super(message)
         this.name = 'WebhookValidationError'
         // Сохраняем оригинальный stack trace
@@ -389,23 +392,15 @@ export interface WebhookSignatureValidationOptions {
  *
  * @see https://yookassa.ru/developers/using-api/webhooks#security
  */
-export function verifyWebhookSignature(
-    options: WebhookSignatureValidationOptions,
-): boolean {
+export function verifyWebhookSignature(options: WebhookSignatureValidationOptions): boolean {
     const { secretKey, body, signature, headerName = 'X-YooKassa-Signature' } = options
 
     if (!secretKey || typeof secretKey !== 'string') {
-        throw new WebhookValidationError(
-            'Secret key is required and must be a string',
-            'MISSING_SECRET_KEY',
-        )
+        throw new WebhookValidationError('Secret key is required and must be a string', 'MISSING_SECRET_KEY')
     }
 
     if (!signature || typeof signature !== 'string') {
-        throw new WebhookValidationError(
-            `Signature header '${headerName}' is missing or invalid`,
-            'MISSING_SIGNATURE',
-        )
+        throw new WebhookValidationError(`Signature header '${headerName}' is missing or invalid`, 'MISSING_SIGNATURE')
     }
 
     if (!body) {
@@ -450,11 +445,11 @@ export function verifyWebhookSignature(
 function computeHMAC(secret: string, data: string): string {
     // Используем встроенный crypto модуль Node.js/Bun
     let crypto: typeof import('crypto')
-    
+
     try {
         // Пробуем загрузить crypto модуль
-        crypto = require('crypto')
-    } catch (e) {
+        crypto = require('node:crypto')
+    } catch {
         // Если require недоступен, пробуем import
         if (typeof process !== 'undefined' && process.versions?.node) {
             // В Node.js crypto всегда доступен
