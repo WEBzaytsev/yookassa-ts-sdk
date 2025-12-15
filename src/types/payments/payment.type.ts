@@ -104,17 +104,17 @@ export namespace Payments {
         /**
          * Идентификатор платежа в ЮKassa.
          */
-        id: string
+        readonly id: string
         /**
          * Статус платежа. Возможные значения: `pending`, `waiting_for_capture`, `succeeded` и `canceled`.
          */
-        status: PaymentStatus
+        readonly status: PaymentStatus
         /** Сумма платежа. Иногда партнеры ЮKassa берут с пользователя дополнительную комиссию, которая не входит в эту сумму. */
         amount: IAmount
         /** Сумма платежа, которую получит магазин, — значение amount за вычетом комиссии ЮKassa.
          * Если вы партнер и для аутентификации запросов используете OAuth-токен, запросите у магазина право на получение информации о комиссиях при платежах.
          */
-        income_amount?: IAmount
+        readonly income_amount?: IAmount
         /** Описание транзакции (не более 128 символов), которое вы увидите в личном кабинете ЮKassa, а пользователь — при оплате.
          * Например: `«Оплата заказа № 72 для user@yoomoney.ru»`.
          */
@@ -122,7 +122,7 @@ export namespace Payments {
         /** Получатель платежа. */
         recipient?: IRecipient
         /** [Способ оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all), который был использован для этого платежа. */
-        payment_method?: IPaymentMethod
+        readonly payment_method?: IPaymentMethod
         /**
          * Время подтверждения платежа.
          *
@@ -131,14 +131,14 @@ export namespace Payments {
          *
          * Пример: `2017-11-03T11:52:31.827Z`
          */
-        captured_at?: string
+        readonly captured_at?: string
         /**Время создания заказа.
          * Указывается по [UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)
          * и передается в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
          *
          * Пример: `2017-11-03T11:52:31.827Z`
          */
-        created_at: string
+        readonly created_at: string
         /** Время, до которого вы можете бесплатно отменить или подтвердить платеж. В указанное время платеж в статусе `waiting_for_capture` будет автоматически отменен.
          *
          * Указывается по [UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)
@@ -153,13 +153,13 @@ export namespace Payments {
          */
         confirmation?: IConfirmation
         /** Признак тестовой операции. */
-        test: boolean
+        readonly test: boolean
         /** Сумма, которая вернулась пользователю. Присутствует, если у этого платежа есть успешные возвраты. */
-        refunded_amount?: IAmount
+        readonly refunded_amount?: IAmount
         /** Признак оплаты заказа. */
-        paid: boolean
+        readonly paid: boolean
         /** Возможность провести возврат по API.  */
-        refundable: boolean
+        readonly refundable: boolean
         /**
          * Любые дополнительные данные, которые нужны вам для работы (например, ваш внутренний идентификатор заказа).
          * Передаются в виде набора пар «ключ-значение» и возвращаются в ответе от ЮKassa.
@@ -173,7 +173,7 @@ export namespace Payments {
          *
          * [Подробнее про неуспешные платежи](https://yookassa.ru/developers/payment-acceptance/after-the-payment/declined-payments)
          */
-        cancellation_details?: PaymentCancellationDetails
+        readonly cancellation_details?: PaymentCancellationDetails
         /**
          * Данные об авторизации платежа при оплате банковской картой.
          * Присутствуют только для этих способов оплаты:
@@ -182,7 +182,7 @@ export namespace Payments {
          * - SberPay
          * - T-Pay.
          */
-        authorization_details?: AuthorizationDetails
+        readonly authorization_details?: AuthorizationDetails
         /**
          * Данные о распределении денег — сколько и в какой магазин нужно перевести. Присутствует, если вы используете [Сплитование платежей](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics)
          */
@@ -197,9 +197,9 @@ export namespace Payments {
          * - `succeeded` — чек успешно зарегистрирован
          * - `canceled` — чек зарегистрировать не удалось
          */
-        receipt_registration?: 'pending' | 'succeeded' | 'canceled'
+        readonly receipt_registration?: 'pending' | 'succeeded' | 'canceled'
         /** Данные о выставленном счете, в рамках которого проведен платеж. */
-        invoice_details?: {
+        readonly invoice_details?: {
             /** Идентификатор счета */
             id?: string
         }

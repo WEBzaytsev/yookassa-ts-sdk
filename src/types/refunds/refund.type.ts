@@ -45,7 +45,7 @@ export namespace Refunds {
      */
     export interface IRefund {
         /** Идентификатор возврата платежа в ЮKassa. */
-        id: string
+        readonly id: string
         /** Идентификатор платежа в ЮKassa. */
         payment_id: string
         /**
@@ -59,9 +59,9 @@ export namespace Refunds {
          * Чтобы узнать статус возврата, периодически отправляйте запросы, чтобы получить информацию о возврате, или подождите, когда придет уведомление от ЮKassa.
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#status
          */
-        status: RefundStatus
+        readonly status: RefundStatus
         /** Комментарий к статусу `canceled`: кто отменил возврат и по какой причине. */
-        cancellation_details?: IRefundCancellationDetails
+        readonly cancellation_details?: IRefundCancellationDetails
         /**
          * Статус регистрации чека. Возможные значения:
          * - `pending` — данные в обработке;
@@ -69,11 +69,11 @@ export namespace Refunds {
          * - `canceled` — чек зарегистрировать не удалось; если используете Чеки от ЮKassa, обратитесь в техническую поддержку, в остальных случаях сформируйте чек вручную.
          * Присутствует, если вы используете [решения ЮKassa для отправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/basics) в налоговую.
          */
-        receipt_registration?: Receipts.ReceiptRegistrationStatus
+        readonly receipt_registration?: Receipts.ReceiptRegistrationStatus
         /**
          * Время создания возврата. Указывается по UTC и передается в формате ISO 8601, например `2017-11-03T11:52:31.827Z`
          */
-        created_at: string
+        readonly created_at: string
         /** Сумма, возвращенная пользователю. */
         amount: IAmount
         /** Основание для возврата денег пользователю. */
@@ -88,12 +88,12 @@ export namespace Refunds {
          */
         deal?: RefundDealType
         /**Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
-        refund_method?: RefundMethod
+        readonly refund_method?: RefundMethod
         /**
          * Данные об авторизации возврата при оплате банковской картой.
          * Присутствует для возвратов по платежам банковской картой.
          */
-        refund_authorization_details?: {
+        readonly refund_authorization_details?: {
             /** Retrieval Reference Number — уникальный идентификатор транзакции в системе эмитента */
             rrn?: string
         }

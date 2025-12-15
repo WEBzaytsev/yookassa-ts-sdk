@@ -39,7 +39,7 @@ export namespace Receipts {
 
     interface IReceiptGeneral {
         /**Идентификатор чека в ЮKassa. */
-        id: string
+        readonly id: string
         /**Тип чека в онлайн-кассе: приход (`payment`) или возврат прихода (`refund`). */
         type: ReceiptType
         /** Идентификатор платежа, для которого был сформирован чек. */
@@ -54,17 +54,17 @@ export namespace Receipts {
          * - `succeeded` — чек успешно зарегистрирован;
          * - `canceled` — чек зарегистрировать не удалось; если используете Чеки от ЮKassa, обратитесь в техническую поддержку, в остальных случаях сформируйте чек вручную.
          */
-        status: ReceiptStatus
+        readonly status: ReceiptStatus
         /** Номер фискального документа. */
-        fiscal_document_number?: string
+        readonly fiscal_document_number?: string
         /** Номер фискального накопителя в кассовом аппарате. */
-        fiscal_storage_number?: string
+        readonly fiscal_storage_number?: string
         /** Фискальный признак чека. Формируется фискальным накопителем на основе данных, переданных для регистрации чека. */
-        fiscal_attribute?: string
+        readonly fiscal_attribute?: string
         /** Дата и время формирования чека в фискальном накопителе. Указывается в формате ISO 8601. */
-        registered_at?: string
+        readonly registered_at?: string
         /** Идентификатор чека в онлайн-кассе. Присутствует, если чек удалось зарегистрировать. */
-        fiscal_provider_id?: string
+        readonly fiscal_provider_id?: string
         /** Список товаров в чеке (не более 100 товаров). */
         items: Items.Item[]
         /** Перечень совершенных расчетов. */
