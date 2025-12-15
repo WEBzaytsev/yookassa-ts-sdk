@@ -114,6 +114,64 @@ isYooKassaIP('2a02:5180::1')     // true (IPv6)
 isYooKassaIP('192.168.1.1')      // false
 ```
 
+### Валидация подписи вебхука
+
+YooKassa подписывает все вебхуки с помощью HMAC SHA-256. Подпись передаётся в заголовке `X-YooKassa-Signature`.
+
+**Важно:** Для валидации подписи необходим raw body запроса (до парсинга JSON). Используйте middleware, который сохраняет raw body.
+
+```ts
+import { verifyWebhookSignature, parseNotification } from '@webzaytsev/yookassa-ts-sdk'
+import express from 'express'
+
+const app = express()
+
+// Middleware для сохранения raw body (важно для валидации подписи)
+app.use('/webhook', express.raw({ type: 'application/json' }))
+
+app.post('/webhook', (req, res) => {
+    try {
+        // 1. Валидация подписи
+        const signature = req.headers['x-yookassa-signature'] as string
+        if (!signature) {
+            return res.status(401).send('Missing signature header')
+        }
+
+        verifyWebhookSignature({
+            secretKey: process.env.YOOKASSA_WEBHOOK_SECRET_KEY!, // Secret key вебхука
+            body: req.body, // raw body (Buffer)
+            signature,
+        })
+
+        // 2. Парсинг уведомления
+        const notification = parseNotification(JSON.parse(req.body.toString()))
+
+        // 3. Обработка события
+        if (notification.event === 'payment.succeeded') {
+            console.log('Платёж успешен:', notification.object.id)
+        }
+
+        res.status(200).send('OK')
+    } catch (error) {
+        if (error instanceof WebhookValidationError) {
+            console.error('Ошибка валидации:', error.message, error.code)
+            return res.status(401).send('Invalid signature')
+        }
+        throw error
+    }
+})
+```
+
+**Механизм валидации:**
+1. YooKassa вычисляет HMAC SHA-256 от raw body запроса с использованием secret key вебхука
+2. Результат передаётся в заголовке `X-YooKassa-Signature` в формате hex (64 символа)
+3. SDK вычисляет такую же подпись и сравнивает с переданной
+
+**Примечания:**
+- Secret key вебхука отличается от `secretKey` магазина
+- Secret key генерируется при создании вебхука в личном кабинете YooKassa
+- Для валидации необходим именно raw body (до парсинга JSON)
+
 ### События вебхуков
 
 | Событие | Описание |

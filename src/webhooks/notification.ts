@@ -47,9 +47,13 @@ export type RefundNotification = WebhookNotification<Refunds.IRefund>
  * Ошибка валидации уведомления
  */
 export class WebhookValidationError extends Error {
-    constructor(message: string) {
+    constructor(message: string, public readonly code?: string) {
         super(message)
         this.name = 'WebhookValidationError'
+        // Сохраняем оригинальный stack trace
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, WebhookValidationError)
+        }
     }
 }
 
@@ -288,4 +292,210 @@ export function parseRefundNotification(body: unknown): RefundNotification {
     }
 
     return notification as RefundNotification
+}
+
+/**
+ * Опции для валидации подписи вебхука
+ */
+export interface WebhookSignatureValidationOptions {
+    /** Секретный ключ магазина (secretKey) */
+    secretKey: string
+    /** Тело запроса (raw body как строка или Buffer) */
+    body: string | Buffer
+    /** Значение заголовка с подписью */
+    signature: string
+    /** Имя заголовка с подписью (по умолчанию: 'X-YooKassa-Signature') */
+    headerName?: string
+}
+
+/**
+ * Валидирует подпись входящего вебхука от YooKassa.
+ *
+ * YooKassa подписывает вебхуки с помощью HMAC SHA-256 алгоритма.
+ * Подпись вычисляется от raw body запроса с использованием secret key вебхука.
+ * Результат передаётся в заголовке `X-YooKassa-Signature` в формате hex (64 символа).
+ *
+ * **Механизм валидации:**
+ * 1. Получить raw body запроса (как строка или Buffer)
+ * 2. Вычислить HMAC SHA-256 от body с использованием secret key
+ * 3. Сравнить вычисленную подпись с подписью из заголовка `X-YooKassa-Signature`
+ *
+ * @param options - Опции валидации
+ * @returns true, если подпись валидна
+ * @throws {WebhookValidationError} Если подпись невалидна или отсутствует
+ *
+ * @see https://yookassa.ru/developers/using-api/webhooks#security
+ *
+ * @example
+ * ```ts
+ * import { verifyWebhookSignature, parseNotification } from '@webzaytsev/yookassa-ts-sdk'
+ *
+ * app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+ *     try {
+ *         // Валидация подписи
+ *         const signature = req.headers['x-yookassa-signature'] as string
+ *         if (!signature) {
+ *             return res.status(401).send('Missing signature')
+ *         }
+ *
+ *         verifyWebhookSignature({
+ *             secretKey: process.env.YOOKASSA_SECRET_KEY!,
+ *             body: req.body, // raw body (Buffer или string)
+ *             signature,
+ *         })
+ *
+ *         // Парсинг уведомления
+ *         const notification = parseNotification(JSON.parse(req.body.toString()))
+ *
+ *         // Обработка события
+ *         if (notification.event === 'payment.succeeded') {
+ *             console.log('Payment succeeded:', notification.object.id)
+ *         }
+ *
+ *         res.status(200).send('OK')
+ *     } catch (error) {
+ *         if (error instanceof WebhookValidationError) {
+ *             console.error('Invalid signature:', error.message)
+ *             return res.status(401).send('Invalid signature')
+ *         }
+ *         throw error
+ *     }
+ * })
+ * ```
+ *
+ * @example
+ * ```ts
+ * // Для Express с body-parser
+ * import express from 'express'
+ * import { verifyWebhookSignature } from '@webzaytsev/yookassa-ts-sdk'
+ *
+ * const app = express()
+ *
+ * // Middleware для сохранения raw body
+ * app.use('/webhook', express.raw({ type: 'application/json' }))
+ *
+ * app.post('/webhook', (req, res) => {
+ *     const signature = req.headers['x-yookassa-signature'] as string
+ *
+ *     verifyWebhookSignature({
+ *         secretKey: process.env.YOOKASSA_SECRET_KEY!,
+ *         body: req.body, // Buffer
+ *         signature,
+ *     })
+ *
+ *     // ...
+ * })
+ * ```
+ *
+ * @see https://yookassa.ru/developers/using-api/webhooks#security
+ */
+export function verifyWebhookSignature(
+    options: WebhookSignatureValidationOptions,
+): boolean {
+    const { secretKey, body, signature, headerName = 'X-YooKassa-Signature' } = options
+
+    if (!secretKey || typeof secretKey !== 'string') {
+        throw new WebhookValidationError(
+            'Secret key is required and must be a string',
+            'MISSING_SECRET_KEY',
+        )
+    }
+
+    if (!signature || typeof signature !== 'string') {
+        throw new WebhookValidationError(
+            `Signature header '${headerName}' is missing or invalid`,
+            'MISSING_SIGNATURE',
+        )
+    }
+
+    if (!body) {
+        throw new WebhookValidationError('Request body is required', 'MISSING_BODY')
+    }
+
+    try {
+        // Преобразуем body в строку, если это Buffer
+        const bodyString = Buffer.isBuffer(body) ? body.toString('utf8') : String(body)
+
+        // Вычисляем HMAC SHA-256 подпись
+        // YooKassa использует HMAC SHA-256 от raw body с secret key
+        // Результат в формате hex (64 символа)
+        const computedSignature = computeHMAC(secretKey, bodyString)
+
+        // Сравниваем подписи с защитой от timing attacks
+        // YooKassa передает подпись в hex формате (lowercase)
+        if (!constantTimeEqual(computedSignature.toLowerCase(), signature.toLowerCase())) {
+            throw new WebhookValidationError(
+                'Invalid webhook signature. The signature does not match the computed HMAC SHA-256 hash of the request body.',
+                'INVALID_SIGNATURE',
+            )
+        }
+
+        return true
+    } catch (error) {
+        if (error instanceof WebhookValidationError) {
+            throw error
+        }
+        throw new WebhookValidationError(
+            `Failed to verify signature: ${error instanceof Error ? error.message : 'Unknown error'}`,
+            'VERIFICATION_ERROR',
+        )
+    }
+}
+
+/**
+ * Вычисляет HMAC SHA-256 подпись для вебхука
+ *
+ * @internal
+ */
+function computeHMAC(secret: string, data: string): string {
+    // Используем встроенный crypto модуль Node.js/Bun
+    let crypto: typeof import('crypto')
+    
+    try {
+        // Пробуем загрузить crypto модуль
+        crypto = require('crypto')
+    } catch (e) {
+        // Если require недоступен, пробуем import
+        if (typeof process !== 'undefined' && process.versions?.node) {
+            // В Node.js crypto всегда доступен
+            throw new WebhookValidationError(
+                'Node.js crypto module is required for webhook signature verification',
+                'CRYPTO_UNAVAILABLE',
+            )
+        }
+        throw new WebhookValidationError(
+            'HMAC computation requires Node.js or Bun runtime with crypto support',
+            'CRYPTO_UNAVAILABLE',
+        )
+    }
+
+    try {
+        const hmac = crypto.createHmac('sha256', secret)
+        hmac.update(data, 'utf8')
+        // YooKassa использует HMAC SHA-256 в hex формате (64 символа)
+        return hmac.digest('hex')
+    } catch (error) {
+        throw new WebhookValidationError(
+            `Failed to compute HMAC: ${error instanceof Error ? error.message : 'Unknown error'}`,
+            'HMAC_COMPUTATION_ERROR',
+        )
+    }
+}
+
+/**
+ * Сравнивает две строки с защитой от timing attacks
+ *
+ * @internal
+ */
+function constantTimeEqual(a: string, b: string): boolean {
+    if (a.length !== b.length) {
+        return false
+    }
+
+    let result = 0
+    for (let i = 0; i < a.length; i++) {
+        result |= a.charCodeAt(i) ^ b.charCodeAt(i)
+    }
+
+    return result === 0
 }
