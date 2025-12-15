@@ -146,7 +146,7 @@ export namespace Payments {
          *
          * Пример: `2017-11-03T11:52:31.827Z`
          */
-        expires_at?: string
+        readonly expires_at?: string
         /**
          * Выбранный способ подтверждения платежа. Присутствует, когда платеж ожидает подтверждения от пользователя.
          * [Подробнее](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#user-confirmation) о сценариях подтверждения.
