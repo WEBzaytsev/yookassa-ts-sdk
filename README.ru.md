@@ -56,7 +56,7 @@ console.log(payment.confirmation.confirmation_url);
 | [Чеки](docs/ru/receipts.md) | Создание и список чеков (54-ФЗ) |
 | [Вебхуки](docs/ru/webhooks.md) | Управление вебхуками и входящие уведомления |
 | [Обработка ошибок](docs/ru/error-handling.md) | Коды ошибок, повторы |
-| [Типы](docs/ru/types.md) | TypeScript типы, enums, справочники |
+| [API Reference](docs/api/) | TypeScript типы, интерфейсы, enums |
 
 ## Справочник API
 

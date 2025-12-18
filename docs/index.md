@@ -33,10 +33,9 @@ const payment = await sdk.payments.create({
 - [Receipts](en/receipts.md) - Fiscalization (54-FZ compliance)
 - [Webhooks](en/webhooks.md) - Webhook management and validation
 - [Error Handling](en/error-handling.md) - Error codes and retry logic
-- [Types](en/types.md) - TypeScript types and enums
 
 ### API Reference
-- [Full API Documentation](api/) - Auto-generated from source code
+- [Full API Documentation](api/) - TypeScript types, interfaces, enums
 
 ### Examples
 - [Examples Directory](../examples/) - Working code examples

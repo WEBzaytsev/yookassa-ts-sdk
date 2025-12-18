@@ -56,7 +56,7 @@ console.log(payment.confirmation.confirmation_url);
 | [Receipts](docs/en/receipts.md) | Create and list receipts (54-FZ) |
 | [Webhooks](docs/en/webhooks.md) | Webhook management & incoming notifications |
 | [Error Handling](docs/en/error-handling.md) | Error codes, retries |
-| [Types](docs/en/types.md) | TypeScript types, enums, dictionaries |
+| [API Reference](docs/api/) | TypeScript types, interfaces, enums |
 
 ## API Reference
 
