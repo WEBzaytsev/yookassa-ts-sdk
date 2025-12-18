@@ -6,7 +6,7 @@
 
 # Interface: Item
 
-Defined in: [src/types/receipt/item.type.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L134)
+Defined in: [src/types/receipt/item.type.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L134)
 
 Список товаров в заказе. Для чеков по 54-ФЗ можно передать не более 100 товаров, для чеков самозанятых — не более шести.
 
@@ -16,7 +16,7 @@ Defined in: [src/types/receipt/item.type.ts:134](https://github.com/WEBzaytsev/y
 
 > `optional` **agent\_type**: `"banking_payment_agent"` \| `"banking_payment_subagent"` \| `"payment_agent"` \| `"payment_subagent"` \| `"attorney"` \| `"commissioner"` \| `"agent"`
 
-Defined in: [src/types/receipt/item.type.ts:233](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L233)
+Defined in: [src/types/receipt/item.type.ts:233](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L233)
 
 Тип посредника, реализующего товар или услугу.
 Параметр предусмотрен форматом фискальных документов (ФФД) и является обязательным, начиная с версии 1.1.
@@ -30,7 +30,7 @@ Defined in: [src/types/receipt/item.type.ts:233](https://github.com/WEBzaytsev/y
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/receipt/item.type.ts:138](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L138)
+Defined in: [src/types/receipt/item.type.ts:138](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L138)
 
 Цена товара (тег в 54 ФЗ — 1079).
 
@@ -40,7 +40,7 @@ Defined in: [src/types/receipt/item.type.ts:138](https://github.com/WEBzaytsev/y
 
 > `optional` **country\_of\_origin\_code**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:211](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L211)
+Defined in: [src/types/receipt/item.type.ts:211](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L211)
 
 Код страны происхождения товара по общероссийскому классификатору стран мира ([OК (MК (ИСО 3166) 004-97) 025-2001](http://docs.cntd.ru/document/842501280)).
 
@@ -56,7 +56,7 @@ Defined in: [src/types/receipt/item.type.ts:211](https://github.com/WEBzaytsev/y
 
 > `optional` **customs\_declaration\_number**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:218](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L218)
+Defined in: [src/types/receipt/item.type.ts:218](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L218)
 
 Номер таможенной декларации (от 1 до 32 символов).
 
@@ -70,7 +70,7 @@ Defined in: [src/types/receipt/item.type.ts:218](https://github.com/WEBzaytsev/y
 
 > **description**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:136](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L136)
+Defined in: [src/types/receipt/item.type.ts:136](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L136)
 
 Название товара (от 1 до 128 символов). Тег в 54 ФЗ — 1030.
 
@@ -80,7 +80,7 @@ Defined in: [src/types/receipt/item.type.ts:136](https://github.com/WEBzaytsev/y
 
 > `optional` **excise**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:223](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L223)
+Defined in: [src/types/receipt/item.type.ts:223](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L223)
 
 Сумма акциза товара с учетом копеек (тег в 54 ФЗ — 1229). Десятичное число с точностью до 2 знаков после точки.
 
@@ -92,7 +92,7 @@ Defined in: [src/types/receipt/item.type.ts:223](https://github.com/WEBzaytsev/y
 
 > `optional` **mark\_code\_info**: `MarkCodeInfo`
 
-Defined in: [src/types/receipt/item.type.ts:253](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L253)
+Defined in: [src/types/receipt/item.type.ts:253](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L253)
 
 **Код товара (тег в 54 ФЗ — 1163).**-
 
@@ -108,7 +108,7 @@ _Должно быть заполнено хотя бы одно поле._
 
 > `optional` **mark\_mode**: `"0"`
 
-Defined in: [src/types/receipt/item.type.ts:262](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L262)
+Defined in: [src/types/receipt/item.type.ts:262](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L262)
 
 **Режим обработки кода маркировки (тег в 54 ФЗ — 2102).***
 
@@ -124,7 +124,7 @@ _Должен принимать значение равное «0»_.
 
 > `optional` **mark\_quantity**: `MarkQuantity`
 
-Defined in: [src/types/receipt/item.type.ts:180](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L180)
+Defined in: [src/types/receipt/item.type.ts:180](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L180)
 
 Дробное количество маркированного товара (тег в 54 ФЗ — 1291).
 
@@ -141,7 +141,7 @@ Defined in: [src/types/receipt/item.type.ts:180](https://github.com/WEBzaytsev/y
 
 > `optional` **measure**: `"piece"` \| `"gram"` \| `"kilogram"` \| `"ton"` \| `"centimeter"` \| `"decimeter"` \| `"meter"` \| `"square_centimeter"` \| `"square_decimeter"` \| `"square_meter"` \| `"milliliter"` \| `"liter"` \| `"cubic_meter"` \| `"kilowatt_hour"` \| `"gigacalorie"` \| `"day"` \| `"hour"` \| `"minute"` \| `"second"` \| `"kilobyte"` \| `"megabyte"` \| `"gigabyte"` \| `"terabyte"` \| `"another"`
 
-Defined in: [src/types/receipt/item.type.ts:169](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L169)
+Defined in: [src/types/receipt/item.type.ts:169](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L169)
 
 **Мера количества предмета расчета (тег в 54 ФЗ — 2108)*** — единица измерения товара, например штуки, граммы.
 
@@ -160,7 +160,7 @@ Defined in: [src/types/receipt/item.type.ts:169](https://github.com/WEBzaytsev/y
 
 > `optional` **payment\_mode**: [`PaymentMode`](../type-aliases/PaymentMode.md)
 
-Defined in: [src/types/receipt/item.type.ts:202](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L202)
+Defined in: [src/types/receipt/item.type.ts:202](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L202)
 
 **Признак способа расчета (тег в 54 ФЗ — 1214)*** — отражает тип оплаты и факт передачи товара.
 
@@ -179,7 +179,7 @@ Defined in: [src/types/receipt/item.type.ts:202](https://github.com/WEBzaytsev/y
 
 > `optional` **payment\_subject**: `"another"` \| `"ling_bet"` \| `"gambling_prize"` \| `"lottery"` \| `"lottery_prize"` \| `"intellectual_activity"` \| `"agent_commission"` \| `"property_right"` \| `"non_operating_gain"` \| `"insurance_premium"` \| `"sales_tax"` \| `"resort_fee"` \| `"marked"` \| `"non_marked"` \| `"fine"` \| `"tax"` \| `"lien"` \| `"cost"` \| `"agent_withdrawals"` \| `"pension_insurance_without_payouts"` \| `"pension_insurance_with_payouts"` \| `"health_insurance_without_payouts"` \| `"health_insurance_with_payouts"` \| `"health_insurance"`
 
-Defined in: [src/types/receipt/item.type.ts:190](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L190)
+Defined in: [src/types/receipt/item.type.ts:190](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L190)
 
 **Признак предмета расчета (тег в 54 ФЗ — 1212)*** — это то, за что принимается оплата, например товар, услуга.
 
@@ -196,7 +196,7 @@ Defined in: [src/types/receipt/item.type.ts:190](https://github.com/WEBzaytsev/y
 
 > `optional` **payment\_subject\_industry\_details**: [`PaymentSubjectIndustryDetails`](PaymentSubjectIndustryDetails.md)[]
 
-Defined in: [src/types/receipt/item.type.ts:266](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L266)
+Defined in: [src/types/receipt/item.type.ts:266](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L266)
 
 Отраслевой реквизит предмета расчета (тег в 54 ФЗ — 1260). Можно передавать, если используете Чеки от ЮKassa или онлайн-кассу, обновленную до ФФД 1.2.
 
@@ -206,7 +206,7 @@ Defined in: [src/types/receipt/item.type.ts:266](https://github.com/WEBzaytsev/y
 
 > `optional` **product\_code**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:244](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L244)
+Defined in: [src/types/receipt/item.type.ts:244](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L244)
 
 **Код товара (тег в 54 ФЗ — 1162)*** — уникальный номер, который присваивается экземпляру товара при маркировке.
 
@@ -224,7 +224,7 @@ Defined in: [src/types/receipt/item.type.ts:244](https://github.com/WEBzaytsev/y
 
 > **quantity**: `number`
 
-Defined in: [src/types/receipt/item.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L157)
+Defined in: [src/types/receipt/item.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L157)
 
 **Количество товара (тег в 54 ФЗ — 1023).***
 
@@ -240,7 +240,7 @@ Defined in: [src/types/receipt/item.type.ts:157](https://github.com/WEBzaytsev/y
 
 > `optional` **supplier**: [`Supplier`](../type-aliases/Supplier.md)
 
-Defined in: [src/types/receipt/item.type.ts:225](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L225)
+Defined in: [src/types/receipt/item.type.ts:225](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L225)
 
 Информация о поставщике товара или услуги (тег в 54 ФЗ — 1224). Можно передавать, если вы отправляете данные для формирования чека по сценарию "Сначала платеж, потом чек".
 
@@ -250,7 +250,7 @@ Defined in: [src/types/receipt/item.type.ts:225](https://github.com/WEBzaytsev/y
 
 > **vat\_code**: `number`
 
-Defined in: [src/types/receipt/item.type.ts:149](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/item.type.ts#L149)
+Defined in: [src/types/receipt/item.type.ts:149](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L149)
 
 **Ставка НДС (тег в 54 ФЗ — 1199).***
 

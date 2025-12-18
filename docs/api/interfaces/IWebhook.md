@@ -6,7 +6,7 @@
 
 # Interface: IWebhook
 
-Defined in: [src/types/webhook.type.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/webhook.type.ts#L22)
+Defined in: [src/types/webhook.type.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/webhook.type.ts#L22)
 
 Вебхук для получения уведомлений о событиях
 
@@ -16,7 +16,7 @@ Defined in: [src/types/webhook.type.ts:22](https://github.com/WEBzaytsev/yookass
 
 > **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"`
 
-Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/webhook.type.ts#L26)
+Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/webhook.type.ts#L26)
 
 Событие, о котором уведомляет вебхук
 
@@ -26,7 +26,7 @@ Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookass
 
 > **id**: `string`
 
-Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/webhook.type.ts#L24)
+Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/webhook.type.ts#L24)
 
 Идентификатор вебхука
 
@@ -36,6 +36,6 @@ Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookass
 
 > **url**: `string`
 
-Defined in: [src/types/webhook.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/webhook.type.ts#L28)
+Defined in: [src/types/webhook.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/webhook.type.ts#L28)
 
 URL для уведомлений

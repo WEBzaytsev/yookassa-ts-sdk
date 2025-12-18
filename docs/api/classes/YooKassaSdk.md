@@ -6,7 +6,40 @@
 
 # Class: YooKassaSdk
 
-Defined in: [src/client/sdk.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L16)
+Defined in: [src/client/sdk.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L48)
+
+YooKassa SDK client for payment processing.
+
+## Features
+
+- **Automatic retries** with exponential backoff on network errors and 5xx responses
+- **Built-in rate limiting** via `maxRPS` configuration
+- **Idempotency** — auto-generated or custom keys for safe retries
+- **Instance caching** by `shop_id` for connection reuse
+
+## Usage
+
+```typescript
+import { YooKassa } from '@webzaytsev/yookassa-ts-sdk';
+
+const sdk = YooKassa({
+    shop_id: 'your_shop_id',
+    secret_key: 'your_secret_key',
+});
+
+// Create payment with auto-generated idempotency key
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' },
+});
+
+// Create payment with custom idempotency key (recommended for retries)
+const payment = await sdk.payments.create(paymentData, `order-${orderId}`);
+```
+
+## See
+
+https://yookassa.ru/developers/api
 
 ## Extends
 
@@ -18,7 +51,7 @@ Defined in: [src/client/sdk.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk
 
 > **new YooKassaSdk**(`init`): `YooKassaSdk`
 
-Defined in: [src/client/connector.ts:139](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L139)
+Defined in: [src/client/connector.ts:232](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L232)
 
 #### Parameters
 
@@ -40,7 +73,7 @@ Defined in: [src/client/connector.ts:139](https://github.com/WEBzaytsev/yookassa
 
 > `readonly` **payments**: `object`
 
-Defined in: [src/client/sdk.ts:213](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L213)
+Defined in: [src/client/sdk.ts:245](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L245)
 
 Методы для работы с платежами
 
@@ -120,11 +153,15 @@ Defined in: [src/client/sdk.ts:213](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 > **create**: (`payment`, `idempotenceKey?`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
-[****Создание платежа****](https://yookassa.ru/developers/api#create_payment)
+Creates a new payment.
 
-Чтобы принять оплату, необходимо создать объект платежа — `Payment`.
-Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус).
-У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
+## Idempotency
+
+The `idempotenceKey` parameter ensures safe retries in distributed systems.
+If not provided, SDK generates a UUID automatically.
+
+**Recommended**: Use order ID or business identifier as idempotency key
+to prevent duplicate payments on retries.
 
 ##### Parameters
 
@@ -132,17 +169,45 @@ Defined in: [src/client/sdk.ts:213](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 [`CreatePaymentRequest`](../YooKassa-SDK-API-Reference/namespaces/Payments/type-aliases/CreatePaymentRequest.md)
 
-данные платежа
+Payment data (amount, confirmation, etc.)
 
 ###### idempotenceKey?
 
 `string`
 
-ключ идемпотентности (опционально, генерируется автоматически)
+Unique key for request deduplication. Use order ID for safe retries.
 
 ##### Returns
 
 `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
+
+##### Example
+
+```typescript
+// Auto-generated idempotency key (for single attempts)
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' },
+});
+
+// Custom idempotency key (recommended for retries)
+const payment = await sdk.payments.create(paymentData, `order-${orderId}`);
+
+// Safe retry pattern for distributed systems
+async function createPaymentWithRetry(orderId: string, data: CreatePaymentRequest) {
+    const key = `payment-${orderId}`;
+    try {
+        return await sdk.payments.create(data, key);
+    } catch (error) {
+        // Same key = same result, no duplicate charge
+        return await sdk.payments.create(data, key);
+    }
+}
+```
+
+##### See
+
+https://yookassa.ru/developers/api#create_payment
 
 #### list()
 
@@ -246,7 +311,7 @@ This is the response structure for the list of payments.
 
 > `readonly` **receipts**: `object`
 
-Defined in: [src/client/sdk.ts:371](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L371)
+Defined in: [src/client/sdk.ts:432](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L432)
 
 ****Методы для работы с чеками****
 
@@ -337,7 +402,7 @@ https://yookassa.ru/developers/api#receipt
 
 > `readonly` **refunds**: `object`
 
-Defined in: [src/client/sdk.ts:332](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L332)
+Defined in: [src/client/sdk.ts:393](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L393)
 
 Методы для работы с возвратами
 
@@ -425,7 +490,7 @@ https://yookassa.ru/developers/api#get_refund
 
 > `readonly` **shop**: `object`
 
-Defined in: [src/client/sdk.ts:450](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L450)
+Defined in: [src/client/sdk.ts:511](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L511)
 
 ****Информация о магазине****
 
@@ -458,7 +523,7 @@ https://yookassa.ru/developers/api#get_me
 
 > `readonly` **webhooks**: `object`
 
-Defined in: [src/client/sdk.ts:413](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L413)
+Defined in: [src/client/sdk.ts:474](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L474)
 
 ****Методы для работы с вебхуками****
 

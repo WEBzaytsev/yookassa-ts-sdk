@@ -8,7 +8,7 @@
 
 > **ReceiptinPaymentType** = `Partial`\<`Pick`\<[`CreateReceiptType`](CreateReceiptType.md), `"customer"` \| `"tax_system_code"` \| `"receipt_industry_details"` \| `"receipt_operational_details"`\>\> & `Required`\<`Pick`\<[`CreateReceiptType`](CreateReceiptType.md), `"items"`\>\>
 
-Defined in: [src/types/receipt/receipt.type.ts:146](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/receipt/receipt.type.ts#L146)
+Defined in: [src/types/receipt/receipt.type.ts:146](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/receipt.type.ts#L146)
 
 ***Данные для формирования чека,*** которые передаются при создании платежа.
 

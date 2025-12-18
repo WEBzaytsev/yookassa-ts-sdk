@@ -8,7 +8,7 @@
 
 > **YooKassaErrResponse** = `object`
 
-Defined in: [src/types/api.types.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/api.types.ts#L85)
+Defined in: [src/types/api.types.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L85)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/types/api.types.ts:85](https://github.com/WEBzaytsev/yookassa-t
 
 > **code**: `string`
 
-Defined in: [src/types/api.types.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/api.types.ts#L88)
+Defined in: [src/types/api.types.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L88)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/types/api.types.ts:88](https://github.com/WEBzaytsev/yookassa-t
 
 > **description**: `string`
 
-Defined in: [src/types/api.types.ts:89](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/api.types.ts#L89)
+Defined in: [src/types/api.types.ts:89](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L89)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/types/api.types.ts:89](https://github.com/WEBzaytsev/yookassa-t
 
 > **id**: `string`
 
-Defined in: [src/types/api.types.ts:87](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/api.types.ts#L87)
+Defined in: [src/types/api.types.ts:87](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L87)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [src/types/api.types.ts:87](https://github.com/WEBzaytsev/yookassa-t
 
 > **type**: `"error"`
 
-Defined in: [src/types/api.types.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/types/api.types.ts#L86)
+Defined in: [src/types/api.types.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L86)

@@ -8,11 +8,38 @@
 
 > **YooKassa**(`init`, `forceNew`): [`YooKassaSdk`](../classes/YooKassaSdk.md)
 
-Defined in: [src/client/sdk.ts:486](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/sdk.ts#L486)
+Defined in: [src/client/sdk.ts:561](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/sdk.ts#L561)
 
-Создаёт или возвращает кэшированный экземпляр YooKassaSdk.
-Инстансы кэшируются по `shop_id` — это позволяет переиспользовать соединения
-и работать с несколькими магазинами одновременно.
+Creates or returns a cached YooKassaSdk instance.
+
+Instances are cached by `shop_id`, enabling connection reuse
+and multi-store support in a single application.
+
+## Instance Caching
+
+```typescript
+// Same shop_id = same instance (cached)
+const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key' });
+const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key' });
+console.log(sdk1 === sdk2); // true
+
+// Different shops = different instances
+const shopA = YooKassa({ shop_id: 'A', secret_key: 'keyA' });
+const shopB = YooKassa({ shop_id: 'B', secret_key: 'keyB' });
+```
+
+## Distributed Systems Configuration
+
+```typescript
+// For multiple server instances sharing API rate limits
+const sdk = YooKassa({
+    shop_id: process.env.YOOKASSA_SHOP_ID,
+    secret_key: process.env.YOOKASSA_SECRET_KEY,
+    maxRPS: 2,       // Low per-instance limit
+    retries: 5,      // More retries for resilience
+    timeout: 15000,  // Longer timeout
+});
+```
 
 ## Parameters
 
@@ -20,30 +47,16 @@ Defined in: [src/client/sdk.ts:486](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 [`ConnectorOpts`](../type-aliases/ConnectorOpts.md)
 
-Параметры инициализации SDK
+SDK configuration options
 
 ### forceNew
 
 `boolean` = `false`
 
-Принудительно создать новый инстанс (игнорировать кэш)
+Force create new instance (ignore cache)
 
 ## Returns
 
 [`YooKassaSdk`](../classes/YooKassaSdk.md)
 
-Экземпляр YooKassaSdk
-
-## Example
-
-```ts
-// Создаёт новый или возвращает кэшированный инстанс
-const sdk = YooKassa({
-  shop_id: 'your_shop_id',
-  secret_key: 'your_secret_key',
-  debug: true,
-})
-
-// Принудительно создать новый инстанс
-const newSdk = YooKassa({ ... }, true)
-```
+YooKassaSdk instance

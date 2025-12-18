@@ -13,9 +13,41 @@ import type { CreateWebhookRequest, IWebhook, WebhookList } from '../types/webho
 import type { ConnectorOpts } from './connector'
 import { Connector } from './connector'
 
+/**
+ * YooKassa SDK client for payment processing.
+ *
+ * ## Features
+ *
+ * - **Automatic retries** with exponential backoff on network errors and 5xx responses
+ * - **Built-in rate limiting** via `maxRPS` configuration
+ * - **Idempotency** — auto-generated or custom keys for safe retries
+ * - **Instance caching** by `shop_id` for connection reuse
+ *
+ * ## Usage
+ *
+ * ```typescript
+ * import { YooKassa } from '@webzaytsev/yookassa-ts-sdk';
+ *
+ * const sdk = YooKassa({
+ *     shop_id: 'your_shop_id',
+ *     secret_key: 'your_secret_key',
+ * });
+ *
+ * // Create payment with auto-generated idempotency key
+ * const payment = await sdk.payments.create({
+ *     amount: { value: '100.00', currency: 'RUB' },
+ *     confirmation: { type: 'redirect', return_url: 'https://example.com' },
+ * });
+ *
+ * // Create payment with custom idempotency key (recommended for retries)
+ * const payment = await sdk.payments.create(paymentData, `order-${orderId}`);
+ * ```
+ *
+ * @see https://yookassa.ru/developers/api
+ */
 export class YooKassaSdk extends Connector {
     /**
-     * Generic метод для получения списка с автоматической пагинацией
+     * Generic method for fetching lists with automatic pagination
      */
     private async fetchList<T, F extends { cursor?: string }>(
         endpoint: string,
@@ -212,14 +244,43 @@ export class YooKassaSdk extends Connector {
     /** Методы для работы с платежами */
     public readonly payments = {
         /**
-         * [****Создание платежа****](https://yookassa.ru/developers/api#create_payment)
+         * Creates a new payment.
          *
-         * Чтобы принять оплату, необходимо создать объект платежа — `Payment`.
-         * Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус).
-         * У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
+         * ## Idempotency
          *
-         * @param payment - данные платежа
-         * @param idempotenceKey - ключ идемпотентности (опционально, генерируется автоматически)
+         * The `idempotenceKey` parameter ensures safe retries in distributed systems.
+         * If not provided, SDK generates a UUID automatically.
+         *
+         * **Recommended**: Use order ID or business identifier as idempotency key
+         * to prevent duplicate payments on retries.
+         *
+         * @param payment - Payment data (amount, confirmation, etc.)
+         * @param idempotenceKey - Unique key for request deduplication. Use order ID for safe retries.
+         *
+         * @example
+         * ```typescript
+         * // Auto-generated idempotency key (for single attempts)
+         * const payment = await sdk.payments.create({
+         *     amount: { value: '100.00', currency: 'RUB' },
+         *     confirmation: { type: 'redirect', return_url: 'https://example.com' },
+         * });
+         *
+         * // Custom idempotency key (recommended for retries)
+         * const payment = await sdk.payments.create(paymentData, `order-${orderId}`);
+         *
+         * // Safe retry pattern for distributed systems
+         * async function createPaymentWithRetry(orderId: string, data: CreatePaymentRequest) {
+         *     const key = `payment-${orderId}`;
+         *     try {
+         *         return await sdk.payments.create(data, key);
+         *     } catch (error) {
+         *         // Same key = same result, no duplicate charge
+         *         return await sdk.payments.create(data, key);
+         *     }
+         * }
+         * ```
+         *
+         * @see https://yookassa.ru/developers/api#create_payment
          */
         create: this.createPayment as (
             payment: Payments.CreatePaymentRequest,
@@ -462,26 +523,40 @@ export class YooKassaSdk extends Connector {
 const clientCache = new Map<string, YooKassaSdk>()
 
 /**
- * Создаёт или возвращает кэшированный экземпляр YooKassaSdk.
- * Инстансы кэшируются по `shop_id` — это позволяет переиспользовать соединения
- * и работать с несколькими магазинами одновременно.
+ * Creates or returns a cached YooKassaSdk instance.
  *
- * @param init - Параметры инициализации SDK
- * @param forceNew - Принудительно создать новый инстанс (игнорировать кэш)
- * @returns Экземпляр YooKassaSdk
+ * Instances are cached by `shop_id`, enabling connection reuse
+ * and multi-store support in a single application.
  *
- * @example
- * ```ts
- * // Создаёт новый или возвращает кэшированный инстанс
- * const sdk = YooKassa({
- *   shop_id: 'your_shop_id',
- *   secret_key: 'your_secret_key',
- *   debug: true,
- * })
+ * ## Instance Caching
  *
- * // Принудительно создать новый инстанс
- * const newSdk = YooKassa({ ... }, true)
+ * ```typescript
+ * // Same shop_id = same instance (cached)
+ * const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key' });
+ * const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key' });
+ * console.log(sdk1 === sdk2); // true
+ *
+ * // Different shops = different instances
+ * const shopA = YooKassa({ shop_id: 'A', secret_key: 'keyA' });
+ * const shopB = YooKassa({ shop_id: 'B', secret_key: 'keyB' });
  * ```
+ *
+ * ## Distributed Systems Configuration
+ *
+ * ```typescript
+ * // For multiple server instances sharing API rate limits
+ * const sdk = YooKassa({
+ *     shop_id: process.env.YOOKASSA_SHOP_ID,
+ *     secret_key: process.env.YOOKASSA_SECRET_KEY,
+ *     maxRPS: 2,       // Low per-instance limit
+ *     retries: 5,      // More retries for resilience
+ *     timeout: 15000,  // Longer timeout
+ * });
+ * ```
+ *
+ * @param init - SDK configuration options
+ * @param forceNew - Force create new instance (ignore cache)
+ * @returns YooKassaSdk instance
  */
 export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
     const cacheKey = init.shop_id

@@ -8,9 +8,43 @@
 
 > **ConnectorOpts** = `object`
 
-Defined in: [src/client/connector.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L52)
+Defined in: [src/client/connector.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L85)
 
-Данные для подключения к API YooKassa
+Configuration options for YooKassa SDK.
+
+## Rate Limiting
+
+SDK includes built-in rate limiting via `maxRPS` parameter. All requests are automatically
+throttled to prevent API rate limit errors. In distributed systems with multiple instances,
+set `maxRPS` lower (e.g., 2-3) per instance to share the rate limit across nodes.
+
+## Concurrent Requests
+
+SDK handles concurrent requests safely:
+- Rate limiter queues requests exceeding `maxRPS`
+- Each request gets unique idempotency key (auto-generated or provided)
+- Instance caching by `shop_id` ensures connection reuse
+
+## Example
+
+```typescript
+// High-load configuration for single instance
+const sdk = YooKassa({
+    shop_id: 'your_shop_id',
+    secret_key: 'your_secret_key',
+    maxRPS: 10,      // Higher limit for single instance
+    retries: 3,      // Fewer retries for faster failure
+    timeout: 10000,  // Longer timeout for stability
+});
+
+// Distributed system configuration (per instance)
+const sdk = YooKassa({
+    shop_id: 'your_shop_id',
+    secret_key: 'your_secret_key',
+    maxRPS: 2,       // Low limit per instance (5 instances = 10 total RPS)
+    retries: 5,      // More retries for resilience
+});
+```
 
 ## Properties
 
@@ -18,9 +52,9 @@ Defined in: [src/client/connector.ts:52](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **debug**: `boolean`
 
-Defined in: [src/client/connector.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L73)
+Defined in: [src/client/connector.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L108)
 
-Отладочный режим
+Debug mode — logs all requests and responses
 
 ***
 
@@ -28,9 +62,9 @@ Defined in: [src/client/connector.ts:73](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **endpoint**: `string`
 
-Defined in: [src/client/connector.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L71)
+Defined in: [src/client/connector.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L104)
 
-Эндпоинт API (без слэша в конце)
+API endpoint URL (without trailing slash)
 
 #### Default
 
@@ -44,14 +78,27 @@ Defined in: [src/client/connector.ts:71](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **maxRPS**: `number`
 
-Defined in: [src/client/connector.ts:78](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L78)
+Defined in: [src/client/connector.ts:123](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L123)
 
-Количество запросов в секунду
+Maximum requests per second (rate limiting).
+
+SDK automatically queues requests exceeding this limit.
+For distributed systems, divide your total RPS limit by number of instances.
 
 #### Default
 
 ```ts
 5
+```
+
+#### Example
+
+```ts
+// Single instance: use full rate limit
+maxRPS: 10
+
+// 5 distributed instances sharing limit
+maxRPS: 2  // 2 * 5 = 10 total RPS
 ```
 
 ***
@@ -60,11 +107,9 @@ Defined in: [src/client/connector.ts:78](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **proxy**: [`ProxyConfig`](ProxyConfig.md)
 
-Defined in: [src/client/connector.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L94)
+Defined in: [src/client/connector.ts:141](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L141)
 
-Конфигурация прокси-сервера
-Можно указать как строку URL (например, "http://user:pass@proxy.example.com:8080")
-или объект AxiosProxyConfig
+Proxy server URL (e.g., "http://user:pass@proxy.example.com:8080")
 
 ***
 
@@ -72,9 +117,12 @@ Defined in: [src/client/connector.ts:94](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **retries**: `number`
 
-Defined in: [src/client/connector.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L88)
+Defined in: [src/client/connector.ts:137](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L137)
 
-Количество повторных попыток при ошибках
+Number of retry attempts on retryable errors (5xx, 429, network errors).
+
+Uses exponential backoff: 1s, 2s, 4s, 8s, 16s...
+Idempotency key is preserved across retries, ensuring no duplicate payments.
 
 #### Default
 
@@ -88,9 +136,9 @@ Defined in: [src/client/connector.ts:88](https://github.com/WEBzaytsev/yookassa-
 
 > **secret\_key**: `string`
 
-Defined in: [src/client/connector.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L60)
+Defined in: [src/client/connector.ts:93](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L93)
 
-Секретный ключ
+Secret key from YooKassa dashboard
 
 ***
 
@@ -98,9 +146,9 @@ Defined in: [src/client/connector.ts:60](https://github.com/WEBzaytsev/yookassa-
 
 > **shop\_id**: `string`
 
-Defined in: [src/client/connector.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L56)
+Defined in: [src/client/connector.ts:89](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L89)
 
-Идентификатор магазина
+Shop identifier from YooKassa dashboard
 
 ***
 
@@ -108,9 +156,9 @@ Defined in: [src/client/connector.ts:56](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **timeout**: `number`
 
-Defined in: [src/client/connector.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L83)
+Defined in: [src/client/connector.ts:128](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L128)
 
-Таймаут запроса в миллисекундах
+Request timeout in milliseconds
 
 #### Default
 
@@ -124,10 +172,10 @@ Defined in: [src/client/connector.ts:83](https://github.com/WEBzaytsev/yookassa-
 
 > `optional` **token**: `string`
 
-Defined in: [src/client/connector.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/64d1beecb76b74b8e39fad849b3fbaaf632ab576/src/client/connector.ts#L66)
+Defined in: [src/client/connector.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/client/connector.ts#L99)
 
-OAuth-токен для партнёрского API.
-Необходим для работы с вебхуками и получения информации о магазине.
+OAuth token for partner API (webhooks, shop info).
+Required for `sdk.webhooks.*` and `sdk.shop.*` methods.
 
 #### See
 

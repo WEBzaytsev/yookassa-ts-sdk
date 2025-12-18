@@ -47,49 +47,96 @@ function delay(ms: number): Promise<void> {
 }
 
 /**
- * Данные для подключения к API YooKassa
+ * Configuration options for YooKassa SDK.
+ *
+ * ## Rate Limiting
+ *
+ * SDK includes built-in rate limiting via `maxRPS` parameter. All requests are automatically
+ * throttled to prevent API rate limit errors. In distributed systems with multiple instances,
+ * set `maxRPS` lower (e.g., 2-3) per instance to share the rate limit across nodes.
+ *
+ * ## Concurrent Requests
+ *
+ * SDK handles concurrent requests safely:
+ * - Rate limiter queues requests exceeding `maxRPS`
+ * - Each request gets unique idempotency key (auto-generated or provided)
+ * - Instance caching by `shop_id` ensures connection reuse
+ *
+ * @example
+ * ```typescript
+ * // High-load configuration for single instance
+ * const sdk = YooKassa({
+ *     shop_id: 'your_shop_id',
+ *     secret_key: 'your_secret_key',
+ *     maxRPS: 10,      // Higher limit for single instance
+ *     retries: 3,      // Fewer retries for faster failure
+ *     timeout: 10000,  // Longer timeout for stability
+ * });
+ *
+ * // Distributed system configuration (per instance)
+ * const sdk = YooKassa({
+ *     shop_id: 'your_shop_id',
+ *     secret_key: 'your_secret_key',
+ *     maxRPS: 2,       // Low limit per instance (5 instances = 10 total RPS)
+ *     retries: 5,      // More retries for resilience
+ * });
+ * ```
  */
 export type ConnectorOpts = {
     /**
-     * Идентификатор магазина
+     * Shop identifier from YooKassa dashboard
      */
     shop_id: string
     /**
-     * Секретный ключ
+     * Secret key from YooKassa dashboard
      */
     secret_key: string
     /**
-     * OAuth-токен для партнёрского API.
-     * Необходим для работы с вебхуками и получения информации о магазине.
+     * OAuth token for partner API (webhooks, shop info).
+     * Required for `sdk.webhooks.*` and `sdk.shop.*` methods.
      * @see https://yookassa.ru/developers/partners-api/basics
      */
     token?: string
     /**
-     * Эндпоинт API (без слэша в конце)
+     * API endpoint URL (without trailing slash)
      * @default "https://api.yookassa.ru/v3"
      */
     endpoint?: string
-    /** Отладочный режим */
+    /**
+     * Debug mode — logs all requests and responses
+     */
     debug?: boolean
     /**
-     * Количество запросов в секунду
+     * Maximum requests per second (rate limiting).
+     *
+     * SDK automatically queues requests exceeding this limit.
+     * For distributed systems, divide your total RPS limit by number of instances.
+     *
      * @default 5
+     * @example
+     * // Single instance: use full rate limit
+     * maxRPS: 10
+     *
+     * // 5 distributed instances sharing limit
+     * maxRPS: 2  // 2 * 5 = 10 total RPS
      */
     maxRPS?: number
     /**
-     * Таймаут запроса в миллисекундах
+     * Request timeout in milliseconds
      * @default 5000
      */
     timeout?: number
     /**
-     * Количество повторных попыток при ошибках
+     * Number of retry attempts on retryable errors (5xx, 429, network errors).
+     *
+     * Uses exponential backoff: 1s, 2s, 4s, 8s, 16s...
+     * Idempotency key is preserved across retries, ensuring no duplicate payments.
+     *
      * @default 5
      */
     retries?: number
     /**
-     * Конфигурация прокси-сервера
-     * Можно указать как строку URL (например, "http://user:pass@proxy.example.com:8080")
-     * или объект AxiosProxyConfig
+     * Proxy server URL (e.g., "http://user:pass@proxy.example.com:8080")
      */
     proxy?: ProxyConfig
 }
@@ -123,7 +170,53 @@ export type RequestOpts<P = Record<string, any>, D = Record<string, any>> =
     | DeleteRequestOpts<P>
 
 /**
- * Базовый класс для работы с API YooKassa
+ * Base class for YooKassa API communication.
+ *
+ * ## Idempotency Handling
+ *
+ * All mutating operations (POST) include an `Idempotence-Key` header.
+ * This ensures safe retries in distributed systems:
+ *
+ * - **Auto-generated keys**: If not provided, SDK generates UUID v4 for each request
+ * - **Custom keys**: Pass your own key tied to business logic (e.g., order ID)
+ * - **Retry safety**: Same key = same response, even if called multiple times
+ *
+ * ### Idempotency Key Strategies
+ *
+ * 1. **Order-based** (recommended): Use order ID as key
+ *    ```typescript
+ *    await sdk.payments.create(paymentData, `order-${orderId}`);
+ *    ```
+ *
+ * 2. **User-action based**: Combine user ID + action + timestamp
+ *    ```typescript
+ *    await sdk.payments.create(paymentData, `user-${userId}-payment-${Date.now()}`);
+ *    ```
+ *
+ * 3. **Auto-generated** (default): SDK generates UUID, safe for single attempts
+ *    ```typescript
+ *    await sdk.payments.create(paymentData); // UUID auto-generated
+ *    ```
+ *
+ * ### Distributed Systems
+ *
+ * For systems with network failures or client retries:
+ *
+ * ```typescript
+ * // Store idempotency key BEFORE making request
+ * const idempotencyKey = `order-${orderId}`;
+ * await redis.set(`payment:${orderId}:key`, idempotencyKey, 'EX', 86400);
+ *
+ * // Make request (safe to retry with same key)
+ * const payment = await sdk.payments.create(paymentData, idempotencyKey);
+ *
+ * // On retry (network failure), use same key
+ * const storedKey = await redis.get(`payment:${orderId}:key`);
+ * const payment = await sdk.payments.create(paymentData, storedKey);
+ * // Returns same payment, no duplicate charge
+ * ```
+ *
+ * @see https://yookassa.ru/developers/using-api/basics#idempotence
  */
 export class Connector {
     protected axiosInstance: RateLimitedAxiosInstance
