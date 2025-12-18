@@ -97,9 +97,19 @@ export namespace Items {
     /**
      * Признак способа расчета. Передается в параметре `payment_mode`
      *
-     * !_Частичная предоплата, аванс и кредит не поддерживаются._
+     * @note Для Чеков от ЮKassa поддерживаются только `full_prepayment` и `full_payment`.
+     * Для сторонних онлайн-касс доступны все значения.
+     *
+     * @see https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-mode
      */
-    export type PaymentMode = 'full_prepayment' | 'full_payment'
+    export type PaymentMode =
+        | 'full_prepayment'
+        | 'partial_prepayment'
+        | 'advance'
+        | 'full_payment'
+        | 'partial_payment'
+        | 'credit'
+        | 'credit_payment'
 
     /**
      * Признак предмета расчета, передается в параметре `payment_subject`

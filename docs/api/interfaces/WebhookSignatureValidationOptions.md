@@ -6,7 +6,7 @@
 
 # Interface: WebhookSignatureValidationOptions
 
-Defined in: [src/webhooks/notification.ts:303](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L303)
+Defined in: [src/webhooks/notification.ts:303](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L303)
 
 Опции для валидации подписи вебхука
 
@@ -16,7 +16,7 @@ Defined in: [src/webhooks/notification.ts:303](https://github.com/WEBzaytsev/yoo
 
 > **body**: `string` \| `Buffer`\<`ArrayBufferLike`\>
 
-Defined in: [src/webhooks/notification.ts:307](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L307)
+Defined in: [src/webhooks/notification.ts:307](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L307)
 
 Тело запроса (raw body как строка или Buffer)
 
@@ -26,7 +26,7 @@ Defined in: [src/webhooks/notification.ts:307](https://github.com/WEBzaytsev/yoo
 
 > `optional` **headerName**: `string`
 
-Defined in: [src/webhooks/notification.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L311)
+Defined in: [src/webhooks/notification.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L311)
 
 Имя заголовка с подписью (по умолчанию: 'X-YooKassa-Signature')
 
@@ -36,7 +36,7 @@ Defined in: [src/webhooks/notification.ts:311](https://github.com/WEBzaytsev/yoo
 
 > **secretKey**: `string`
 
-Defined in: [src/webhooks/notification.ts:305](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L305)
+Defined in: [src/webhooks/notification.ts:305](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L305)
 
 Секретный ключ магазина (secretKey)
 
@@ -46,6 +46,6 @@ Defined in: [src/webhooks/notification.ts:305](https://github.com/WEBzaytsev/yoo
 
 > **signature**: `string`
 
-Defined in: [src/webhooks/notification.ts:309](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L309)
+Defined in: [src/webhooks/notification.ts:309](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L309)
 
 Значение заголовка с подписью

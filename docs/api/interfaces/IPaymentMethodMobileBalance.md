@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodMobileBalance
 
-Defined in: [src/types/payments/paymentMethod.type.ts:171](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L171)
+Defined in: [src/types/payments/paymentMethod.type.ts:171](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L171)
 
 Баланс телефона
 
@@ -20,7 +20,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:171](https://github.com/WE
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L153)
+Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L153)
 
 Идентификатор способа оплаты.
 
@@ -34,7 +34,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WE
 
 > **phone**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:175](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L175)
+Defined in: [src/types/payments/paymentMethod.type.ts:175](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L175)
 
 Телефон, с баланса которого осуществляется платеж. Указывается в формате ITU-T E.164, например 79000000000.
 
@@ -44,7 +44,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:175](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L155)
+Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L155)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -58,7 +58,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WE
 
 > `optional` **title**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L157)
+Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L157)
 
 Название способа оплаты.
 
@@ -72,7 +72,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WE
 
 > **type**: [`mobile_balance`](../enumerations/PaymentMethodsEnum.md#mobile_balance)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:173](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentMethod.type.ts#L173)
+Defined in: [src/types/payments/paymentMethod.type.ts:173](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L173)
 
 Код способа оплаты.
 

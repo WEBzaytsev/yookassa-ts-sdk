@@ -6,7 +6,7 @@
 
 # Interface: Statement
 
-Defined in: [src/types/payments/payment.type.ts:222](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/payment.type.ts#L222)
+Defined in: [src/types/payments/payment.type.ts:222](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/payment.type.ts#L222)
 
 Данные для отправки справки (квитанции) пользователю после оплаты
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/payment-acceptance/getting-started/selecting-inte
 
 > **delivery\_method**: [`StatementDeliveryMethod`](StatementDeliveryMethod.md)
 
-Defined in: [src/types/payments/payment.type.ts:226](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/payment.type.ts#L226)
+Defined in: [src/types/payments/payment.type.ts:226](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/payment.type.ts#L226)
 
 Способ доставки справки
 
@@ -30,6 +30,6 @@ Defined in: [src/types/payments/payment.type.ts:226](https://github.com/WEBzayts
 
 > **type**: `"payment_overview"`
 
-Defined in: [src/types/payments/payment.type.ts:224](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/payment.type.ts#L224)
+Defined in: [src/types/payments/payment.type.ts:224](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/payment.type.ts#L224)
 
 Тип справки. Сейчас доступен только `payment_overview` — квитанция по платежу

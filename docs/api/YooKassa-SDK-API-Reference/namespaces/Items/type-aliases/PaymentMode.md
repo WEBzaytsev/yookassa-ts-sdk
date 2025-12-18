@@ -6,10 +6,17 @@
 
 # Type Alias: PaymentMode
 
-> **PaymentMode** = `"full_prepayment"` \| `"full_payment"`
+> **PaymentMode** = `"full_prepayment"` \| `"partial_prepayment"` \| `"advance"` \| `"full_payment"` \| `"partial_payment"` \| `"credit"` \| `"credit_payment"`
 
-Defined in: [src/types/receipt/item.type.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L102)
+Defined in: [src/types/receipt/item.type.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/receipt/item.type.ts#L105)
 
 Признак способа расчета. Передается в параметре `payment_mode`
 
-!_Частичная предоплата, аванс и кредит не поддерживаются._
+## Note
+
+Для Чеков от ЮKassa поддерживаются только `full_prepayment` и `full_payment`.
+Для сторонних онлайн-касс доступны все значения.
+
+## See
+
+https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-mode

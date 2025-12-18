@@ -8,6 +8,6 @@
 
 > **PaymentSubject** = keyof *typeof* [`paymentSubjectMap`](../../../../variables/paymentSubjectMap.md)
 
-Defined in: [src/types/receipt/item.type.ts:107](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/receipt/item.type.ts#L107)
+Defined in: [src/types/receipt/item.type.ts:117](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/receipt/item.type.ts#L117)
 
 Признак предмета расчета, передается в параметре `payment_subject`

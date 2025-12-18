@@ -8,4 +8,4 @@
 
 > **RefundStatus** = `"pending"` \| `"succeeded"` \| `"canceled"`
 
-Defined in: [src/types/refunds/refund.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/refunds/refund.type.ts#L38)
+Defined in: [src/types/refunds/refund.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/refunds/refund.type.ts#L38)

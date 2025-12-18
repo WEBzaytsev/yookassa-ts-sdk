@@ -8,7 +8,7 @@
 
 > **DateFilter** = `object`
 
-Defined in: [src/types/api.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L9)
+Defined in: [src/types/api.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/api.types.ts#L9)
 
 Фильтр по времени
 
@@ -20,7 +20,7 @@ Defined in: [src/types/api.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts
 
 > `optional` **gt**: `string`
 
-Defined in: [src/types/api.types.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L13)
+Defined in: [src/types/api.types.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/api.types.ts#L13)
 
 время должно быть больше указанного значения
 
@@ -30,7 +30,7 @@ Defined in: [src/types/api.types.ts:13](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **gte**: `string`
 
-Defined in: [src/types/api.types.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L11)
+Defined in: [src/types/api.types.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/api.types.ts#L11)
 
 время должно быть больше указанного значения или равно ему («с такого-то момента включительно»).
 
@@ -40,7 +40,7 @@ Defined in: [src/types/api.types.ts:11](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **lt**: `string`
 
-Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L17)
+Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/api.types.ts#L17)
 
 Время должно быть меньше указанного значения
 
@@ -50,6 +50,6 @@ Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **lte**: `string`
 
-Defined in: [src/types/api.types.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/api.types.ts#L15)
+Defined in: [src/types/api.types.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/api.types.ts#L15)
 
 время должно быть меньше указанного значения или равно ему

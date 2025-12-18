@@ -8,7 +8,7 @@
 
 > **PaymentStatus** = `"waiting_for_capture"` \| `"succeeded"` \| `"canceled"` \| `"pending"`
 
-Defined in: [src/types/payments/payment.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/payment.type.ts#L24)
+Defined in: [src/types/payments/payment.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/payment.type.ts#L24)
 
 ***Статусы платежа:***
 

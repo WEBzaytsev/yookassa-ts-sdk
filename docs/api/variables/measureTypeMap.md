@@ -8,7 +8,7 @@
 
 > `const` **measureTypeMap**: `object`
 
-Defined in: [src/dictionaries.ts:133](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/dictionaries.ts#L133)
+Defined in: [src/dictionaries.ts:139](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/dictionaries.ts#L139)
 
 Мера количества предмета расчета, передается в массиве `items`, в параметре `measure`.
 

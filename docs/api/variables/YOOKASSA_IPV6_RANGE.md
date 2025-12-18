@@ -8,7 +8,7 @@
 
 > `const` **YOOKASSA\_IPV6\_RANGE**: `"2a02:5180::/32"` = `'2a02:5180::/32'`
 
-Defined in: [src/webhooks/notification.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L26)
+Defined in: [src/webhooks/notification.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L26)
 
 IPv6 диапазон YooKassa
 

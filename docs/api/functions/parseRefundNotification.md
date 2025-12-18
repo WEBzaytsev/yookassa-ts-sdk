@@ -8,7 +8,7 @@
 
 > **parseRefundNotification**(`body`): [`RefundNotification`](../type-aliases/RefundNotification.md)
 
-Defined in: [src/webhooks/notification.ts:290](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/webhooks/notification.ts#L290)
+Defined in: [src/webhooks/notification.ts:290](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L290)
 
 Типизированный парсер для уведомлений о возвратах.
 

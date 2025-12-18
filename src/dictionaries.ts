@@ -81,12 +81,18 @@ export const refundCancelReasonMap = {
  * @see https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-subject
  */
 export const paymentSubjectMap = {
-    ling_bet: 'Ставка в азартной игре',
+    commodity: 'Товар',
+    excise: 'Подакцизный товар',
+    job: 'Работа',
+    service: 'Услуга',
+    gambling_bet: 'Ставка в азартной игре',
     gambling_prize: 'Выигрыш азартной игры',
     lottery: 'Лотерейный билет',
     lottery_prize: 'Выигрыш в лотерею',
     intellectual_activity: 'Результаты интеллектуальной деятельности',
+    payment: 'Платёж',
     agent_commission: 'Агентское вознаграждение',
+    composite: 'Составной предмет расчета',
     property_right: 'Имущественное право',
     non_operating_gain: 'Внереализационный доход',
     insurance_premium: 'Страховый сбор',
@@ -105,7 +111,7 @@ export const paymentSubjectMap = {
     health_insurance_without_payouts: 'Взносы на обязательное медицинское страхование ИП',
     health_insurance_with_payouts: 'Взносы на обязательное медицинское страхование',
     health_insurance: 'Взносы на обязательное социальное страхование',
-    another: 'Другое',
+    another: 'Иной предмет расчета',
 }
 
 /**

@@ -8,4 +8,4 @@
 
 > **ConfirmationTypes** = `"embedded"` \| `"external"` \| `"mobile_application"` \| `"qr"` \| `"redirect"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/types/payments/paymentsConfirmation.type.ts#L17)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentsConfirmation.type.ts#L17)

@@ -8,7 +8,7 @@
 
 > `const` **paymentCancelReasonMap**: `object`
 
-Defined in: [src/dictionaries.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/dictionaries.ts#L7)
+Defined in: [src/dictionaries.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/dictionaries.ts#L7)
 
 ***Причины отмены платежа***
 

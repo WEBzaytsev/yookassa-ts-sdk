@@ -8,7 +8,7 @@
 
 > `const` **paymentSubjectMap**: `object`
 
-Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/421052f4b89e2476891b70faab4f1b4ec3acb883/src/dictionaries.ts#L83)
+Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/dictionaries.ts#L83)
 
 ****Признак предмета расчета****
 
@@ -26,15 +26,31 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 
 ### another
 
-> **another**: `string` = `'Другое'`
+> **another**: `string` = `'Иной предмет расчета'`
+
+### commodity
+
+> **commodity**: `string` = `'Товар'`
+
+### composite
+
+> **composite**: `string` = `'Составной предмет расчета'`
 
 ### cost
 
 > **cost**: `string` = `'Расход'`
 
+### excise
+
+> **excise**: `string` = `'Подакцизный товар'`
+
 ### fine
 
 > **fine**: `string` = `'Выплата'`
+
+### gambling\_bet
+
+> **gambling\_bet**: `string` = `'Ставка в азартной игре'`
 
 ### gambling\_prize
 
@@ -60,13 +76,13 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 
 > **intellectual\_activity**: `string` = `'Результаты интеллектуальной деятельности'`
 
+### job
+
+> **job**: `string` = `'Работа'`
+
 ### lien
 
 > **lien**: `string` = `'Залог'`
-
-### ling\_bet
-
-> **ling\_bet**: `string` = `'Ставка в азартной игре'`
 
 ### lottery
 
@@ -88,6 +104,10 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 
 > **non\_operating\_gain**: `string` = `'Внереализационный доход'`
 
+### payment
+
+> **payment**: `string` = `'Платёж'`
+
 ### pension\_insurance\_with\_payouts
 
 > **pension\_insurance\_with\_payouts**: `string` = `'Взносы на обязательное пенсионное страхование'`
@@ -107,6 +127,10 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 ### sales\_tax
 
 > **sales\_tax**: `string` = `'Торговый сбор'`
+
+### service
+
+> **service**: `string` = `'Услуга'`
 
 ### tax
 
