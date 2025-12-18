@@ -128,6 +128,121 @@ if (payment.status === 'succeeded') {
 - [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics)
 - [Сторонние онлайн-кассы](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics)
 
+### "Card binding error: invalid_request"
+
+Эта ошибка возникает при работе с привязкой карт (сохранением способов оплаты для автоплатежей) и означает, что один из параметров запроса имеет неверное значение или формат.
+
+**Возможные причины:**
+
+#### 1. Неправильное использование `save_payment_method` и `payment_method_id`
+
+**Проблема:** Переданы одновременно `save_payment_method` и `payment_method_id`, или `payment_method_id` имеет неверный формат.
+
+**Решение:**
+
+```ts
+// ❌ Неправильно: нельзя передавать оба параметра одновременно
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    save_payment_method: true,
+    payment_method_id: 'some_id', // Конфликт!
+})
+
+// ✅ Правильно: первый платеж — сохраняем карту
+const firstPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' },
+    save_payment_method: true, // Сохраняем способ оплаты
+})
+
+// ✅ Правильно: последующие платежи — используем сохранённый метод
+const recurringPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    payment_method_id: firstPayment.payment_method?.id, // ID из первого платежа
+    capture: true,
+})
+```
+
+#### 2. Неверный формат `payment_method_id`
+
+**Проблема:** `payment_method_id` имеет неверный формат или не существует.
+
+**Решение:**
+
+```ts
+// Проверьте, что payment_method_id получен из успешного платежа
+const payment = await sdk.payments.load('payment_id')
+
+if (!payment.payment_method?.id) {
+    throw new Error('Payment method not saved')
+}
+
+// Используйте правильный ID
+const recurringPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    payment_method_id: payment.payment_method.id, // Правильный формат
+    capture: true,
+})
+```
+
+#### 3. Неверная валюта
+
+**Проблема:** Сумма платежа указана не в рублях (RUB).
+
+**Решение:**
+
+```ts
+// ❌ Неправильно: валюта не RUB
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'USD' }, // Ошибка!
+    save_payment_method: true,
+})
+
+// ✅ Правильно: валюта RUB
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' }, // Правильно
+    save_payment_method: true,
+})
+```
+
+#### 4. Отсутствие обязательных параметров
+
+**Проблема:** При использовании `save_payment_method: true` не указаны обязательные параметры.
+
+**Решение:**
+
+```ts
+// ✅ Правильно: все обязательные параметры указаны
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' }, // Обязательно
+    save_payment_method: true,
+    description: 'Оплата подписки', // Рекомендуется
+})
+```
+
+#### 5. Функция сохранения карт не активирована
+
+**Проблема:** В вашем аккаунте YooKassa не активирована функция сохранения способов оплаты.
+
+**Решение:**
+
+1. Обратитесь к менеджеру YooKassa для активации функции автоплатежей
+2. Убедитесь, что ваш аккаунт поддерживает сохранение способов оплаты
+
+**Чеклист для отладки:**
+
+- [ ] `save_payment_method` и `payment_method_id` не переданы одновременно
+- [ ] `payment_method_id` имеет правильный формат (получен из успешного платежа)
+- [ ] Валюта платежа — `RUB`
+- [ ] Указан `confirmation` при первом платеже с `save_payment_method: true`
+- [ ] Функция сохранения карт активирована в аккаунте YooKassa
+- [ ] `payment_method_id` существует и принадлежит вашему магазину
+
+**Подробнее:**
+- [Автоплатежи (рекуррентные платежи)](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
+- [Сохранение способов оплаты](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/basics)
+
 ## Автоматические повторы
 
 SDK автоматически повторяет запросы при:

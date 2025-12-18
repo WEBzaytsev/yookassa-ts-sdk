@@ -128,6 +128,121 @@ if (payment.status === 'succeeded') {
 - [YooKassa Receipts](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics)
 - [Third-party cash registers](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics)
 
+### "Card binding error: invalid_request"
+
+This error occurs when working with card binding (saving payment methods for recurring payments) and indicates that one of the request parameters has an invalid value or format.
+
+**Possible causes:**
+
+#### 1. Incorrect use of `save_payment_method` and `payment_method_id`
+
+**Problem:** Both `save_payment_method` and `payment_method_id` are provided simultaneously, or `payment_method_id` has an invalid format.
+
+**Solution:**
+
+```ts
+// ❌ Wrong: cannot provide both parameters simultaneously
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    save_payment_method: true,
+    payment_method_id: 'some_id', // Conflict!
+})
+
+// ✅ Correct: first payment — save card
+const firstPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' },
+    save_payment_method: true, // Save payment method
+})
+
+// ✅ Correct: subsequent payments — use saved method
+const recurringPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    payment_method_id: firstPayment.payment_method?.id, // ID from first payment
+    capture: true,
+})
+```
+
+#### 2. Invalid `payment_method_id` format
+
+**Problem:** `payment_method_id` has an invalid format or doesn't exist.
+
+**Solution:**
+
+```ts
+// Check that payment_method_id is obtained from successful payment
+const payment = await sdk.payments.load('payment_id')
+
+if (!payment.payment_method?.id) {
+    throw new Error('Payment method not saved')
+}
+
+// Use correct ID
+const recurringPayment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    payment_method_id: payment.payment_method.id, // Correct format
+    capture: true,
+})
+```
+
+#### 3. Invalid currency
+
+**Problem:** Payment amount is specified in a currency other than RUB.
+
+**Solution:**
+
+```ts
+// ❌ Wrong: currency is not RUB
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'USD' }, // Error!
+    save_payment_method: true,
+})
+
+// ✅ Correct: currency is RUB
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' }, // Correct
+    save_payment_method: true,
+})
+```
+
+#### 4. Missing required parameters
+
+**Problem:** When using `save_payment_method: true`, required parameters are not specified.
+
+**Solution:**
+
+```ts
+// ✅ Correct: all required parameters are specified
+const payment = await sdk.payments.create({
+    amount: { value: '100.00', currency: 'RUB' },
+    confirmation: { type: 'redirect', return_url: 'https://example.com' }, // Required
+    save_payment_method: true,
+    description: 'Subscription payment', // Recommended
+})
+```
+
+#### 5. Card saving feature not activated
+
+**Problem:** Payment method saving feature is not activated in your YooKassa account.
+
+**Solution:**
+
+1. Contact YooKassa manager to activate recurring payments feature
+2. Ensure your account supports payment method saving
+
+**Debugging checklist:**
+
+- [ ] `save_payment_method` and `payment_method_id` are not provided simultaneously
+- [ ] `payment_method_id` has correct format (obtained from successful payment)
+- [ ] Payment currency is `RUB`
+- [ ] `confirmation` is specified for first payment with `save_payment_method: true`
+- [ ] Card saving feature is activated in YooKassa account
+- [ ] `payment_method_id` exists and belongs to your shop
+
+**More information:**
+- [Recurring Payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
+- [Saving Payment Methods](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/basics)
+
 ## Automatic Retries
 
 SDK automatically retries requests on:
