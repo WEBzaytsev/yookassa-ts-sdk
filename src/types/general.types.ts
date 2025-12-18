@@ -1,8 +1,19 @@
+/**
+ * Supported locales for YooKassa interface
+ * @see https://yookassa.ru/developers/api#create_payment_confirmation_locale
+ */
 export enum LocaleEnum {
+    /** Russian */
     ru_RU = 'ru_RU',
+    /** English */
     en_US = 'en_US',
 }
 
+/**
+ * Supported currencies in ISO-4217 format.
+ * YooKassa processes payments exclusively in RUB for merchants registered in Russia.
+ * @see https://yookassa.ru/developers/api#payment_object_amount_currency
+ */
 export enum CurrencyEnum {
     USD = 'USD',
     CAD = 'CAD',

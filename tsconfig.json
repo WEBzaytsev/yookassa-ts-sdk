@@ -15,5 +15,5 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true
   },
-  "exclude": ["yoocheckout-main", "node_modules", "dist", "generated"]
+  "exclude": ["yoocheckout-main", "node_modules", "dist", "generated", "examples"]
 }
