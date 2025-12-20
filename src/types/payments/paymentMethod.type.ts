@@ -42,7 +42,7 @@ export enum PaymentMethodsEnum {
      */
     alfabank = 'alfabank',
 
-    /** Тинькофф */
+    /** Тинькофф (T-Pay) */
     tinkoff_bank = 'tinkoff_bank',
 
     /** СберБанк Бизнес Онлайн */
@@ -84,6 +84,40 @@ export enum PaymentMethodsEnum {
      */
     wechat = 'wechat',
 }
+
+/**
+ * Способы оплаты, поддерживающие автоплатежи (сохранение для повторных списаний).
+ *
+ * @see https://yookassa.ru/docs/support/payments/extra/autopayment
+ * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment
+ */
+export type RecurringPaymentMethodType =
+    | PaymentMethodsEnum.bank_card
+    | PaymentMethodsEnum.yoo_money
+    | PaymentMethodsEnum.sberbank
+    | PaymentMethodsEnum.tinkoff_bank
+    | PaymentMethodsEnum.sbp
+
+/**
+ * Способы оплаты, поддерживающие безусловное сохранение (save_payment_method: true).
+ * Пользователь не может отказаться от сохранения способа оплаты.
+ *
+ * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-mandatory
+ */
+export type MandatorySavePaymentMethodType =
+    | PaymentMethodsEnum.bank_card
+    | PaymentMethodsEnum.yoo_money
+    | PaymentMethodsEnum.sberbank
+    | PaymentMethodsEnum.tinkoff_bank
+    | PaymentMethodsEnum.sbp
+
+/**
+ * Способы оплаты, поддерживающие условное сохранение.
+ * Пользователь сам решает, сохранять ли способ оплаты.
+ *
+ * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-optional
+ */
+export type OptionalSavePaymentMethodType = PaymentMethodsEnum.bank_card | PaymentMethodsEnum.yoo_money
 
 /** Тип банковской карты
  * @see https://yookassa.ru/developers/api#payment_object_payment_method_card_card_type

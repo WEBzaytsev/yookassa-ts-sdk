@@ -191,10 +191,24 @@ const payment = await sdk.payments.create({
 
 SDK supports [recurring payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) — automatic charges without user confirmation.
 
+### Supported Payment Methods
+
+| Payment Method | Mandatory Save | Optional Save | Notes |
+|----------------|:--------------:|:-------------:|-------|
+| Bank Card | ✅ | ✅ | |
+| YooMoney (wallet) | ✅ | ✅ | Except cards linked to wallet |
+| SberPay | ✅ | ❌ | |
+| T-Pay | ✅ | ❌ | |
+| SBP | ✅ | ❌ | [Not all banks supported](https://sbp.nspk.ru/participants/) |
+
+> **Mandatory save** (`save_payment_method: true`) — user cannot refuse to save the payment method.
+>
+> **Optional save** — user decides whether to save the payment method on YooKassa form.
+
 ### Save Payment Method
 
 ```ts
-// First payment — save card for future charges
+// First payment — save payment method for future charges
 const payment = await sdk.payments.create({
     amount: { value: '100.00', currency: 'RUB' },
     confirmation: { type: 'redirect', return_url: 'https://example.com' },
