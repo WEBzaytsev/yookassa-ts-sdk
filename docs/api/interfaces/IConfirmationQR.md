@@ -6,7 +6,7 @@
 
 # Interface: IConfirmationQR
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L62)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentsConfirmation.type.ts#L62)
 
 ***Сценарий подтверждения `QR-код`***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:62](https://github.
 
 > **confirmation\_data**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L65)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentsConfirmation.type.ts#L65)
 
 Данные для генерации QR-кода.
 
@@ -32,7 +32,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.
 
 > `optional` **locale**: [`LocaleEnum`](../enumerations/LocaleEnum.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L23)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentsConfirmation.type.ts#L23)
 
 Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен.
 
@@ -46,7 +46,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.
 
 > **type**: `"qr"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L63)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentsConfirmation.type.ts#L63)
 
 Код сценария подтверждения.
 

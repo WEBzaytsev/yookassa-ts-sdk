@@ -8,7 +8,7 @@
 
 > `const` **refundCancelReasonMap**: `object`
 
-Defined in: [src/dictionaries.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/dictionaries.ts#L55)
+Defined in: [src/dictionaries.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/dictionaries.ts#L55)
 
 ****Причины отмены возврата****
 

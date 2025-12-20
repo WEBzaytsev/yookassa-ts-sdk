@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataTinkoff
 
-Defined in: [src/types/payments/paymentMethod.type.ts:385](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L385)
+Defined in: [src/types/payments/paymentMethod.type.ts:406](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L406)
 
 Данные для оплаты через Тинькофф (T-Pay)
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:385](https://github.com/WE
 
 > **type**: `"tinkoff_bank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:386](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L386)
+Defined in: [src/types/payments/paymentMethod.type.ts:407](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L407)

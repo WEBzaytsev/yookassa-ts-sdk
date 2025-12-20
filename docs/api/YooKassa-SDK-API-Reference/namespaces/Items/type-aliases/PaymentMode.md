@@ -8,7 +8,7 @@
 
 > **PaymentMode** = `"full_prepayment"` \| `"partial_prepayment"` \| `"advance"` \| `"full_payment"` \| `"partial_payment"` \| `"credit"` \| `"credit_payment"`
 
-Defined in: [src/types/receipt/item.type.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/receipt/item.type.ts#L105)
+Defined in: [src/types/receipt/item.type.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/receipt/item.type.ts#L105)
 
 Признак способа расчета. Передается в параметре `payment_mode`
 

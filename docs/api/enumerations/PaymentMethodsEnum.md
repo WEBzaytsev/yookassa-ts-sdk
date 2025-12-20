@@ -6,7 +6,7 @@
 
 # Enumeration: PaymentMethodsEnum
 
-Defined in: [src/types/payments/paymentMethod.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L23)
+Defined in: [src/types/payments/paymentMethod.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L23)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:23](https://github.com/WEB
 
 > **alfabank**: `"alfabank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L43)
+Defined in: [src/types/payments/paymentMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L43)
 
 Альфа-Клик
 
@@ -28,7 +28,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:43](https://github.com/WEB
 
 > **apple\_pay**: `"apple_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L70)
+Defined in: [src/types/payments/paymentMethod.type.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L70)
 
 Apple Pay (обычно используется через payment_token)
 
@@ -38,7 +38,7 @@ Apple Pay (обычно используется через payment_token)
 
 > **b2b\_sberbank**: `"b2b_sberbank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L49)
+Defined in: [src/types/payments/paymentMethod.type.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L49)
 
 СберБанк Бизнес Онлайн
 
@@ -48,7 +48,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:49](https://github.com/WEB
 
 > **bank\_card**: `"bank_card"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:25](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L25)
+Defined in: [src/types/payments/paymentMethod.type.ts:25](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L25)
 
 Банковская карта или карта МИР
 
@@ -58,7 +58,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:25](https://github.com/WEB
 
 > **cash**: `"cash"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L58)
+Defined in: [src/types/payments/paymentMethod.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L58)
 
 Наличные
 
@@ -68,7 +68,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:58](https://github.com/WEB
 
 > **google\_pay**: `"google_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L73)
+Defined in: [src/types/payments/paymentMethod.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L73)
 
 Google Pay (обычно используется через payment_token)
 
@@ -78,7 +78,7 @@ Google Pay (обычно используется через payment_token)
 
 > **installments**: `"installments"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:61](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L61)
+Defined in: [src/types/payments/paymentMethod.type.ts:61](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L61)
 
 Заплатить по частям
 
@@ -88,7 +88,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:61](https://github.com/WEB
 
 > **mobile\_balance**: `"mobile_balance"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L55)
+Defined in: [src/types/payments/paymentMethod.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L55)
 
 Баланс телефона
 
@@ -98,7 +98,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:55](https://github.com/WEB
 
 > **qiwi**: `"qiwi"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L34)
+Defined in: [src/types/payments/paymentMethod.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L34)
 
 QIWI Кошелек
 
@@ -112,7 +112,7 @@ QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ о�
 
 > **sber\_bnpl**: `"sber_bnpl"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L67)
+Defined in: [src/types/payments/paymentMethod.type.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L67)
 
 Плати частями (BNPL от СберБанка)
 
@@ -122,7 +122,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:67](https://github.com/WEB
 
 > **sber\_loan**: `"sber_loan"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L64)
+Defined in: [src/types/payments/paymentMethod.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L64)
 
 "Покупки в кредит" от Сбербанка"
 
@@ -132,7 +132,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:64](https://github.com/WEB
 
 > **sberbank**: `"sberbank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L37)
+Defined in: [src/types/payments/paymentMethod.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L37)
 
 SberPay
 
@@ -142,7 +142,7 @@ SberPay
 
 > **sbp**: `"sbp"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L52)
+Defined in: [src/types/payments/paymentMethod.type.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L52)
 
 СБП (Система быстрых платежей)
 
@@ -152,7 +152,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:52](https://github.com/WEB
 
 > **tinkoff\_bank**: `"tinkoff_bank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L46)
+Defined in: [src/types/payments/paymentMethod.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L46)
 
 Тинькофф (T-Pay)
 
@@ -162,7 +162,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:46](https://github.com/WEB
 
 > **webmoney**: `"webmoney"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L79)
+Defined in: [src/types/payments/paymentMethod.type.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L79)
 
 WebMoney
 
@@ -176,7 +176,7 @@ WebMoney прекратил работу в РФ в 2022 году.
 
 > **wechat**: `"wechat"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L85)
+Defined in: [src/types/payments/paymentMethod.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L85)
 
 WeChat Pay
 
@@ -190,6 +190,6 @@ WeChat Pay
 
 > **yoo\_money**: `"yoo_money"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L28)
+Defined in: [src/types/payments/paymentMethod.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L28)
 
 ЮMoney

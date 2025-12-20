@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataB2bSberbank
 
-Defined in: [src/types/payments/paymentMethod.type.ts:390](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L390)
+Defined in: [src/types/payments/paymentMethod.type.ts:411](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L411)
 
 Данные для оплаты через СберБанк Бизнес Онлайн
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:390](https://github.com/WE
 
 > **payment\_purpose**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:393](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L393)
+Defined in: [src/types/payments/paymentMethod.type.ts:414](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L414)
 
 Назначение платежа (не больше 210 символов)
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:393](https://github.com/WE
 
 > **type**: `"b2b_sberbank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:391](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L391)
+Defined in: [src/types/payments/paymentMethod.type.ts:412](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L412)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:391](https://github.com/WE
 
 > **vat\_data**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:395](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L395)
+Defined in: [src/types/payments/paymentMethod.type.ts:416](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L416)
 
 Данные о НДС
 

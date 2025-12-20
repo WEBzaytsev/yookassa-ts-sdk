@@ -6,7 +6,7 @@
 
 # Enumeration: LocaleEnum
 
-Defined in: [src/types/general.types.ts:5](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L5)
+Defined in: [src/types/general.types.ts:5](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L5)
 
 Supported locales for YooKassa interface
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#create_payment_confirmation_locale
 
 > **en\_US**: `"en_US"`
 
-Defined in: [src/types/general.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L9)
+Defined in: [src/types/general.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L9)
 
 English
 
@@ -30,6 +30,6 @@ English
 
 > **ru\_RU**: `"ru_RU"`
 
-Defined in: [src/types/general.types.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L7)
+Defined in: [src/types/general.types.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L7)
 
 Russian

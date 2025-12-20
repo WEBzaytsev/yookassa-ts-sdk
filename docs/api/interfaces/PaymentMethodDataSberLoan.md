@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataSberLoan
 
-Defined in: [src/types/payments/paymentMethod.type.ts:426](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L426)
+Defined in: [src/types/payments/paymentMethod.type.ts:447](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L447)
 
 Данные для оплаты через "Покупки в кредит" от Сбербанка
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:426](https://github.com/WE
 
 > **type**: `"sber_loan"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:427](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentMethod.type.ts#L427)
+Defined in: [src/types/payments/paymentMethod.type.ts:448](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L448)

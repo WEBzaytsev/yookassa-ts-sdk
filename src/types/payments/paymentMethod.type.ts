@@ -209,9 +209,13 @@ export interface IPaymentMethodMobileBalance extends IGeneralPayMethod {
     phone: string
 }
 
-/** ЮMoney */
-export interface IPaymentMethodYooMoney {
+/** ЮMoney
+ * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#yoomoney
+ */
+export interface IPaymentMethodYooMoney extends IGeneralPayMethod {
     type: PaymentMethodsEnum.yoo_money
+    /** Номер кошелька ЮMoney, из которого была произведена оплата. */
+    account_number?: string
 }
 
 /**
@@ -224,8 +228,10 @@ export interface IPaymentMethodQiwi {
     phone?: string
 }
 
-/** SberPay */
-export interface IPaymentMethodSberbank {
+/** SberPay
+ * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#sberpay
+ */
+export interface IPaymentMethodSberbank extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sberbank
     /** Телефон пользователя, на который зарегистрирован аккаунт в SberPay. Необходим для подтверждения оплаты по смс (сценарий подтверждения external). Указывается в формате ITU-T E.164, например 79000000000. */
     phone?: string
@@ -241,8 +247,10 @@ export interface IPaymentMethodAlfabank {
     login?: string
 }
 
-/** Тинькофф */
-export interface IPaymentMethodTinkoff_bank {
+/** T-Pay (Тинькофф)
+ * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#tinkoff-bank
+ */
+export interface IPaymentMethodTinkoff_bank extends IGeneralPayMethod {
     type: PaymentMethodsEnum.tinkoff_bank
 }
 
@@ -260,9 +268,22 @@ export interface IPaymentMethodB2b_sberbank {
     }
 }
 
-/** СБП (Система быстрых платежей) */
-export interface IPaymentMethodSbp {
+/** СБП (Система быстрых платежей)
+ * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#sbp
+ */
+export interface IPaymentMethodSbp extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sbp
+    /** Идентификатор операции в СБП (НСПК). Обязателен для платежей в статусе succeeded. */
+    sbp_operation_id?: string
+    /** Данные о банке плательщика */
+    payer_bank_details?: {
+        /** Идентификатор банка или платёжного сервиса в СБП */
+        bank_id: string
+        /** БИК банка */
+        bic: string
+        /** Название банка */
+        name: string
+    }
 }
 
 /** Наличные */

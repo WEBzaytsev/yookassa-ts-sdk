@@ -6,7 +6,7 @@
 
 # Enumeration: CurrencyEnum
 
-Defined in: [src/types/general.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L17)
+Defined in: [src/types/general.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L17)
 
 Supported currencies in ISO-4217 format.
 YooKassa processes payments exclusively in RUB for merchants registered in Russia.
@@ -21,7 +21,7 @@ https://yookassa.ru/developers/api#payment_object_amount_currency
 
 > **AED**: `"AED"`
 
-Defined in: [src/types/general.types.ts:21](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L21)
+Defined in: [src/types/general.types.ts:21](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L21)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [src/types/general.types.ts:21](https://github.com/WEBzaytsev/yookas
 
 > **AFN**: `"AFN"`
 
-Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L22)
+Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L22)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookas
 
 > **ALL**: `"ALL"`
 
-Defined in: [src/types/general.types.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L23)
+Defined in: [src/types/general.types.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L23)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [src/types/general.types.ts:23](https://github.com/WEBzaytsev/yookas
 
 > **AMD**: `"AMD"`
 
-Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L24)
+Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L24)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookas
 
 > **ARS**: `"ARS"`
 
-Defined in: [src/types/general.types.ts:25](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L25)
+Defined in: [src/types/general.types.ts:25](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L25)
 
 ***
 
@@ -61,7 +61,7 @@ Defined in: [src/types/general.types.ts:25](https://github.com/WEBzaytsev/yookas
 
 > **AUD**: `"AUD"`
 
-Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L26)
+Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L26)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookas
 
 > **AZN**: `"AZN"`
 
-Defined in: [src/types/general.types.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L27)
+Defined in: [src/types/general.types.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L27)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [src/types/general.types.ts:27](https://github.com/WEBzaytsev/yookas
 
 > **BAM**: `"BAM"`
 
-Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L28)
+Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L28)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookas
 
 > **BDT**: `"BDT"`
 
-Defined in: [src/types/general.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L29)
+Defined in: [src/types/general.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L29)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [src/types/general.types.ts:29](https://github.com/WEBzaytsev/yookas
 
 > **BGN**: `"BGN"`
 
-Defined in: [src/types/general.types.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L30)
+Defined in: [src/types/general.types.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L30)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [src/types/general.types.ts:30](https://github.com/WEBzaytsev/yookas
 
 > **BHD**: `"BHD"`
 
-Defined in: [src/types/general.types.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L31)
+Defined in: [src/types/general.types.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L31)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [src/types/general.types.ts:31](https://github.com/WEBzaytsev/yookas
 
 > **BIF**: `"BIF"`
 
-Defined in: [src/types/general.types.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L32)
+Defined in: [src/types/general.types.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L32)
 
 ***
 
@@ -117,7 +117,7 @@ Defined in: [src/types/general.types.ts:32](https://github.com/WEBzaytsev/yookas
 
 > **BND**: `"BND"`
 
-Defined in: [src/types/general.types.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L33)
+Defined in: [src/types/general.types.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L33)
 
 ***
 
@@ -125,7 +125,7 @@ Defined in: [src/types/general.types.ts:33](https://github.com/WEBzaytsev/yookas
 
 > **BOB**: `"BOB"`
 
-Defined in: [src/types/general.types.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L34)
+Defined in: [src/types/general.types.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L34)
 
 ***
 
@@ -133,7 +133,7 @@ Defined in: [src/types/general.types.ts:34](https://github.com/WEBzaytsev/yookas
 
 > **BRL**: `"BRL"`
 
-Defined in: [src/types/general.types.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L35)
+Defined in: [src/types/general.types.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L35)
 
 ***
 
@@ -141,7 +141,7 @@ Defined in: [src/types/general.types.ts:35](https://github.com/WEBzaytsev/yookas
 
 > **BWP**: `"BWP"`
 
-Defined in: [src/types/general.types.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L36)
+Defined in: [src/types/general.types.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L36)
 
 ***
 
@@ -149,7 +149,7 @@ Defined in: [src/types/general.types.ts:36](https://github.com/WEBzaytsev/yookas
 
 > **BYN**: `"BYN"`
 
-Defined in: [src/types/general.types.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L37)
+Defined in: [src/types/general.types.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L37)
 
 ***
 
@@ -157,7 +157,7 @@ Defined in: [src/types/general.types.ts:37](https://github.com/WEBzaytsev/yookas
 
 > **BZD**: `"BZD"`
 
-Defined in: [src/types/general.types.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L38)
+Defined in: [src/types/general.types.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L38)
 
 ***
 
@@ -165,7 +165,7 @@ Defined in: [src/types/general.types.ts:38](https://github.com/WEBzaytsev/yookas
 
 > **CAD**: `"CAD"`
 
-Defined in: [src/types/general.types.ts:19](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L19)
+Defined in: [src/types/general.types.ts:19](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L19)
 
 ***
 
@@ -173,7 +173,7 @@ Defined in: [src/types/general.types.ts:19](https://github.com/WEBzaytsev/yookas
 
 > **CDF**: `"CDF"`
 
-Defined in: [src/types/general.types.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L39)
+Defined in: [src/types/general.types.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L39)
 
 ***
 
@@ -181,7 +181,7 @@ Defined in: [src/types/general.types.ts:39](https://github.com/WEBzaytsev/yookas
 
 > **CHF**: `"CHF"`
 
-Defined in: [src/types/general.types.ts:40](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L40)
+Defined in: [src/types/general.types.ts:40](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L40)
 
 ***
 
@@ -189,7 +189,7 @@ Defined in: [src/types/general.types.ts:40](https://github.com/WEBzaytsev/yookas
 
 > **CLP**: `"CLP"`
 
-Defined in: [src/types/general.types.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L41)
+Defined in: [src/types/general.types.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L41)
 
 ***
 
@@ -197,7 +197,7 @@ Defined in: [src/types/general.types.ts:41](https://github.com/WEBzaytsev/yookas
 
 > **CNY**: `"CNY"`
 
-Defined in: [src/types/general.types.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L42)
+Defined in: [src/types/general.types.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L42)
 
 ***
 
@@ -205,7 +205,7 @@ Defined in: [src/types/general.types.ts:42](https://github.com/WEBzaytsev/yookas
 
 > **COP**: `"COP"`
 
-Defined in: [src/types/general.types.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L43)
+Defined in: [src/types/general.types.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L43)
 
 ***
 
@@ -213,7 +213,7 @@ Defined in: [src/types/general.types.ts:43](https://github.com/WEBzaytsev/yookas
 
 > **CRC**: `"CRC"`
 
-Defined in: [src/types/general.types.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L44)
+Defined in: [src/types/general.types.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L44)
 
 ***
 
@@ -221,7 +221,7 @@ Defined in: [src/types/general.types.ts:44](https://github.com/WEBzaytsev/yookas
 
 > **CVE**: `"CVE"`
 
-Defined in: [src/types/general.types.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L45)
+Defined in: [src/types/general.types.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L45)
 
 ***
 
@@ -229,7 +229,7 @@ Defined in: [src/types/general.types.ts:45](https://github.com/WEBzaytsev/yookas
 
 > **CZK**: `"CZK"`
 
-Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L46)
+Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L46)
 
 ***
 
@@ -237,7 +237,7 @@ Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookas
 
 > **DJF**: `"DJF"`
 
-Defined in: [src/types/general.types.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L47)
+Defined in: [src/types/general.types.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L47)
 
 ***
 
@@ -245,7 +245,7 @@ Defined in: [src/types/general.types.ts:47](https://github.com/WEBzaytsev/yookas
 
 > **DKK**: `"DKK"`
 
-Defined in: [src/types/general.types.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L48)
+Defined in: [src/types/general.types.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L48)
 
 ***
 
@@ -253,7 +253,7 @@ Defined in: [src/types/general.types.ts:48](https://github.com/WEBzaytsev/yookas
 
 > **DOP**: `"DOP"`
 
-Defined in: [src/types/general.types.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L49)
+Defined in: [src/types/general.types.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L49)
 
 ***
 
@@ -261,7 +261,7 @@ Defined in: [src/types/general.types.ts:49](https://github.com/WEBzaytsev/yookas
 
 > **DZD**: `"DZD"`
 
-Defined in: [src/types/general.types.ts:50](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L50)
+Defined in: [src/types/general.types.ts:50](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L50)
 
 ***
 
@@ -269,7 +269,7 @@ Defined in: [src/types/general.types.ts:50](https://github.com/WEBzaytsev/yookas
 
 > **EEK**: `"EEK"`
 
-Defined in: [src/types/general.types.ts:51](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L51)
+Defined in: [src/types/general.types.ts:51](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L51)
 
 ***
 
@@ -277,7 +277,7 @@ Defined in: [src/types/general.types.ts:51](https://github.com/WEBzaytsev/yookas
 
 > **EGP**: `"EGP"`
 
-Defined in: [src/types/general.types.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L52)
+Defined in: [src/types/general.types.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L52)
 
 ***
 
@@ -285,7 +285,7 @@ Defined in: [src/types/general.types.ts:52](https://github.com/WEBzaytsev/yookas
 
 > **ERN**: `"ERN"`
 
-Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L53)
+Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L53)
 
 ***
 
@@ -293,7 +293,7 @@ Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookas
 
 > **ETB**: `"ETB"`
 
-Defined in: [src/types/general.types.ts:54](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L54)
+Defined in: [src/types/general.types.ts:54](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L54)
 
 ***
 
@@ -301,7 +301,7 @@ Defined in: [src/types/general.types.ts:54](https://github.com/WEBzaytsev/yookas
 
 > **EUR**: `"EUR"`
 
-Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L20)
+Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L20)
 
 ***
 
@@ -309,7 +309,7 @@ Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookas
 
 > **GBP**: `"GBP"`
 
-Defined in: [src/types/general.types.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L55)
+Defined in: [src/types/general.types.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L55)
 
 ***
 
@@ -317,7 +317,7 @@ Defined in: [src/types/general.types.ts:55](https://github.com/WEBzaytsev/yookas
 
 > **GEL**: `"GEL"`
 
-Defined in: [src/types/general.types.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L56)
+Defined in: [src/types/general.types.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L56)
 
 ***
 
@@ -325,7 +325,7 @@ Defined in: [src/types/general.types.ts:56](https://github.com/WEBzaytsev/yookas
 
 > **GHS**: `"GHS"`
 
-Defined in: [src/types/general.types.ts:57](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L57)
+Defined in: [src/types/general.types.ts:57](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L57)
 
 ***
 
@@ -333,7 +333,7 @@ Defined in: [src/types/general.types.ts:57](https://github.com/WEBzaytsev/yookas
 
 > **GNF**: `"GNF"`
 
-Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L58)
+Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L58)
 
 ***
 
@@ -341,7 +341,7 @@ Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookas
 
 > **GTQ**: `"GTQ"`
 
-Defined in: [src/types/general.types.ts:59](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L59)
+Defined in: [src/types/general.types.ts:59](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L59)
 
 ***
 
@@ -349,7 +349,7 @@ Defined in: [src/types/general.types.ts:59](https://github.com/WEBzaytsev/yookas
 
 > **HKD**: `"HKD"`
 
-Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L60)
+Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L60)
 
 ***
 
@@ -357,7 +357,7 @@ Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookas
 
 > **HNL**: `"HNL"`
 
-Defined in: [src/types/general.types.ts:61](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L61)
+Defined in: [src/types/general.types.ts:61](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L61)
 
 ***
 
@@ -365,7 +365,7 @@ Defined in: [src/types/general.types.ts:61](https://github.com/WEBzaytsev/yookas
 
 > **HRK**: `"HRK"`
 
-Defined in: [src/types/general.types.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L62)
+Defined in: [src/types/general.types.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L62)
 
 ***
 
@@ -373,7 +373,7 @@ Defined in: [src/types/general.types.ts:62](https://github.com/WEBzaytsev/yookas
 
 > **HUF**: `"HUF"`
 
-Defined in: [src/types/general.types.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L63)
+Defined in: [src/types/general.types.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L63)
 
 ***
 
@@ -381,7 +381,7 @@ Defined in: [src/types/general.types.ts:63](https://github.com/WEBzaytsev/yookas
 
 > **IDR**: `"IDR"`
 
-Defined in: [src/types/general.types.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L64)
+Defined in: [src/types/general.types.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L64)
 
 ***
 
@@ -389,7 +389,7 @@ Defined in: [src/types/general.types.ts:64](https://github.com/WEBzaytsev/yookas
 
 > **ILS**: `"ILS"`
 
-Defined in: [src/types/general.types.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L65)
+Defined in: [src/types/general.types.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L65)
 
 ***
 
@@ -397,7 +397,7 @@ Defined in: [src/types/general.types.ts:65](https://github.com/WEBzaytsev/yookas
 
 > **INR**: `"INR"`
 
-Defined in: [src/types/general.types.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L66)
+Defined in: [src/types/general.types.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L66)
 
 ***
 
@@ -405,7 +405,7 @@ Defined in: [src/types/general.types.ts:66](https://github.com/WEBzaytsev/yookas
 
 > **IQD**: `"IQD"`
 
-Defined in: [src/types/general.types.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L67)
+Defined in: [src/types/general.types.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L67)
 
 ***
 
@@ -413,7 +413,7 @@ Defined in: [src/types/general.types.ts:67](https://github.com/WEBzaytsev/yookas
 
 > **IRR**: `"IRR"`
 
-Defined in: [src/types/general.types.ts:68](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L68)
+Defined in: [src/types/general.types.ts:68](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L68)
 
 ***
 
@@ -421,7 +421,7 @@ Defined in: [src/types/general.types.ts:68](https://github.com/WEBzaytsev/yookas
 
 > **ISK**: `"ISK"`
 
-Defined in: [src/types/general.types.ts:69](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L69)
+Defined in: [src/types/general.types.ts:69](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L69)
 
 ***
 
@@ -429,7 +429,7 @@ Defined in: [src/types/general.types.ts:69](https://github.com/WEBzaytsev/yookas
 
 > **JMD**: `"JMD"`
 
-Defined in: [src/types/general.types.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L70)
+Defined in: [src/types/general.types.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L70)
 
 ***
 
@@ -437,7 +437,7 @@ Defined in: [src/types/general.types.ts:70](https://github.com/WEBzaytsev/yookas
 
 > **JOD**: `"JOD"`
 
-Defined in: [src/types/general.types.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L71)
+Defined in: [src/types/general.types.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L71)
 
 ***
 
@@ -445,7 +445,7 @@ Defined in: [src/types/general.types.ts:71](https://github.com/WEBzaytsev/yookas
 
 > **JPY**: `"JPY"`
 
-Defined in: [src/types/general.types.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L72)
+Defined in: [src/types/general.types.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L72)
 
 ***
 
@@ -453,7 +453,7 @@ Defined in: [src/types/general.types.ts:72](https://github.com/WEBzaytsev/yookas
 
 > **KES**: `"KES"`
 
-Defined in: [src/types/general.types.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L73)
+Defined in: [src/types/general.types.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L73)
 
 ***
 
@@ -461,7 +461,7 @@ Defined in: [src/types/general.types.ts:73](https://github.com/WEBzaytsev/yookas
 
 > **KHR**: `"KHR"`
 
-Defined in: [src/types/general.types.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L74)
+Defined in: [src/types/general.types.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L74)
 
 ***
 
@@ -469,7 +469,7 @@ Defined in: [src/types/general.types.ts:74](https://github.com/WEBzaytsev/yookas
 
 > **KMF**: `"KMF"`
 
-Defined in: [src/types/general.types.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L75)
+Defined in: [src/types/general.types.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L75)
 
 ***
 
@@ -477,7 +477,7 @@ Defined in: [src/types/general.types.ts:75](https://github.com/WEBzaytsev/yookas
 
 > **KRW**: `"KRW"`
 
-Defined in: [src/types/general.types.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L76)
+Defined in: [src/types/general.types.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L76)
 
 ***
 
@@ -485,7 +485,7 @@ Defined in: [src/types/general.types.ts:76](https://github.com/WEBzaytsev/yookas
 
 > **KWD**: `"KWD"`
 
-Defined in: [src/types/general.types.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L77)
+Defined in: [src/types/general.types.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L77)
 
 ***
 
@@ -493,7 +493,7 @@ Defined in: [src/types/general.types.ts:77](https://github.com/WEBzaytsev/yookas
 
 > **KZT**: `"KZT"`
 
-Defined in: [src/types/general.types.ts:78](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L78)
+Defined in: [src/types/general.types.ts:78](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L78)
 
 ***
 
@@ -501,7 +501,7 @@ Defined in: [src/types/general.types.ts:78](https://github.com/WEBzaytsev/yookas
 
 > **LBP**: `"LBP"`
 
-Defined in: [src/types/general.types.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L79)
+Defined in: [src/types/general.types.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L79)
 
 ***
 
@@ -509,7 +509,7 @@ Defined in: [src/types/general.types.ts:79](https://github.com/WEBzaytsev/yookas
 
 > **LKR**: `"LKR"`
 
-Defined in: [src/types/general.types.ts:80](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L80)
+Defined in: [src/types/general.types.ts:80](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L80)
 
 ***
 
@@ -517,7 +517,7 @@ Defined in: [src/types/general.types.ts:80](https://github.com/WEBzaytsev/yookas
 
 > **LTL**: `"LTL"`
 
-Defined in: [src/types/general.types.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L81)
+Defined in: [src/types/general.types.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L81)
 
 ***
 
@@ -525,7 +525,7 @@ Defined in: [src/types/general.types.ts:81](https://github.com/WEBzaytsev/yookas
 
 > **LVL**: `"LVL"`
 
-Defined in: [src/types/general.types.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L82)
+Defined in: [src/types/general.types.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L82)
 
 ***
 
@@ -533,7 +533,7 @@ Defined in: [src/types/general.types.ts:82](https://github.com/WEBzaytsev/yookas
 
 > **LYD**: `"LYD"`
 
-Defined in: [src/types/general.types.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L83)
+Defined in: [src/types/general.types.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L83)
 
 ***
 
@@ -541,7 +541,7 @@ Defined in: [src/types/general.types.ts:83](https://github.com/WEBzaytsev/yookas
 
 > **MAD**: `"MAD"`
 
-Defined in: [src/types/general.types.ts:84](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L84)
+Defined in: [src/types/general.types.ts:84](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L84)
 
 ***
 
@@ -549,7 +549,7 @@ Defined in: [src/types/general.types.ts:84](https://github.com/WEBzaytsev/yookas
 
 > **MDL**: `"MDL"`
 
-Defined in: [src/types/general.types.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L85)
+Defined in: [src/types/general.types.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L85)
 
 ***
 
@@ -557,7 +557,7 @@ Defined in: [src/types/general.types.ts:85](https://github.com/WEBzaytsev/yookas
 
 > **MGA**: `"MGA"`
 
-Defined in: [src/types/general.types.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L86)
+Defined in: [src/types/general.types.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L86)
 
 ***
 
@@ -565,7 +565,7 @@ Defined in: [src/types/general.types.ts:86](https://github.com/WEBzaytsev/yookas
 
 > **MKD**: `"MKD"`
 
-Defined in: [src/types/general.types.ts:87](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L87)
+Defined in: [src/types/general.types.ts:87](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L87)
 
 ***
 
@@ -573,7 +573,7 @@ Defined in: [src/types/general.types.ts:87](https://github.com/WEBzaytsev/yookas
 
 > **MMK**: `"MMK"`
 
-Defined in: [src/types/general.types.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L88)
+Defined in: [src/types/general.types.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L88)
 
 ***
 
@@ -581,7 +581,7 @@ Defined in: [src/types/general.types.ts:88](https://github.com/WEBzaytsev/yookas
 
 > **MOP**: `"MOP"`
 
-Defined in: [src/types/general.types.ts:89](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L89)
+Defined in: [src/types/general.types.ts:89](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L89)
 
 ***
 
@@ -589,7 +589,7 @@ Defined in: [src/types/general.types.ts:89](https://github.com/WEBzaytsev/yookas
 
 > **MUR**: `"MUR"`
 
-Defined in: [src/types/general.types.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L90)
+Defined in: [src/types/general.types.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L90)
 
 ***
 
@@ -597,7 +597,7 @@ Defined in: [src/types/general.types.ts:90](https://github.com/WEBzaytsev/yookas
 
 > **MXN**: `"MXN"`
 
-Defined in: [src/types/general.types.ts:91](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L91)
+Defined in: [src/types/general.types.ts:91](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L91)
 
 ***
 
@@ -605,7 +605,7 @@ Defined in: [src/types/general.types.ts:91](https://github.com/WEBzaytsev/yookas
 
 > **MYR**: `"MYR"`
 
-Defined in: [src/types/general.types.ts:92](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L92)
+Defined in: [src/types/general.types.ts:92](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L92)
 
 ***
 
@@ -613,7 +613,7 @@ Defined in: [src/types/general.types.ts:92](https://github.com/WEBzaytsev/yookas
 
 > **MZN**: `"MZN"`
 
-Defined in: [src/types/general.types.ts:93](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L93)
+Defined in: [src/types/general.types.ts:93](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L93)
 
 ***
 
@@ -621,7 +621,7 @@ Defined in: [src/types/general.types.ts:93](https://github.com/WEBzaytsev/yookas
 
 > **NAD**: `"NAD"`
 
-Defined in: [src/types/general.types.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L94)
+Defined in: [src/types/general.types.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L94)
 
 ***
 
@@ -629,7 +629,7 @@ Defined in: [src/types/general.types.ts:94](https://github.com/WEBzaytsev/yookas
 
 > **NGN**: `"NGN"`
 
-Defined in: [src/types/general.types.ts:95](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L95)
+Defined in: [src/types/general.types.ts:95](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L95)
 
 ***
 
@@ -637,7 +637,7 @@ Defined in: [src/types/general.types.ts:95](https://github.com/WEBzaytsev/yookas
 
 > **NIO**: `"NIO"`
 
-Defined in: [src/types/general.types.ts:96](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L96)
+Defined in: [src/types/general.types.ts:96](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L96)
 
 ***
 
@@ -645,7 +645,7 @@ Defined in: [src/types/general.types.ts:96](https://github.com/WEBzaytsev/yookas
 
 > **NOK**: `"NOK"`
 
-Defined in: [src/types/general.types.ts:97](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L97)
+Defined in: [src/types/general.types.ts:97](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L97)
 
 ***
 
@@ -653,7 +653,7 @@ Defined in: [src/types/general.types.ts:97](https://github.com/WEBzaytsev/yookas
 
 > **NPR**: `"NPR"`
 
-Defined in: [src/types/general.types.ts:98](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L98)
+Defined in: [src/types/general.types.ts:98](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L98)
 
 ***
 
@@ -661,7 +661,7 @@ Defined in: [src/types/general.types.ts:98](https://github.com/WEBzaytsev/yookas
 
 > **NZD**: `"NZD"`
 
-Defined in: [src/types/general.types.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L99)
+Defined in: [src/types/general.types.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L99)
 
 ***
 
@@ -669,7 +669,7 @@ Defined in: [src/types/general.types.ts:99](https://github.com/WEBzaytsev/yookas
 
 > **OMR**: `"OMR"`
 
-Defined in: [src/types/general.types.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L100)
+Defined in: [src/types/general.types.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L100)
 
 ***
 
@@ -677,7 +677,7 @@ Defined in: [src/types/general.types.ts:100](https://github.com/WEBzaytsev/yooka
 
 > **PAB**: `"PAB"`
 
-Defined in: [src/types/general.types.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L101)
+Defined in: [src/types/general.types.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L101)
 
 ***
 
@@ -685,7 +685,7 @@ Defined in: [src/types/general.types.ts:101](https://github.com/WEBzaytsev/yooka
 
 > **PEN**: `"PEN"`
 
-Defined in: [src/types/general.types.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L102)
+Defined in: [src/types/general.types.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L102)
 
 ***
 
@@ -693,7 +693,7 @@ Defined in: [src/types/general.types.ts:102](https://github.com/WEBzaytsev/yooka
 
 > **PHP**: `"PHP"`
 
-Defined in: [src/types/general.types.ts:103](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L103)
+Defined in: [src/types/general.types.ts:103](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L103)
 
 ***
 
@@ -701,7 +701,7 @@ Defined in: [src/types/general.types.ts:103](https://github.com/WEBzaytsev/yooka
 
 > **PKR**: `"PKR"`
 
-Defined in: [src/types/general.types.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L104)
+Defined in: [src/types/general.types.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L104)
 
 ***
 
@@ -709,7 +709,7 @@ Defined in: [src/types/general.types.ts:104](https://github.com/WEBzaytsev/yooka
 
 > **PLN**: `"PLN"`
 
-Defined in: [src/types/general.types.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L105)
+Defined in: [src/types/general.types.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L105)
 
 ***
 
@@ -717,7 +717,7 @@ Defined in: [src/types/general.types.ts:105](https://github.com/WEBzaytsev/yooka
 
 > **PYG**: `"PYG"`
 
-Defined in: [src/types/general.types.ts:106](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L106)
+Defined in: [src/types/general.types.ts:106](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L106)
 
 ***
 
@@ -725,7 +725,7 @@ Defined in: [src/types/general.types.ts:106](https://github.com/WEBzaytsev/yooka
 
 > **QAR**: `"QAR"`
 
-Defined in: [src/types/general.types.ts:107](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L107)
+Defined in: [src/types/general.types.ts:107](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L107)
 
 ***
 
@@ -733,7 +733,7 @@ Defined in: [src/types/general.types.ts:107](https://github.com/WEBzaytsev/yooka
 
 > **RON**: `"RON"`
 
-Defined in: [src/types/general.types.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L108)
+Defined in: [src/types/general.types.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L108)
 
 ***
 
@@ -741,7 +741,7 @@ Defined in: [src/types/general.types.ts:108](https://github.com/WEBzaytsev/yooka
 
 > **RSD**: `"RSD"`
 
-Defined in: [src/types/general.types.ts:109](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L109)
+Defined in: [src/types/general.types.ts:109](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L109)
 
 ***
 
@@ -749,7 +749,7 @@ Defined in: [src/types/general.types.ts:109](https://github.com/WEBzaytsev/yooka
 
 > **RUB**: `"RUB"`
 
-Defined in: [src/types/general.types.ts:110](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L110)
+Defined in: [src/types/general.types.ts:110](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L110)
 
 ***
 
@@ -757,7 +757,7 @@ Defined in: [src/types/general.types.ts:110](https://github.com/WEBzaytsev/yooka
 
 > **RWF**: `"RWF"`
 
-Defined in: [src/types/general.types.ts:111](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L111)
+Defined in: [src/types/general.types.ts:111](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L111)
 
 ***
 
@@ -765,7 +765,7 @@ Defined in: [src/types/general.types.ts:111](https://github.com/WEBzaytsev/yooka
 
 > **SAR**: `"SAR"`
 
-Defined in: [src/types/general.types.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L112)
+Defined in: [src/types/general.types.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L112)
 
 ***
 
@@ -773,7 +773,7 @@ Defined in: [src/types/general.types.ts:112](https://github.com/WEBzaytsev/yooka
 
 > **SDG**: `"SDG"`
 
-Defined in: [src/types/general.types.ts:113](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L113)
+Defined in: [src/types/general.types.ts:113](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L113)
 
 ***
 
@@ -781,7 +781,7 @@ Defined in: [src/types/general.types.ts:113](https://github.com/WEBzaytsev/yooka
 
 > **SEK**: `"SEK"`
 
-Defined in: [src/types/general.types.ts:114](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L114)
+Defined in: [src/types/general.types.ts:114](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L114)
 
 ***
 
@@ -789,7 +789,7 @@ Defined in: [src/types/general.types.ts:114](https://github.com/WEBzaytsev/yooka
 
 > **SGD**: `"SGD"`
 
-Defined in: [src/types/general.types.ts:115](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L115)
+Defined in: [src/types/general.types.ts:115](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L115)
 
 ***
 
@@ -797,7 +797,7 @@ Defined in: [src/types/general.types.ts:115](https://github.com/WEBzaytsev/yooka
 
 > **SOS**: `"SOS"`
 
-Defined in: [src/types/general.types.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L116)
+Defined in: [src/types/general.types.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L116)
 
 ***
 
@@ -805,7 +805,7 @@ Defined in: [src/types/general.types.ts:116](https://github.com/WEBzaytsev/yooka
 
 > **SYP**: `"SYP"`
 
-Defined in: [src/types/general.types.ts:117](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L117)
+Defined in: [src/types/general.types.ts:117](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L117)
 
 ***
 
@@ -813,7 +813,7 @@ Defined in: [src/types/general.types.ts:117](https://github.com/WEBzaytsev/yooka
 
 > **THB**: `"THB"`
 
-Defined in: [src/types/general.types.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L118)
+Defined in: [src/types/general.types.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L118)
 
 ***
 
@@ -821,7 +821,7 @@ Defined in: [src/types/general.types.ts:118](https://github.com/WEBzaytsev/yooka
 
 > **TND**: `"TND"`
 
-Defined in: [src/types/general.types.ts:119](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L119)
+Defined in: [src/types/general.types.ts:119](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L119)
 
 ***
 
@@ -829,7 +829,7 @@ Defined in: [src/types/general.types.ts:119](https://github.com/WEBzaytsev/yooka
 
 > **TOP**: `"TOP"`
 
-Defined in: [src/types/general.types.ts:120](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L120)
+Defined in: [src/types/general.types.ts:120](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L120)
 
 ***
 
@@ -837,7 +837,7 @@ Defined in: [src/types/general.types.ts:120](https://github.com/WEBzaytsev/yooka
 
 > **TRY**: `"TRY"`
 
-Defined in: [src/types/general.types.ts:121](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L121)
+Defined in: [src/types/general.types.ts:121](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L121)
 
 ***
 
@@ -845,7 +845,7 @@ Defined in: [src/types/general.types.ts:121](https://github.com/WEBzaytsev/yooka
 
 > **TTD**: `"TTD"`
 
-Defined in: [src/types/general.types.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L122)
+Defined in: [src/types/general.types.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L122)
 
 ***
 
@@ -853,7 +853,7 @@ Defined in: [src/types/general.types.ts:122](https://github.com/WEBzaytsev/yooka
 
 > **TWD**: `"TWD"`
 
-Defined in: [src/types/general.types.ts:123](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L123)
+Defined in: [src/types/general.types.ts:123](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L123)
 
 ***
 
@@ -861,7 +861,7 @@ Defined in: [src/types/general.types.ts:123](https://github.com/WEBzaytsev/yooka
 
 > **TZS**: `"TZS"`
 
-Defined in: [src/types/general.types.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L124)
+Defined in: [src/types/general.types.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L124)
 
 ***
 
@@ -869,7 +869,7 @@ Defined in: [src/types/general.types.ts:124](https://github.com/WEBzaytsev/yooka
 
 > **UAH**: `"UAH"`
 
-Defined in: [src/types/general.types.ts:125](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L125)
+Defined in: [src/types/general.types.ts:125](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L125)
 
 ***
 
@@ -877,7 +877,7 @@ Defined in: [src/types/general.types.ts:125](https://github.com/WEBzaytsev/yooka
 
 > **UGX**: `"UGX"`
 
-Defined in: [src/types/general.types.ts:126](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L126)
+Defined in: [src/types/general.types.ts:126](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L126)
 
 ***
 
@@ -885,7 +885,7 @@ Defined in: [src/types/general.types.ts:126](https://github.com/WEBzaytsev/yooka
 
 > **USD**: `"USD"`
 
-Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L18)
+Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L18)
 
 ***
 
@@ -893,7 +893,7 @@ Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookas
 
 > **UYU**: `"UYU"`
 
-Defined in: [src/types/general.types.ts:127](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L127)
+Defined in: [src/types/general.types.ts:127](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L127)
 
 ***
 
@@ -901,7 +901,7 @@ Defined in: [src/types/general.types.ts:127](https://github.com/WEBzaytsev/yooka
 
 > **UZS**: `"UZS"`
 
-Defined in: [src/types/general.types.ts:128](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L128)
+Defined in: [src/types/general.types.ts:128](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L128)
 
 ***
 
@@ -909,7 +909,7 @@ Defined in: [src/types/general.types.ts:128](https://github.com/WEBzaytsev/yooka
 
 > **VEF**: `"VEF"`
 
-Defined in: [src/types/general.types.ts:129](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L129)
+Defined in: [src/types/general.types.ts:129](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L129)
 
 ***
 
@@ -917,7 +917,7 @@ Defined in: [src/types/general.types.ts:129](https://github.com/WEBzaytsev/yooka
 
 > **VND**: `"VND"`
 
-Defined in: [src/types/general.types.ts:130](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L130)
+Defined in: [src/types/general.types.ts:130](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L130)
 
 ***
 
@@ -925,7 +925,7 @@ Defined in: [src/types/general.types.ts:130](https://github.com/WEBzaytsev/yooka
 
 > **XAF**: `"XAF"`
 
-Defined in: [src/types/general.types.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L131)
+Defined in: [src/types/general.types.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L131)
 
 ***
 
@@ -933,7 +933,7 @@ Defined in: [src/types/general.types.ts:131](https://github.com/WEBzaytsev/yooka
 
 > **XOF**: `"XOF"`
 
-Defined in: [src/types/general.types.ts:132](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L132)
+Defined in: [src/types/general.types.ts:132](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L132)
 
 ***
 
@@ -941,7 +941,7 @@ Defined in: [src/types/general.types.ts:132](https://github.com/WEBzaytsev/yooka
 
 > **YER**: `"YER"`
 
-Defined in: [src/types/general.types.ts:133](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L133)
+Defined in: [src/types/general.types.ts:133](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L133)
 
 ***
 
@@ -949,7 +949,7 @@ Defined in: [src/types/general.types.ts:133](https://github.com/WEBzaytsev/yooka
 
 > **ZAR**: `"ZAR"`
 
-Defined in: [src/types/general.types.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L134)
+Defined in: [src/types/general.types.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L134)
 
 ***
 
@@ -957,7 +957,7 @@ Defined in: [src/types/general.types.ts:134](https://github.com/WEBzaytsev/yooka
 
 > **ZMK**: `"ZMK"`
 
-Defined in: [src/types/general.types.ts:135](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L135)
+Defined in: [src/types/general.types.ts:135](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L135)
 
 ***
 
@@ -965,4 +965,4 @@ Defined in: [src/types/general.types.ts:135](https://github.com/WEBzaytsev/yooka
 
 > **ZWL**: `"ZWL"`
 
-Defined in: [src/types/general.types.ts:136](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/general.types.ts#L136)
+Defined in: [src/types/general.types.ts:136](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/general.types.ts#L136)
