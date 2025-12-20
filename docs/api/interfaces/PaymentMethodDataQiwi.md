@@ -6,7 +6,7 @@
 
 # ~~Interface: PaymentMethodDataQiwi~~
 
-Defined in: [src/types/payments/paymentMethod.type.ts:327](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L327)
+Defined in: [src/types/payments/paymentMethod.type.ts:361](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L361)
 
 Данные для оплаты через QIWI Кошелек
 
@@ -20,7 +20,7 @@ QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ о�
 
 > `optional` **phone**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:330](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L330)
+Defined in: [src/types/payments/paymentMethod.type.ts:364](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L364)
 
 Телефон, на который зарегистрирован аккаунт в QIWI
 
@@ -30,4 +30,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:330](https://github.com/WE
 
 > **type**: `"qiwi"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:328](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L328)
+Defined in: [src/types/payments/paymentMethod.type.ts:362](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L362)

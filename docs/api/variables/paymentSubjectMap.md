@@ -8,7 +8,7 @@
 
 > `const` **paymentSubjectMap**: `object`
 
-Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/dictionaries.ts#L83)
+Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/dictionaries.ts#L83)
 
 ****Признак предмета расчета****
 
@@ -27,6 +27,10 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 ### another
 
 > **another**: `string` = `'Иной предмет расчета'`
+
+### casino
+
+> **casino**: `string` = `'Платёж казино'`
 
 ### commodity
 
@@ -96,9 +100,17 @@ Defined in: [src/dictionaries.ts:83](https://github.com/WEBzaytsev/yookassa-ts-s
 
 > **marked**: `string` = `'Товар, подлежащий маркировке средством идентификации, имеющим код маркировки, за исключением подакцизного товара (в чеке — ТМ). Пример: обувь, духи, товары легкой промышленности'`
 
+### marked\_excise
+
+> **marked\_excise**: `string` = `'Подакцизный товар, подлежащий маркировке средством идентификации, имеющим код маркировки'`
+
 ### non\_marked
 
 > **non\_marked**: `string` = `'Товар, подлежащий маркировке средством идентификации, не имеющим кода маркировки, за исключением подакцизного товара (в чеке — ТНМ). Пример: меховые изделия'`
+
+### non\_marked\_excise
+
+> **non\_marked\_excise**: `string` = `'Подакцизный товар, подлежащий маркировке средством идентификации, не имеющим кода маркировки'`
 
 ### non\_operating\_gain
 

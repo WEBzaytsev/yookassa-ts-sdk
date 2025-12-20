@@ -8,7 +8,7 @@
 
 > **CreatePaymentRequest** = `Pick`\<[`IPayment`](../interfaces/IPayment.md), `"amount"` \| `"description"` \| `"recipient"` \| `"confirmation"` \| `"metadata"` \| `"transfers"` \| `"deal"` \| `"merchant_customer_id"`\> & `object`
 
-Defined in: [src/types/payments/payment.type.ts:232](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/payment.type.ts#L232)
+Defined in: [src/types/payments/payment.type.ts:232](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/payment.type.ts#L232)
 
 Чтобы принять оплату, необходимо создать объект платежа — `Payment`. Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус). У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
 

@@ -8,7 +8,7 @@
 
 > **isYooKassaIP**(`ip`): `boolean`
 
-Defined in: [src/webhooks/notification.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L82)
+Defined in: [src/webhooks/notification.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/webhooks/notification.ts#L82)
 
 Проверяет, является ли IP-адрес адресом YooKassa.
 

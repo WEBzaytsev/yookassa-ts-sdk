@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodCard
 
-Defined in: [src/types/payments/paymentMethod.type.ts:163](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L163)
+Defined in: [src/types/payments/paymentMethod.type.ts:197](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L197)
 
 Банковская карта (ответ API)
 
@@ -24,7 +24,7 @@ https://yookassa.ru/developers/api#payment_object_payment_method_bank_card
 
 > `optional` **card**: [`IBankCardData`](IBankCardData.md)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:167](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L167)
+Defined in: [src/types/payments/paymentMethod.type.ts:201](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L201)
 
 Данные банковской карты
 
@@ -34,7 +34,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:167](https://github.com/WE
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L153)
+Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L187)
 
 Идентификатор способа оплаты.
 
@@ -48,7 +48,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L155)
+Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L189)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -62,7 +62,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WE
 
 > `optional` **title**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L157)
+Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L191)
 
 Название способа оплаты.
 
@@ -76,7 +76,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WE
 
 > **type**: [`bank_card`](../enumerations/PaymentMethodsEnum.md#bank_card)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:165](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L165)
+Defined in: [src/types/payments/paymentMethod.type.ts:199](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L199)
 
 Код способа оплаты
 

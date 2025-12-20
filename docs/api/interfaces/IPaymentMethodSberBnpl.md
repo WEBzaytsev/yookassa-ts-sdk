@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodSberBnpl
 
-Defined in: [src/types/payments/paymentMethod.type.ts:262](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L262)
+Defined in: [src/types/payments/paymentMethod.type.ts:296](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L296)
 
 Плати частями (BNPL от СберБанка)
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:262](https://github.com/WE
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:265](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L265)
+Defined in: [src/types/payments/paymentMethod.type.ts:299](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L299)
 
 Идентификатор способа оплаты
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:265](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:267](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L267)
+Defined in: [src/types/payments/paymentMethod.type.ts:301](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L301)
 
 С помощью сохраненного способа оплаты можно проводить безакцептные списания
 
@@ -36,7 +36,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:267](https://github.com/WE
 
 > `optional` **status**: `"inactive"` \| `"active"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:269](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L269)
+Defined in: [src/types/payments/paymentMethod.type.ts:303](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L303)
 
 Статус способа оплаты
 
@@ -46,4 +46,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:269](https://github.com/WE
 
 > **type**: [`sber_bnpl`](../enumerations/PaymentMethodsEnum.md#sber_bnpl)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:263](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L263)
+Defined in: [src/types/payments/paymentMethod.type.ts:297](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L297)

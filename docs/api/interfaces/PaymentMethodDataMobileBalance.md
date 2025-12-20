@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataMobileBalance
 
-Defined in: [src/types/payments/paymentMethod.type.ts:373](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L373)
+Defined in: [src/types/payments/paymentMethod.type.ts:407](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L407)
 
 Данные для оплаты с баланса телефона
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:373](https://github.com/WE
 
 > `optional` **phone**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:376](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L376)
+Defined in: [src/types/payments/paymentMethod.type.ts:410](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L410)
 
 Телефон, с баланса которого осуществляется платеж
 
@@ -26,4 +26,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:376](https://github.com/WE
 
 > **type**: `"mobile_balance"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:374](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L374)
+Defined in: [src/types/payments/paymentMethod.type.ts:408](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L408)

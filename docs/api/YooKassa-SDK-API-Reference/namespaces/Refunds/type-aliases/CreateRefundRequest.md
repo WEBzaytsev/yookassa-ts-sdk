@@ -8,7 +8,7 @@
 
 > **CreateRefundRequest** = `Pick`\<[`IRefund`](../interfaces/IRefund.md), `"payment_id"` \| `"amount"` \| `"description"` \| `"sources"` \| `"deal"`\> & `object`
 
-Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/refunds/refund.type.ts#L104)
+Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/refunds/refund.type.ts#L104)
 
 ## Type Declaration
 

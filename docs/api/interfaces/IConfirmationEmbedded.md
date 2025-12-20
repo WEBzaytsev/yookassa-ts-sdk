@@ -6,7 +6,7 @@
 
 # Interface: IConfirmationEmbedded
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentsConfirmation.type.ts#L30)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L30)
 
 ***Сценарий подтверждения Embedded***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:30](https://github.
 
 > **confirmation\_token**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentsConfirmation.type.ts#L33)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L33)
 
 Токен для инициализации [платежного виджета ЮKassa](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)
 
@@ -32,7 +32,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:33](https://github.
 
 > `optional` **locale**: [`LocaleEnum`](../enumerations/LocaleEnum.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentsConfirmation.type.ts#L23)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L23)
 
 Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен.
 
@@ -46,7 +46,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.
 
 > **type**: `"embedded"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentsConfirmation.type.ts#L31)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L31)
 
 Код сценария подтверждения.
 

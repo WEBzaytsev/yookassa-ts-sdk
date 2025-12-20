@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodSbp
 
-Defined in: [src/types/payments/paymentMethod.type.ts:230](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L230)
+Defined in: [src/types/payments/paymentMethod.type.ts:264](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L264)
 
 СБП (Система быстрых платежей)
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:230](https://github.com/WE
 
 > **type**: [`sbp`](../enumerations/PaymentMethodsEnum.md#sbp)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:231](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L231)
+Defined in: [src/types/payments/paymentMethod.type.ts:265](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L265)

@@ -8,6 +8,6 @@
 
 > **RefundNotification** = [`WebhookNotification`](../interfaces/WebhookNotification.md)\<[`IRefund`](../YooKassa-SDK-API-Reference/namespaces/Refunds/interfaces/IRefund.md)\>
 
-Defined in: [src/webhooks/notification.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L44)
+Defined in: [src/webhooks/notification.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/webhooks/notification.ts#L44)
 
 Уведомление о возврате

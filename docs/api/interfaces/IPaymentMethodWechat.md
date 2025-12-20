@@ -6,7 +6,7 @@
 
 # ~~Interface: IPaymentMethodWechat~~
 
-Defined in: [src/types/payments/paymentMethod.type.ts:294](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L294)
+Defined in: [src/types/payments/paymentMethod.type.ts:328](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L328)
 
 WeChat Pay
 
@@ -24,7 +24,7 @@ WeChat Pay
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L153)
+Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L187)
 
 Идентификатор способа оплаты.
 
@@ -38,7 +38,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:153](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L155)
+Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L189)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -52,7 +52,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WE
 
 > `optional` **title**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L157)
+Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L191)
 
 Название способа оплаты.
 
@@ -66,7 +66,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WE
 
 > **type**: [`wechat`](../enumerations/PaymentMethodsEnum.md#wechat)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:295](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L295)
+Defined in: [src/types/payments/paymentMethod.type.ts:329](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L329)
 
 #### Overrides
 

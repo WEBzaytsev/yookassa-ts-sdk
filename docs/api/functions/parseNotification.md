@@ -8,7 +8,7 @@
 
 > **parseNotification**(`body`): [`WebhookNotification`](../interfaces/WebhookNotification.md)
 
-Defined in: [src/webhooks/notification.ts:242](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/webhooks/notification.ts#L242)
+Defined in: [src/webhooks/notification.ts:242](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/webhooks/notification.ts#L242)
 
 Парсит и валидирует входящее уведомление от YooKassa.
 

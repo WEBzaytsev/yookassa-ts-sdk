@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataCash
 
-Defined in: [src/types/payments/paymentMethod.type.ts:380](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L380)
+Defined in: [src/types/payments/paymentMethod.type.ts:414](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L414)
 
 Данные для оплаты наличными
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:380](https://github.com/WE
 
 > `optional` **phone**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:383](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L383)
+Defined in: [src/types/payments/paymentMethod.type.ts:417](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L417)
 
 Телефон для получения кода платежа
 
@@ -26,4 +26,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:383](https://github.com/WE
 
 > **type**: `"cash"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:381](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/d3913939be3eb851fb805b33968589283550c68e/src/types/payments/paymentMethod.type.ts#L381)
+Defined in: [src/types/payments/paymentMethod.type.ts:415](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentMethod.type.ts#L415)
