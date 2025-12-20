@@ -6,7 +6,7 @@
 
 # Interface: IConfirmationMobileApp
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L73)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L73)
 
 ***Сценарий подтверждения `Mobile application`***
 
@@ -18,7 +18,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.
 
 > **confirmation\_url**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L76)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L76)
 
 Диплинк на мобильное приложение, в котором пользователь подтверждает платеж.
 
@@ -28,4 +28,4 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.
 
 > **type**: `"mobile_application"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/6823d155d49cc71fd6ee8c823d18d0dfb5b404e5/src/types/payments/paymentsConfirmation.type.ts#L74)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e9d85f4ed383ba5ce3c8e159cab8210bba24f9e4/src/types/payments/paymentsConfirmation.type.ts#L74)

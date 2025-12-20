@@ -244,23 +244,14 @@ export namespace Payments {
          * ***Данные для формирования чека.***
          *
          * Необходимо передавать в этих случаях:
-         * - вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](1);
-         * - вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](2) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](3) или [Сначала чек, потом платеж](4) ;
-         * - вы самозанятый и используете решение ЮKassa для [автоотправки чеков](5)
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics
-         * [3]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt
-         * [4]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt
-         * [5]: https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics
+         * - вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
+         * - вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [Сначала чек, потом платеж](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
+         * - вы самозанятый и используете решение ЮKassa для [автоотправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
          */
         receipt?: Receipts.ReceiptinPaymentType
-        /** Одноразовый токен для проведения оплаты, сформированный с помощью [Checkout.js](1) или [мобильного SDK](2)
+        /** Одноразовый токен для проведения оплаты, сформированный с помощью [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) или [мобильного SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics).
          *
-         * Пример:`+u7PDjMTkf08NtD66P6+eYWa2yjU3gsSIhOOO+OWsOg=`
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics
-         * [2]: https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics
+         * Пример: `+u7PDjMTkf08NtD66P6+eYWa2yjU3gsSIhOOO+OWsOg=`
          */
         payment_token?: string
         /** Идентификатор [сохраненного способа оплаты](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)  */

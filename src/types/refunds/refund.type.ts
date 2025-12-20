@@ -106,15 +106,9 @@ export namespace Refunds {
          * ***Данные для формирования чека.***
          *
          * Необходимо передавать в этих случаях:
-         * - вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](1);
-         * - вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](2) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](3) или [Сначала чек, потом платеж](4) ;
-         * - вы самозанятый и используете решение ЮKassa для [автоотправки чеков](5)
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics
-         * [3]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt
-         * [4]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt
-         * [5]: https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics
+         * - вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
+         * - вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [Сначала чек, потом платеж](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
+         * - вы самозанятый и используете решение ЮKassa для [автоотправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
          */
         receipt?: Receipts.CreateReceiptType
         /** Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */

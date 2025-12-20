@@ -149,12 +149,9 @@ export namespace Items {
         /** ***Ставка НДС (тег в 54 ФЗ — 1199).***
          *
          * Для чеков по 54-ФЗ — перечень возможных значений:
-         * - [для Чеков от ЮKassa](1)
-         * - [для сторонних онлайн-касс](2)
+         * - [для Чеков от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#vat-codes)
+         * - [для сторонних онлайн-касс](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#vat-codes)
          * - Для чеков самозанятых — фиксированное значение: `1`
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#vat-codes
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#vat-codes
          */
         vat_code: number
         /** ***Количество товара (тег в 54 ФЗ — 1023).***
@@ -170,11 +167,8 @@ export namespace Items {
          * Обязательный параметр, если используете Чеки от ЮKassa или онлайн-кассу, обновленную до ФФД 1.2.
          *
          * Перечень возможных значений:
-         * - [для Чеков от ЮKassa](1)
-         * - [для сторонних онлайн-касс](2)
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#measure
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#measure
+         * - [для Чеков от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#measure)
+         * - [для сторонних онлайн-касс](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#measure)
          */
         measure?: MeasureType
         /**
@@ -191,11 +185,8 @@ export namespace Items {
         /** ***Признак предмета расчета (тег в 54 ФЗ — 1212)*** — это то, за что принимается оплата, например товар, услуга.
          *
          * Перечень возможных значений:
-         * - [для Чеков от ЮKassa](1)
-         * - [для сторонних онлайн-касс](2)
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-subject
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#payment-subject
+         * - [для Чеков от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-subject)
+         * - [для сторонних онлайн-касс](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#payment-subject)
          */
         payment_subject?: PaymentSubject
         /** ***Признак способа расчета (тег в 54 ФЗ — 1214)*** — отражает тип оплаты и факт передачи товара.
@@ -203,11 +194,8 @@ export namespace Items {
          * Пример: покупатель полностью оплачивает товар и сразу получает его. В этом случае нужно передать значение `full_payment` (полный расчет).
          *
          * Перечень возможных значений:
-         * - [для Чеков от ЮKassa](1)
-         * - [для сторонних онлайн-касс](2)
-         *
-         * [1]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-mode
-         * [2]: https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#payment-mode
+         * - [для Чеков от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-mode)
+         * - [для сторонних онлайн-касс](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/parameters-values#payment-mode)
          */
         payment_mode?: PaymentMode
         /** Код страны происхождения товара по общероссийскому классификатору стран мира ([OК (MК (ИСО 3166) 004-97) 025-2001](http://docs.cntd.ru/document/842501280)).
