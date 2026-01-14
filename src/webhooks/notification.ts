@@ -296,4 +296,3 @@ export function parseRefundNotification(body: unknown): RefundNotification {
 
     return notification as RefundNotification
 }
-
