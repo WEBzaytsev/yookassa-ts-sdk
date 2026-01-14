@@ -71,7 +71,6 @@
 - [PaymentMethodDataYooMoney](interfaces/PaymentMethodDataYooMoney.md)
 - [WebhookList](interfaces/WebhookList.md)
 - [WebhookNotification](interfaces/WebhookNotification.md)
-- [WebhookSignatureValidationOptions](interfaces/WebhookSignatureValidationOptions.md)
 
 ## Type Aliases
 
@@ -118,5 +117,4 @@
 - [parseNotification](functions/parseNotification.md)
 - [parsePaymentNotification](functions/parsePaymentNotification.md)
 - [parseRefundNotification](functions/parseRefundNotification.md)
-- [verifyWebhookSignature](functions/verifyWebhookSignature.md)
 - [YooKassa](functions/YooKassa.md)

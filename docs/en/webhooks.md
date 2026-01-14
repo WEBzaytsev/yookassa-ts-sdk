@@ -114,64 +114,6 @@ isYooKassaIP('2a02:5180::1')     // true (IPv6)
 isYooKassaIP('192.168.1.1')      // false
 ```
 
-### Webhook Signature Validation
-
-YooKassa signs all webhooks using HMAC SHA-256. The signature is sent in the `X-YooKassa-Signature` header.
-
-**Important:** Signature validation requires the raw request body (before JSON parsing). Use middleware that preserves the raw body.
-
-```ts
-import { verifyWebhookSignature, parseNotification } from '@webzaytsev/yookassa-ts-sdk'
-import express from 'express'
-
-const app = express()
-
-// Middleware to preserve raw body (important for signature validation)
-app.use('/webhook', express.raw({ type: 'application/json' }))
-
-app.post('/webhook', (req, res) => {
-    try {
-        // 1. Validate signature
-        const signature = req.headers['x-yookassa-signature'] as string
-        if (!signature) {
-            return res.status(401).send('Missing signature header')
-        }
-
-        verifyWebhookSignature({
-            secretKey: process.env.YOOKASSA_WEBHOOK_SECRET_KEY!, // Webhook secret key
-            body: req.body, // raw body (Buffer)
-            signature,
-        })
-
-        // 2. Parse notification
-        const notification = parseNotification(JSON.parse(req.body.toString()))
-
-        // 3. Handle event
-        if (notification.event === 'payment.succeeded') {
-            console.log('Payment succeeded:', notification.object.id)
-        }
-
-        res.status(200).send('OK')
-    } catch (error) {
-        if (error instanceof WebhookValidationError) {
-            console.error('Validation error:', error.message, error.code)
-            return res.status(401).send('Invalid signature')
-        }
-        throw error
-    }
-})
-```
-
-**Validation mechanism:**
-1. YooKassa computes HMAC SHA-256 of the raw request body using the webhook secret key
-2. The result is sent in the `X-YooKassa-Signature` header in hex format (64 characters)
-3. SDK computes the same signature and compares it with the received one
-
-**Notes:**
-- Webhook secret key is different from the shop's `secretKey`
-- Secret key is generated when creating a webhook in YooKassa dashboard
-- Raw body (before JSON parsing) is required for validation
-
 ### Webhook Events
 
 | Event | Description |
