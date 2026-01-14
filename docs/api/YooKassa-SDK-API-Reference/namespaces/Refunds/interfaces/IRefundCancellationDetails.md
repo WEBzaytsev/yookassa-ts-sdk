@@ -6,7 +6,7 @@
 
 # Interface: IRefundCancellationDetails
 
-Defined in: [src/types/refunds/refund.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/refunds/refund.type.ts#L16)
+Defined in: [src/types/refunds/refund.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/refunds/refund.type.ts#L16)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/refunds/refund.type.ts:16](https://github.com/WEBzaytsev/
 
 > **party**: `"yoo_money"` \| `"payment_network"`
 
-Defined in: [src/types/refunds/refund.type.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/refunds/refund.type.ts#L20)
+Defined in: [src/types/refunds/refund.type.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/refunds/refund.type.ts#L20)
 
 Инициатор отмены возврата
 
@@ -28,7 +28,7 @@ https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#decl
 
 > **reason**: `"general_decline"` \| `"insufficient_funds"` \| `"rejected_by_payee"` \| `"rejected_by_timeout"` \| `"yoo_money_account_closed"` \| `"payment_article_number_not_found"` \| `"payment_basket_id_not_found"` \| `"payment_tru_code_not_found"` \| `"some_articles_already_refunded"` \| `"too_many_refunding_articles"`
 
-Defined in: [src/types/refunds/refund.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/refunds/refund.type.ts#L24)
+Defined in: [src/types/refunds/refund.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/refunds/refund.type.ts#L24)
 
 Причина отмены возврата
 

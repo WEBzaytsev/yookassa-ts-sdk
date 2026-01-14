@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataInstallments
 
-Defined in: [src/types/payments/paymentMethod.type.ts:442](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L442)
+Defined in: [src/types/payments/paymentMethod.type.ts:442](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L442)
 
 Данные для оплаты в рассрочку
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:442](https://github.com/WE
 
 > **type**: `"installments"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:443](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L443)
+Defined in: [src/types/payments/paymentMethod.type.ts:443](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L443)

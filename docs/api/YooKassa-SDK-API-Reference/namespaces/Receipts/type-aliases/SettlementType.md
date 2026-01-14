@@ -8,6 +8,6 @@
 
 > **SettlementType** = keyof *typeof* [`SettlementTypeMap`](../../../../variables/SettlementTypeMap.md)
 
-Defined in: [src/types/receipt/receipt.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/receipt/receipt.type.ts#L30)
+Defined in: [src/types/receipt/receipt.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/receipt/receipt.type.ts#L30)
 
 Возможные типы расчетов

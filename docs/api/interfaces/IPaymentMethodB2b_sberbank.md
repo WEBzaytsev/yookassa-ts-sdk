@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodB2b\_sberbank
 
-Defined in: [src/types/payments/paymentMethod.type.ts:258](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L258)
+Defined in: [src/types/payments/paymentMethod.type.ts:258](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L258)
 
 СберБанк Бизнес Онлайн
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:258](https://github.com/WE
 
 > **payment\_purpose**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:261](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L261)
+Defined in: [src/types/payments/paymentMethod.type.ts:261](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L261)
 
 Назначение платежа (не больше 210 символов).
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:261](https://github.com/WE
 
 > **type**: [`b2b_sberbank`](../enumerations/PaymentMethodsEnum.md#b2b_sberbank)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:259](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L259)
+Defined in: [src/types/payments/paymentMethod.type.ts:259](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L259)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:259](https://github.com/WE
 
 > **vat\_data**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:263](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L263)
+Defined in: [src/types/payments/paymentMethod.type.ts:263](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L263)
 
 Данные о налоге на добавленную стоимость (НДС). Платеж может облагаться или не облагаться НДС. Товары могут облагаться по одной ставке НДС или по разным.
 

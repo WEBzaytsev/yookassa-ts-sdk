@@ -6,7 +6,7 @@
 
 # ~~Interface: PaymentMethodDataAlfabank~~
 
-Defined in: [src/types/payments/paymentMethod.type.ts:399](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L399)
+Defined in: [src/types/payments/paymentMethod.type.ts:399](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L399)
 
 Данные для оплаты через Альфа-Клик
 
@@ -20,7 +20,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:399](https://github.com/WE
 
 > `optional` **login**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:402](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L402)
+Defined in: [src/types/payments/paymentMethod.type.ts:402](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L402)
 
 Логин пользователя в Альфа-Клике
 
@@ -30,4 +30,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:402](https://github.com/WE
 
 > **type**: `"alfabank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:400](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a5803ddf5ac53e5307d21c08eb9d6867f4ea7add/src/types/payments/paymentMethod.type.ts#L400)
+Defined in: [src/types/payments/paymentMethod.type.ts:400](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L400)
