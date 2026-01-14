@@ -151,23 +151,20 @@ interface IGenReqOpts<P> {
     useOAuth?: boolean
 }
 
-export type GetRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
+export type GetRequestOpts<P = object> = IGenReqOpts<P> & {
     method: 'GET'
 }
 
-export type PostRequestOpts<P = Record<string, any>, D = Record<string, any>> = IGenReqOpts<P> & {
+export type PostRequestOpts<P = object, D = object> = IGenReqOpts<P> & {
     method: 'POST'
     data: D
 }
 
-export type DeleteRequestOpts<P = Record<string, any>> = IGenReqOpts<P> & {
+export type DeleteRequestOpts<P = object> = IGenReqOpts<P> & {
     method: 'DELETE'
 }
 
-export type RequestOpts<P = Record<string, any>, D = Record<string, any>> =
-    | GetRequestOpts<P>
-    | PostRequestOpts<P, D>
-    | DeleteRequestOpts<P>
+export type RequestOpts<P = object, D = object> = GetRequestOpts<P> | PostRequestOpts<P, D> | DeleteRequestOpts<P>
 
 /**
  * Base class for YooKassa API communication.
@@ -274,9 +271,7 @@ export class Connector {
      *
      * @throws {YooKassaErr} При ошибке API или сети
      */
-    protected async request<Res = Record<string, any>, Data = Record<string, any>>(
-        opts: RequestOpts<Data>,
-    ): Promise<Res> {
+    protected async request<Res, Data = object>(opts: RequestOpts<Data>): Promise<Res> {
         // Генерируем или используем переданный Idempotence-Key
         const idempotenceKey = opts.requestId ?? randomUUID()
 
@@ -305,7 +300,7 @@ export class Connector {
                 const response = await this.axiosInstance.request<Res>({
                     method: opts.method,
                     url: opts.endpoint,
-                    data: opts.method === 'POST' ? (opts as PostRequestOpts<any, Data>).data : undefined,
+                    data: opts.method === 'POST' ? (opts as PostRequestOpts<object, Data>).data : undefined,
                     params: opts.params,
                     headers,
                     auth: opts.useOAuth ? undefined : { username: this.shopId, password: this.secretKey },
