@@ -1,5 +1,5 @@
 import type { refundCancelReasonMap } from '../../dictionaries'
-import type { IAmount } from '../general.types'
+import type { IAmount, Metadata } from '../general.types'
 import type { Payments } from '../payments/payment.type'
 import type { Receipts } from '../receipt/'
 import type { ElectronicCertificateRefundMethod, RefundMethod } from './refundMethod.type'
@@ -98,7 +98,7 @@ export namespace Refunds {
             rrn?: string
         }
         /** Любые дополнительные данные, которые нужны вам для работы. */
-        metadata?: Record<string, string>
+        metadata?: Metadata
     }
 
     export type CreateRefundRequest = Pick<IRefund, 'payment_id' | 'amount' | 'description' | 'sources' | 'deal'> & {

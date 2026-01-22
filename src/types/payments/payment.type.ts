@@ -1,5 +1,5 @@
 import type { paymentCancelReasonMap } from '../../dictionaries'
-import type { IAmount } from '../general.types'
+import type { IAmount, Metadata } from '../general.types'
 import type { Receipts } from '../receipt'
 import type { Receiver } from '../receiver.type'
 import type { IAirline } from './airline.type'
@@ -167,7 +167,7 @@ export namespace Payments {
          * ***Ограничения***: максимум 16 ключей, имя ключа не больше 32 символов,
          * значение ключа не больше 512 символов, тип данных — строка в формате UTF-8.
          */
-        metadata?: Record<string, string>
+        metadata?: Metadata
         /** Комментарий к статусу `canceled`
          *  кто отменил платеж и по какой причине.
          *
@@ -309,7 +309,7 @@ export namespace Payments {
             /** Описание транзакции (до 128 символов) */
             description?: string
             /** Любые дополнительные данные */
-            metadata?: Record<string, string>
+            metadata?: Metadata
         }>
     }
 }
