@@ -8,7 +8,7 @@
 
 > **GetPaymentListFilter** = `object`
 
-Defined in: [src/types/api.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L20)
+Defined in: [src/types/api.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L20)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/types/api.types.ts:20](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **captured\_at**: [`DateFilter`](DateFilter.md)
 
-Defined in: [src/types/api.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L24)
+Defined in: [src/types/api.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L24)
 
 Фильтр по времени подтверждения
 
@@ -26,7 +26,7 @@ Defined in: [src/types/api.types.ts:24](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **created\_at**: [`DateFilter`](DateFilter.md)
 
-Defined in: [src/types/api.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L22)
+Defined in: [src/types/api.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L22)
 
 Фильтр по времени создания
 
@@ -36,7 +36,7 @@ Defined in: [src/types/api.types.ts:22](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **cursor**: `string`
 
-Defined in: [src/types/api.types.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L48)
+Defined in: [src/types/api.types.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L48)
 
 Указатель на следующий фрагмент списка.
 
@@ -62,7 +62,7 @@ Defined in: [src/types/api.types.ts:48](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **limit**: `number`
 
-Defined in: [src/types/api.types.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L39)
+Defined in: [src/types/api.types.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L39)
 
 Размер выдачи результатов запроса — количество объектов, передаваемых в ответе.
 Возможные значения: от 1 до 100.
@@ -85,7 +85,7 @@ Defined in: [src/types/api.types.ts:39](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **payment\_method**: [`PaymentMethodsEnum`](../enumerations/PaymentMethodsEnum.md)
 
-Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L29)
+Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L29)
 
 Фильтр по коду [способа оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all).
 
@@ -101,7 +101,7 @@ Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **status**: [`PaymentStatus`](../YooKassa-SDK-API-Reference/namespaces/Payments/type-aliases/PaymentStatus.md)
 
-Defined in: [src/types/api.types.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/api.types.ts#L32)
+Defined in: [src/types/api.types.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/api.types.ts#L32)
 
 Фильтр по статусу платежа.
 

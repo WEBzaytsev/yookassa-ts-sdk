@@ -6,7 +6,7 @@
 
 # Interface: WebhookList
 
-Defined in: [src/types/webhook.type.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/webhook.type.ts#L42)
+Defined in: [src/types/webhook.type.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/webhook.type.ts#L42)
 
 Список вебхуков
 
@@ -16,7 +16,7 @@ Defined in: [src/types/webhook.type.ts:42](https://github.com/WEBzaytsev/yookass
 
 > **items**: [`IWebhook`](IWebhook.md)[]
 
-Defined in: [src/types/webhook.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/webhook.type.ts#L44)
+Defined in: [src/types/webhook.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/webhook.type.ts#L44)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [src/types/webhook.type.ts:44](https://github.com/WEBzaytsev/yookass
 
 > **type**: `"list"`
 
-Defined in: [src/types/webhook.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/webhook.type.ts#L43)
+Defined in: [src/types/webhook.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/webhook.type.ts#L43)

@@ -6,7 +6,7 @@
 
 # Interface: IConfirmationRedirect
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L41)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L41)
 
 ***Сценарий подтверждения `Redirect`***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:41](https://github.
 
 > `optional` **confirmation\_url**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L45)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L45)
 
 URL, на который необходимо перенаправить пользователя для подтверждения оплаты.
 
@@ -32,7 +32,7 @@ URL, на который необходимо перенаправить пол�
 
 > `optional` **enforce**: `boolean`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L47)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L47)
 
 Запрос на проведение платежа с аутентификацией по 3-D Secure. Будет работать, если оплату банковской картой вы по умолчанию принимаете без подтверждения платежа пользователем. В остальных случаях аутентификацией по 3-D Secure будет управлять ЮKassa. Если хотите принимать платежи без дополнительного подтверждения пользователем, напишите вашему менеджеру ЮKassa.
 
@@ -42,7 +42,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:47](https://github.
 
 > `optional` **locale**: [`LocaleEnum`](../enumerations/LocaleEnum.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L23)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L23)
 
 Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен.
 
@@ -56,7 +56,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.
 
 > `optional` **return\_url**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:54](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L54)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:54](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L54)
 
 URL, на который вернется пользователь после подтверждения или отмены платежа на веб-странице. Не более 2048 символов.
 
@@ -72,7 +72,7 @@ https://yookassa.ru/developers/api#create_payment
 
 > **type**: `"redirect"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L43)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L43)
 
 Код сценария подтверждения.
 

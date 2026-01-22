@@ -70,10 +70,15 @@ export interface IConfirmationQR extends IGeneralConfirmation {
  *
  * для подтверждения платежа пользователю необходимо совершить действия в мобильном приложении (например, в приложении интернет-банка). Вам нужно перенаправить пользователя на confirmation_url, полученный в платеже
  */
-export interface IConfirmationMobileApp {
+export interface IConfirmationMobileApp extends IGeneralConfirmation {
     type: 'mobile_application'
     /** Диплинк на мобильное приложение, в котором пользователь подтверждает платеж. */
     confirmation_url: string
+    /**
+     * URL или диплинк, на который вернется пользователь после подтверждения или отмены платежа в приложении.
+     * Не более 255 символов для SberPay, 2048 для остальных.
+     */
+    return_url?: string
 }
 
 /**

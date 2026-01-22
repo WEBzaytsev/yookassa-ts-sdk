@@ -163,8 +163,8 @@ export class YooKassaSdk extends Connector {
     }
     // ========== Refunds end ========== //
     // ========== Receipts ========== //
-    protected getReceiptById = async (receiptId: string): Promise<Receipts.ReceiptType> => {
-        return this.request<Receipts.ReceiptType>({
+    protected getReceiptById = async (receiptId: string): Promise<Receipts.IReceipt> => {
+        return this.request<Receipts.IReceipt>({
             method: 'GET',
             endpoint: `/receipts/${receiptId}`,
         })
@@ -177,8 +177,8 @@ export class YooKassaSdk extends Connector {
     protected createReceipt = async (
         newReceipt: Receipts.CreateReceiptType,
         idempotenceKey?: string,
-    ): Promise<Receipts.ReceiptType> => {
-        return this.request<Receipts.ReceiptType>({
+    ): Promise<Receipts.IReceipt> => {
+        return this.request<Receipts.IReceipt>({
             method: 'POST',
             endpoint: '/receipts',
             data: newReceipt,
@@ -186,10 +186,8 @@ export class YooKassaSdk extends Connector {
         })
     }
 
-    protected getReceiptList = async (
-        filter?: Omit<GetReceiptListFilter, 'cursor'>,
-    ): Promise<Receipts.ReceiptType[]> => {
-        return this.fetchList<Receipts.ReceiptType, GetReceiptListFilter>('/receipts', filter)
+    protected getReceiptList = async (filter?: Omit<GetReceiptListFilter, 'cursor'>): Promise<Receipts.IReceipt[]> => {
+        return this.fetchList<Receipts.IReceipt, GetReceiptListFilter>('/receipts', filter)
     }
     // ========== Receipts end ========== //
 
@@ -444,7 +442,7 @@ export class YooKassaSdk extends Connector {
         create: this.createReceipt as (
             receipt: Receipts.CreateReceiptType,
             idempotenceKey?: string,
-        ) => Promise<Receipts.ReceiptType>,
+        ) => Promise<Receipts.IReceipt>,
         /**
          * ****Информация о чеке****
          *

@@ -6,7 +6,7 @@
 
 # Class: WebhookValidationError
 
-Defined in: [src/webhooks/notification.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/webhooks/notification.ts#L49)
+Defined in: [src/webhooks/notification.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/webhooks/notification.ts#L49)
 
 Ошибка валидации уведомления
 
@@ -20,7 +20,7 @@ Defined in: [src/webhooks/notification.ts:49](https://github.com/WEBzaytsev/yook
 
 > **new WebhookValidationError**(`message`, `code?`): `WebhookValidationError`
 
-Defined in: [src/webhooks/notification.ts:50](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/webhooks/notification.ts#L50)
+Defined in: [src/webhooks/notification.ts:50](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/webhooks/notification.ts#L50)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [src/webhooks/notification.ts:50](https://github.com/WEBzaytsev/yook
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: [src/webhooks/notification.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/webhooks/notification.ts#L52)
+Defined in: [src/webhooks/notification.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/webhooks/notification.ts#L52)
 
 ***
 

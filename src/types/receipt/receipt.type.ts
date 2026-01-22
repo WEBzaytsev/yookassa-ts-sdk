@@ -13,8 +13,8 @@ export namespace Receipts {
      */
     export type ReceiptRegistrationStatus = 'pending' | 'succeeded' | 'canceled'
 
-    /**Тип чека в онлайн-кассе: приход (payment) или возврат прихода (refund). */
-    export type ReceiptType = 'payment' | 'refund'
+    /** Тип чека в онлайн-кассе: приход (payment) или возврат прихода (refund). */
+    export type ReceiptKind = 'payment' | 'refund'
 
     /**
      * Статус доставки данных для чека в онлайн-кассу.
@@ -37,11 +37,12 @@ export namespace Receipts {
         amount: IAmount
     }
 
-    interface IReceiptGeneral {
-        /**Идентификатор чека в ЮKassa. */
+    /** Объект чека — актуальная информация о чеке из API. */
+    export interface IReceipt {
+        /** Идентификатор чека в ЮKassa. */
         readonly id: string
-        /**Тип чека в онлайн-кассе: приход (`payment`) или возврат прихода (`refund`). */
-        type: ReceiptType
+        /** Тип чека в онлайн-кассе: приход (`payment`) или возврат прихода (`refund`). */
+        type: ReceiptKind
         /** Идентификатор платежа, для которого был сформирован чек. */
         payment_id?: string
         /**Идентификатор возврата, для которого был сформирован чек. Отсутствует в чеке платежа. */
@@ -97,7 +98,7 @@ export namespace Receipts {
     }
 
     export type CreateReceiptType = Pick<
-        IReceiptGeneral,
+        IReceipt,
         | 'type'
         | 'payment_id'
         | 'refund_id'

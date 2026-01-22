@@ -6,7 +6,7 @@
 
 # Enumeration: ConfirmationTypesEnum
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L10)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L10)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:10](https://github.
 
 > **embedded**: `"embedded"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L11)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L11)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:11](https://github.
 
 > **external**: `"external"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L12)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L12)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:12](https://github.
 
 > **mobile\_application**: `"mobile_application"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L13)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L13)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:13](https://github.
 
 > **qr**: `"qr"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L14)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L14)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:14](https://github.
 
 > **redirect**: `"redirect"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentsConfirmation.type.ts#L15)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentsConfirmation.type.ts#L15)

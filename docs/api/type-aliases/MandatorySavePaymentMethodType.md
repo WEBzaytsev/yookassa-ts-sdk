@@ -8,7 +8,7 @@
 
 > **MandatorySavePaymentMethodType** = [`bank_card`](../enumerations/PaymentMethodsEnum.md#bank_card) \| [`yoo_money`](../enumerations/PaymentMethodsEnum.md#yoo_money) \| [`sberbank`](../enumerations/PaymentMethodsEnum.md#sberbank) \| [`tinkoff_bank`](../enumerations/PaymentMethodsEnum.md#tinkoff_bank) \| [`sbp`](../enumerations/PaymentMethodsEnum.md#sbp)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:107](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/7f1245c9c0c123811c855c0e24ace075798fe019/src/types/payments/paymentMethod.type.ts#L107)
+Defined in: [src/types/payments/paymentMethod.type.ts:107](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/payments/paymentMethod.type.ts#L107)
 
 Способы оплаты, поддерживающие безусловное сохранение (save_payment_method: true).
 Пользователь не может отказаться от сохранения способа оплаты.
