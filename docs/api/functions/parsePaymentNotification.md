@@ -8,7 +8,7 @@
 
 > **parsePaymentNotification**(`body`): [`PaymentNotification`](../type-aliases/PaymentNotification.md)
 
-Defined in: [src/webhooks/notification.ts:273](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/webhooks/notification.ts#L273)
+Defined in: [src/webhooks/notification.ts:273](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/webhooks/notification.ts#L273)
 
 Типизированный парсер для уведомлений о платежах.
 

@@ -97,7 +97,7 @@ export namespace Items {
     /**
      * Признак способа расчета. Передается в параметре `payment_mode`
      *
-     * @note Для Чеков от ЮKassa поддерживаются только `full_prepayment` и `full_payment`.
+     * @remarks Для Чеков от ЮKassa поддерживаются только `full_prepayment` и `full_payment`.
      * Для сторонних онлайн-касс доступны все значения.
      *
      * @see https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/parameters-values#payment-mode

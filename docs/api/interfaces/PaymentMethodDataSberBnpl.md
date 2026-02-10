@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataSberBnpl
 
-Defined in: [src/types/payments/paymentMethod.type.ts:455](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/payments/paymentMethod.type.ts#L455)
+Defined in: [src/types/payments/paymentMethod.type.ts:455](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L455)
 
 Данные для оплаты через "Плати частями" (BNPL от СберБанка)
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-i
 
 > `optional` **phone**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:458](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/payments/paymentMethod.type.ts#L458)
+Defined in: [src/types/payments/paymentMethod.type.ts:458](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L458)
 
 Телефон пользователя для авторизации в сервисе (опционально, можно ввести на странице YooKassa)
 
@@ -30,4 +30,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:458](https://github.com/WE
 
 > **type**: `"sber_bnpl"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:456](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/payments/paymentMethod.type.ts#L456)
+Defined in: [src/types/payments/paymentMethod.type.ts:456](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L456)

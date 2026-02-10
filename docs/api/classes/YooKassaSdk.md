@@ -6,7 +6,7 @@
 
 # Class: YooKassaSdk
 
-Defined in: [src/client/sdk.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L48)
+Defined in: [src/client/sdk.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L48)
 
 YooKassa SDK client for payment processing.
 
@@ -51,7 +51,7 @@ https://yookassa.ru/developers/api
 
 > **new YooKassaSdk**(`init`): `YooKassaSdk`
 
-Defined in: [src/client/connector.ts:229](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/connector.ts#L229)
+Defined in: [src/client/connector.ts:229](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/connector.ts#L229)
 
 #### Parameters
 
@@ -73,7 +73,7 @@ Defined in: [src/client/connector.ts:229](https://github.com/WEBzaytsev/yookassa
 
 > `readonly` **payments**: `object`
 
-Defined in: [src/client/sdk.ts:243](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L243)
+Defined in: [src/client/sdk.ts:243](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L243)
 
 Методы для работы с платежами
 
@@ -311,7 +311,7 @@ This is the response structure for the list of payments.
 
 > `readonly` **receipts**: `object`
 
-Defined in: [src/client/sdk.ts:430](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L430)
+Defined in: [src/client/sdk.ts:430](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L430)
 
 ****Методы для работы с чеками****
 
@@ -402,7 +402,7 @@ https://yookassa.ru/developers/api#receipt
 
 > `readonly` **refunds**: `object`
 
-Defined in: [src/client/sdk.ts:391](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L391)
+Defined in: [src/client/sdk.ts:391](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L391)
 
 Методы для работы с возвратами
 
@@ -490,7 +490,7 @@ https://yookassa.ru/developers/api#get_refund
 
 > `readonly` **shop**: `object`
 
-Defined in: [src/client/sdk.ts:509](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L509)
+Defined in: [src/client/sdk.ts:509](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L509)
 
 ****Информация о магазине****
 
@@ -523,7 +523,7 @@ https://yookassa.ru/developers/api#get_me
 
 > `readonly` **webhooks**: `object`
 
-Defined in: [src/client/sdk.ts:472](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L472)
+Defined in: [src/client/sdk.ts:472](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L472)
 
 ****Методы для работы с вебхуками****
 

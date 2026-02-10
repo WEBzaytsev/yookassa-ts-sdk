@@ -1,14 +1,15 @@
 {
-    "entryPoints": ["src/index.ts"],
-    "out": "docs/api",
-    "plugin": ["typedoc-plugin-markdown"],
-    "readme": "none",
-    "hideGenerator": true,
-    "excludePrivate": true,
-    "excludeProtected": true,
-    "excludeInternal": true,
-    "githubPages": false,
-    "disableSources": false,
-    "name": "YooKassa SDK API Reference",
-    "exclude": ["**/examples/**", "**/tests/**", "**/generated/**"]
+  "entryPoints": ["src/index.ts"],
+  "out": "docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "hideGenerator": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "githubPages": false,
+  "disableSources": false,
+  "name": "YooKassa SDK API Reference",
+  "exclude": ["**/examples/**", "**/tests/**", "**/generated/**"],
+  "validation": { "notExported": false }
 }
