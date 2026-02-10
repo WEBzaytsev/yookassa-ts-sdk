@@ -56,6 +56,7 @@
 - [IPaymentMethodYooMoney](interfaces/IPaymentMethodYooMoney.md)
 - [IShopInfo](interfaces/IShopInfo.md)
 - [IWebhook](interfaces/IWebhook.md)
+- [Metadata](interfaces/Metadata.md)
 - [~~PaymentMethodDataAlfabank~~](interfaces/PaymentMethodDataAlfabank.md)
 - [PaymentMethodDataB2bSberbank](interfaces/PaymentMethodDataB2bSberbank.md)
 - [PaymentMethodDataCard](interfaces/PaymentMethodDataCard.md)

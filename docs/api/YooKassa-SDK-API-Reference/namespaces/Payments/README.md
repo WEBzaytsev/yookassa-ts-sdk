@@ -20,9 +20,14 @@
 ## Type Aliases
 
 - [AuthorizationDetails](type-aliases/AuthorizationDetails.md)
+- [CanceledPayment](type-aliases/CanceledPayment.md)
 - [CancelReason](type-aliases/CancelReason.md)
 - [CreatePaymentRequest](type-aliases/CreatePaymentRequest.md)
 - [DealType](type-aliases/DealType.md)
 - [PaymentStatus](type-aliases/PaymentStatus.md)
 - [StatementType](type-aliases/StatementType.md)
 - [TransferPayment](type-aliases/TransferPayment.md)
+
+## Functions
+
+- [isCanceledPayment](functions/isCanceledPayment.md)

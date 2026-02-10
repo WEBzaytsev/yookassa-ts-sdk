@@ -8,7 +8,7 @@
 
 > **Settlement** = `object`
 
-Defined in: [src/types/receipt/receipt.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/receipt/receipt.type.ts#L33)
+Defined in: [src/types/receipt/receipt.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/receipt/receipt.type.ts#L33)
 
 Расчет
 
@@ -18,7 +18,7 @@ Defined in: [src/types/receipt/receipt.type.ts:33](https://github.com/WEBzaytsev
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/receipt/receipt.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/receipt/receipt.type.ts#L37)
+Defined in: [src/types/receipt/receipt.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/receipt/receipt.type.ts#L37)
 
 Сумма.
 
@@ -28,6 +28,6 @@ Defined in: [src/types/receipt/receipt.type.ts:37](https://github.com/WEBzaytsev
 
 > **type**: [`SettlementType`](SettlementType.md)
 
-Defined in: [src/types/receipt/receipt.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/types/receipt/receipt.type.ts#L35)
+Defined in: [src/types/receipt/receipt.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/types/receipt/receipt.type.ts#L35)
 
 Тип расчета.

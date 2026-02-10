@@ -8,7 +8,7 @@
 
 > **YooKassa**(`init`, `forceNew`): [`YooKassaSdk`](../classes/YooKassaSdk.md)
 
-Defined in: [src/client/sdk.ts:559](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/50e1491ae6e226093b0c5fe6d1e0a677c65b97ce/src/client/sdk.ts#L559)
+Defined in: [src/client/sdk.ts:559](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/c8dc341ff73a5ece64b0ee18dd5940355be4e506/src/client/sdk.ts#L559)
 
 Creates or returns a cached YooKassaSdk instance.
 

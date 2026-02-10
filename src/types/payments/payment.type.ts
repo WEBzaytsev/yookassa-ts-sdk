@@ -205,6 +205,21 @@ export namespace Payments {
         }
     }
 
+    /**
+     * Платёж в статусе отмены. У отменённого платежа всегда есть cancellation_details с причиной
+     * (например insufficient_funds, expired_on_confirmation). Используйте с type guard isCanceledPayment.
+     * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/declined-payments
+     */
+    export type CanceledPayment = IPayment & {
+        readonly status: 'canceled'
+        readonly cancellation_details: PaymentCancellationDetails
+    }
+
+    /** Type guard: платёж отменён — можно безопасно читать cancellation_details.reason */
+    export function isCanceledPayment(payment: IPayment): payment is CanceledPayment {
+        return payment.status === 'canceled' && payment.cancellation_details != null
+    }
+
     /** Тип справки для отправки пользователю */
     export type StatementType = 'payment_overview'
 
