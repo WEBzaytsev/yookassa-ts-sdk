@@ -6,6 +6,8 @@ import type {
     GetRefundListFilter,
 } from '../types/api.types'
 import type { Payments } from '../types/payments'
+import type { Payouts } from '../types/payouts/payout.type'
+import type { GetPayoutListFilter } from '../types/payouts/payoutListFilter.type'
 import type { Receipts } from '../types/receipt'
 import type { Refunds } from '../types/refunds'
 import type { IShopInfo } from '../types/shop.type'
@@ -227,6 +229,31 @@ export class YooKassaSdk extends Connector {
         })
     }
     // ========== Webhooks end ========== //
+
+    // ========== Payouts ========== //
+    protected getPayoutById = async (id: string): Promise<Payouts.IPayout> => {
+        return this.request<Payouts.IPayout>({
+            method: 'GET',
+            endpoint: `/payouts/${id}`,
+        })
+    }
+
+    protected getPayoutList = async (filter?: Omit<GetPayoutListFilter, 'cursor'>): Promise<Payouts.IPayout[]> => {
+        return this.fetchList<Payouts.IPayout, GetPayoutListFilter>('/payouts', filter)
+    }
+
+    protected createPayout = async (
+        newPayout: Payouts.CreatePayoutRequest,
+        idempotenceKey?: string,
+    ): Promise<Payouts.IPayout> => {
+        return this.request<Payouts.IPayout>({
+            method: 'POST',
+            endpoint: '/payouts',
+            data: newPayout,
+            requestId: idempotenceKey,
+        })
+    }
+    // ========== Payouts end ========== //
 
     // ========== Shop ========== //
     /** Получить информацию о магазине (требуется OAuth-токен) */
@@ -459,6 +486,47 @@ export class YooKassaSdk extends Connector {
          * @see https://yookassa.ru/developers/api#get_receipts_list
          */
         list: this.getReceiptList,
+    }
+
+    /**
+     * ****Методы для работы с выплатами****
+     *
+     * Позволяет создавать выплаты физическим лицам и получать информацию о них.
+     * Доступно при использовании обычных выплат или в рамках Безопасной сделки.
+     *
+     * @see https://yookassa.ru/developers/payouts/overview
+     */
+    public readonly payouts = {
+        /**
+         * ****Создание выплаты****
+         *
+         * Создаёт выплату физическому лицу на указанное платёжное средство.
+         *
+         * @param payout - данные выплаты
+         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @see https://yookassa.ru/developers/api#create_payout
+         */
+        create: this.createPayout as (
+            payout: Payouts.CreatePayoutRequest,
+            idempotenceKey?: string,
+        ) => Promise<Payouts.IPayout>,
+        /**
+         * ****Информация о выплате****
+         *
+         * Возвращает информацию о текущем состоянии выплаты по её идентификатору.
+         *
+         * @see https://yookassa.ru/developers/api#get_payout
+         */
+        load: this.getPayoutById,
+        /**
+         * ****Список выплат****
+         *
+         * Возвращает список выплат, отфильтрованный по заданным критериям.
+         * Поддерживает фильтрацию по `created_at` и `succeeded_at`.
+         *
+         * @see https://yookassa.ru/developers/api#get_payouts_list
+         */
+        list: this.getPayoutList,
     }
 
     /**

@@ -4,6 +4,7 @@ import type { Receipts } from '../receipt'
 import type { Receiver } from '../receiver.type'
 import type { IAirline } from './airline.type'
 import type { IPaymentMethod, PaymentMethodData } from './paymentMethod.type'
+import type { PaymentOrderData } from './paymentOrder.type'
 import type { IConfirmation } from './paymentsConfirmation.type'
 
 /** Все, что касается платежей в ЮКассе */
@@ -290,6 +291,11 @@ export namespace Payments {
          * @see https://yookassa.ru/developers/payment-acceptance/getting-started/selecting-integration-scenario
          */
         statements?: Statement[]
+        /**
+         * Платёжное поручение для оплаты жилищно-коммунальных услуг (ЖКХ).
+         * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-payments
+         */
+        payment_order_data?: PaymentOrderData
     }
 
     /**

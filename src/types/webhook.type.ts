@@ -14,6 +14,8 @@ export enum WebhookEventEnum {
     'payout.canceled' = 'payout.canceled',
     /** Сделка закрыта */
     'deal.closed' = 'deal.closed',
+    /** Способ оплаты стал активным (привязка на нулевую сумму завершена) */
+    'payment_method.active' = 'payment_method.active',
 }
 
 export type WebhookEvent = `${WebhookEventEnum}`

@@ -1,4 +1,5 @@
 export * from './airline.type'
 export * from './payment.type'
 export * from './paymentMethod.type'
+export * from './paymentOrder.type'
 export * from './paymentsConfirmation.type'

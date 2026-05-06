@@ -19,6 +19,7 @@ export type IPaymentMethod =
     | IPaymentMethodGooglePay
     | IPaymentMethodWebmoney
     | IPaymentMethodWechat
+    | IPaymentMethodAlfaPay
 
 export enum PaymentMethodsEnum {
     /** Банковская карта или карта МИР */
@@ -65,6 +66,9 @@ export enum PaymentMethodsEnum {
 
     /** Плати частями (BNPL от СберБанка) */
     sber_bnpl = 'sber_bnpl',
+
+    /** Alfa Pay */
+    alfa_pay = 'alfa_pay',
 
     /** Apple Pay (обычно используется через payment_token) */
     apple_pay = 'apple_pay',
@@ -350,6 +354,15 @@ export interface IPaymentMethodWechat extends IGeneralPayMethod {
     type: PaymentMethodsEnum.wechat
 }
 
+/** Alfa Pay
+ * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#alfa-pay
+ */
+export interface IPaymentMethodAlfaPay extends IGeneralPayMethod {
+    type: PaymentMethodsEnum.alfa_pay
+    /** Данные банковской карты, привязанной в Alfa Pay */
+    card?: IBankCardData
+}
+
 // ========== PaymentMethodData (для создания платежа) ========== //
 
 /** Данные банковской карты для создания платежа */
@@ -458,6 +471,11 @@ export interface PaymentMethodDataSberBnpl {
     phone?: string
 }
 
+/** Данные для оплаты через Alfa Pay */
+export interface PaymentMethodDataAlfaPay {
+    type: 'alfa_pay'
+}
+
 /**
  * Данные для оплаты конкретным способом.
  * Передаётся в `payment_method_data` при создании платежа.
@@ -477,3 +495,4 @@ export type PaymentMethodData =
     | PaymentMethodDataInstallments
     | PaymentMethodDataSberLoan
     | PaymentMethodDataSberBnpl
+    | PaymentMethodDataAlfaPay
