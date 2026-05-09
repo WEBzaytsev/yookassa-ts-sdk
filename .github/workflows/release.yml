@@ -113,7 +113,7 @@ jobs:
         id: npm_publish
         if: ${{ !inputs.dry_run }}
         continue-on-error: true
-        run: pnpm publish --provenance --access public
+        run: pnpm publish --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -128,7 +128,7 @@ jobs:
         id: ghp_publish
         if: ${{ !inputs.dry_run }}
         continue-on-error: true
-        run: pnpm publish --access public
+        run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
