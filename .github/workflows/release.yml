@@ -34,20 +34,26 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Format and lint
         run: |
-          npm run lint:fix
-          npm run lint
-          npx tsc --noEmit
+          pnpm run lint:fix
+          pnpm run lint
+          pnpm exec tsc --noEmit
 
       - name: Commit formatting changes
         run: |
@@ -58,13 +64,13 @@ jobs:
 
       - name: Build
         run: |
-          rm -rf dist tsconfig.tsbuildinfo
-          npm run build
+          rm -rf dist
+          pnpm run build
 
       - name: Bump version
         id: version
         run: |
-          NEW_VERSION=$(npm version ${{ inputs.version }} -m "chore(release): v%s")
+          NEW_VERSION=$(pnpm version ${{ inputs.version }} -m "chore(release): v%s")
           echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Generate changelog
@@ -107,7 +113,7 @@ jobs:
         id: npm_publish
         if: ${{ !inputs.dry_run }}
         continue-on-error: true
-        run: npm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -115,14 +121,14 @@ jobs:
         if: ${{ !inputs.dry_run }}
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://npm.pkg.github.com'
 
       - name: Publish to GitHub Packages
         id: ghp_publish
         if: ${{ !inputs.dry_run }}
         continue-on-error: true
-        run: npm publish --access public
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

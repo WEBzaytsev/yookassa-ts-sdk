@@ -26,6 +26,15 @@
 npm install @webzaytsev/yookassa-ts-sdk
 ```
 
+### Разработка этого репозитория
+
+```sh
+corepack enable
+pnpm install
+pnpm run check
+pnpm run build
+```
+
 ## Быстрый старт
 
 ```ts

@@ -8,6 +8,8 @@ Modern TypeScript SDK for [YooKassa Payment API](https://yookassa.ru/developers/
 npm install @webzaytsev/yookassa-ts-sdk
 ```
 
+To work on the SDK locally, clone the repo and run `corepack enable`, `pnpm install`, and `pnpm run check`.
+
 ## Quick Start
 
 ```typescript
