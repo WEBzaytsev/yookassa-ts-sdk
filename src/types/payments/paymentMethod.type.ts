@@ -116,6 +116,32 @@ export type MandatorySavePaymentMethodType =
     | PaymentMethodsEnum.sbp
 
 /**
+ * Рантайм-список всех значений {@link MandatorySavePaymentMethodType} (рекуррент с обязательным сохранением метода).
+ * Должен совпадать с union: при добавлении варианта в тип — дополнить массив, иначе упадёт {@link MandatorySavePaymentMethodsCoverageCheck}.
+ *
+ * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-mandatory
+ */
+export const MANDATORY_SAVE_PAYMENT_METHOD_TYPES = [
+    PaymentMethodsEnum.bank_card,
+    PaymentMethodsEnum.yoo_money,
+    PaymentMethodsEnum.sberbank,
+    PaymentMethodsEnum.tinkoff_bank,
+    PaymentMethodsEnum.sbp,
+] as const satisfies readonly MandatorySavePaymentMethodType[]
+
+/**
+ * Проверка полноты: при расширении {@link MandatorySavePaymentMethodType} без обновления массива тип станет не `true` — сборка сломается.
+ */
+export type MandatorySavePaymentMethodsCoverageCheck =
+    Exclude<MandatorySavePaymentMethodType, (typeof MANDATORY_SAVE_PAYMENT_METHOD_TYPES)[number]> extends never
+        ? true
+        : Exclude<MandatorySavePaymentMethodType, (typeof MANDATORY_SAVE_PAYMENT_METHOD_TYPES)[number]>
+
+const _mandatorySavePaymentMethodsCoverage: MandatorySavePaymentMethodsCoverageCheck extends true
+    ? true
+    : MandatorySavePaymentMethodsCoverageCheck = true
+
+/**
  * Способы оплаты, поддерживающие условное сохранение.
  * Пользователь сам решает, сохранять ли способ оплаты.
  *
