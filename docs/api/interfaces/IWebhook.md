@@ -6,7 +6,7 @@
 
 # Interface: IWebhook
 
-Defined in: [src/types/webhook.type.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L22)
+Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L24)
 
 Вебхук для получения уведомлений о событиях
 
@@ -14,9 +14,9 @@ Defined in: [src/types/webhook.type.ts:22](https://github.com/WEBzaytsev/yookass
 
 ### event
 
-> **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"`
+> **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"` \| `"payment_method.active"`
 
-Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L26)
+Defined in: [src/types/webhook.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L28)
 
 Событие, о котором уведомляет вебхук
 
@@ -26,7 +26,7 @@ Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookass
 
 > **id**: `string`
 
-Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L24)
+Defined in: [src/types/webhook.type.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L26)
 
 Идентификатор вебхука
 
@@ -36,6 +36,6 @@ Defined in: [src/types/webhook.type.ts:24](https://github.com/WEBzaytsev/yookass
 
 > **url**: `string`
 
-Defined in: [src/types/webhook.type.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L28)
+Defined in: [src/types/webhook.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L30)
 
 URL для уведомлений

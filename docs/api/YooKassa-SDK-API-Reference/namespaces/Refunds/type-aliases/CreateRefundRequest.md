@@ -8,13 +8,13 @@
 
 > **CreateRefundRequest** = `Pick`\<[`IRefund`](../interfaces/IRefund.md), `"payment_id"` \| `"amount"` \| `"description"` \| `"sources"` \| `"deal"`\> & `object`
 
-Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/refunds/refund.type.ts#L104)
+Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/refunds/refund.type.ts#L104)
 
 ## Type Declaration
 
 ### receipt?
 
-> `optional` **receipt**: [`CreateReceiptType`](../../Receipts/type-aliases/CreateReceiptType.md)
+> `optional` **receipt?**: [`CreateReceiptType`](../../Receipts/type-aliases/CreateReceiptType.md)
 
 ***Данные для формирования чека.***
 
@@ -25,6 +25,6 @@ Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev
 
 ### refund\_method\_data?
 
-> `optional` **refund\_method\_data**: [`ElectronicCertificateRefundMethod`](../../../../type-aliases/ElectronicCertificateRefundMethod.md)
+> `optional` **refund\_method\_data?**: [`ElectronicCertificateRefundMethod`](../../../../type-aliases/ElectronicCertificateRefundMethod.md)
 
 Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа.

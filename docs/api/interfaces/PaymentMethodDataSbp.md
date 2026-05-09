@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataSbp
 
-Defined in: [src/types/payments/paymentMethod.type.ts:423](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L423)
+Defined in: [src/types/payments/paymentMethod.type.ts:436](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L436)
 
 Данные для оплаты через СБП
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:423](https://github.com/WE
 
 > **type**: `"sbp"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:424](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L424)
+Defined in: [src/types/payments/paymentMethod.type.ts:437](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L437)

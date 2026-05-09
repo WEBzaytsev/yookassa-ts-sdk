@@ -6,7 +6,7 @@
 
 # ~~Interface: IPaymentMethodQiwi~~
 
-Defined in: [src/types/payments/paymentMethod.type.ts:225](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L225)
+Defined in: [src/types/payments/paymentMethod.type.ts:229](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L229)
 
 QIWI Кошелек
 
@@ -18,9 +18,9 @@ QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ о�
 
 ### ~~phone?~~
 
-> `optional` **phone**: `string`
+> `optional` **phone?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:228](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L228)
+Defined in: [src/types/payments/paymentMethod.type.ts:232](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L232)
 
 Телефон, на который зарегистрирован аккаунт в QIWI. Указывается в формате ITU-T E.164, например 79000000000.
 
@@ -30,4 +30,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:228](https://github.com/WE
 
 > **type**: [`qiwi`](../enumerations/PaymentMethodsEnum.md#qiwi)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:226](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L226)
+Defined in: [src/types/payments/paymentMethod.type.ts:230](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L230)

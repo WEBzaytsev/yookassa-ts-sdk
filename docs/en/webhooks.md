@@ -125,4 +125,5 @@ isYooKassaIP('192.168.1.1')      // false
 | `payout.succeeded` | Payout succeeded |
 | `payout.canceled` | Payout canceled |
 | `deal.closed` | Deal closed |
+| `payment_method.active` | Saved payment method became active (e.g. zero-amount binding completed) |
 

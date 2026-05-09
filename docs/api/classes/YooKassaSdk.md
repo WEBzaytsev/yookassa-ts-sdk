@@ -6,7 +6,7 @@
 
 # Class: YooKassaSdk
 
-Defined in: [src/client/sdk.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L48)
+Defined in: [src/client/sdk.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L56)
 
 YooKassa SDK client for payment processing.
 
@@ -51,7 +51,7 @@ https://yookassa.ru/developers/api
 
 > **new YooKassaSdk**(`init`): `YooKassaSdk`
 
-Defined in: [src/client/connector.ts:229](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/connector.ts#L229)
+Defined in: [src/client/connector.ts:230](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/connector.ts#L230)
 
 #### Parameters
 
@@ -69,15 +69,183 @@ Defined in: [src/client/connector.ts:229](https://github.com/WEBzaytsev/yookassa
 
 ## Properties
 
+### deals
+
+> `readonly` **deals**: `object`
+
+Defined in: [src/client/sdk.ts:679](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L679)
+
+Безопасная сделка.
+
+#### create
+
+> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)\>
+
+##### Parameters
+
+###### data
+
+[`SafeDealRequest`](../interfaces/SafeDealRequest.md)
+
+###### idempotenceKey?
+
+`string`
+
+##### Returns
+
+`Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#create_deal
+
+#### list
+
+> **list**: (`filter?`) => `Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)[]\>
+
+##### Parameters
+
+###### filter?
+
+`Omit`\<[`GetDealListFilter`](../interfaces/GetDealListFilter.md), `"cursor"`\>
+
+##### Returns
+
+`Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)[]\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_deals_list
+
+#### load
+
+> **load**: (`dealId`) => `Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)\>
+
+##### Parameters
+
+###### dealId
+
+`string`
+
+##### Returns
+
+`Promise`\<[`SafeDeal`](../interfaces/SafeDeal.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_deal
+
+***
+
+### invoices
+
+> `readonly` **invoices**: `object`
+
+Defined in: [src/client/sdk.ts:695](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L695)
+
+Выставленные счета (инвойсы).
+
+#### create
+
+> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`Invoice`](../interfaces/Invoice.md)\>
+
+##### Parameters
+
+###### data
+
+[`CreateInvoiceRequest`](../interfaces/CreateInvoiceRequest.md)
+
+###### idempotenceKey?
+
+`string`
+
+##### Returns
+
+`Promise`\<[`Invoice`](../interfaces/Invoice.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#create_invoice
+
+#### load
+
+> **load**: (`invoiceId`) => `Promise`\<[`Invoice`](../interfaces/Invoice.md)\>
+
+##### Parameters
+
+###### invoiceId
+
+`string`
+
+##### Returns
+
+`Promise`\<[`Invoice`](../interfaces/Invoice.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_invoice
+
+***
+
+### paymentMethods
+
+> `readonly` **paymentMethods**: `object`
+
+Defined in: [src/client/sdk.ts:649](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L649)
+
+Создание и получение сохранённых способов оплаты (привязка карты и т.п.).
+
+#### create
+
+> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+
+##### Parameters
+
+###### data
+
+[`SavePaymentMethodDataBankCard`](../interfaces/SavePaymentMethodDataBankCard.md)
+
+###### idempotenceKey?
+
+`string`
+
+##### Returns
+
+`Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#create_payment_method
+
+#### load
+
+> **load**: (`paymentMethodId`) => `Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+
+##### Parameters
+
+###### paymentMethodId
+
+`string`
+
+##### Returns
+
+`Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_payment_method
+
+***
+
 ### payments
 
 > `readonly` **payments**: `object`
 
-Defined in: [src/client/sdk.ts:243](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L243)
+Defined in: [src/client/sdk.ts:372](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L372)
 
 Методы для работы с платежами
 
-#### cancel()
+#### cancel
 
 > **cancel**: (`paymentId`, `idempotenceKey?`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
@@ -109,7 +277,7 @@ Defined in: [src/client/sdk.ts:243](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
-#### capture()
+#### capture
 
 > **capture**: (`paymentId`, `payload?`, `idempotenceKey?`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
@@ -149,7 +317,7 @@ Defined in: [src/client/sdk.ts:243](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
-#### create()
+#### create
 
 > **create**: (`payment`, `idempotenceKey?`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
@@ -209,7 +377,7 @@ async function createPaymentWithRetry(orderId: string, data: CreatePaymentReques
 
 https://yookassa.ru/developers/api#create_payment
 
-#### list()
+#### list
 
 > **list**: (`filter?`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)[]\>
 
@@ -285,7 +453,7 @@ This is the response structure for the list of payments.
 **payments**
 - `Payments.Payment[]` (optional): The list of payments.
 
-#### load()
+#### load
 
 > **load**: (`id`) => `Promise`\<[`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)\>
 
@@ -307,17 +475,181 @@ This is the response structure for the list of payments.
 
 ***
 
+### payouts
+
+> `readonly` **payouts**: `object`
+
+Defined in: [src/client/sdk.ts:601](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L601)
+
+****Методы для работы с выплатами****
+
+Позволяет создавать выплаты физическим лицам и получать информацию о них.
+Доступно при использовании обычных выплат или в рамках Безопасной сделки.
+
+#### create
+
+> **create**: (`payout`, `idempotenceKey?`) => `Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)\>
+
+****Создание выплаты****
+
+Создаёт выплату физическому лицу на указанное платёжное средство.
+
+##### Parameters
+
+###### payout
+
+[`CreatePayoutRequest`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/CreatePayoutRequest.md)
+
+данные выплаты
+
+###### idempotenceKey?
+
+`string`
+
+ключ идемпотентности (опционально)
+
+##### Returns
+
+`Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#create_payout
+
+#### list
+
+> **list**: (`filter?`) => `Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)[]\>
+
+****Список выплат****
+
+Возвращает список выплат, отфильтрованный по заданным критериям.
+Поддерживает фильтрацию по `created_at` и `succeeded_at`.
+
+##### Parameters
+
+###### filter?
+
+`Omit`\<[`GetPayoutListFilter`](../interfaces/GetPayoutListFilter.md), `"cursor"`\>
+
+##### Returns
+
+`Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)[]\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_payouts_list
+
+#### load
+
+> **load**: (`id`) => `Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)\>
+
+****Информация о выплате****
+
+Возвращает информацию о текущем состоянии выплаты по её идентификатору.
+
+##### Parameters
+
+###### id
+
+`string`
+
+##### Returns
+
+`Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_payout
+
+#### search
+
+> **search**: (`filter?`) => `Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)[]\>
+
+****Поиск выплат****
+
+Поиск по `metadata` и периоду `created_at` (только за последние 3 месяца).
+
+##### Parameters
+
+###### filter?
+
+`Omit`\<[`GetPayoutSearchFilter`](../interfaces/GetPayoutSearchFilter.md), `"cursor"`\>
+
+##### Returns
+
+`Promise`\<[`IPayout`](../YooKassa-SDK-API-Reference/namespaces/Payouts/interfaces/IPayout.md)[]\>
+
+##### See
+
+https://yookassa.ru/developers/api#search_payouts
+
+#### See
+
+https://yookassa.ru/developers/payouts/overview
+
+***
+
+### personalData
+
+> `readonly` **personalData**: `object`
+
+Defined in: [src/client/sdk.ts:664](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L664)
+
+Персональные данные получателя (выплаты с проверкой / выписки).
+
+#### create
+
+> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`PersonalData`](../interfaces/PersonalData.md)\>
+
+##### Parameters
+
+###### data
+
+[`CreatePersonalDataRequest`](../type-aliases/CreatePersonalDataRequest.md)
+
+###### idempotenceKey?
+
+`string`
+
+##### Returns
+
+`Promise`\<[`PersonalData`](../interfaces/PersonalData.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#create_personal_data
+
+#### load
+
+> **load**: (`personalDataId`) => `Promise`\<[`PersonalData`](../interfaces/PersonalData.md)\>
+
+##### Parameters
+
+###### personalDataId
+
+`string`
+
+##### Returns
+
+`Promise`\<[`PersonalData`](../interfaces/PersonalData.md)\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_personal_data
+
+***
+
 ### receipts
 
 > `readonly` **receipts**: `object`
 
-Defined in: [src/client/sdk.ts:430](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L430)
+Defined in: [src/client/sdk.ts:559](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L559)
 
 ****Методы для работы с чеками****
 
 С помощью API можно получать информацию о чеках, для которых вы отправили данные через ЮKassa.
 
-#### create()
+#### create
 
 > **create**: (`receipt`, `idempotenceKey?`) => `Promise`\<[`IReceipt`](../YooKassa-SDK-API-Reference/namespaces/Receipts/interfaces/IReceipt.md)\>
 
@@ -349,7 +681,7 @@ Defined in: [src/client/sdk.ts:430](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 https://yookassa.ru/developers/api#create_receipt
 
-#### list()
+#### list
 
 > **list**: (`filter?`) => `Promise`\<[`IReceipt`](../YooKassa-SDK-API-Reference/namespaces/Receipts/interfaces/IReceipt.md)[]\>
 
@@ -374,7 +706,7 @@ https://yookassa.ru/developers/api#create_receipt
 
 https://yookassa.ru/developers/api#get_receipts_list
 
-#### load()
+#### load
 
 > **load**: (`receiptId`) => `Promise`\<[`IReceipt`](../YooKassa-SDK-API-Reference/namespaces/Receipts/interfaces/IReceipt.md)\>
 
@@ -402,11 +734,11 @@ https://yookassa.ru/developers/api#receipt
 
 > `readonly` **refunds**: `object`
 
-Defined in: [src/client/sdk.ts:391](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L391)
+Defined in: [src/client/sdk.ts:520](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L520)
 
 Методы для работы с возвратами
 
-#### create()
+#### create
 
 > **create**: (`refund`, `idempotenceKey?`) => `Promise`\<[`IRefund`](../YooKassa-SDK-API-Reference/namespaces/Refunds/interfaces/IRefund.md)\>
 
@@ -438,7 +770,7 @@ Defined in: [src/client/sdk.ts:391](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 https://yookassa.ru/developers/api#create_refund
 
-#### list()
+#### list
 
 > **list**: (`filter?`) => `Promise`\<[`IRefund`](../YooKassa-SDK-API-Reference/namespaces/Refunds/interfaces/IRefund.md)[]\>
 
@@ -462,7 +794,7 @@ https://yookassa.ru/developers/api#create_refund
 
 https://yookassa.ru/developers/api#get_refunds_list
 
-#### load()
+#### load
 
 > **load**: (`refundId`) => `Promise`\<[`IRefund`](../YooKassa-SDK-API-Reference/namespaces/Refunds/interfaces/IRefund.md)\>
 
@@ -486,18 +818,40 @@ https://yookassa.ru/developers/api#get_refund
 
 ***
 
+### sbpBanks
+
+> `readonly` **sbpBanks**: `object`
+
+Defined in: [src/client/sdk.ts:643](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L643)
+
+Участники СБП (справочник для выплат через СБП).
+
+#### list
+
+> **list**: () => `Promise`\<[`SbpParticipantBank`](../interfaces/SbpParticipantBank.md)[]\>
+
+##### Returns
+
+`Promise`\<[`SbpParticipantBank`](../interfaces/SbpParticipantBank.md)[]\>
+
+##### See
+
+https://yookassa.ru/developers/api#get_sbp_banks
+
+***
+
 ### shop
 
 > `readonly` **shop**: `object`
 
-Defined in: [src/client/sdk.ts:509](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L509)
+Defined in: [src/client/sdk.ts:751](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L751)
 
 ****Информация о магазине****
 
 Позволяет получить информацию о подключённом магазине.
 **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
 
-#### info()
+#### info
 
 > **info**: () => `Promise`\<[`IShopInfo`](../interfaces/IShopInfo.md)\>
 
@@ -523,14 +877,14 @@ https://yookassa.ru/developers/api#get_me
 
 > `readonly` **webhooks**: `object`
 
-Defined in: [src/client/sdk.ts:472](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L472)
+Defined in: [src/client/sdk.ts:714](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L714)
 
 ****Методы для работы с вебхуками****
 
 Вебхуки позволяют получать уведомления о событиях в ЮKassa.
 **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
 
-#### create()
+#### create
 
 > **create**: (`webhook`, `idempotenceKey?`) => `Promise`\<[`IWebhook`](../interfaces/IWebhook.md)\>
 
@@ -560,7 +914,7 @@ Defined in: [src/client/sdk.ts:472](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 https://yookassa.ru/developers/api#create_webhook
 
-#### delete()
+#### delete
 
 > **delete**: (`webhookId`) => `Promise`\<`void`\>
 
@@ -584,7 +938,7 @@ https://yookassa.ru/developers/api#create_webhook
 
 https://yookassa.ru/developers/api#delete_webhook
 
-#### list()
+#### list
 
 > **list**: () => `Promise`\<[`IWebhook`](../interfaces/IWebhook.md)[]\>
 

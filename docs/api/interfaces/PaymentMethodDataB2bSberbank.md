@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataB2bSberbank
 
-Defined in: [src/types/payments/paymentMethod.type.ts:411](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L411)
+Defined in: [src/types/payments/paymentMethod.type.ts:424](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L424)
 
 Данные для оплаты через СберБанк Бизнес Онлайн
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:411](https://github.com/WE
 
 > **payment\_purpose**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:414](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L414)
+Defined in: [src/types/payments/paymentMethod.type.ts:427](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L427)
 
 Назначение платежа (не больше 210 символов)
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:414](https://github.com/WE
 
 > **type**: `"b2b_sberbank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:412](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L412)
+Defined in: [src/types/payments/paymentMethod.type.ts:425](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L425)
 
 ***
 
@@ -34,13 +34,13 @@ Defined in: [src/types/payments/paymentMethod.type.ts:412](https://github.com/WE
 
 > **vat\_data**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:416](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L416)
+Defined in: [src/types/payments/paymentMethod.type.ts:429](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L429)
 
 Данные о НДС
 
 #### amount?
 
-> `optional` **amount**: [`IAmount`](IAmount.md)
+> `optional` **amount?**: [`IAmount`](IAmount.md)
 
 #### type
 

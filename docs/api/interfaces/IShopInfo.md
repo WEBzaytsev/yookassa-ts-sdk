@@ -6,9 +6,9 @@
 
 # Interface: IShopInfo
 
-Defined in: [src/types/shop.type.ts:4](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L4)
+Defined in: [src/types/shop.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L46)
 
-Информация о магазине (аккаунте)
+Информация о магазине или шлюзе (объект Me)
 
 ## See
 
@@ -20,39 +20,98 @@ https://yookassa.ru/developers/api#get_me
 
 > **account\_id**: `string`
 
-Defined in: [src/types/shop.type.ts:6](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L6)
+Defined in: [src/types/shop.type.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L48)
 
-Идентификатор аккаунта
-
-***
-
-### fiscalization\_enabled
-
-> **fiscalization\_enabled**: `boolean`
-
-Defined in: [src/types/shop.type.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L10)
-
-Признак подключённой фискализации: `true` — подключена, `false` — нет
+Идентификатор магазина или шлюза
 
 ***
 
-### payment\_methods
+### fiscalization?
 
-> **payment\_methods**: `string`[]
+> `optional` **fiscalization?**: [`FiscalizationData`](FiscalizationData.md)
 
-Defined in: [src/types/shop.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L12)
+Defined in: [src/types/shop.type.ts:57](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L57)
 
-Список доступных способов оплаты
+Настройки фискализации.
+Присутствует, если вы запрашивали настройки магазина и магазин настроил отправку чеков.
+
+***
+
+### ~~fiscalization\_enabled?~~
+
+> `optional` **fiscalization\_enabled?**: `boolean`
+
+Defined in: [src/types/shop.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L62)
+
+#### Deprecated
+
+Используйте `fiscalization.enabled`.
+Сохранён для обратной совместимости.
+
+***
+
+### itn?
+
+> `optional` **itn?**: `string`
+
+Defined in: [src/types/shop.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L72)
+
+ИНН магазина (от 1 до 20 цифр).
+Присутствует, если вы запрашивали настройки магазина.
+
+***
+
+### name?
+
+> `optional` **name?**: `string`
+
+Defined in: [src/types/shop.type.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L82)
+
+Название шлюза в личном кабинете ЮKassa.
+Присутствует, если вы запрашивали настройки шлюза.
+
+***
+
+### payment\_methods?
+
+> `optional` **payment\_methods?**: [`PaymentMethodsEnum`](../enumerations/PaymentMethodsEnum.md)[]
+
+Defined in: [src/types/shop.type.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L67)
+
+Список доступных способов оплаты.
+Присутствует, если вы запрашивали настройки магазина.
+
+***
+
+### payout\_balance?
+
+> `optional` **payout\_balance?**: [`IAmount`](IAmount.md)
+
+Defined in: [src/types/shop.type.ts:87](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L87)
+
+Баланс шлюза.
+Присутствует, если вы запрашивали настройки шлюза.
+
+***
+
+### payout\_methods?
+
+> `optional` **payout\_methods?**: [`PayoutMethodType`](../type-aliases/PayoutMethodType.md)[]
+
+Defined in: [src/types/shop.type.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L77)
+
+Список способов получения выплат, доступных шлюзу.
+Присутствует, если вы запрашивали настройки шлюза.
 
 ***
 
 ### status
 
-> **status**: `string`
+> **status**: [`ShopStatus`](../type-aliases/ShopStatus.md)
 
-Defined in: [src/types/shop.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L14)
+Defined in: [src/types/shop.type.ts:50](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L50)
 
-Статус магазина
+Статус магазина или шлюза
 
 ***
 
@@ -60,6 +119,6 @@ Defined in: [src/types/shop.type.ts:14](https://github.com/WEBzaytsev/yookassa-t
 
 > **test**: `boolean`
 
-Defined in: [src/types/shop.type.ts:8](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/shop.type.ts#L8)
+Defined in: [src/types/shop.type.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L52)
 
-Признак тестового магазина: `true` — тестовый, `false` — боевой
+Тестовый магазин или шлюз

@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodSberbank
 
-Defined in: [src/types/payments/paymentMethod.type.ts:234](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L234)
+Defined in: [src/types/payments/paymentMethod.type.ts:238](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L238)
 
 SberPay
 
@@ -24,7 +24,7 @@ https://yookassa.ru/developers/payment-acceptance/getting-started/payment-method
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L187)
+Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L191)
 
 Идентификатор способа оплаты.
 
@@ -36,9 +36,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WE
 
 ### phone?
 
-> `optional` **phone**: `string`
+> `optional` **phone?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:237](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L237)
+Defined in: [src/types/payments/paymentMethod.type.ts:241](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L241)
 
 Телефон пользователя, на который зарегистрирован аккаунт в SberPay. Необходим для подтверждения оплаты по смс (сценарий подтверждения external). Указывается в формате ITU-T E.164, например 79000000000.
 
@@ -48,7 +48,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:237](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L189)
+Defined in: [src/types/payments/paymentMethod.type.ts:193](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L193)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -60,9 +60,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WE
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L191)
+Defined in: [src/types/payments/paymentMethod.type.ts:195](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L195)
 
 Название способа оплаты.
 
@@ -76,7 +76,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WE
 
 > **type**: [`sberbank`](../enumerations/PaymentMethodsEnum.md#sberbank)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:235](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L235)
+Defined in: [src/types/payments/paymentMethod.type.ts:239](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L239)
 
 #### Overrides
 

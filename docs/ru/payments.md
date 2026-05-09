@@ -52,6 +52,12 @@ const payments = await sdk.payments.list({
 | `payment_method` | Фильтр по коду способа оплаты |
 | `limit` | Количество результатов (1-100, по умолчанию: 10) |
 
+Вложенные фильтры по времени уходят в query в виде `created_at.gte` и т.п., как требует [API списков](https://yookassa.ru/developers/using-api/lists).
+
+## Оплата ЖКУ
+
+Для [оплаты жилищно-коммунальных услуг](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-payments) передайте `payment_order_data` в `sdk.payments.create(...)`. Типы: `PaymentOrderData` / `PaymentOrderDataUtilities`.
+
 ## Подтверждение платежа
 
 ```ts

@@ -4,6 +4,7 @@ import * as AxiosLogger from 'axios-logger'
 import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { YooKassaErr, type YooKassaErrResponse } from '../types/api.types'
+import { serializeYooKassaListParams } from './queryParams'
 
 /** Таймаут запроса по умолчанию (мс) */
 const DEFAULT_TIMEOUT = 5000
@@ -151,20 +152,20 @@ interface IGenReqOpts<P> {
     useOAuth?: boolean
 }
 
-export type GetRequestOpts<P = object> = IGenReqOpts<P> & {
+type GetRequestOpts<P = object> = IGenReqOpts<P> & {
     method: 'GET'
 }
 
-export type PostRequestOpts<P = object, D = object> = IGenReqOpts<P> & {
+type PostRequestOpts<P = object, D = object> = IGenReqOpts<P> & {
     method: 'POST'
     data: D
 }
 
-export type DeleteRequestOpts<P = object> = IGenReqOpts<P> & {
+type DeleteRequestOpts<P = object> = IGenReqOpts<P> & {
     method: 'DELETE'
 }
 
-export type RequestOpts<P = object, D = object> = GetRequestOpts<P> | PostRequestOpts<P, D> | DeleteRequestOpts<P>
+type RequestOpts<P = object, D = object> = GetRequestOpts<P> | PostRequestOpts<P, D> | DeleteRequestOpts<P>
 
 /**
  * Base class for YooKassa API communication.
@@ -240,6 +241,10 @@ export class Connector {
         const axiosConfig: AxiosRequestConfig = {
             baseURL: this.endpoint,
             timeout: this.timeout,
+            // Списки ЮKassa: created_at.gte, а не created_at[gte]
+            paramsSerializer: {
+                serialize: (p) => serializeYooKassaListParams((p ?? {}) as object),
+            },
             // auth НЕ устанавливаем здесь — передаём в каждом запросе явно,
             // чтобы можно было отключить для OAuth
             headers: {

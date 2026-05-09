@@ -5,11 +5,17 @@ import type {
     GetReceiptListFilter,
     GetRefundListFilter,
 } from '../types/api.types'
+import type { GetDealListFilter, SafeDeal, SafeDealRequest } from '../types/deal.type'
+import type { CreateInvoiceRequest, Invoice } from '../types/invoice.type'
 import type { Payments } from '../types/payments'
 import type { Payouts } from '../types/payouts/payout.type'
 import type { GetPayoutListFilter } from '../types/payouts/payoutListFilter.type'
+import type { GetPayoutSearchFilter } from '../types/payouts/payoutSearchFilter.type'
+import type { CreatePersonalDataRequest, PersonalData } from '../types/personalData.type'
 import type { Receipts } from '../types/receipt'
 import type { Refunds } from '../types/refunds'
+import type { SavePaymentMethod, SavePaymentMethodData } from '../types/savedPaymentMethod.type'
+import type { GetSbpBanksResponse, SbpParticipantBank } from '../types/sbpBanks.type'
 import type { IShopInfo } from '../types/shop.type'
 import type { CreateWebhookRequest, IWebhook, WebhookList } from '../types/webhook.type'
 import type { ConnectorOpts } from './connector'
@@ -242,6 +248,10 @@ export class YooKassaSdk extends Connector {
         return this.fetchList<Payouts.IPayout, GetPayoutListFilter>('/payouts', filter)
     }
 
+    protected searchPayouts = async (filter?: Omit<GetPayoutSearchFilter, 'cursor'>): Promise<Payouts.IPayout[]> => {
+        return this.fetchList<Payouts.IPayout, GetPayoutSearchFilter>('/payouts/search', filter)
+    }
+
     protected createPayout = async (
         newPayout: Payouts.CreatePayoutRequest,
         idempotenceKey?: string,
@@ -254,6 +264,98 @@ export class YooKassaSdk extends Connector {
         })
     }
     // ========== Payouts end ========== //
+
+    // ========== Sbp banks ========== //
+    protected getSbpBanks = async (): Promise<SbpParticipantBank[]> => {
+        const response = await this.request<GetSbpBanksResponse>({
+            method: 'GET',
+            endpoint: '/sbp_banks',
+        })
+        return response.items
+    }
+    // ========== Sbp banks end ========== //
+
+    // ========== Saved payment methods ========== //
+    protected createSavedPaymentMethod = async (
+        data: SavePaymentMethodData,
+        idempotenceKey?: string,
+    ): Promise<SavePaymentMethod> => {
+        return this.request<SavePaymentMethod>({
+            method: 'POST',
+            endpoint: '/payment_methods',
+            data,
+            requestId: idempotenceKey,
+        })
+    }
+
+    protected getSavedPaymentMethodById = async (paymentMethodId: string): Promise<SavePaymentMethod> => {
+        return this.request<SavePaymentMethod>({
+            method: 'GET',
+            endpoint: `/payment_methods/${paymentMethodId}`,
+        })
+    }
+    // ========== Saved payment methods end ========== //
+
+    // ========== Personal data ========== //
+    protected createPersonalDataRecord = async (
+        data: CreatePersonalDataRequest,
+        idempotenceKey?: string,
+    ): Promise<PersonalData> => {
+        return this.request<PersonalData>({
+            method: 'POST',
+            endpoint: '/personal_data',
+            data,
+            requestId: idempotenceKey,
+        })
+    }
+
+    protected getPersonalDataById = async (personalDataId: string): Promise<PersonalData> => {
+        return this.request<PersonalData>({
+            method: 'GET',
+            endpoint: `/personal_data/${personalDataId}`,
+        })
+    }
+    // ========== Personal data end ========== //
+
+    // ========== Deals ========== //
+    protected createDeal = async (data: SafeDealRequest, idempotenceKey?: string): Promise<SafeDeal> => {
+        return this.request<SafeDeal>({
+            method: 'POST',
+            endpoint: '/deals',
+            data,
+            requestId: idempotenceKey,
+        })
+    }
+
+    protected getDealList = async (filter?: Omit<GetDealListFilter, 'cursor'>): Promise<SafeDeal[]> => {
+        return this.fetchList<SafeDeal, GetDealListFilter>('/deals', filter)
+    }
+
+    protected getDealById = async (dealId: string): Promise<SafeDeal> => {
+        return this.request<SafeDeal>({
+            method: 'GET',
+            endpoint: `/deals/${dealId}`,
+        })
+    }
+    // ========== Deals end ========== //
+
+    // ========== Invoices ========== //
+    protected createInvoice = async (data: CreateInvoiceRequest, idempotenceKey?: string): Promise<Invoice> => {
+        return this.request<Invoice>({
+            method: 'POST',
+            endpoint: '/invoices',
+            data,
+            requestId: idempotenceKey,
+        })
+    }
+
+    protected getInvoiceById = async (invoiceId: string): Promise<Invoice> => {
+        return this.request<Invoice>({
+            method: 'GET',
+            endpoint: `/invoices/${invoiceId}`,
+        })
+    }
+    // ========== Invoices end ========== //
 
     // ========== Shop ========== //
     /** Получить информацию о магазине (требуется OAuth-токен) */
@@ -527,6 +629,78 @@ export class YooKassaSdk extends Connector {
          * @see https://yookassa.ru/developers/api#get_payouts_list
          */
         list: this.getPayoutList,
+        /**
+         * ****Поиск выплат****
+         *
+         * Поиск по `metadata` и периоду `created_at` (только за последние 3 месяца).
+         *
+         * @see https://yookassa.ru/developers/api#search_payouts
+         */
+        search: this.searchPayouts as (filter?: Omit<GetPayoutSearchFilter, 'cursor'>) => Promise<Payouts.IPayout[]>,
+    }
+
+    /** Участники СБП (справочник для выплат через СБП). */
+    public readonly sbpBanks = {
+        /** @see https://yookassa.ru/developers/api#get_sbp_banks */
+        list: this.getSbpBanks as () => Promise<SbpParticipantBank[]>,
+    }
+
+    /** Создание и получение сохранённых способов оплаты (привязка карты и т.п.). */
+    public readonly paymentMethods = {
+        /**
+         * @see https://yookassa.ru/developers/api#create_payment_method
+         */
+        create: this.createSavedPaymentMethod as (
+            data: SavePaymentMethodData,
+            idempotenceKey?: string,
+        ) => Promise<SavePaymentMethod>,
+        /**
+         * @see https://yookassa.ru/developers/api#get_payment_method
+         */
+        load: this.getSavedPaymentMethodById as (paymentMethodId: string) => Promise<SavePaymentMethod>,
+    }
+
+    /** Персональные данные получателя (выплаты с проверкой / выписки). */
+    public readonly personalData = {
+        /**
+         * @see https://yookassa.ru/developers/api#create_personal_data
+         */
+        create: this.createPersonalDataRecord as (
+            data: CreatePersonalDataRequest,
+            idempotenceKey?: string,
+        ) => Promise<PersonalData>,
+        /**
+         * @see https://yookassa.ru/developers/api#get_personal_data
+         */
+        load: this.getPersonalDataById as (personalDataId: string) => Promise<PersonalData>,
+    }
+
+    /** Безопасная сделка. */
+    public readonly deals = {
+        /**
+         * @see https://yookassa.ru/developers/api#create_deal
+         */
+        create: this.createDeal as (data: SafeDealRequest, idempotenceKey?: string) => Promise<SafeDeal>,
+        /**
+         * @see https://yookassa.ru/developers/api#get_deals_list
+         */
+        list: this.getDealList as (filter?: Omit<GetDealListFilter, 'cursor'>) => Promise<SafeDeal[]>,
+        /**
+         * @see https://yookassa.ru/developers/api#get_deal
+         */
+        load: this.getDealById as (dealId: string) => Promise<SafeDeal>,
+    }
+
+    /** Выставленные счета (инвойсы). */
+    public readonly invoices = {
+        /**
+         * @see https://yookassa.ru/developers/api#create_invoice
+         */
+        create: this.createInvoice as (data: CreateInvoiceRequest, idempotenceKey?: string) => Promise<Invoice>,
+        /**
+         * @see https://yookassa.ru/developers/api#get_invoice
+         */
+        load: this.getInvoiceById as (invoiceId: string) => Promise<Invoice>,
     }
 
     /**

@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataYooMoney
 
-Defined in: [src/types/payments/paymentMethod.type.ts:374](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L374)
+Defined in: [src/types/payments/paymentMethod.type.ts:387](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L387)
 
 Данные для оплаты через ЮMoney
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:374](https://github.com/WE
 
 > **type**: `"yoo_money"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:375](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L375)
+Defined in: [src/types/payments/paymentMethod.type.ts:388](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L388)

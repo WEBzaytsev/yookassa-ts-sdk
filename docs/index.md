@@ -30,6 +30,7 @@ const payment = await sdk.payments.create({
 - [Getting Started](en/getting-started.md) - Configuration and initialization
 - [Payments](en/payments.md) - Create, capture, cancel payments
 - [Refunds](en/refunds.md) - Create and manage refunds
+- [Payouts](en/payouts.md) - Create, load, and list payouts
 - [Receipts](en/receipts.md) - Fiscalization (54-FZ compliance)
 - [Webhooks](en/webhooks.md) - Webhook management and validation
 - [Error Handling](en/error-handling.md) - Error codes and retry logic
@@ -42,7 +43,7 @@ const payment = await sdk.payments.create({
 
 ## Features
 
-- Full TypeScript support with detailed type definitions
+- Full TypeScript support for client methods and entities aligned with the published REST paths used by this SDK
 - Automatic retries with exponential backoff
 - Built-in idempotency key generation
 - Proxy support (HTTP/HTTPS)

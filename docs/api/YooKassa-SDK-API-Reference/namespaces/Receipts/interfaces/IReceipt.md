@@ -6,7 +6,7 @@
 
 # Interface: IReceipt
 
-Defined in: [src/types/receipt/receipt.type.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L41)
+Defined in: [src/types/receipt/receipt.type.ts:41](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L41)
 
 Объект чека — актуальная информация о чеке из API.
 
@@ -14,9 +14,9 @@ Defined in: [src/types/receipt/receipt.type.ts:41](https://github.com/WEBzaytsev
 
 ### fiscal\_attribute?
 
-> `readonly` `optional` **fiscal\_attribute**: `string`
+> `readonly` `optional` **fiscal\_attribute?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L64)
+Defined in: [src/types/receipt/receipt.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L64)
 
 Фискальный признак чека. Формируется фискальным накопителем на основе данных, переданных для регистрации чека.
 
@@ -24,9 +24,9 @@ Defined in: [src/types/receipt/receipt.type.ts:64](https://github.com/WEBzaytsev
 
 ### fiscal\_document\_number?
 
-> `readonly` `optional` **fiscal\_document\_number**: `string`
+> `readonly` `optional` **fiscal\_document\_number?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L60)
+Defined in: [src/types/receipt/receipt.type.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L60)
 
 Номер фискального документа.
 
@@ -34,9 +34,9 @@ Defined in: [src/types/receipt/receipt.type.ts:60](https://github.com/WEBzaytsev
 
 ### fiscal\_provider\_id?
 
-> `readonly` `optional` **fiscal\_provider\_id**: `string`
+> `readonly` `optional` **fiscal\_provider\_id?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:68](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L68)
+Defined in: [src/types/receipt/receipt.type.ts:68](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L68)
 
 Идентификатор чека в онлайн-кассе. Присутствует, если чек удалось зарегистрировать.
 
@@ -44,9 +44,9 @@ Defined in: [src/types/receipt/receipt.type.ts:68](https://github.com/WEBzaytsev
 
 ### fiscal\_storage\_number?
 
-> `readonly` `optional` **fiscal\_storage\_number**: `string`
+> `readonly` `optional` **fiscal\_storage\_number?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L62)
+Defined in: [src/types/receipt/receipt.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L62)
 
 Номер фискального накопителя в кассовом аппарате.
 
@@ -56,7 +56,7 @@ Defined in: [src/types/receipt/receipt.type.ts:62](https://github.com/WEBzaytsev
 
 > `readonly` **id**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L43)
+Defined in: [src/types/receipt/receipt.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L43)
 
 Идентификатор чека в ЮKassa.
 
@@ -66,7 +66,7 @@ Defined in: [src/types/receipt/receipt.type.ts:43](https://github.com/WEBzaytsev
 
 > **items**: [`Item`](../../Items/interfaces/Item.md)[]
 
-Defined in: [src/types/receipt/receipt.type.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L70)
+Defined in: [src/types/receipt/receipt.type.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L70)
 
 Список товаров в чеке (не более 100 товаров).
 
@@ -74,9 +74,9 @@ Defined in: [src/types/receipt/receipt.type.ts:70](https://github.com/WEBzaytsev
 
 ### on\_behalf\_of?
 
-> `optional` **on\_behalf\_of**: `string`
+> `optional` **on\_behalf\_of?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L74)
+Defined in: [src/types/receipt/receipt.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L74)
 
 Идентификатор магазина, от имени которого нужно отправить чек. Выдается ЮKassa. Присутствует, если вы используете Сплитование платежей .
 
@@ -84,9 +84,9 @@ Defined in: [src/types/receipt/receipt.type.ts:74](https://github.com/WEBzaytsev
 
 ### payment\_id?
 
-> `optional` **payment\_id**: `string`
+> `optional` **payment\_id?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L47)
+Defined in: [src/types/receipt/receipt.type.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L47)
 
 Идентификатор платежа, для которого был сформирован чек.
 
@@ -94,9 +94,9 @@ Defined in: [src/types/receipt/receipt.type.ts:47](https://github.com/WEBzaytsev
 
 ### receipt\_industry\_details?
 
-> `optional` **receipt\_industry\_details**: [`PaymentSubjectIndustryDetails`](../../Items/interfaces/PaymentSubjectIndustryDetails.md)[]
+> `optional` **receipt\_industry\_details?**: [`PaymentSubjectIndustryDetails`](../../Items/interfaces/PaymentSubjectIndustryDetails.md)[]
 
-Defined in: [src/types/receipt/receipt.type.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L83)
+Defined in: [src/types/receipt/receipt.type.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L83)
 
 Отраслевой реквизит чека (тег в 54 ФЗ — 1261). Можно передавать, если используете Чеки от ЮKassa или онлайн-кассу, обновленную до ФФД 1.2.
 
@@ -104,9 +104,9 @@ Defined in: [src/types/receipt/receipt.type.ts:83](https://github.com/WEBzaytsev
 
 ### receipt\_operational\_details?
 
-> `optional` **receipt\_operational\_details**: `object`
+> `optional` **receipt\_operational\_details?**: `object`
 
-Defined in: [src/types/receipt/receipt.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L85)
+Defined in: [src/types/receipt/receipt.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L85)
 
 Операционный реквизит чека (тег в 54 ФЗ — 1270). Можно передавать, если используете Чеки от ЮKassa или онлайн-кассу, обновленную до ФФД 1.2.
 
@@ -136,9 +136,9 @@ Defined in: [src/types/receipt/receipt.type.ts:85](https://github.com/WEBzaytsev
 
 ### refund\_id?
 
-> `optional` **refund\_id**: `string`
+> `optional` **refund\_id?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L49)
+Defined in: [src/types/receipt/receipt.type.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L49)
 
 Идентификатор возврата, для которого был сформирован чек. Отсутствует в чеке платежа.
 
@@ -146,9 +146,9 @@ Defined in: [src/types/receipt/receipt.type.ts:49](https://github.com/WEBzaytsev
 
 ### registered\_at?
 
-> `readonly` `optional` **registered\_at**: `string`
+> `readonly` `optional` **registered\_at?**: `string`
 
-Defined in: [src/types/receipt/receipt.type.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L66)
+Defined in: [src/types/receipt/receipt.type.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L66)
 
 Дата и время формирования чека в фискальном накопителе. Указывается в формате ISO 8601.
 
@@ -156,9 +156,9 @@ Defined in: [src/types/receipt/receipt.type.ts:66](https://github.com/WEBzaytsev
 
 ### settlements?
 
-> `optional` **settlements**: [`Settlement`](../type-aliases/Settlement.md)[]
+> `optional` **settlements?**: [`Settlement`](../type-aliases/Settlement.md)[]
 
-Defined in: [src/types/receipt/receipt.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L72)
+Defined in: [src/types/receipt/receipt.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L72)
 
 Перечень совершенных расчетов.
 
@@ -168,7 +168,7 @@ Defined in: [src/types/receipt/receipt.type.ts:72](https://github.com/WEBzaytsev
 
 > `readonly` **status**: [`ReceiptStatus`](../type-aliases/ReceiptStatus.md)
 
-Defined in: [src/types/receipt/receipt.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L58)
+Defined in: [src/types/receipt/receipt.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L58)
 
 Статус доставки данных для чека в онлайн-кассу.
 
@@ -181,9 +181,9 @@ Defined in: [src/types/receipt/receipt.type.ts:58](https://github.com/WEBzaytsev
 
 ### tax\_system\_code?
 
-> `optional` **tax\_system\_code**: `number`
+> `optional` **tax\_system\_code?**: `number`
 
-Defined in: [src/types/receipt/receipt.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L81)
+Defined in: [src/types/receipt/receipt.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L81)
 
 **Система налогообложения магазина (тег в 54 ФЗ — 1055).***
 
@@ -198,6 +198,6 @@ Defined in: [src/types/receipt/receipt.type.ts:81](https://github.com/WEBzaytsev
 
 > **type**: [`ReceiptKind`](../type-aliases/ReceiptKind.md)
 
-Defined in: [src/types/receipt/receipt.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L45)
+Defined in: [src/types/receipt/receipt.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L45)
 
 Тип чека в онлайн-кассе: приход (`payment`) или возврат прихода (`refund`).

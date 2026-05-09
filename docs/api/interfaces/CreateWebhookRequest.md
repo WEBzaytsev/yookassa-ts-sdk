@@ -6,7 +6,7 @@
 
 # Interface: CreateWebhookRequest
 
-Defined in: [src/types/webhook.type.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L32)
+Defined in: [src/types/webhook.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L34)
 
 Запрос на создание вебхука
 
@@ -14,9 +14,9 @@ Defined in: [src/types/webhook.type.ts:32](https://github.com/WEBzaytsev/yookass
 
 ### event
 
-> **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"`
+> **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"` \| `"payment_method.active"`
 
-Defined in: [src/types/webhook.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L36)
+Defined in: [src/types/webhook.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L38)
 
 Событие, о котором нужно уведомлять
 
@@ -30,6 +30,6 @@ https://yookassa.ru/developers/api#create_webhook
 
 > **url**: `string`
 
-Defined in: [src/types/webhook.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/webhook.type.ts#L38)
+Defined in: [src/types/webhook.type.ts:40](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/webhook.type.ts#L40)
 
 URL, на который ЮKassa будет отправлять уведомления

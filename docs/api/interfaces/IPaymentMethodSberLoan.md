@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodSberLoan
 
-Defined in: [src/types/payments/paymentMethod.type.ts:302](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L302)
+Defined in: [src/types/payments/paymentMethod.type.ts:306](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L306)
 
 "Покупки в кредит" от Сбербанка"
 
@@ -18,9 +18,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:302](https://github.com/WE
 
 ### discount\_amount?
 
-> `optional` **discount\_amount**: [`IAmount`](IAmount.md)
+> `optional` **discount\_amount?**: [`IAmount`](IAmount.md)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:305](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L305)
+Defined in: [src/types/payments/paymentMethod.type.ts:309](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L309)
 
 Сумма скидки для рассрочки. Присутствует для платежей в статусе `waiting_for_capture` и `succeeded`, если пользователь выбрал рассрочку.
 
@@ -30,7 +30,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:305](https://github.com/WE
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L187)
+Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L191)
 
 Идентификатор способа оплаты.
 
@@ -42,9 +42,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WE
 
 ### loan\_option?
 
-> `optional` **loan\_option**: `` `installments_${number}` `` \| `"loan"`
+> `optional` **loan\_option?**: `` `installments_${number}` `` \| `"loan"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:313](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L313)
+Defined in: [src/types/payments/paymentMethod.type.ts:317](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L317)
 
 Тариф кредита, который пользователь выбрал при оплате.
 
@@ -59,7 +59,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:313](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L189)
+Defined in: [src/types/payments/paymentMethod.type.ts:193](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L193)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -71,9 +71,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WE
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L191)
+Defined in: [src/types/payments/paymentMethod.type.ts:195](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L195)
 
 Название способа оплаты.
 
@@ -87,7 +87,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WE
 
 > **type**: [`sber_loan`](../enumerations/PaymentMethodsEnum.md#sber_loan)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:303](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L303)
+Defined in: [src/types/payments/paymentMethod.type.ts:307](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L307)
 
 #### Overrides
 

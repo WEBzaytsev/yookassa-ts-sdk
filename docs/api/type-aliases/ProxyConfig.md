@@ -8,6 +8,6 @@
 
 > **ProxyConfig** = `string`
 
-Defined in: [src/client/connector.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/connector.ts#L20)
+Defined in: [src/client/connector.ts:21](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/connector.ts#L21)
 
 Конфигурация прокси-сервера (URL строка)

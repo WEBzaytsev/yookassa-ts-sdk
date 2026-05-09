@@ -6,7 +6,7 @@
 
 # Interface: CapturePaymentRequest
 
-Defined in: [src/types/payments/payment.type.ts:300](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L300)
+Defined in: [src/types/payments/payment.type.ts:306](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L306)
 
 Запрос на подтверждение платежа.
 Используется при двухстадийной оплате для списания денег.
@@ -19,9 +19,9 @@ https://yookassa.ru/developers/api#capture_payment
 
 ### airline?
 
-> `optional` **airline**: [`IAirline`](../../../../type-aliases/IAirline.md)
+> `optional` **airline?**: [`IAirline`](../../../../type-aliases/IAirline.md)
 
-Defined in: [src/types/payments/payment.type.ts:313](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L313)
+Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L319)
 
 Данные для продажи авиабилетов.
 Используется только при оплате банковской картой.
@@ -30,9 +30,9 @@ Defined in: [src/types/payments/payment.type.ts:313](https://github.com/WEBzayts
 
 ### amount?
 
-> `optional` **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
+> `optional` **amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:305](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L305)
+Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L311)
 
 Сумма к списанию.
 Можно списать сумму меньше, чем была авторизована (частичное подтверждение).
@@ -42,9 +42,9 @@ Defined in: [src/types/payments/payment.type.ts:305](https://github.com/WEBzayts
 
 ### receipt?
 
-> `optional` **receipt**: [`ReceiptinPaymentType`](../../Receipts/type-aliases/ReceiptinPaymentType.md)
+> `optional` **receipt?**: [`ReceiptinPaymentType`](../../Receipts/type-aliases/ReceiptinPaymentType.md)
 
-Defined in: [src/types/payments/payment.type.ts:309](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L309)
+Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L315)
 
 Данные для формирования чека.
 Передаются, если вы работаете по 54-ФЗ.
@@ -53,9 +53,9 @@ Defined in: [src/types/payments/payment.type.ts:309](https://github.com/WEBzayts
 
 ### transfers?
 
-> `optional` **transfers**: `object`[]
+> `optional` **transfers?**: `object`[]
 
-Defined in: [src/types/payments/payment.type.ts:317](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L317)
+Defined in: [src/types/payments/payment.type.ts:323](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L323)
 
 Данные о распределении денег между магазинами.
 Используется при сплитовании платежей.
@@ -74,18 +74,18 @@ Defined in: [src/types/payments/payment.type.ts:317](https://github.com/WEBzayts
 
 #### description?
 
-> `optional` **description**: `string`
+> `optional` **description?**: `string`
 
 Описание транзакции (до 128 символов)
 
 #### metadata?
 
-> `optional` **metadata**: [`Metadata`](../../../../interfaces/Metadata.md)
+> `optional` **metadata?**: [`Metadata`](../../../../interfaces/Metadata.md)
 
 Любые дополнительные данные
 
 #### platform\_fee\_amount?
 
-> `optional` **platform\_fee\_amount**: [`IAmount`](../../../../interfaces/IAmount.md)
+> `optional` **platform\_fee\_amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
 Комиссия за проданные товары и услуги, удерживаемая с магазина

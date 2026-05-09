@@ -8,7 +8,7 @@
 
 > **ReceiptStatus** = `"pending"` \| `"succeeded"` \| `"canceled"`
 
-Defined in: [src/types/receipt/receipt.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/receipt.type.ts#L27)
+Defined in: [src/types/receipt/receipt.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L27)
 
 Статус доставки данных для чека в онлайн-кассу.
 

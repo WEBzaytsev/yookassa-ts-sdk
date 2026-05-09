@@ -52,6 +52,12 @@ const payments = await sdk.payments.list({
 | `payment_method` | Filter by payment method code |
 | `limit` | Number of results (1-100, default: 10) |
 
+Nested time filters are sent as query parameters in dot notation (`created_at.gte`, …), as required by the [list API](https://yookassa.ru/developers/using-api/lists).
+
+## Utility payments (housing & utilities)
+
+For [utility (ЖКХ) payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-payments), include `payment_order_data` in `sdk.payments.create(...)`. See the exported type `PaymentOrderData` / `PaymentOrderDataUtilities`.
+
 ## Capture Payment
 
 ```ts

@@ -11,7 +11,7 @@ Modern TypeScript SDK for [YooKassa API](https://yookassa.ru/developers/api) int
 
 ## Features
 
-- 🚀 **Full TypeScript support** — complete type definitions for all API entities
+- 🚀 **Full TypeScript support** — typings aligned with the published YooKassa OpenAPI paths covered by this SDK
 - 🔄 **Automatic retries** — exponential backoff on network errors
 - 🔑 **Idempotency** — automatic `Idempotence-Key` generation
 - 🌐 **Proxy support** — HTTP/HTTPS proxy configuration
@@ -53,7 +53,7 @@ console.log(payment.confirmation.confirmation_url);
 | [Getting Started](docs/en/getting-started.md) | Configuration, instance caching |
 | [Payments](docs/en/payments.md) | Create, capture, cancel, list payments |
 | [Refunds](docs/en/refunds.md) | Create and list refunds |
-| [Receipts](docs/en/receipts.md) | Create and list receipts (54-FZ) |
+| [Payouts](docs/en/payouts.md) | Payouts: create, load, list (gateway credentials) |
 | [Webhooks](docs/en/webhooks.md) | Webhook management & incoming notifications |
 | [Error Handling](docs/en/error-handling.md) | Error codes, retries |
 | [API Reference](docs/api/) | TypeScript types, interfaces, enums |
@@ -85,6 +85,52 @@ console.log(payment.confirmation.confirmation_url);
 | `sdk.receipts.create(data, idempotenceKey?)` | Create receipt |
 | `sdk.receipts.load(id)` | Get receipt by ID |
 | `sdk.receipts.list(filter?)` | List receipts |
+
+### Payouts
+
+Use the **payout gateway** `shop_id` and `secret_key` from your YooKassa dashboard ([payouts](https://yookassa.ru/developers/payouts/overview)).
+
+| Method | Description |
+| --- | --- |
+| `sdk.payouts.create(data, idempotenceKey?)` | Create payout |
+| `sdk.payouts.load(id)` | Get payout by ID |
+| `sdk.payouts.list(filter?)` | List payouts (supports `succeeded_at`, `payout_destination.type`, etc.) |
+| `sdk.payouts.search(filter?)` | Search payouts by `metadata` and `created_at` (last 3 months) |
+
+### SBP banks
+
+| Method | Description |
+| --- | --- |
+| `sdk.sbpBanks.list()` | List FPS (SBP) participant banks |
+
+### Saved payment methods
+
+| Method | Description |
+| --- | --- |
+| `sdk.paymentMethods.create(data, idempotenceKey?)` | Create saved payment method (e.g. bank card binding) |
+| `sdk.paymentMethods.load(id)` | Get saved payment method by ID |
+
+### Personal data (payouts)
+
+| Method | Description |
+| --- | --- |
+| `sdk.personalData.create(data, idempotenceKey?)` | Create personal data object |
+| `sdk.personalData.load(id)` | Get personal data by ID |
+
+### Deals (Safe Deal)
+
+| Method | Description |
+| --- | --- |
+| `sdk.deals.create(data, idempotenceKey?)` | Create deal |
+| `sdk.deals.list(filter?)` | List deals |
+| `sdk.deals.load(id)` | Get deal by ID |
+
+### Invoices
+
+| Method | Description |
+| --- | --- |
+| `sdk.invoices.create(data, idempotenceKey?)` | Create invoice |
+| `sdk.invoices.load(id)` | Get invoice by ID |
 
 ### Webhooks (OAuth required)
 
@@ -118,11 +164,9 @@ try {
 
 ## Roadmap
 
-- [ ] **Payouts** — disbursements to cards/wallets
-- [ ] **Deals** — Safe Deal (escrow for marketplaces)
-- [ ] **Personal Data** — payout recipient data
-- [ ] **Self-Employed** — payouts to self-employed
-- [ ] **SBP Banks** — list of banks for SBP
+- [x] **Payouts** — create, load, list, search
+- [x] **Deals, personal data, SBP banks, invoices, saved payment methods** — see API tables above
+- [ ] **Self-Employed** — dedicated scenarios beyond generic payout types
 
 ## Maintainer
 

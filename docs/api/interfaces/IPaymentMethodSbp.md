@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodSbp
 
-Defined in: [src/types/payments/paymentMethod.type.ts:274](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L274)
+Defined in: [src/types/payments/paymentMethod.type.ts:278](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L278)
 
 СБП (Система быстрых платежей)
 
@@ -24,7 +24,7 @@ https://yookassa.ru/developers/payment-acceptance/getting-started/payment-method
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L187)
+Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L191)
 
 Идентификатор способа оплаты.
 
@@ -36,9 +36,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:187](https://github.com/WE
 
 ### payer\_bank\_details?
 
-> `optional` **payer\_bank\_details**: `object`
+> `optional` **payer\_bank\_details?**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:279](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L279)
+Defined in: [src/types/payments/paymentMethod.type.ts:283](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L283)
 
 Данные о банке плательщика
 
@@ -66,7 +66,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:279](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L189)
+Defined in: [src/types/payments/paymentMethod.type.ts:193](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L193)
 
 С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
@@ -78,9 +78,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:189](https://github.com/WE
 
 ### sbp\_operation\_id?
 
-> `optional` **sbp\_operation\_id**: `string`
+> `optional` **sbp\_operation\_id?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:277](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L277)
+Defined in: [src/types/payments/paymentMethod.type.ts:281](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L281)
 
 Идентификатор операции в СБП (НСПК). Обязателен для платежей в статусе succeeded.
 
@@ -88,9 +88,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:277](https://github.com/WE
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L191)
+Defined in: [src/types/payments/paymentMethod.type.ts:195](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L195)
 
 Название способа оплаты.
 
@@ -104,7 +104,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:191](https://github.com/WE
 
 > **type**: [`sbp`](../enumerations/PaymentMethodsEnum.md#sbp)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:275](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L275)
+Defined in: [src/types/payments/paymentMethod.type.ts:279](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L279)
 
 #### Overrides
 

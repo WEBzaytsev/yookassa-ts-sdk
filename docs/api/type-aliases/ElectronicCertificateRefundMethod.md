@@ -8,7 +8,7 @@
 
 > **ElectronicCertificateRefundMethod** = `IRefundMethodGeneral` & `object`
 
-Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/refunds/refundMethod.type.ts#L43)
+Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/refunds/refundMethod.type.ts#L43)
 
 ## Type Declaration
 
@@ -21,7 +21,7 @@ Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBza
 
 ### electronic\_certificate?
 
-> `optional` **electronic\_certificate**: `IElectronicCertificate`
+> `optional` **electronic\_certificate?**: `IElectronicCertificate`
 
 Данные от ФЭС НСПК для возврата на электронный сертификат.
 

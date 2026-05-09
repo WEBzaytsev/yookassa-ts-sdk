@@ -6,9 +6,9 @@
 
 # Function: YooKassa()
 
-> **YooKassa**(`init`, `forceNew`): [`YooKassaSdk`](../classes/YooKassaSdk.md)
+> **YooKassa**(`init`, `forceNew?`): [`YooKassaSdk`](../classes/YooKassaSdk.md)
 
-Defined in: [src/client/sdk.ts:559](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/client/sdk.ts#L559)
+Defined in: [src/client/sdk.ts:801](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L801)
 
 Creates or returns a cached YooKassaSdk instance.
 
@@ -49,7 +49,7 @@ const sdk = YooKassa({
 
 SDK configuration options
 
-### forceNew
+### forceNew?
 
 `boolean` = `false`
 

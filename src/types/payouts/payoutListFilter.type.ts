@@ -16,8 +16,10 @@ export interface GetPayoutListFilter {
      * @see https://yookassa.ru/developers/api#get_payouts_list
      */
     succeeded_at?: DateFilter
-    /** Фильтр по типу назначения выплаты */
-    payout_destination_type?: PayoutDestinationFilterType
+    /**
+     * Фильтр по типу назначения выплаты в query: `payout_destination.type`.
+     */
+    payout_destination?: { type?: PayoutDestinationFilterType }
     /** Фильтр по статусу выплаты */
     status?: Payouts.PayoutStatus
     /**

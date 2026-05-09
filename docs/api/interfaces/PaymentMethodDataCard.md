@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataCard
 
-Defined in: [src/types/payments/paymentMethod.type.ts:356](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L356)
+Defined in: [src/types/payments/paymentMethod.type.ts:369](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L369)
 
 Данные банковской карты для создания платежа
 
@@ -14,39 +14,39 @@ Defined in: [src/types/payments/paymentMethod.type.ts:356](https://github.com/WE
 
 ### card?
 
-> `optional` **card**: `object`
+> `optional` **card?**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:359](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L359)
+Defined in: [src/types/payments/paymentMethod.type.ts:372](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L372)
 
 Данные банковской карты
 
 #### cardholder?
 
-> `optional` **cardholder**: `string`
+> `optional` **cardholder?**: `string`
 
 Имя владельца карты
 
 #### csc?
 
-> `optional` **csc**: `string`
+> `optional` **csc?**: `string`
 
 Код CVC2 или CVV2
 
 #### expiry\_month?
 
-> `optional` **expiry\_month**: `string`
+> `optional` **expiry\_month?**: `string`
 
 Срок действия, месяц, MM
 
 #### expiry\_year?
 
-> `optional` **expiry\_year**: `string`
+> `optional` **expiry\_year?**: `string`
 
 Срок действия, год, YYYY
 
 #### number?
 
-> `optional` **number**: `string`
+> `optional` **number?**: `string`
 
 Номер банковской карты
 
@@ -56,4 +56,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:359](https://github.com/WE
 
 > **type**: `"bank_card"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:357](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/paymentMethod.type.ts#L357)
+Defined in: [src/types/payments/paymentMethod.type.ts:370](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L370)

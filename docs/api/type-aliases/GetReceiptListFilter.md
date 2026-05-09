@@ -8,13 +8,13 @@
 
 > **GetReceiptListFilter** = `Pick`\<[`GetRefundListFilter`](GetRefundListFilter.md), `"payment_id"` \| `"cursor"`\> & `object`
 
-Defined in: [src/types/api.types.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/api.types.ts#L66)
+Defined in: [src/types/api.types.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L66)
 
 ## Type Declaration
 
 ### refund\_id?
 
-> `optional` **refund\_id**: `string`
+> `optional` **refund\_id?**: `string`
 
 Фильтр по идентификатору возврата (получить все чеки для указанного возврата).
 В запросе можно передать только что-то одно: или идентификатор платежа, или идентификатор возврата.

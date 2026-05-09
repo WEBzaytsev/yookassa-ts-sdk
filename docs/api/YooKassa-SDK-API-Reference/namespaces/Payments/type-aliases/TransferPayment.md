@@ -8,7 +8,7 @@
 
 > **TransferPayment** = `Pick`\<[`IPayment`](../interfaces/IPayment.md), `"amount"` \| `"description"` \| `"metadata"`\> & `object`
 
-Defined in: [src/types/payments/payment.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/payments/payment.type.ts#L76)
+Defined in: [src/types/payments/payment.type.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L77)
 
 Данные о распределении денег — сколько и в какой магазин нужно перевести.
 

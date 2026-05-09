@@ -8,7 +8,7 @@
 
 > **Supplier** = `object`
 
-Defined in: [src/types/receipt/item.type.ts:84](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/item.type.ts#L84)
+Defined in: [src/types/receipt/item.type.ts:84](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/item.type.ts#L84)
 
 Информация о поставщике товара или услуги (тег в 54 ФЗ — 1224).
 Можно передавать, если вы отправляете данные для формирования чека
@@ -18,9 +18,9 @@ Defined in: [src/types/receipt/item.type.ts:84](https://github.com/WEBzaytsev/yo
 
 ### inn?
 
-> `optional` **inn**: `string`
+> `optional` **inn?**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/item.type.ts#L94)
+Defined in: [src/types/receipt/item.type.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/item.type.ts#L94)
 
 ИНН поставщика в маскированном виде (тег в 54 ФЗ — 1226). Пример: ***. Параметр предусмотрен форматом фискальных документов (ФФД) и является обязательным, начиная с версии 1.05.
 
@@ -30,7 +30,7 @@ Defined in: [src/types/receipt/item.type.ts:94](https://github.com/WEBzaytsev/yo
 
 > **name**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/item.type.ts#L86)
+Defined in: [src/types/receipt/item.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/item.type.ts#L86)
 
 Наименование поставщика (тег в 54 ФЗ — 1225). Параметр предусмотрен форматом фискальных документов (ФФД) и является обязательным, начиная с версии 1.1.
 
@@ -38,9 +38,9 @@ Defined in: [src/types/receipt/item.type.ts:86](https://github.com/WEBzaytsev/yo
 
 ### phone?
 
-> `optional` **phone**: `string`
+> `optional` **phone?**: `string`
 
-Defined in: [src/types/receipt/item.type.ts:92](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/e5153b54297e1c5c82db159e94d75578d740e3cf/src/types/receipt/item.type.ts#L92)
+Defined in: [src/types/receipt/item.type.ts:92](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/item.type.ts#L92)
 
 Телефон поставщика (тег в 54 ФЗ — 1171).
 Указывается в формате ITU-T E.164,
