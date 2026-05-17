@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto'
+import { randomBytes } from 'node:crypto'
 import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
 import * as AxiosLogger from 'axios-logger'
 import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit'
@@ -278,7 +278,15 @@ export class Connector {
      */
     protected async request<Res, Data = object>(opts: RequestOpts<Data>): Promise<Res> {
         // Генерируем или используем переданный Idempotence-Key
-        const idempotenceKey = opts.requestId ?? randomUUID()
+        if (opts.requestId !== undefined && opts.requestId.length > 64) {
+            throw new YooKassaErr({
+                type: 'error',
+                id: opts.requestId,
+                code: 'INVALID_IDEMPOTENCE_KEY',
+                description: `Idempotence key must be 64 characters or less (got ${opts.requestId.length})`,
+            })
+        }
+        const idempotenceKey = opts.requestId ?? randomBytes(16).toString('hex')
 
         // Формируем заголовки
         const headers: Record<string, string> = {
