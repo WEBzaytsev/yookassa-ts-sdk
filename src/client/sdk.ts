@@ -19,7 +19,13 @@ import type { SavePaymentMethod, SavePaymentMethodData } from '../types/savedPay
 import type { GetSbpBanksResponse, SbpParticipantBank } from '../types/sbpBanks.type'
 import type { IShopInfo } from '../types/shop.type'
 import type { CreateWebhookRequest, IWebhook, WebhookList } from '../types/webhook.type'
-import { parseNotification, WebhookValidationError } from '../webhooks/notification'
+import type { PaymentNotification, RefundNotification } from '../webhooks/notification'
+import {
+    parseNotification,
+    parsePaymentNotification,
+    parseRefundNotification,
+    WebhookValidationError,
+} from '../webhooks/notification'
 import type { ConnectorOpts } from './connector'
 import { Connector } from './connector'
 
@@ -203,28 +209,55 @@ export class YooKassaSdk extends Connector {
 
     // ========== Webhook verify ========== //
     /**
-     * Верифицирует входящее уведомление, перезапрашивая объект через API.
-     * Это единственный надёжный способ убедиться в подлинности уведомления.
+     * Верифицирует входящее уведомление (payment или refund), перезапрашивая объект через API.
+     * Возвращает полную нотификацию с актуальным состоянием объекта из API.
      */
-    protected verifyWebhookNotification = async (body: unknown): Promise<Payments.IPayment | Refunds.IRefund> => {
+    protected verifyWebhookNotification = async (body: unknown): Promise<PaymentNotification | RefundNotification> => {
         const notification = parseNotification(body)
-        const id = notification.object.id
+        const {
+            event,
+            object: { id },
+        } = notification
 
-        if (!id) {
-            throw new WebhookValidationError('Notification object is missing required field: id', 'MISSING_OBJECT_ID')
+        if (event.startsWith('payment.')) {
+            return { type: 'notification', event, object: await this.getPaymentById(id) }
         }
-
-        if (notification.event.startsWith('payment.')) {
-            return this.getPaymentById(id)
-        }
-        if (notification.event.startsWith('refund.')) {
-            return this.getRefundById(id)
+        if (event.startsWith('refund.')) {
+            return { type: 'notification', event, object: await this.getRefundById(id) }
         }
 
         throw new WebhookValidationError(
-            `Unsupported event type for verification: '${notification.event}'. Supported: payment.*, refund.*`,
+            `Unsupported event type for verification: '${event}'. Supported: payment.*, refund.*`,
             'UNSUPPORTED_EVENT',
         )
+    }
+
+    /**
+     * Верифицирует входящее уведомление о платеже, перезапрашивая объект через API.
+     * Отвергает события, не относящиеся к платежам (`refund.*` и прочие).
+     * Возвращает полную нотификацию с актуальным состоянием платежа из API.
+     */
+    protected verifyPaymentNotification = async (body: unknown): Promise<PaymentNotification> => {
+        const notification = parsePaymentNotification(body)
+        return {
+            type: 'notification',
+            event: notification.event,
+            object: await this.getPaymentById(notification.object.id),
+        }
+    }
+
+    /**
+     * Верифицирует входящее уведомление о возврате, перезапрашивая объект через API.
+     * Отвергает события, не относящиеся к возвратам (`payment.*` и прочие).
+     * Возвращает полную нотификацию с актуальным состоянием возврата из API.
+     */
+    protected verifyRefundNotification = async (body: unknown): Promise<RefundNotification> => {
+        const notification = parseRefundNotification(body)
+        return {
+            type: 'notification',
+            event: notification.event,
+            object: await this.getRefundById(notification.object.id),
+        }
     }
     // ========== Webhook verify end ========== //
 
@@ -768,35 +801,41 @@ export class YooKassaSdk extends Connector {
          */
         delete: this.deleteWebhook as (webhookId: string) => Promise<void>,
         /**
-         * ****Верификация уведомления****
+         * ****Верификация уведомления (payment или refund)****
          *
          * Подтверждает подлинность входящего уведомления, **перезапрашивая объект через API**.
-         * Единственный надёжный способ убедиться, что уведомление действительно пришло от ЮKassa
-         * (IP-проверка подделываема через `x-forwarded-for` без доверенного reverse-proxy).
+         * Единственный надёжный способ убедиться, что уведомление действительно пришло от ЮKassa.
          *
-         * Парсит тело уведомления, извлекает `id` объекта и делает запрос к API:
-         * - `payment.*` → `sdk.payments.load(id)`
-         * - `refund.*` → `sdk.refunds.load(id)`
+         * Возвращает полную нотификацию с актуальным состоянием объекта:
+         * - `payment.*` → `PaymentNotification` с `IPayment` из API
+         * - `refund.*`  → `RefundNotification` с `IRefund` из API
          *
          * @param body - тело запроса (`req.body`)
-         * @returns Авторитетный объект платежа или возврата из API
-         * @throws {WebhookValidationError} Если тело некорректно или объект не найден в API
-         *
-         * @example
-         * ```ts
-         * app.post('/webhook', async (req, res) => {
-         *     try {
-         *         const object = await sdk.webhooks.verify(req.body)
-         *         // object — актуальное состояние из API, не из тела уведомления
-         *         console.log('Verified event object:', object)
-         *         res.status(200).send('OK')
-         *     } catch (error) {
-         *         res.status(400).send('Bad Request')
-         *     }
-         * })
-         * ```
+         * @throws {WebhookValidationError} Если тело некорректно или тип события не поддерживается
          */
         verify: this.verifyWebhookNotification,
+        /**
+         * ****Верификация уведомления о платеже****
+         *
+         * Аналогично `verify`, но принимает **только** `payment.*` события.
+         * Отвергает `refund.*` и прочие — бросает `WebhookValidationError`.
+         * Возвращает `PaymentNotification` с актуальным `IPayment` из API.
+         *
+         * @param body - тело запроса (`req.body`)
+         * @throws {WebhookValidationError} Если тело некорректно или событие не является payment.*
+         */
+        verifyPayment: this.verifyPaymentNotification,
+        /**
+         * ****Верификация уведомления о возврате****
+         *
+         * Аналогично `verify`, но принимает **только** `refund.*` события.
+         * Отвергает `payment.*` и прочие — бросает `WebhookValidationError`.
+         * Возвращает `RefundNotification` с актуальным `IRefund` из API.
+         *
+         * @param body - тело запроса (`req.body`)
+         * @throws {WebhookValidationError} Если тело некорректно или событие не является refund.*
+         */
+        verifyRefund: this.verifyRefundNotification,
     }
 
     /**
