@@ -328,7 +328,11 @@ export interface IPaymentMethodInstallments {
     type: PaymentMethodsEnum.installments
 }
 
-/** "Покупки в кредит" от Сбербанка" */
+/**
+ * "Покупки в кредит" от Сбербанка
+ *
+ * @remarks Возврат платежа возможен только в течение **180 дней** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
+ */
 export interface IPaymentMethodSberLoan extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sber_loan
     /** Сумма скидки для рассрочки. Присутствует для платежей в статусе `waiting_for_capture` и `succeeded`, если пользователь выбрал рассрочку. */
@@ -343,7 +347,14 @@ export interface IPaymentMethodSberLoan extends IGeneralPayMethod {
     loan_option?: 'loan' | `installments_${number}`
 }
 
-/** Плати частями (BNPL от СберБанка) */
+/**
+ * Плати частями (BNPL от СберБанка)
+ *
+ * @remarks
+ * - Возврат платежа возможен только в течение **1 года** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
+ * - Максимальная сумма одного платежа: **50 000 ₽** (с 23 апреля 2026 г.).
+ * - Доступен только срок рассрочки **2 месяца** (платёж раз в две недели); сроки 4 и 6 месяцев недоступны.
+ */
 export interface IPaymentMethodSberBnpl {
     type: PaymentMethodsEnum.sber_bnpl
     /** Идентификатор способа оплаты */

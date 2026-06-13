@@ -1,8 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
-  "entry": ["src/index.ts"],
-  "project": ["src/**/*.ts", "tsup.config.ts"],
-  "ignore": ["yoocheckout-main/**", "dist/**", "src/tests/**"],
+  "ignore": ["src/tests/**"],
   "exclude": ["enumMembers"]
 }
-

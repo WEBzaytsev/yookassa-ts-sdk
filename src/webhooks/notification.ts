@@ -63,6 +63,14 @@ export class WebhookValidationError extends Error {
 /**
  * Проверяет, является ли IP-адрес адресом YooKassa.
  *
+ * **⚠️ Важно о надёжности:** проверка IP **не является достаточной защитой**, если перед вашим
+ * сервером стоит reverse-proxy (nginx, Cloudflare, AWS ALB и т.п.). Заголовок `x-forwarded-for`
+ * легко подделать: клиент может передать произвольный IP в этом заголовке, и прокси добавит его
+ * в список. Используйте `req.socket.remoteAddress` (реальный IP соединения) только при условии,
+ * что ваш прокси настроен доверять только реальным IP ЮKassa.
+ *
+ * Для надёжной верификации используйте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
+ *
  * @param ip - IP-адрес для проверки (например, из req.ip или x-forwarded-for)
  * @returns true, если IP принадлежит YooKassa
  *
@@ -108,7 +116,11 @@ function isIPv4Match(ip: string, rangeOrIP: string): boolean {
 
     // CIDR диапазон
     const [rangeIP, bits] = rangeOrIP.split('/')
-    const mask = ~(2 ** (32 - parseInt(bits, 10)) - 1)
+    const prefixBits = parseInt(bits, 10)
+    if (Number.isNaN(prefixBits) || prefixBits < 0 || prefixBits > 32) {
+        return false
+    }
+    const mask = ~(2 ** (32 - prefixBits) - 1)
 
     const ipNum = ipToNumber(ip)
     const rangeNum = ipToNumber(rangeIP)
@@ -126,6 +138,10 @@ function isIPv4Match(ip: string, rangeOrIP: string): boolean {
 function isIPv6InRange(ip: string, cidr: string): boolean {
     const [rangeIP, bits] = cidr.split('/')
     const prefixBits = parseInt(bits, 10)
+
+    if (Number.isNaN(prefixBits) || prefixBits < 0 || prefixBits > 128) {
+        return false
+    }
 
     const ipParts = expandIPv6(ip)
     const rangeParts = expandIPv6(rangeIP)
@@ -206,8 +222,15 @@ function ipToNumber(ip: string): number | null {
 /**
  * Парсит и валидирует входящее уведомление от YooKassa.
  *
+ * **⚠️ Важно:** эта функция проверяет только **формат** объекта (наличие полей `type`, `event`, `object`).
+ * Она **не подтверждает подлинность** уведомления — злоумышленник может отправить корректно
+ * оформленное тело с чужим `payment.id`.
+ *
+ * Для надёжной верификации используйте `sdk.webhooks.verify(body)`, который перезапрашивает
+ * объект через API ЮKassa и возвращает его актуальное состояние.
+ *
  * @param body - Тело запроса (req.body)
- * @returns Типизированное уведомление
+ * @returns Типизированное уведомление (только форма, не аутентичность)
  * @throws {WebhookValidationError} Если формат уведомления некорректен
  *
  * @example

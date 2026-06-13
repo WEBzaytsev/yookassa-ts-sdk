@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import type {
     CreatePaymentResponse,
     GetListResponse,
@@ -18,6 +19,7 @@ import type { SavePaymentMethod, SavePaymentMethodData } from '../types/savedPay
 import type { GetSbpBanksResponse, SbpParticipantBank } from '../types/sbpBanks.type'
 import type { IShopInfo } from '../types/shop.type'
 import type { CreateWebhookRequest, IWebhook, WebhookList } from '../types/webhook.type'
+import { parseNotification, WebhookValidationError } from '../webhooks/notification'
 import type { ConnectorOpts } from './connector'
 import { Connector } from './connector'
 
@@ -198,6 +200,33 @@ export class YooKassaSdk extends Connector {
         return this.fetchList<Receipts.IReceipt, GetReceiptListFilter>('/receipts', filter)
     }
     // ========== Receipts end ========== //
+
+    // ========== Webhook verify ========== //
+    /**
+     * Верифицирует входящее уведомление, перезапрашивая объект через API.
+     * Это единственный надёжный способ убедиться в подлинности уведомления.
+     */
+    protected verifyWebhookNotification = async (body: unknown): Promise<Payments.IPayment | Refunds.IRefund> => {
+        const notification = parseNotification(body)
+        const id = notification.object.id
+
+        if (!id) {
+            throw new WebhookValidationError('Notification object is missing required field: id', 'MISSING_OBJECT_ID')
+        }
+
+        if (notification.event.startsWith('payment.')) {
+            return this.getPaymentById(id)
+        }
+        if (notification.event.startsWith('refund.')) {
+            return this.getRefundById(id)
+        }
+
+        throw new WebhookValidationError(
+            `Unsupported event type for verification: '${notification.event}'. Supported: payment.*, refund.*`,
+            'UNSUPPORTED_EVENT',
+        )
+    }
+    // ========== Webhook verify end ========== //
 
     // ========== Webhooks ========== //
     /** Создать вебхук (требуется OAuth-токен)
@@ -738,6 +767,36 @@ export class YooKassaSdk extends Connector {
          * @see https://yookassa.ru/developers/api#delete_webhook
          */
         delete: this.deleteWebhook as (webhookId: string) => Promise<void>,
+        /**
+         * ****Верификация уведомления****
+         *
+         * Подтверждает подлинность входящего уведомления, **перезапрашивая объект через API**.
+         * Единственный надёжный способ убедиться, что уведомление действительно пришло от ЮKassa
+         * (IP-проверка подделываема через `x-forwarded-for` без доверенного reverse-proxy).
+         *
+         * Парсит тело уведомления, извлекает `id` объекта и делает запрос к API:
+         * - `payment.*` → `sdk.payments.load(id)`
+         * - `refund.*` → `sdk.refunds.load(id)`
+         *
+         * @param body - тело запроса (`req.body`)
+         * @returns Авторитетный объект платежа или возврата из API
+         * @throws {WebhookValidationError} Если тело некорректно или объект не найден в API
+         *
+         * @example
+         * ```ts
+         * app.post('/webhook', async (req, res) => {
+         *     try {
+         *         const object = await sdk.webhooks.verify(req.body)
+         *         // object — актуальное состояние из API, не из тела уведомления
+         *         console.log('Verified event object:', object)
+         *         res.status(200).send('OK')
+         *     } catch (error) {
+         *         res.status(400).send('Bad Request')
+         *     }
+         * })
+         * ```
+         */
+        verify: this.verifyWebhookNotification,
     }
 
     /**
@@ -765,33 +824,26 @@ const clientCache = new Map<string, YooKassaSdk>()
 /**
  * Creates or returns a cached YooKassaSdk instance.
  *
- * Instances are cached by `shop_id`, enabling connection reuse
- * and multi-store support in a single application.
+ * Instances are cached by a hash of all credential fields (`shop_id`, `secret_key`,
+ * `token`, `endpoint`, `proxy`), enabling connection reuse while ensuring that
+ * changing any credential always produces a new instance (safe key rotation).
  *
  * ## Instance Caching
  *
  * ```typescript
- * // Same shop_id = same instance (cached)
+ * // Same credentials = same instance (cached)
  * const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key' });
  * const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key' });
  * console.log(sdk1 === sdk2); // true
  *
+ * // Different secret = different instance (safe rotation)
+ * const oldSdk = YooKassa({ shop_id: '123', secret_key: 'old' });
+ * const newSdk = YooKassa({ shop_id: '123', secret_key: 'new' });
+ * console.log(oldSdk === newSdk); // false
+ *
  * // Different shops = different instances
  * const shopA = YooKassa({ shop_id: 'A', secret_key: 'keyA' });
  * const shopB = YooKassa({ shop_id: 'B', secret_key: 'keyB' });
- * ```
- *
- * ## Distributed Systems Configuration
- *
- * ```typescript
- * // For multiple server instances sharing API rate limits
- * const sdk = YooKassa({
- *     shop_id: process.env.YOOKASSA_SHOP_ID,
- *     secret_key: process.env.YOOKASSA_SECRET_KEY,
- *     maxRPS: 2,       // Low per-instance limit
- *     retries: 5,      // More retries for resilience
- *     timeout: 15000,  // Longer timeout
- * });
  * ```
  *
  * @param init - SDK configuration options
@@ -799,7 +851,9 @@ const clientCache = new Map<string, YooKassaSdk>()
  * @returns YooKassaSdk instance
  */
 export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
-    const cacheKey = init.shop_id
+    const cacheKey = createHash('sha256')
+        .update(`${init.shop_id}|${init.secret_key}|${init.token ?? ''}|${init.endpoint ?? ''}|${init.proxy ?? ''}`)
+        .digest('hex')
 
     const cached = clientCache.get(cacheKey)
     if (!forceNew && cached) {

@@ -87,6 +87,11 @@ export type YooKassaErrResponse = {
     id: string
     code: string
     description: string
+    /**
+     * Дополнительная причина отказа (присутствует при `code: 'refusal'`).
+     * Возвращается API при нарушении правил бизнес-логики.
+     */
+    reason?: string
 }
 
 export class YooKassaErr extends Error {

@@ -1,5 +1,5 @@
 import { randomBytes } from 'node:crypto'
-import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
+import axios, { type AxiosError, type AxiosRequestConfig, type InternalAxiosRequestConfig } from 'axios'
 import * as AxiosLogger from 'axios-logger'
 import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit'
 import { HttpsProxyAgent } from 'https-proxy-agent'
@@ -45,6 +45,28 @@ function isRetryableError(error: AxiosError): boolean {
  */
 function delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+/**
+ * Возвращает копию конфига с замаскированными чувствительными заголовками.
+ * Предотвращает утечку `secret_key` и OAuth-токена в логи debug-режима.
+ */
+function redactSensitiveConfig(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
+    const clone = { ...config }
+
+    if (clone.auth) {
+        clone.auth = { username: clone.auth.username, password: '***' }
+    }
+
+    if (clone.headers) {
+        const authValue = clone.headers.get('Authorization')
+        if (typeof authValue === 'string') {
+            const prefix = authValue.startsWith('Bearer') ? 'Bearer' : 'Basic'
+            clone.headers.set('Authorization', `${prefix} ***`)
+        }
+    }
+
+    return clone
 }
 
 /**
@@ -230,6 +252,18 @@ export class Connector {
     constructor(init: ConnectorOpts) {
         // Убираем trailing slash из endpoint
         this.endpoint = (init.endpoint || 'https://api.yookassa.ru/v3').replace(/\/+$/, '')
+
+        // Требуем HTTPS, разрешая HTTP только для localhost в debug-режиме
+        const endpointUrl = new URL(this.endpoint)
+        const isLocalhost = endpointUrl.hostname === 'localhost' || endpointUrl.hostname === '127.0.0.1'
+        if (endpointUrl.protocol !== 'https:' && !(init.debug && isLocalhost)) {
+            throw new YooKassaErr({
+                type: 'error',
+                id: 'init',
+                code: 'INSECURE_ENDPOINT',
+                description: `endpoint must use HTTPS to protect credentials (got '${this.endpoint}'). HTTP is allowed only for localhost in debug mode.`,
+            })
+        }
         this.debug = init.debug ?? false
         this.maxRPS = init.maxRPS ?? 5
         this.timeout = init.timeout ?? DEFAULT_TIMEOUT
@@ -265,7 +299,10 @@ export class Connector {
 
         // Логирование запросов и ответов в debug режиме
         if (this.debug) {
-            this.axiosInstance.interceptors.request.use(AxiosLogger.requestLogger, AxiosLogger.errorLogger)
+            this.axiosInstance.interceptors.request.use(
+                (config) => AxiosLogger.requestLogger(redactSensitiveConfig(config)),
+                AxiosLogger.errorLogger,
+            )
             this.axiosInstance.interceptors.response.use(AxiosLogger.responseLogger, AxiosLogger.errorLogger)
         }
     }
