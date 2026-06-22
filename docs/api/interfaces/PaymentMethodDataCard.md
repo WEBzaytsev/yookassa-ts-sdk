@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataCard
 
-Defined in: [src/types/payments/paymentMethod.type.ts:369](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L369)
+Defined in: [src/types/payments/paymentMethod.type.ts:406](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L406)
 
 Данные банковской карты для создания платежа
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:369](https://github.com/WE
 
 > `optional` **card?**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:372](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L372)
+Defined in: [src/types/payments/paymentMethod.type.ts:409](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L409)
 
 Данные банковской карты
 
@@ -56,4 +56,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:372](https://github.com/WE
 
 > **type**: `"bank_card"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:370](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L370)
+Defined in: [src/types/payments/paymentMethod.type.ts:407](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L407)

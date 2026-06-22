@@ -6,7 +6,7 @@
 
 # Interface: SbpParticipantBank
 
-Defined in: src/types/sbpBanks.type.ts:2
+Defined in: [src/types/sbpBanks.type.ts:2](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/sbpBanks.type.ts#L2)
 
 Участник СБП (банк / НСПК) для выплат через СБП.
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#get_sbp_banks
 
 > **bank\_id**: `string`
 
-Defined in: src/types/sbpBanks.type.ts:3
+Defined in: [src/types/sbpBanks.type.ts:3](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/sbpBanks.type.ts#L3)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: src/types/sbpBanks.type.ts:3
 
 > **bic**: `string`
 
-Defined in: src/types/sbpBanks.type.ts:5
+Defined in: [src/types/sbpBanks.type.ts:5](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/sbpBanks.type.ts#L5)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: src/types/sbpBanks.type.ts:5
 
 > **name**: `string`
 
-Defined in: src/types/sbpBanks.type.ts:4
+Defined in: [src/types/sbpBanks.type.ts:4](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/sbpBanks.type.ts#L4)

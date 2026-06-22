@@ -8,7 +8,7 @@
 
 > `const` **SettlementTypeMap**: `object`
 
-Defined in: [src/dictionaries.ts:172](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/dictionaries.ts#L172)
+Defined in: [src/dictionaries.ts:177](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L177)
 
 Тип расчета передается в запросе на создание чека в массиве 'settlements', в параметре 'type'.
 

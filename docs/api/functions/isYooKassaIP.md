@@ -8,9 +8,17 @@
 
 > **isYooKassaIP**(`ip`): `boolean`
 
-Defined in: [src/webhooks/notification.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/webhooks/notification.ts#L82)
+Defined in: [src/webhooks/notification.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L90)
 
 Проверяет, является ли IP-адрес адресом YooKassa.
+
+**⚠️ Важно о надёжности:** проверка IP **не является достаточной защитой**, если перед вашим
+сервером стоит reverse-proxy (nginx, Cloudflare, AWS ALB и т.п.). Заголовок `x-forwarded-for`
+легко подделать: клиент может передать произвольный IP в этом заголовке, и прокси добавит его
+в список. Используйте `req.socket.remoteAddress` (реальный IP соединения) только при условии,
+что ваш прокси настроен доверять только реальным IP ЮKassa.
+
+Для надёжной верификации используйте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
 
 ## Parameters
 

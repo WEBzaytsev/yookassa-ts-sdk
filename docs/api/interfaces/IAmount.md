@@ -6,7 +6,7 @@
 
 # Interface: IAmount
 
-Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/general.types.ts#L53)
+Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L53)
 
 Сумма платежа. Иногда партнеры ЮKassa берут с пользователя дополнительную комиссию, которая не входит в эту сумму.
 
@@ -16,7 +16,7 @@ Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookas
 
 > **currency**: [`CurrencyEnum`](../enumerations/CurrencyEnum.md)
 
-Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/general.types.ts#L60)
+Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L60)
 
 Трехбуквенный код валюты в формате ISO-4217. Пример: `RUB`. Должен соответствовать валюте субаккаунта (recipient.gateway_id), если вы разделяете потоки платежей, и валюте аккаунта (shopId в личном кабинете), если не разделяете.
 
@@ -26,7 +26,7 @@ Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookas
 
 > **value**: `string`
 
-Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/general.types.ts#L58)
+Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L58)
 
 Сумма в выбранной валюте.
 

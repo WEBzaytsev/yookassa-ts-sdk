@@ -8,7 +8,7 @@
 
 > **ElectronicCertificateRefundMethod** = `IRefundMethodGeneral` & `object`
 
-Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/refunds/refundMethod.type.ts#L43)
+Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refundMethod.type.ts#L43)
 
 ## Type Declaration
 

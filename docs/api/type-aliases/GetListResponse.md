@@ -8,7 +8,7 @@
 
 > **GetListResponse**\<`T`\> = `object`
 
-Defined in: [src/types/api.types.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L74)
+Defined in: [src/types/api.types.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L74)
 
 ## Type Parameters
 
@@ -22,7 +22,7 @@ Defined in: [src/types/api.types.ts:74](https://github.com/WEBzaytsev/yookassa-t
 
 > **items**: `T`[]
 
-Defined in: [src/types/api.types.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L77)
+Defined in: [src/types/api.types.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L77)
 
 Массив объектов.
 
@@ -32,7 +32,7 @@ Defined in: [src/types/api.types.ts:77](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **next\_cursor?**: `string`
 
-Defined in: [src/types/api.types.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L79)
+Defined in: [src/types/api.types.ts:79](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L79)
 
 Указатель на следующий фрагмент списка.
 
@@ -42,4 +42,4 @@ Defined in: [src/types/api.types.ts:79](https://github.com/WEBzaytsev/yookassa-t
 
 > **type**: `"list"`
 
-Defined in: [src/types/api.types.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L75)
+Defined in: [src/types/api.types.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L75)

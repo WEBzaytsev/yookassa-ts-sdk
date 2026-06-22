@@ -6,7 +6,7 @@
 
 # Interface: DeliveryMethodDataSms
 
-Defined in: src/types/invoice.type.ts:37
+Defined in: [src/types/invoice.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L37)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/types/invoice.type.ts:37
 
 > **phone**: `string`
 
-Defined in: src/types/invoice.type.ts:39
+Defined in: [src/types/invoice.type.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L39)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: src/types/invoice.type.ts:39
 
 > **type**: `"sms"`
 
-Defined in: src/types/invoice.type.ts:38
+Defined in: [src/types/invoice.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L38)

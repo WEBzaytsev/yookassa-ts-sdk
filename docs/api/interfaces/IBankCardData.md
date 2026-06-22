@@ -6,7 +6,7 @@
 
 # Interface: IBankCardData
 
-Defined in: [src/types/payments/paymentMethod.type.ts:162](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L162)
+Defined in: [src/types/payments/paymentMethod.type.ts:188](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L188)
 
 Данные банковской карты в ответе API
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#payment_object_payment_method_card
 
 > `optional` **card\_product?**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:174](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L174)
+Defined in: [src/types/payments/paymentMethod.type.ts:200](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L200)
 
 Продукт банковской карты
 
@@ -42,7 +42,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:174](https://github.com/WE
 
 > **card\_type**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:172](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L172)
+Defined in: [src/types/payments/paymentMethod.type.ts:198](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L198)
 
 Тип банковской карты
 
@@ -52,7 +52,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:172](https://github.com/WE
 
 > **expiry\_month**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:170](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L170)
+Defined in: [src/types/payments/paymentMethod.type.ts:196](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L196)
 
 Срок действия, месяц (MM)
 
@@ -62,7 +62,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:170](https://github.com/WE
 
 > **expiry\_year**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:168](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L168)
+Defined in: [src/types/payments/paymentMethod.type.ts:194](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L194)
 
 Срок действия, год (YYYY)
 
@@ -72,7 +72,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:168](https://github.com/WE
 
 > `optional` **first6?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:164](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L164)
+Defined in: [src/types/payments/paymentMethod.type.ts:190](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L190)
 
 Первые 6 цифр номера карты (BIN)
 
@@ -82,7 +82,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:164](https://github.com/WE
 
 > `optional` **issuer\_country?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:181](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L181)
+Defined in: [src/types/payments/paymentMethod.type.ts:207](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L207)
 
 Код страны банка-эмитента (ISO 3166-1 alpha-2)
 
@@ -92,7 +92,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:181](https://github.com/WE
 
 > `optional` **issuer\_name?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:183](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L183)
+Defined in: [src/types/payments/paymentMethod.type.ts:209](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L209)
 
 Название банка-эмитента
 
@@ -102,7 +102,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:183](https://github.com/WE
 
 > **last4**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:166](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L166)
+Defined in: [src/types/payments/paymentMethod.type.ts:192](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L192)
 
 Последние 4 цифры номера карты
 
@@ -112,6 +112,6 @@ Defined in: [src/types/payments/paymentMethod.type.ts:166](https://github.com/WE
 
 > `optional` **source?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:185](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L185)
+Defined in: [src/types/payments/paymentMethod.type.ts:211](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L211)
 
 Источник данных карты (если использовался Pay-сервис)

@@ -6,7 +6,7 @@
 
 # Interface: Metadata
 
-Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/general.types.ts#L46)
+Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L46)
 
 Любые дополнительные данные, которые нужны вам для работы.
 

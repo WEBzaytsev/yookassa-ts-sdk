@@ -6,7 +6,7 @@
 
 # Interface: FiscalizationData
 
-Defined in: [src/types/shop.type.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L32)
+Defined in: [src/types/shop.type.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/shop.type.ts#L32)
 
 Настройки фискализации магазина.
 Присутствует, если магазин настроил отправку чеков через ЮKassa.
@@ -17,7 +17,7 @@ Defined in: [src/types/shop.type.ts:32](https://github.com/WEBzaytsev/yookassa-t
 
 > **enabled**: `boolean`
 
-Defined in: [src/types/shop.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L34)
+Defined in: [src/types/shop.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/shop.type.ts#L34)
 
 Отправка чеков включена
 
@@ -27,6 +27,6 @@ Defined in: [src/types/shop.type.ts:34](https://github.com/WEBzaytsev/yookassa-t
 
 > **provider**: [`FiscalizationProvider`](../type-aliases/FiscalizationProvider.md)
 
-Defined in: [src/types/shop.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/shop.type.ts#L36)
+Defined in: [src/types/shop.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/shop.type.ts#L36)
 
 Провайдер, через который отправляются чеки

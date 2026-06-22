@@ -33,6 +33,7 @@ const payment = await sdk.payments.create({
 - [Payments](en/payments.md) - Create, capture, cancel payments
 - [Refunds](en/refunds.md) - Create and manage refunds
 - [Payouts](en/payouts.md) - Create, load, and list payouts
+- [Deals](en/deals.md) - Safe Deal: create, load, and list deals
 - [Receipts](en/receipts.md) - Fiscalization (54-FZ compliance)
 - [Webhooks](en/webhooks.md) - Webhook management and validation
 - [Error Handling](en/error-handling.md) - Error codes and retry logic

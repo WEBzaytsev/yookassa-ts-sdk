@@ -8,4 +8,4 @@
 
 > **IConfirmation** = [`IConfirmationRedirect`](../interfaces/IConfirmationRedirect.md) \| [`IConfirmationEmbedded`](../interfaces/IConfirmationEmbedded.md) \| [`IConfirmationQR`](../interfaces/IConfirmationQR.md) \| [`IConfirmationExternal`](../interfaces/IConfirmationExternal.md) \| [`IConfirmationMobileApp`](../interfaces/IConfirmationMobileApp.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:3](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L3)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:3](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L3)

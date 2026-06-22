@@ -8,7 +8,7 @@
 
 > `const` **refundCancelReasonMap**: `object`
 
-Defined in: [src/dictionaries.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/dictionaries.ts#L55)
+Defined in: [src/dictionaries.ts:57](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L57)
 
 ****Причины отмены возврата****
 
@@ -31,6 +31,10 @@ Defined in: [src/dictionaries.ts:55](https://github.com/WEBzaytsev/yookassa-ts-s
 ### payment\_basket\_id\_not\_found
 
 > **payment\_basket\_id\_not\_found**: `string` = `'НСПК не нашла для этого возврата одобренную корзину покупки. Откорректируйте данные и отправьте запрос еще раз с новым ключом идемпотентности.'`
+
+### payment\_expired
+
+> **payment\_expired**: `string` = `'Эквайер отклонил возврат, потому что с момента создания платежа прошло больше 15 месяцев. Договоритесь с пользователем напрямую, каким способом вернете ему деньги.'`
 
 ### payment\_tru\_code\_not\_found
 

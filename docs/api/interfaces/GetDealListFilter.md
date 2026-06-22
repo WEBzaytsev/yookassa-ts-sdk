@@ -6,7 +6,7 @@
 
 # Interface: GetDealListFilter
 
-Defined in: src/types/deal.type.ts:34
+Defined in: [src/types/deal.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L34)
 
 Фильтр списка сделок (GET /deals).
 
@@ -16,7 +16,7 @@ Defined in: src/types/deal.type.ts:34
 
 > `optional` **created\_at?**: [`DateFilter`](../type-aliases/DateFilter.md)
 
-Defined in: src/types/deal.type.ts:35
+Defined in: [src/types/deal.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L35)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: src/types/deal.type.ts:35
 
 > `optional` **cursor?**: `string`
 
-Defined in: src/types/deal.type.ts:40
+Defined in: [src/types/deal.type.ts:40](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L40)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: src/types/deal.type.ts:40
 
 > `optional` **expires\_at?**: [`DateFilter`](../type-aliases/DateFilter.md)
 
-Defined in: src/types/deal.type.ts:36
+Defined in: [src/types/deal.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L36)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: src/types/deal.type.ts:36
 
 > `optional` **full\_text\_search?**: `string`
 
-Defined in: src/types/deal.type.ts:38
+Defined in: [src/types/deal.type.ts:38](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L38)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: src/types/deal.type.ts:38
 
 > `optional` **limit?**: `number`
 
-Defined in: src/types/deal.type.ts:39
+Defined in: [src/types/deal.type.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L39)
 
 ***
 
@@ -56,4 +56,4 @@ Defined in: src/types/deal.type.ts:39
 
 > `optional` **status?**: [`DealStatus`](../type-aliases/DealStatus.md)
 
-Defined in: src/types/deal.type.ts:37
+Defined in: [src/types/deal.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/deal.type.ts#L37)

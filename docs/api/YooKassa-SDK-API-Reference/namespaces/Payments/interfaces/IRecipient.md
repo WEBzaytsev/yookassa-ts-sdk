@@ -6,7 +6,7 @@
 
 # Interface: IRecipient
 
-Defined in: [src/types/payments/payment.type.ts:51](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L51)
+Defined in: [src/types/payments/payment.type.ts:51](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L51)
 
 Получатель платежа.
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/payment.type.ts:51](https://github.com/WEBzaytse
 
 > **account\_id**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L53)
+Defined in: [src/types/payments/payment.type.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L53)
 
 Идентификатор магазина в ЮKassa.
 
@@ -26,6 +26,6 @@ Defined in: [src/types/payments/payment.type.ts:53](https://github.com/WEBzaytse
 
 > **gateway\_id**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L55)
+Defined in: [src/types/payments/payment.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L55)
 
 Идентификатор субаккаунта. Используется для разделения потоков платежей в рамках одного аккаунта.

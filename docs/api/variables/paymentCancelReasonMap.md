@@ -8,7 +8,7 @@
 
 > `const` **paymentCancelReasonMap**: `object`
 
-Defined in: [src/dictionaries.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/dictionaries.ts#L7)
+Defined in: [src/dictionaries.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L7)
 
 ***Причины отмены платежа***
 
@@ -79,6 +79,10 @@ Defined in: [src/dictionaries.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sd
 ### issuer\_unavailable
 
 > **issuer\_unavailable**: `string` = `'Организация, выпустившая платежное средство, недоступна. При новой попытке оплаты пользователю следует использовать другое платежное средство'`
+
+### loan\_declined
+
+> **loan\_declined**: `string` = `'Заявка на кредит или рассрочку отклонена банком. При новой попытке оплаты пользователю следует использовать другое платежное средство или обратиться в банк за уточнениями.'`
 
 ### payment\_method\_limit\_exceeded
 

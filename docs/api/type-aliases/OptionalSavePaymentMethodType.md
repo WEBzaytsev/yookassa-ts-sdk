@@ -8,7 +8,7 @@
 
 > **OptionalSavePaymentMethodType** = [`bank_card`](../enumerations/PaymentMethodsEnum.md#bank_card) \| [`yoo_money`](../enumerations/PaymentMethodsEnum.md#yoo_money)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L124)
+Defined in: [src/types/payments/paymentMethod.type.ts:150](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L150)
 
 Способы оплаты, поддерживающие условное сохранение.
 Пользователь сам решает, сохранять ли способ оплаты.

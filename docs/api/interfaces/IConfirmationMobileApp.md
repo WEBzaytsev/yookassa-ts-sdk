@@ -6,7 +6,7 @@
 
 # Interface: IConfirmationMobileApp
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L73)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L73)
 
 ***Сценарий подтверждения `Mobile application`***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:73](https://github.
 
 > **confirmation\_url**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L76)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L76)
 
 Диплинк на мобильное приложение, в котором пользователь подтверждает платеж.
 
@@ -32,7 +32,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:76](https://github.
 
 > `optional` **locale?**: [`LocaleEnum`](../enumerations/LocaleEnum.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L23)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L23)
 
 Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен.
 
@@ -46,7 +46,7 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.
 
 > `optional` **return\_url?**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L81)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L81)
 
 URL или диплинк, на который вернется пользователь после подтверждения или отмены платежа в приложении.
 Не более 255 символов для SberPay, 2048 для остальных.
@@ -57,7 +57,7 @@ URL или диплинк, на который вернется пользова
 
 > **type**: `"mobile_application"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentsConfirmation.type.ts#L74)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L74)
 
 Код сценария подтверждения.
 

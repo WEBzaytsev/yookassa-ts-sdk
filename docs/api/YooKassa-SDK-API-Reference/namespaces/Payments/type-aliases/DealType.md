@@ -8,7 +8,7 @@
 
 > **DealType** = `object`
 
-Defined in: [src/types/payments/payment.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L86)
+Defined in: [src/types/payments/payment.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L86)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/payment.type.ts:86](https://github.com/WEBzaytse
 
 > **id**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L88)
+Defined in: [src/types/payments/payment.type.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L88)
 
 Идентификатор сделки.
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payments/payment.type.ts:88](https://github.com/WEBzaytse
 
 > **settlements**: `object`[]
 
-Defined in: [src/types/payments/payment.type.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L90)
+Defined in: [src/types/payments/payment.type.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L90)
 
 Данные о распределении денег.
 

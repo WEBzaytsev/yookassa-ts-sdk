@@ -6,7 +6,7 @@
 
 # Interface: InvoiceCancellationDetails
 
-Defined in: src/types/invoice.type.ts:68
+Defined in: [src/types/invoice.type.ts:68](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L68)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/types/invoice.type.ts:68
 
 > **party**: [`InvoiceCancellationParty`](../type-aliases/InvoiceCancellationParty.md)
 
-Defined in: src/types/invoice.type.ts:69
+Defined in: [src/types/invoice.type.ts:69](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L69)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: src/types/invoice.type.ts:69
 
 > **reason**: [`InvoiceCancellationReason`](../type-aliases/InvoiceCancellationReason.md)
 
-Defined in: src/types/invoice.type.ts:70
+Defined in: [src/types/invoice.type.ts:70](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L70)

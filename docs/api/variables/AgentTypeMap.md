@@ -8,7 +8,7 @@
 
 > `const` **AgentTypeMap**: `object`
 
-Defined in: [src/dictionaries.ts:129](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/dictionaries.ts#L129)
+Defined in: [src/dictionaries.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L134)
 
 ****Тип посредника****
 

@@ -6,7 +6,7 @@
 
 # Interface: PayoutToSbpDestinationData
 
-Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L71)
+Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L71)
 
 Данные для выплаты через СБП
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/
 
 > **bank\_id**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L76)
+Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L76)
 
 Идентификатор участника СБП, до 12 символов
 
@@ -26,7 +26,7 @@ Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/
 
 > **phone**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L74)
+Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L74)
 
 Телефон получателя в формате ITU-T E.164, например 79000000000
 
@@ -36,4 +36,4 @@ Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/
 
 > **type**: `"sbp"`
 
-Defined in: [src/types/payouts/payout.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L72)
+Defined in: [src/types/payouts/payout.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L72)

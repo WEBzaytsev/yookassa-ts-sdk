@@ -6,7 +6,7 @@
 
 # Interface: SavePaymentMethodDataBankCard
 
-Defined in: src/types/savedPaymentMethod.type.ts:25
+Defined in: [src/types/savedPaymentMethod.type.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L65)
 
 Запрос на создание привязки банковской карты.
 
@@ -16,7 +16,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:25
 
 > **card**: [`CardRequestDataWithCsc`](CardRequestDataWithCsc.md)
 
-Defined in: src/types/savedPaymentMethod.type.ts:27
+Defined in: [src/types/savedPaymentMethod.type.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L67)
 
 ***
 
@@ -24,15 +24,15 @@ Defined in: src/types/savedPaymentMethod.type.ts:27
 
 > `optional` **client\_ip?**: `string`
 
-Defined in: src/types/savedPaymentMethod.type.ts:32
+Defined in: [src/types/savedPaymentMethod.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L72)
 
 ***
 
 ### confirmation?
 
-> `optional` **confirmation?**: [`PaymentMethodsConfirmationDataRedirect`](PaymentMethodsConfirmationDataRedirect.md)
+> `optional` **confirmation?**: [`PaymentMethodsConfirmationDataRedirect`](PaymentMethodsConfirmationDataRedirect.md) \| [`PaymentMethodsConfirmationDataQr`](PaymentMethodsConfirmationDataQr.md)
 
-Defined in: src/types/savedPaymentMethod.type.ts:33
+Defined in: [src/types/savedPaymentMethod.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L73)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:33
 
 > **holder**: `object`
 
-Defined in: src/types/savedPaymentMethod.type.ts:29
+Defined in: [src/types/savedPaymentMethod.type.ts:69](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L69)
 
 Получатель по OpenAPI — только `gateway_id`.
 
@@ -54,4 +54,4 @@ Defined in: src/types/savedPaymentMethod.type.ts:29
 
 > **type**: `"bank_card"`
 
-Defined in: src/types/savedPaymentMethod.type.ts:26
+Defined in: [src/types/savedPaymentMethod.type.ts:66](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L66)

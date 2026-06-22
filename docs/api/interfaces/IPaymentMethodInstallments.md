@@ -6,7 +6,7 @@
 
 # Interface: IPaymentMethodInstallments
 
-Defined in: [src/types/payments/paymentMethod.type.ts:301](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L301)
+Defined in: [src/types/payments/paymentMethod.type.ts:327](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L327)
 
 Заплатить по частям
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:301](https://github.com/WE
 
 > **type**: [`installments`](../enumerations/PaymentMethodsEnum.md#installments)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:302](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L302)
+Defined in: [src/types/payments/paymentMethod.type.ts:328](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L328)

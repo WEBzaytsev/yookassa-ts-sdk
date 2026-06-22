@@ -8,7 +8,7 @@
 
 > **CreateReceiptType** = `Pick`\<[`IReceipt`](../interfaces/IReceipt.md), `"type"` \| `"payment_id"` \| `"refund_id"` \| `"items"` \| `"tax_system_code"` \| `"receipt_industry_details"` \| `"receipt_operational_details"` \| `"on_behalf_of"`\> & `object`
 
-Defined in: [src/types/receipt/receipt.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/receipt/receipt.type.ts#L100)
+Defined in: [src/types/receipt/receipt.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/receipt/receipt.type.ts#L100)
 
 ## Type Declaration
 

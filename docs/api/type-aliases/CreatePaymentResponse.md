@@ -8,6 +8,6 @@
 
 > **CreatePaymentResponse** = [`IPayment`](../YooKassa-SDK-API-Reference/namespaces/Payments/interfaces/IPayment.md)
 
-Defined in: [src/types/api.types.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/api.types.ts#L83)
+Defined in: [src/types/api.types.ts:83](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L83)
 
 В ответ на запрос придет [объект платежа](https://yookassa.ru/developers/api#payment_object) в актуальном статусе.

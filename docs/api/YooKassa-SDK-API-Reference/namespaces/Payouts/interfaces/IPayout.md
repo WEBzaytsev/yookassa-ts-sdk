@@ -6,7 +6,7 @@
 
 # Interface: IPayout
 
-Defined in: [src/types/payouts/payout.type.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L112)
+Defined in: [src/types/payouts/payout.type.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L112)
 
 Объект выплаты.
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#payout_object
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payouts/payout.type.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L116)
+Defined in: [src/types/payouts/payout.type.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L116)
 
 Сумма выплаты
 
@@ -30,7 +30,7 @@ Defined in: [src/types/payouts/payout.type.ts:116](https://github.com/WEBzaytsev
 
 > `optional` **cancellation\_details?**: `object`
 
-Defined in: [src/types/payouts/payout.type.ts:133](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L133)
+Defined in: [src/types/payouts/payout.type.ts:133](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L133)
 
 Комментарий к статусу `canceled`
 
@@ -48,7 +48,7 @@ Defined in: [src/types/payouts/payout.type.ts:133](https://github.com/WEBzaytsev
 
 > **created\_at**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L124)
+Defined in: [src/types/payouts/payout.type.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L124)
 
 Время создания выплаты (ISO 8601)
 
@@ -58,7 +58,7 @@ Defined in: [src/types/payouts/payout.type.ts:124](https://github.com/WEBzaytsev
 
 > `optional` **deal?**: `object`
 
-Defined in: [src/types/payouts/payout.type.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L131)
+Defined in: [src/types/payouts/payout.type.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L131)
 
 Сделка, в рамках которой проведена выплата (Безопасная сделка)
 
@@ -72,7 +72,7 @@ Defined in: [src/types/payouts/payout.type.ts:131](https://github.com/WEBzaytsev
 
 > `optional` **description?**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L122)
+Defined in: [src/types/payouts/payout.type.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L122)
 
 Описание транзакции (до 128 символов)
 
@@ -82,7 +82,7 @@ Defined in: [src/types/payouts/payout.type.ts:122](https://github.com/WEBzaytsev
 
 > **id**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:114](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L114)
+Defined in: [src/types/payouts/payout.type.ts:114](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L114)
 
 Идентификатор выплаты
 
@@ -92,7 +92,7 @@ Defined in: [src/types/payouts/payout.type.ts:114](https://github.com/WEBzaytsev
 
 > `optional` **metadata?**: [`Metadata`](../../../../interfaces/Metadata.md)
 
-Defined in: [src/types/payouts/payout.type.ts:137](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L137)
+Defined in: [src/types/payouts/payout.type.ts:137](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L137)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/types/payouts/payout.type.ts:137](https://github.com/WEBzaytsev
 
 > **payout\_destination**: [`PayoutDestination`](../type-aliases/PayoutDestination.md)
 
-Defined in: [src/types/payouts/payout.type.ts:120](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L120)
+Defined in: [src/types/payouts/payout.type.ts:120](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L120)
 
 Данные платёжного средства получателя
 
@@ -110,7 +110,7 @@ Defined in: [src/types/payouts/payout.type.ts:120](https://github.com/WEBzaytsev
 
 > **status**: [`PayoutStatus`](../type-aliases/PayoutStatus.md)
 
-Defined in: [src/types/payouts/payout.type.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L118)
+Defined in: [src/types/payouts/payout.type.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L118)
 
 Статус выплаты
 
@@ -120,7 +120,7 @@ Defined in: [src/types/payouts/payout.type.ts:118](https://github.com/WEBzaytsev
 
 > `optional` **succeeded\_at?**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:129](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L129)
+Defined in: [src/types/payouts/payout.type.ts:129](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L129)
 
 Время успешного проведения выплаты (ISO 8601).
 Обязателен для выплат в статусе `succeeded`.
@@ -131,6 +131,6 @@ Defined in: [src/types/payouts/payout.type.ts:129](https://github.com/WEBzaytsev
 
 > **test**: `boolean`
 
-Defined in: [src/types/payouts/payout.type.ts:139](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L139)
+Defined in: [src/types/payouts/payout.type.ts:139](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L139)
 
 Тестовая выплата

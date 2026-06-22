@@ -61,6 +61,7 @@ console.log(payment.confirmation.confirmation_url);
 | [Payments](docs/en/payments.md) | Create, capture, cancel, list payments |
 | [Refunds](docs/en/refunds.md) | Create and list refunds |
 | [Payouts](docs/en/payouts.md) | Payouts: create, load, list (gateway credentials) |
+| [Deals](docs/en/deals.md) | Safe Deal: create, load, list |
 | [Webhooks](docs/en/webhooks.md) | Webhook management & incoming notifications |
 | [Error Handling](docs/en/error-handling.md) | Error codes, retries |
 | [API Reference](docs/api/) | TypeScript types, interfaces, enums |

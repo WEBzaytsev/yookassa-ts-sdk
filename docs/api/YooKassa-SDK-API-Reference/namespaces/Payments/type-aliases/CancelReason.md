@@ -8,6 +8,6 @@
 
 > **CancelReason** = keyof *typeof* [`paymentCancelReasonMap`](../../../../variables/paymentCancelReasonMap.md)
 
-Defined in: [src/types/payments/payment.type.ts:59](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L59)
+Defined in: [src/types/payments/payment.type.ts:59](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L59)
 
 Причина отмены платежа

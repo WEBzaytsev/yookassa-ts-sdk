@@ -6,7 +6,7 @@
 
 # Class: YooKassaSdk
 
-Defined in: [src/client/sdk.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L56)
+Defined in: [src/client/sdk.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L64)
 
 YooKassa SDK client for payment processing.
 
@@ -51,7 +51,7 @@ https://yookassa.ru/developers/api
 
 > **new YooKassaSdk**(`init`): `YooKassaSdk`
 
-Defined in: [src/client/connector.ts:230](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/connector.ts#L230)
+Defined in: [src/client/connector.ts:252](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L252)
 
 #### Parameters
 
@@ -73,7 +73,7 @@ Defined in: [src/client/connector.ts:230](https://github.com/WEBzaytsev/yookassa
 
 > `readonly` **deals**: `object`
 
-Defined in: [src/client/sdk.ts:679](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L679)
+Defined in: [src/client/sdk.ts:741](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L741)
 
 Безопасная сделка.
 
@@ -141,7 +141,7 @@ https://yookassa.ru/developers/api#get_deal
 
 > `readonly` **invoices**: `object`
 
-Defined in: [src/client/sdk.ts:695](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L695)
+Defined in: [src/client/sdk.ts:757](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L757)
 
 Выставленные счета (инвойсы).
 
@@ -191,19 +191,19 @@ https://yookassa.ru/developers/api#get_invoice
 
 > `readonly` **paymentMethods**: `object`
 
-Defined in: [src/client/sdk.ts:649](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L649)
+Defined in: [src/client/sdk.ts:711](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L711)
 
 Создание и получение сохранённых способов оплаты (привязка карты и т.п.).
 
 #### create
 
-> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+> **create**: (`data`, `idempotenceKey?`) => `Promise`\<[`SavePaymentMethod`](../type-aliases/SavePaymentMethod.md)\>
 
 ##### Parameters
 
 ###### data
 
-[`SavePaymentMethodDataBankCard`](../interfaces/SavePaymentMethodDataBankCard.md)
+[`SavePaymentMethodData`](../type-aliases/SavePaymentMethodData.md)
 
 ###### idempotenceKey?
 
@@ -211,7 +211,7 @@ Defined in: [src/client/sdk.ts:649](https://github.com/WEBzaytsev/yookassa-ts-sd
 
 ##### Returns
 
-`Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+`Promise`\<[`SavePaymentMethod`](../type-aliases/SavePaymentMethod.md)\>
 
 ##### See
 
@@ -219,7 +219,7 @@ https://yookassa.ru/developers/api#create_payment_method
 
 #### load
 
-> **load**: (`paymentMethodId`) => `Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+> **load**: (`paymentMethodId`) => `Promise`\<[`SavePaymentMethod`](../type-aliases/SavePaymentMethod.md)\>
 
 ##### Parameters
 
@@ -229,7 +229,7 @@ https://yookassa.ru/developers/api#create_payment_method
 
 ##### Returns
 
-`Promise`\<[`SavePaymentMethodBankCard`](../interfaces/SavePaymentMethodBankCard.md)\>
+`Promise`\<[`SavePaymentMethod`](../type-aliases/SavePaymentMethod.md)\>
 
 ##### See
 
@@ -241,7 +241,7 @@ https://yookassa.ru/developers/api#get_payment_method
 
 > `readonly` **payments**: `object`
 
-Defined in: [src/client/sdk.ts:372](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L372)
+Defined in: [src/client/sdk.ts:434](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L434)
 
 Методы для работы с платежами
 
@@ -403,6 +403,8 @@ Retrieves a list of payments filtered by the specified criteria.
 
 ##### Param
 
+**params**
+
 The parameters for filtering the payments.
 
 ##### Returns
@@ -479,7 +481,7 @@ This is the response structure for the list of payments.
 
 > `readonly` **payouts**: `object`
 
-Defined in: [src/client/sdk.ts:601](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L601)
+Defined in: [src/client/sdk.ts:663](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L663)
 
 ****Методы для работы с выплатами****
 
@@ -593,7 +595,7 @@ https://yookassa.ru/developers/payouts/overview
 
 > `readonly` **personalData**: `object`
 
-Defined in: [src/client/sdk.ts:664](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L664)
+Defined in: [src/client/sdk.ts:726](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L726)
 
 Персональные данные получателя (выплаты с проверкой / выписки).
 
@@ -643,7 +645,7 @@ https://yookassa.ru/developers/api#get_personal_data
 
 > `readonly` **receipts**: `object`
 
-Defined in: [src/client/sdk.ts:559](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L559)
+Defined in: [src/client/sdk.ts:621](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L621)
 
 ****Методы для работы с чеками****
 
@@ -734,7 +736,7 @@ https://yookassa.ru/developers/api#receipt
 
 > `readonly` **refunds**: `object`
 
-Defined in: [src/client/sdk.ts:520](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L520)
+Defined in: [src/client/sdk.ts:582](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L582)
 
 Методы для работы с возвратами
 
@@ -822,7 +824,7 @@ https://yookassa.ru/developers/api#get_refund
 
 > `readonly` **sbpBanks**: `object`
 
-Defined in: [src/client/sdk.ts:643](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L643)
+Defined in: [src/client/sdk.ts:705](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L705)
 
 Участники СБП (справочник для выплат через СБП).
 
@@ -844,7 +846,7 @@ https://yookassa.ru/developers/api#get_sbp_banks
 
 > `readonly` **shop**: `object`
 
-Defined in: [src/client/sdk.ts:751](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L751)
+Defined in: [src/client/sdk.ts:849](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L849)
 
 ****Информация о магазине****
 
@@ -877,7 +879,7 @@ https://yookassa.ru/developers/api#get_me
 
 > `readonly` **webhooks**: `object`
 
-Defined in: [src/client/sdk.ts:714](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/client/sdk.ts#L714)
+Defined in: [src/client/sdk.ts:776](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/sdk.ts#L776)
 
 ****Методы для работы с вебхуками****
 
@@ -953,6 +955,110 @@ https://yookassa.ru/developers/api#delete_webhook
 ##### See
 
 https://yookassa.ru/developers/api#get_webhook_list
+
+#### verify
+
+> **verify**: (`body`) => `Promise`\<[`PaymentNotification`](../type-aliases/PaymentNotification.md) \| [`RefundNotification`](../type-aliases/RefundNotification.md)\>
+
+****Верификация уведомления (payment или refund)****
+
+Подтверждает подлинность входящего уведомления, **перезапрашивая объект через API**.
+Единственный надёжный способ убедиться, что уведомление действительно пришло от ЮKassa.
+
+Возвращает полную нотификацию с актуальным состоянием объекта:
+- `payment.*` → `PaymentNotification` с `IPayment` из API
+- `refund.*`  → `RefundNotification` с `IRefund` из API
+
+Верифицирует входящее уведомление (payment или refund), перезапрашивая объект через API.
+Возвращает полную нотификацию с актуальным состоянием объекта из API.
+
+##### Parameters
+
+###### body
+
+`unknown`
+
+##### Returns
+
+`Promise`\<[`PaymentNotification`](../type-aliases/PaymentNotification.md) \| [`RefundNotification`](../type-aliases/RefundNotification.md)\>
+
+##### Param
+
+**body**
+
+тело запроса (`req.body`)
+
+##### Throws
+
+Если тело некорректно или тип события не поддерживается
+
+#### verifyPayment
+
+> **verifyPayment**: (`body`) => `Promise`\<[`PaymentNotification`](../type-aliases/PaymentNotification.md)\>
+
+****Верификация уведомления о платеже****
+
+Аналогично `verify`, но принимает **только** `payment.*` события.
+Отвергает `refund.*` и прочие — бросает `WebhookValidationError`.
+Возвращает `PaymentNotification` с актуальным `IPayment` из API.
+
+Верифицирует входящее уведомление о платеже, перезапрашивая объект через API.
+Отвергает события, не относящиеся к платежам (`refund.*` и прочие).
+Возвращает полную нотификацию с актуальным состоянием платежа из API.
+
+##### Parameters
+
+###### body
+
+`unknown`
+
+##### Returns
+
+`Promise`\<[`PaymentNotification`](../type-aliases/PaymentNotification.md)\>
+
+##### Param
+
+**body**
+
+тело запроса (`req.body`)
+
+##### Throws
+
+Если тело некорректно или событие не является payment.*
+
+#### verifyRefund
+
+> **verifyRefund**: (`body`) => `Promise`\<[`RefundNotification`](../type-aliases/RefundNotification.md)\>
+
+****Верификация уведомления о возврате****
+
+Аналогично `verify`, но принимает **только** `refund.*` события.
+Отвергает `payment.*` и прочие — бросает `WebhookValidationError`.
+Возвращает `RefundNotification` с актуальным `IRefund` из API.
+
+Верифицирует входящее уведомление о возврате, перезапрашивая объект через API.
+Отвергает события, не относящиеся к возвратам (`payment.*` и прочие).
+Возвращает полную нотификацию с актуальным состоянием возврата из API.
+
+##### Parameters
+
+###### body
+
+`unknown`
+
+##### Returns
+
+`Promise`\<[`RefundNotification`](../type-aliases/RefundNotification.md)\>
+
+##### Param
+
+**body**
+
+тело запроса (`req.body`)
+
+##### Throws
+
+Если тело некорректно или событие не является refund.*
 
 #### See
 

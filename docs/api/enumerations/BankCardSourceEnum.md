@@ -6,7 +6,7 @@
 
 # Enumeration: BankCardSourceEnum
 
-Defined in: [src/types/payments/paymentMethod.type.ts:150](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L150)
+Defined in: [src/types/payments/paymentMethod.type.ts:176](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L176)
 
 Источник данных банковской карты (если использовался Pay-сервис)
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#payment_object_payment_method_card_source
 
 > **apple\_pay**: `"apple_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:152](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L152)
+Defined in: [src/types/payments/paymentMethod.type.ts:178](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L178)
 
 Apple Pay
 
@@ -30,7 +30,7 @@ Apple Pay
 
 > **google\_pay**: `"google_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:154](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L154)
+Defined in: [src/types/payments/paymentMethod.type.ts:180](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L180)
 
 Google Pay
 
@@ -40,6 +40,6 @@ Google Pay
 
 > **mir\_pay**: `"mir_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:156](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L156)
+Defined in: [src/types/payments/paymentMethod.type.ts:182](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L182)
 
 Mir Pay

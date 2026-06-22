@@ -6,7 +6,7 @@
 
 # Interface: DeliveryMethodDataSelf
 
-Defined in: src/types/invoice.type.ts:33
+Defined in: [src/types/invoice.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L33)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: src/types/invoice.type.ts:33
 
 > **type**: `"self"`
 
-Defined in: src/types/invoice.type.ts:34
+Defined in: [src/types/invoice.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L34)

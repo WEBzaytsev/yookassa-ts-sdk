@@ -63,6 +63,7 @@ console.log(payment.confirmation.confirmation_url);
 | [Платежи](docs/ru/payments.md) | Создание, подтверждение, отмена, список платежей |
 | [Возвраты](docs/ru/refunds.md) | Создание и список возвратов |
 | [Выплаты](docs/ru/payouts.md) | Выплаты: создание, загрузка, список (учётные данные шлюза) |
+| [Безопасная сделка](docs/ru/deals.md) | Безопасная сделка: создание, загрузка, список |
 | [Вебхуки](docs/ru/webhooks.md) | Управление вебхуками и входящие уведомления |
 | [Обработка ошибок](docs/ru/error-handling.md) | Коды ошибок, повторы |
 | [API Reference](docs/api/) | TypeScript типы, интерфейсы, enums |

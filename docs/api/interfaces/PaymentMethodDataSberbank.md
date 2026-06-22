@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataSberbank
 
-Defined in: [src/types/payments/paymentMethod.type.ts:402](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L402)
+Defined in: [src/types/payments/paymentMethod.type.ts:439](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L439)
 
 Данные для оплаты через SberPay
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:402](https://github.com/WE
 
 > `optional` **phone?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:405](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L405)
+Defined in: [src/types/payments/paymentMethod.type.ts:442](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L442)
 
 Телефон пользователя для подтверждения по смс
 
@@ -26,4 +26,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:405](https://github.com/WE
 
 > **type**: `"sberbank"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:403](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/paymentMethod.type.ts#L403)
+Defined in: [src/types/payments/paymentMethod.type.ts:440](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L440)

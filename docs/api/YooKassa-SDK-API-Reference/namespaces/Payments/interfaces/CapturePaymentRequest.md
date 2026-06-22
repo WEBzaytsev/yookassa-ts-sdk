@@ -6,7 +6,7 @@
 
 # Interface: CapturePaymentRequest
 
-Defined in: [src/types/payments/payment.type.ts:306](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L306)
+Defined in: [src/types/payments/payment.type.ts:306](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L306)
 
 Запрос на подтверждение платежа.
 Используется при двухстадийной оплате для списания денег.
@@ -21,7 +21,7 @@ https://yookassa.ru/developers/api#capture_payment
 
 > `optional` **airline?**: [`IAirline`](../../../../type-aliases/IAirline.md)
 
-Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L319)
+Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L319)
 
 Данные для продажи авиабилетов.
 Используется только при оплате банковской картой.
@@ -32,7 +32,7 @@ Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzayts
 
 > `optional` **amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L311)
+Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L311)
 
 Сумма к списанию.
 Можно списать сумму меньше, чем была авторизована (частичное подтверждение).
@@ -44,7 +44,7 @@ Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzayts
 
 > `optional` **receipt?**: [`ReceiptinPaymentType`](../../Receipts/type-aliases/ReceiptinPaymentType.md)
 
-Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L315)
+Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L315)
 
 Данные для формирования чека.
 Передаются, если вы работаете по 54-ФЗ.
@@ -55,7 +55,7 @@ Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzayts
 
 > `optional` **transfers?**: `object`[]
 
-Defined in: [src/types/payments/payment.type.ts:323](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payments/payment.type.ts#L323)
+Defined in: [src/types/payments/payment.type.ts:323](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L323)
 
 Данные о распределении денег между магазинами.
 Используется при сплитовании платежей.

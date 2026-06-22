@@ -6,7 +6,7 @@
 
 # Interface: SavePaymentMethodBankCard
 
-Defined in: src/types/savedPaymentMethod.type.ts:48
+Defined in: [src/types/savedPaymentMethod.type.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L101)
 
 Сохранённая банковская карта (ответ API).
 
@@ -16,15 +16,15 @@ Defined in: src/types/savedPaymentMethod.type.ts:48
 
 > `optional` **card?**: [`IBankCardData`](IBankCardData.md)
 
-Defined in: src/types/savedPaymentMethod.type.ts:58
+Defined in: [src/types/savedPaymentMethod.type.ts:111](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L111)
 
 ***
 
 ### confirmation?
 
-> `optional` **confirmation?**: [`PaymentMethodsConfirmationRedirect`](PaymentMethodsConfirmationRedirect.md)
+> `optional` **confirmation?**: [`PaymentMethodsConfirmationRedirect`](PaymentMethodsConfirmationRedirect.md) \| [`PaymentMethodsConfirmationQr`](PaymentMethodsConfirmationQr.md)
 
-Defined in: src/types/savedPaymentMethod.type.ts:59
+Defined in: [src/types/savedPaymentMethod.type.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L112)
 
 ***
 
@@ -32,15 +32,15 @@ Defined in: src/types/savedPaymentMethod.type.ts:59
 
 > **holder**: `object`
 
-Defined in: src/types/savedPaymentMethod.type.ts:53
+Defined in: [src/types/savedPaymentMethod.type.ts:106](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L106)
 
 #### account\_id
 
 > **account\_id**: `string`
 
-#### gateway\_id
+#### gateway\_id?
 
-> **gateway\_id**: `string`
+> `optional` **gateway\_id?**: `string`
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:53
 
 > **id**: `string`
 
-Defined in: src/types/savedPaymentMethod.type.ts:50
+Defined in: [src/types/savedPaymentMethod.type.ts:103](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L103)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:50
 
 > **saved**: `boolean`
 
-Defined in: src/types/savedPaymentMethod.type.ts:51
+Defined in: [src/types/savedPaymentMethod.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L104)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:51
 
 > **status**: [`SavePaymentMethodStatus`](../type-aliases/SavePaymentMethodStatus.md)
 
-Defined in: src/types/savedPaymentMethod.type.ts:52
+Defined in: [src/types/savedPaymentMethod.type.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L105)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: src/types/savedPaymentMethod.type.ts:52
 
 > `optional` **title?**: `string`
 
-Defined in: src/types/savedPaymentMethod.type.ts:57
+Defined in: [src/types/savedPaymentMethod.type.ts:110](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L110)
 
 ***
 
@@ -80,4 +80,4 @@ Defined in: src/types/savedPaymentMethod.type.ts:57
 
 > **type**: `"bank_card"`
 
-Defined in: src/types/savedPaymentMethod.type.ts:49
+Defined in: [src/types/savedPaymentMethod.type.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L102)

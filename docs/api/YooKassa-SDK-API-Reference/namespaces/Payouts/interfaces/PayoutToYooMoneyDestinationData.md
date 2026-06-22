@@ -6,7 +6,7 @@
 
 # Interface: PayoutToYooMoneyDestinationData
 
-Defined in: [src/types/payouts/payout.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L55)
+Defined in: [src/types/payouts/payout.type.ts:55](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L55)
 
 Данные для выплаты на кошелёк ЮMoney
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payouts/payout.type.ts:55](https://github.com/WEBzaytsev/
 
 > **account\_number**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L58)
+Defined in: [src/types/payouts/payout.type.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L58)
 
 Номер кошелька ЮMoney
 
@@ -26,4 +26,4 @@ Defined in: [src/types/payouts/payout.type.ts:58](https://github.com/WEBzaytsev/
 
 > **type**: `"yoo_money"`
 
-Defined in: [src/types/payouts/payout.type.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a630c10d01fabd8cdfaf36f2b07476b4a58137e4/src/types/payouts/payout.type.ts#L56)
+Defined in: [src/types/payouts/payout.type.ts:56](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L56)
