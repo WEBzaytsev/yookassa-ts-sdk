@@ -29,8 +29,21 @@ try {
 | `NETWORK_ERROR`         | Network error           |
 | `ECONNABORTED`          | Request timeout         |
 | `MISSING_OAUTH_TOKEN`   | OAuth token required    |
+| `INSECURE_ENDPOINT`     | Non-HTTPS endpoint configured (HTTP allowed only for localhost in debug mode) |
 
 ## Common Errors
+
+### Idempotency key too long
+
+The SDK validates custom idempotency keys before sending the request. If the key exceeds **64 characters**, a `YooKassaErr` with `code: 'invalid_request'` is thrown client-side before any network call is made. Auto-generated keys (when no key is passed) are always 32 characters and are safe.
+
+```ts
+// Throws immediately — key is 65 chars
+await sdk.payments.create(data, 'a'.repeat(65))
+
+// Safe — auto-generated key used
+await sdk.payments.create(data)
+```
 
 ### "Receipt is missing or illegal"
 

@@ -69,13 +69,13 @@ const sdk = YooKassa({
 
 ## Кэширование инстансов
 
-SDK автоматически кэширует инстансы по `shop_id`. Это позволяет:
+SDK автоматически кэширует инстансы по SHA-256-хэшу всех пяти полей учётных данных (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Изменение **любого** из этих полей создаёт новый инстанс. Это позволяет:
 
 - Переиспользовать соединения
 - Работать с несколькими магазинами одновременно
 
 ```ts
-// Оба вызова вернут один и тот же инстанс
+// Оба вызова вернут один и тот же инстанс (одинаковые учётные данные)
 const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 console.log(sdk1 === sdk2); // true
@@ -84,7 +84,10 @@ console.log(sdk1 === sdk2); // true
 const shop1 = YooKassa({ shop_id: '111', secret_key: 'key1' });
 const shop2 = YooKassa({ shop_id: '222', secret_key: 'key2' });
 
-// Принудительно создать новый инстанс
+// Изменение любого поля (например, добавление токена) создаёт новый инстанс
+const sdkWithOAuth = YooKassa({ shop_id: '123', secret_key: 'key1', token: 'oauth_token' });
+
+// Принудительно создать новый инстанс (минуя кэш)
 const newSdk = YooKassa({ shop_id: '123', secret_key: 'new_key' }, true);
 
 // Очистить кэш

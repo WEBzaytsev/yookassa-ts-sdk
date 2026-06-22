@@ -39,7 +39,58 @@ await sdk.webhooks.delete('webhook_id');
 
 SDK предоставляет хелперы для обработки входящих уведомлений от YooKassa.
 
-### Парсинг уведомлений
+### Проверка уведомлений (рекомендуется)
+
+Методы `sdk.webhooks.verify*` разбирают тело запроса и **перезагружают объект из API YooKassa**, поэтому возвращаемые данные всегда актуальны независимо от содержимого webhook-тела.
+
+```ts
+app.post('/webhook', async (req, res) => {
+    // Опционально: проверка IP-адреса отправителя
+    const clientIP = req.ip || req.headers['x-forwarded-for']
+    if (!isYooKassaIP(clientIP)) {
+        return res.status(403).send('Forbidden')
+    }
+
+    try {
+        // Возвращает PaymentNotification | RefundNotification
+        const notification = await sdk.webhooks.verify(req.body)
+
+        switch (notification.event) {
+            case 'payment.succeeded':
+                // notification.object — это IPayment, загруженный свежо из API
+                console.log('Платёж успешен:', notification.object.id)
+                break
+            case 'refund.succeeded':
+                // notification.object — это IRefund
+                console.log('Возврат успешен:', notification.object.id)
+                break
+        }
+
+        res.status(200).send('OK')
+    } catch (error) {
+        if (error instanceof WebhookValidationError) {
+            return res.status(400).send('Bad Request')
+        }
+        throw error
+    }
+})
+```
+
+Используйте типизированные варианты, если ожидается только один тип события:
+
+```ts
+// Выбросит WebhookValidationError, если тело не является событием payment.*
+const paymentNotification = await sdk.webhooks.verifyPayment(req.body)
+// paymentNotification.object — это IPayment
+
+// Выбросит WebhookValidationError, если тело не является событием refund.*
+const refundNotification = await sdk.webhooks.verifyRefund(req.body)
+// refundNotification.object — это IRefund
+```
+
+> **Важно:** События `payment_method.*` (например, `payment_method.active`) не обрабатываются методами `verify*`. Загрузите сохранённый способ оплаты вручную: `await sdk.paymentMethods.load(body.object.id)`.
+
+### Парсинг уведомлений (низкоуровневый)
 
 ```ts
 import { parseNotification, isYooKassaIP, WebhookValidationError } from '@webzaytsev/yookassa-ts-sdk'
@@ -81,7 +132,9 @@ app.post('/webhook', (req, res) => {
 })
 ```
 
-### Типизированные парсеры
+### Типизированные парсеры (низкоуровневые)
+
+Эти функции только разбирают и валидируют формат тела — они **не** перезагружают объект из API.
 
 ```ts
 import { parsePaymentNotification, parseRefundNotification } from '@webzaytsev/yookassa-ts-sdk'

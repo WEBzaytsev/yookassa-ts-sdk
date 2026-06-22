@@ -1,7 +1,7 @@
 # YooKassa SDK
 
 [![npm version](https://img.shields.io/npm/v/@webzaytsev/yookassa-ts-sdk.svg)](https://www.npmjs.com/package/@webzaytsev/yookassa-ts-sdk)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-compatible-f9f1e1.svg)](https://bun.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -141,13 +141,18 @@ console.log(payment.confirmation.confirmation_url);
 | `sdk.invoices.create(data, idempotenceKey?)` | Создать счёт |
 | `sdk.invoices.load(id)` | Информация о счёте по ID |
 
-### Вебхуки (требуется OAuth)
+### Вебхуки
+
+Методы управления (`create`, `list`, `delete`) требуют OAuth-токен. Методы `verify*` работают со стандартным секретным ключом.
 
 | Метод | Описание |
 | --- | --- |
-| `sdk.webhooks.create(data, idempotenceKey?)` | Создать вебхук |
-| `sdk.webhooks.list()` | Список вебхуков |
-| `sdk.webhooks.delete(id)` | Удалить вебхук |
+| `sdk.webhooks.create(data, idempotenceKey?)` | Создать вебхук (OAuth) |
+| `sdk.webhooks.list()` | Список вебхуков (OAuth) |
+| `sdk.webhooks.delete(id)` | Удалить вебхук (OAuth) |
+| `sdk.webhooks.verify(body)` | Разобрать и загрузить уведомление (платёж или возврат) |
+| `sdk.webhooks.verifyPayment(body)` | Разобрать и загрузить уведомление о платеже |
+| `sdk.webhooks.verifyRefund(body)` | Разобрать и загрузить уведомление о возврате |
 
 ### Магазин (требуется OAuth)
 

@@ -1,7 +1,7 @@
 # YooKassa SDK
 
 [![npm version](https://img.shields.io/npm/v/@webzaytsev/yookassa-ts-sdk.svg)](https://www.npmjs.com/package/@webzaytsev/yookassa-ts-sdk)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-compatible-f9f1e1.svg)](https://bun.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -139,13 +139,18 @@ Use the **payout gateway** `shop_id` and `secret_key` from your YooKassa dashboa
 | `sdk.invoices.create(data, idempotenceKey?)` | Create invoice |
 | `sdk.invoices.load(id)` | Get invoice by ID |
 
-### Webhooks (OAuth required)
+### Webhooks
+
+CRUD methods (`create`, `list`, `delete`) require an OAuth token. `verify*` methods work with the standard API key.
 
 | Method | Description |
 | --- | --- |
-| `sdk.webhooks.create(data, idempotenceKey?)` | Create webhook |
-| `sdk.webhooks.list()` | List webhooks |
-| `sdk.webhooks.delete(id)` | Delete webhook |
+| `sdk.webhooks.create(data, idempotenceKey?)` | Create webhook (OAuth) |
+| `sdk.webhooks.list()` | List webhooks (OAuth) |
+| `sdk.webhooks.delete(id)` | Delete webhook (OAuth) |
+| `sdk.webhooks.verify(body)` | Parse and re-fetch notification (payment or refund) |
+| `sdk.webhooks.verifyPayment(body)` | Parse and re-fetch payment notification |
+| `sdk.webhooks.verifyRefund(body)` | Parse and re-fetch refund notification |
 
 ### Shop (OAuth required)
 

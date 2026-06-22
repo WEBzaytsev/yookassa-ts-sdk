@@ -58,6 +58,26 @@ const items = await sdk.payouts.list({
 
 Параметры списков передаются в точечной нотации (`created_at.gte` и т.д.); SDK сериализует объект фильтра в нужный вид.
 
+## Поиск выплат
+
+`search` ищет выплаты по полям `metadata` и/или диапазону `created_at`. Диапазон `created_at` ограничен последними **3 месяцами**.
+
+```ts
+const items = await sdk.payouts.search({
+    created_at: { gte: '2024-01-01T00:00:00.000Z' },
+    metadata: { order_id: '37' },
+});
+```
+
+**Фильтры:**
+
+| Фильтр | Описание |
+| --- | --- |
+| `created_at` | Время создания (`gte`, `gt`, `lte`, `lt`); максимальный диапазон — 3 месяца |
+| `metadata` | Пары ключ/значение из метаданных выплаты (например, `{ order_id: '37' }`) |
+| `limit` | Размер страницы (1–100, по умолчанию 10) |
+| `cursor` | Курсор пагинации |
+
 ## Справочник методов
 
 | Метод | Описание |
@@ -65,5 +85,6 @@ const items = await sdk.payouts.list({
 | `create(data, idempotenceKey?)` | Создать выплату |
 | `load(id)` | Получить выплату по ID |
 | `list(filter?)` | Список выплат |
+| `search(filter?)` | Поиск выплат по metadata и created_at (окно 3 месяца) |
 
-Типы TypeScript: `Payouts.IPayout`, `Payouts.CreatePayoutRequest`, `GetPayoutListFilter`.
+Типы TypeScript: `Payouts.IPayout`, `Payouts.CreatePayoutRequest`, `GetPayoutListFilter`, `GetPayoutSearchFilter`.

@@ -5,17 +5,18 @@
 ```bash
 git clone https://github.com/WEBzaytsev/yookassa-ts-sdk.git
 cd yookassa-ts-sdk
-npm install
+corepack enable
+pnpm install
 ```
 
 ## Scripts
 
 ```bash
-npm run build      # Compile TypeScript
-npm run check      # Run knip + biome + tsc
-npm run lint       # Check code style
-npm run lint:fix   # Fix code style
-npm run docs:api   # Generate API documentation
+pnpm run build      # Bundle CJS + ESM with tsup
+pnpm run check      # Run knip + biome + tsc
+pnpm run lint       # Check code style
+pnpm run lint:fix   # Fix code style
+pnpm run docs:api   # Generate API documentation
 ```
 
 ## Working with YooKassa OpenAPI Specification
@@ -61,5 +62,5 @@ npx openapi-typescript openapi.yaml -o generated-types.d.ts
 1. Fork the repository
 2. Create a feature branch
 3. Make changes
-4. Run `npm run check`
+4. Run `pnpm run check`
 5. Submit PR

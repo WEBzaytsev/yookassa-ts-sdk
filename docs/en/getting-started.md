@@ -69,13 +69,13 @@ const sdk = YooKassa({
 
 ## Instance Caching
 
-SDK automatically caches instances by `shop_id`. This allows:
+SDK automatically caches instances by a SHA-256 hash of all five credential fields (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Changing **any** of these fields produces a new instance. This allows:
 
 - Connection reuse
 - Working with multiple shops simultaneously
 
 ```ts
-// Both calls return the same instance
+// Both calls return the same instance (identical credentials)
 const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 console.log(sdk1 === sdk2); // true
@@ -84,7 +84,10 @@ console.log(sdk1 === sdk2); // true
 const shop1 = YooKassa({ shop_id: '111', secret_key: 'key1' });
 const shop2 = YooKassa({ shop_id: '222', secret_key: 'key2' });
 
-// Force create a new instance
+// Changing any credential (e.g. adding a token) creates a new instance
+const sdkWithOAuth = YooKassa({ shop_id: '123', secret_key: 'key1', token: 'oauth_token' });
+
+// Force create a new instance (bypass cache)
 const newSdk = YooKassa({ shop_id: '123', secret_key: 'new_key' }, true);
 
 // Clear cache

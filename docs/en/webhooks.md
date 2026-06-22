@@ -27,8 +27,8 @@ await sdk.webhooks.delete('webhook_id');
 
 ### API Reference
 
-| Method                         | Description                |
-| ------------------------------ | -------------------------- |
+| Method                          | Description               |
+| ------------------------------- | ------------------------- |
 | `create(data, idempotenceKey?)` | Create webhook            |
 | `list()`                        | List webhooks             |
 | `delete(id)`                    | Delete webhook            |
@@ -39,7 +39,58 @@ await sdk.webhooks.delete('webhook_id');
 
 SDK provides helpers for processing incoming webhook notifications from YooKassa.
 
-### Parse Notification
+### Verify Notification (Recommended)
+
+`sdk.webhooks.verify*` methods parse the incoming body and **re-fetch the object from the YooKassa API**, so the returned data is always authentic regardless of what was sent in the webhook body.
+
+```ts
+app.post('/webhook', async (req, res) => {
+    // Optional: validate sender IP first
+    const clientIP = req.ip || req.headers['x-forwarded-for']
+    if (!isYooKassaIP(clientIP)) {
+        return res.status(403).send('Forbidden')
+    }
+
+    try {
+        // Returns PaymentNotification | RefundNotification
+        const notification = await sdk.webhooks.verify(req.body)
+
+        switch (notification.event) {
+            case 'payment.succeeded':
+                // notification.object is IPayment, freshly loaded from API
+                console.log('Payment succeeded:', notification.object.id)
+                break
+            case 'refund.succeeded':
+                // notification.object is IRefund
+                console.log('Refund succeeded:', notification.object.id)
+                break
+        }
+
+        res.status(200).send('OK')
+    } catch (error) {
+        if (error instanceof WebhookValidationError) {
+            return res.status(400).send('Bad Request')
+        }
+        throw error
+    }
+})
+```
+
+Use the typed variants when you only expect one event type:
+
+```ts
+// Throws WebhookValidationError if body is not a payment.* event
+const paymentNotification = await sdk.webhooks.verifyPayment(req.body)
+// paymentNotification.object is IPayment
+
+// Throws WebhookValidationError if body is not a refund.* event
+const refundNotification = await sdk.webhooks.verifyRefund(req.body)
+// refundNotification.object is IRefund
+```
+
+> **Note:** `payment_method.*` events (e.g. `payment_method.active`) are not handled by `verify*`. Load the saved method manually: `await sdk.paymentMethods.load(body.object.id)`.
+
+### Parse Notification (Low-level)
 
 ```ts
 import { parseNotification, isYooKassaIP, WebhookValidationError } from '@webzaytsev/yookassa-ts-sdk'
@@ -81,7 +132,9 @@ app.post('/webhook', (req, res) => {
 })
 ```
 
-### Typed Parsers
+### Typed Parsers (Low-level)
+
+These functions parse and validate the body format only — they do **not** re-fetch the object from the API.
 
 ```ts
 import { parsePaymentNotification, parseRefundNotification } from '@webzaytsev/yookassa-ts-sdk'
