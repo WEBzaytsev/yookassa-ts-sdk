@@ -89,8 +89,8 @@
     },
     "devDependencies": {
         "@biomejs/biome": "2.5.0",
-        "@types/node": "25.9.3",
-        "knip": "6.16.1",
+        "@types/node": "26.0.0",
+        "knip": "6.18.0",
         "tsup": "8.5.1",
         "typedoc": "0.28.19",
         "typedoc-plugin-markdown": "4.12.0",
