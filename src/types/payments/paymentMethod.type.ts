@@ -30,7 +30,7 @@ export enum PaymentMethodsEnum {
 
     /**
      * QIWI Кошелек
-     * @deprecated QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ оплаты не работает.
+     * @deprecated ЦБ РФ лишил QIWI Банк лицензию 21.02.2024 — способ оплаты не работает.
      */
     qiwi = 'qiwi',
 
@@ -39,7 +39,7 @@ export enum PaymentMethodsEnum {
 
     /**
      * Альфа-Клик
-     * @deprecated Сервис устарел. Рекомендуется использовать другие способы оплаты.
+     * @deprecated Сервис устарел — используйте другие способы оплаты.
      */
     alfabank = 'alfabank',
 
@@ -61,7 +61,7 @@ export enum PaymentMethodsEnum {
     /** Заплатить по частям */
     installments = 'installments',
 
-    /** "Покупки в кредит" от Сбербанка" */
+    /** «Покупки в кредит» от Сбербанка */
     sber_loan = 'sber_loan',
 
     /** Плати частями (BNPL от СберБанка) */
@@ -70,10 +70,10 @@ export enum PaymentMethodsEnum {
     /** Alfa Pay */
     alfa_pay = 'alfa_pay',
 
-    /** Apple Pay (обычно используется через payment_token) */
+    /** Apple Pay — обычно через payment_token */
     apple_pay = 'apple_pay',
 
-    /** Google Pay (обычно используется через payment_token) */
+    /** Google Pay — обычно через payment_token */
     google_pay = 'google_pay',
 
     /**
@@ -84,13 +84,13 @@ export enum PaymentMethodsEnum {
 
     /**
      * WeChat Pay
-     * @deprecated Специфичный способ оплаты для китайских пользователей.
+     * @deprecated Способ оплаты для пользователей из Китая.
      */
     wechat = 'wechat',
 }
 
 /**
- * Способы оплаты, поддерживающие автоплатежи (сохранение для повторных списаний).
+ * Способы оплаты с автоплатежами — сохранение для повторных списаний.
  *
  * @see https://yookassa.ru/docs/support/payments/extra/autopayment
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment
@@ -103,8 +103,8 @@ export type RecurringPaymentMethodType =
     | PaymentMethodsEnum.sbp
 
 /**
- * Способы оплаты, поддерживающие безусловное сохранение (save_payment_method: true).
- * Пользователь не может отказаться от сохранения способа оплаты.
+ * Способы оплаты с безусловным сохранением (save_payment_method: true).
+ * Пользователь не отключает сохранение способа оплаты.
  *
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-mandatory
  */
@@ -116,8 +116,8 @@ export type MandatorySavePaymentMethodType =
     | PaymentMethodsEnum.sbp
 
 /**
- * Рантайм-список всех значений {@link MandatorySavePaymentMethodType} (рекуррент с обязательным сохранением метода).
- * Должен совпадать с union: при добавлении варианта в тип — дополнить массив, иначе упадёт {@link MandatorySavePaymentMethodsCoverageCheck}.
+ * Рантайм-список значений {@link MandatorySavePaymentMethodType} — рекуррент с обязательным сохранением метода.
+ * Совпадает с union: добавьте вариант в тип — дополните массив, иначе упадёт {@link MandatorySavePaymentMethodsCoverageCheck}.
  *
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-mandatory
  */
@@ -130,7 +130,7 @@ export const MANDATORY_SAVE_PAYMENT_METHOD_TYPES = [
 ] as const satisfies readonly MandatorySavePaymentMethodType[]
 
 /**
- * Проверка полноты: при расширении {@link MandatorySavePaymentMethodType} без обновления массива тип станет не `true` — сборка сломается.
+ * Проверка полноты: расширьте {@link MandatorySavePaymentMethodType} без обновления массива — тип станет не `true`, сборка сломается.
  */
 export type MandatorySavePaymentMethodsCoverageCheck =
     Exclude<MandatorySavePaymentMethodType, (typeof MANDATORY_SAVE_PAYMENT_METHOD_TYPES)[number]> extends never
@@ -142,8 +142,8 @@ const _mandatorySavePaymentMethodsCoverage: MandatorySavePaymentMethodsCoverageC
     : MandatorySavePaymentMethodsCoverageCheck = true
 
 /**
- * Способы оплаты, поддерживающие условное сохранение.
- * Пользователь сам решает, сохранять ли способ оплаты.
+ * Способы оплаты с условным сохранением.
+ * Пользователь сам решает, сохранять способ оплаты или нет.
  *
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-during-payment#save-optional
  */
@@ -170,7 +170,7 @@ export enum BankCardTypeEnum {
     Unknown = 'Unknown',
 }
 
-/** Источник данных банковской карты (если использовался Pay-сервис)
+/** Источник данных банковской карты — если использовали Pay-сервис
  * @see https://yookassa.ru/developers/api#payment_object_payment_method_card_source
  */
 export enum BankCardSourceEnum {
@@ -190,9 +190,9 @@ export interface IBankCardData {
     first6?: string
     /** Последние 4 цифры номера карты */
     last4: string
-    /** Срок действия, год (YYYY) */
+    /** Срок действия — год (YYYY) */
     expiry_year: string
-    /** Срок действия, месяц (MM) */
+    /** Срок действия — месяц (MM) */
     expiry_month: string
     /** Тип банковской карты */
     card_type: BankCardTypeEnum | string
@@ -207,17 +207,17 @@ export interface IBankCardData {
     issuer_country?: string
     /** Название банка-эмитента */
     issuer_name?: string
-    /** Источник данных карты (если использовался Pay-сервис) */
+    /** Источник данных карты — если использовали Pay-сервис */
     source?: BankCardSourceEnum | string
 }
 
 interface IGeneralPayMethod {
     type: PaymentMethodsEnum
-    /** Идентификатор способа оплаты. */
+    /** Идентификатор способа оплаты */
     id: string
-    /** С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)  */
+    /** Сохранённый способ оплаты позволяет проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) */
     saved: boolean
-    /** Название способа оплаты. */
+    /** Название способа оплаты */
     title?: string
 }
 
@@ -233,9 +233,9 @@ export interface IPaymentMethodCard extends IGeneralPayMethod {
 
 /** Баланс телефона */
 export interface IPaymentMethodMobileBalance extends IGeneralPayMethod {
-    /** Код способа оплаты. */
+    /** Код способа оплаты */
     type: PaymentMethodsEnum.mobile_balance
-    /** Телефон, с баланса которого осуществляется платеж. Указывается в формате ITU-T E.164, например 79000000000. */
+    /** Телефон, с баланса которого списывают платёж. Формат ITU-T E.164, например 79000000000 */
     phone: string
 }
 
@@ -244,17 +244,17 @@ export interface IPaymentMethodMobileBalance extends IGeneralPayMethod {
  */
 export interface IPaymentMethodYooMoney extends IGeneralPayMethod {
     type: PaymentMethodsEnum.yoo_money
-    /** Номер кошелька ЮMoney, из которого была произведена оплата. */
+    /** Номер кошелька ЮMoney, из которого оплатили */
     account_number?: string
 }
 
 /**
  * QIWI Кошелек
- * @deprecated QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ оплаты не работает.
+ * @deprecated ЦБ РФ лишил QIWI Банк лицензию 21.02.2024 — способ оплаты не работает.
  */
 export interface IPaymentMethodQiwi {
     type: PaymentMethodsEnum.qiwi
-    /** Телефон, на который зарегистрирован аккаунт в QIWI. Указывается в формате ITU-T E.164, например 79000000000. */
+    /** Телефон аккаунта QIWI. Формат ITU-T E.164, например 79000000000 */
     phone?: string
 }
 
@@ -263,17 +263,17 @@ export interface IPaymentMethodQiwi {
  */
 export interface IPaymentMethodSberbank extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sberbank
-    /** Телефон пользователя, на который зарегистрирован аккаунт в SberPay. Необходим для подтверждения оплаты по смс (сценарий подтверждения external). Указывается в формате ITU-T E.164, например 79000000000. */
+    /** Телефон аккаунта SberPay для подтверждения по SMS (сценарий external). Формат ITU-T E.164, например 79000000000 */
     phone?: string
 }
 
 /**
  * Альфа-Клик
- * @deprecated Сервис устарел. Рекомендуется использовать другие способы оплаты.
+ * @deprecated Сервис устарел — используйте другие способы оплаты.
  */
 export interface IPaymentMethodAlfabank {
     type: PaymentMethodsEnum.alfabank
-    /** Логин пользователя в Альфа-Клике (привязанный телефон или дополнительный логин). Обязателен для сценария External. */
+    /** Логин в Альфа-Клике (привязанный телефон или дополнительный логин). Обязателен для сценария External */
     login?: string
 }
 
@@ -287,13 +287,13 @@ export interface IPaymentMethodTinkoff_bank extends IGeneralPayMethod {
 /** СберБанк Бизнес Онлайн */
 export interface IPaymentMethodB2b_sberbank {
     type: PaymentMethodsEnum.b2b_sberbank
-    /** Назначение платежа (не больше 210 символов). */
+    /** Назначение платежа (не больше 210 символов) */
     payment_purpose: string
-    /** Данные о налоге на добавленную стоимость (НДС). Платеж может облагаться или не облагаться НДС. Товары могут облагаться по одной ставке НДС или по разным. */
+    /** Данные о НДС — платёж облагается или нет, товары — по одной или разным ставкам */
     vat_data: {
-        /** Код способа расчета НДС. */
+        /** Код способа расчёта НДС */
         type: 'mixed' | 'calculated' | 'untaxed'
-        /** Сумма НДС. */
+        /** Сумма НДС */
         amount?: IAmount
     }
 }
@@ -303,7 +303,7 @@ export interface IPaymentMethodB2b_sberbank {
  */
 export interface IPaymentMethodSbp extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sbp
-    /** Идентификатор операции в СБП (НСПК). Обязателен для платежей в статусе succeeded. */
+    /** Идентификатор операции в СБП (НСПК). Обязателен для платежей в статусе succeeded */
     sbp_operation_id?: string
     /** Данные о банке плательщика */
     payer_bank_details?: {
@@ -319,7 +319,7 @@ export interface IPaymentMethodSbp extends IGeneralPayMethod {
 /** Наличные */
 export interface IPaymentMethodCash {
     type: PaymentMethodsEnum.cash
-    /** Телефон пользователя, на который придет смс с кодом платежа (для внесения наличных). Указывается в формате ITU-T E.164, например 79000000000. Поле можно оставить пустым: пользователь сможет заполнить его при оплате на стороне ЮKassa. */
+    /** Телефон для SMS с кодом платежа (внесение наличных). Формат ITU-T E.164, например 79000000000. Можно оставить пустым — пользователь заполнит на стороне ЮKassa */
     phone?: string
 }
 
@@ -329,20 +329,20 @@ export interface IPaymentMethodInstallments {
 }
 
 /**
- * "Покупки в кредит" от Сбербанка
+ * «Покупки в кредит» от Сбербанка
  *
- * @remarks Возврат платежа возможен только в течение **180 дней** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
+ * @remarks Вернуть платёж можно только в течение **180 дней** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
  */
 export interface IPaymentMethodSberLoan extends IGeneralPayMethod {
     type: PaymentMethodsEnum.sber_loan
-    /** Сумма скидки для рассрочки. Присутствует для платежей в статусе `waiting_for_capture` и `succeeded`, если пользователь выбрал рассрочку. */
+    /** Сумма скидки для рассрочки. Есть у платежей в статусе `waiting_for_capture` и `succeeded`, если пользователь выбрал рассрочку */
     discount_amount?: IAmount
     /** Тариф кредита, который пользователь выбрал при оплате.
      *
      * Возможные значения:
-     * -`loan` — кредит;
-     * `installments_XX` — рассрочка, где `XX` — количество месяцев для выплаты рассрочки. Например, `installments_3` — рассрочка на 3 месяца.
-     * Присутствует для платежей в статусе `waiting_for_capture` и `succeeded`.
+     * - `loan` — кредит;
+     * - `installments_XX` — рассрочка, где `XX` — число месяцев (например, `installments_3` — 3 месяца).
+     * Есть у платежей в статусе `waiting_for_capture` и `succeeded`.
      */
     loan_option?: 'loan' | `installments_${number}`
 }
@@ -351,7 +351,7 @@ export interface IPaymentMethodSberLoan extends IGeneralPayMethod {
  * Плати частями (BNPL от СберБанка)
  *
  * @remarks
- * - Возврат платежа возможен только в течение **1 года** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
+ * - Вернуть платёж можно только в течение **1 года** с момента создания (с 22 мая 2026 г., включая ранее созданные платежи).
  * - Максимальная сумма одного платежа: **50 000 ₽** (с 23 апреля 2026 г.).
  * - Доступен только срок рассрочки **2 месяца** (платёж раз в две недели); сроки 4 и 6 месяцев недоступны.
  */
@@ -359,18 +359,18 @@ export interface IPaymentMethodSberBnpl {
     type: PaymentMethodsEnum.sber_bnpl
     /** Идентификатор способа оплаты */
     id: string
-    /** С помощью сохраненного способа оплаты можно проводить безакцептные списания */
+    /** Сохранённый способ оплаты позволяет проводить безакцептные списания */
     saved: boolean
     /** Статус способа оплаты */
     status?: 'inactive' | 'active'
 }
 
-/** Apple Pay (обычно используется через payment_token) */
+/** Apple Pay — обычно через payment_token */
 export interface IPaymentMethodApplePay extends IGeneralPayMethod {
     type: PaymentMethodsEnum.apple_pay
 }
 
-/** Google Pay (обычно используется через payment_token) */
+/** Google Pay — обычно через payment_token */
 export interface IPaymentMethodGooglePay extends IGeneralPayMethod {
     type: PaymentMethodsEnum.google_pay
 }
@@ -385,7 +385,7 @@ export interface IPaymentMethodWebmoney extends IGeneralPayMethod {
 
 /**
  * WeChat Pay
- * @deprecated Специфичный способ оплаты для китайских пользователей.
+ * @deprecated Способ оплаты для пользователей из Китая.
  */
 export interface IPaymentMethodWechat extends IGeneralPayMethod {
     type: PaymentMethodsEnum.wechat
@@ -409,9 +409,9 @@ export interface PaymentMethodDataCard {
     card?: {
         /** Номер банковской карты */
         number?: string
-        /** Срок действия, год, YYYY */
+        /** Срок действия — год, YYYY */
         expiry_year?: string
-        /** Срок действия, месяц, MM */
+        /** Срок действия — месяц, MM */
         expiry_month?: string
         /** Код CVC2 или CVV2 */
         csc?: string
@@ -427,28 +427,28 @@ export interface PaymentMethodDataYooMoney {
 
 /**
  * Данные для оплаты через QIWI Кошелек
- * @deprecated QIWI Банк лишён лицензии ЦБ РФ 21.02.2024. Способ оплаты не работает.
+ * @deprecated ЦБ РФ лишил QIWI Банк лицензию 21.02.2024 — способ оплаты не работает.
  */
 export interface PaymentMethodDataQiwi {
     type: 'qiwi'
-    /** Телефон, на который зарегистрирован аккаунт в QIWI */
+    /** Телефон аккаунта QIWI */
     phone?: string
 }
 
 /** Данные для оплаты через SberPay */
 export interface PaymentMethodDataSberbank {
     type: 'sberbank'
-    /** Телефон пользователя для подтверждения по смс */
+    /** Телефон пользователя для подтверждения по SMS */
     phone?: string
 }
 
 /**
  * Данные для оплаты через Альфа-Клик
- * @deprecated Сервис устарел. Используйте другие способы оплаты.
+ * @deprecated Сервис устарел — используйте другие способы оплаты.
  */
 export interface PaymentMethodDataAlfabank {
     type: 'alfabank'
-    /** Логин пользователя в Альфа-Клике */
+    /** Логин в Альфа-Клике */
     login?: string
 }
 
@@ -477,7 +477,7 @@ export interface PaymentMethodDataSbp {
 /** Данные для оплаты с баланса телефона */
 export interface PaymentMethodDataMobileBalance {
     type: 'mobile_balance'
-    /** Телефон, с баланса которого осуществляется платеж */
+    /** Телефон, с баланса которого списывают платёж */
     phone?: string
 }
 
@@ -493,18 +493,18 @@ export interface PaymentMethodDataInstallments {
     type: 'installments'
 }
 
-/** Данные для оплаты через "Покупки в кредит" от Сбербанка */
+/** Данные для оплаты через «Покупки в кредит» от Сбербанка */
 export interface PaymentMethodDataSberLoan {
     type: 'sber_loan'
 }
 
 /**
- * Данные для оплаты через "Плати частями" (BNPL от СберБанка)
+ * Данные для оплаты через «Плати частями» (BNPL от СберБанка)
  * @see https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/other/sber-bnpl
  */
 export interface PaymentMethodDataSberBnpl {
     type: 'sber_bnpl'
-    /** Телефон пользователя для авторизации в сервисе (опционально, можно ввести на странице YooKassa) */
+    /** Телефон для авторизации в сервисе — опционально, можно ввести на странице YooKassa */
     phone?: string
 }
 
@@ -514,8 +514,7 @@ export interface PaymentMethodDataAlfaPay {
 }
 
 /**
- * Данные для оплаты конкретным способом.
- * Передаётся в `payment_method_data` при создании платежа.
+ * Данные способа оплаты для `payment_method_data` при создании платежа.
  * @see https://yookassa.ru/developers/api#create_payment
  */
 export type PaymentMethodData =

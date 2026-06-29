@@ -6,17 +6,11 @@
 
 # Interface: Metadata
 
-Defined in: [src/types/general.types.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L46)
+Defined in: [src/types/general.types.ts:40](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L40)
 
-Любые дополнительные данные, которые нужны вам для работы.
+Произвольные данные в парах «ключ–значение». ЮKassa возвращает их в ответе.
 
-Передаются в виде набора пар «ключ-значение» и возвращаются в ответе от ЮKassa.
-
-**Ограничения:**
-- максимум 16 ключей
-- имя ключа не больше 32 символов
-- значение ключа не больше 512 символов
-- тип данных — строка в формате UTF-8
+**Ограничения:** до 16 ключей; имя — до 32 символов; значение — до 512; строка UTF-8.
 
 ## See
 

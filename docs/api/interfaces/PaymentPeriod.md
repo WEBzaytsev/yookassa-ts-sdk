@@ -6,10 +6,9 @@
 
 # Interface: PaymentPeriod
 
-Defined in: [src/types/payments/paymentOrder.type.ts:7](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentOrder.type.ts#L7)
+Defined in: [src/types/payments/paymentOrder.type.ts:6](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentOrder.type.ts#L6)
 
-Период оплаты, за который выставлены начисления.
-Передаётся в платёжном поручении (ЖКХ).
+Период начислений в платёжном поручении (ЖКХ).
 
 ## Properties
 
@@ -17,9 +16,9 @@ Defined in: [src/types/payments/paymentOrder.type.ts:7](https://github.com/WEBza
 
 > **month**: `number`
 
-Defined in: [src/types/payments/paymentOrder.type.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentOrder.type.ts#L9)
+Defined in: [src/types/payments/paymentOrder.type.ts:8](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentOrder.type.ts#L8)
 
-Месяц периода (1–12). Например, 1 — январь.
+Месяц (1–12). Например, 1 — январь
 
 ***
 
@@ -27,7 +26,6 @@ Defined in: [src/types/payments/paymentOrder.type.ts:9](https://github.com/WEBza
 
 > **year**: `number`
 
-Defined in: [src/types/payments/paymentOrder.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentOrder.type.ts#L14)
+Defined in: [src/types/payments/paymentOrder.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentOrder.type.ts#L12)
 
-Год периода.
-Значение должно быть в диапазоне 1920–2050. Например, 2025.
+Год. Диапазон 1920–2050. Например, 2025.

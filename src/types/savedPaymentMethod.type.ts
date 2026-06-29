@@ -1,15 +1,15 @@
 import type { LocaleEnum } from './general.types'
 import type { IBankCardData } from './payments/paymentMethod.type'
 
-/** Статус сохранённого способа оплаты при привязке. */
+/** Статус привязки сохранённого способа оплаты */
 export type SavePaymentMethodStatus = 'pending' | 'active' | 'inactive'
 
-/** Тип сохранённого способа оплаты. */
+/** Тип сохранённого способа оплаты */
 export type SavePaymentMethodType = 'bank_card' | 'sbp'
 
 // ========== Confirmation data (запрос) ========== //
 
-/** Данные подтверждения привязки через редирект (запрос). */
+/** Подтверждение привязки через редирект (запрос) */
 export interface PaymentMethodsConfirmationDataRedirect {
     type: 'redirect'
     return_url: string
@@ -18,19 +18,19 @@ export interface PaymentMethodsConfirmationDataRedirect {
 }
 
 /**
- * Данные подтверждения привязки через QR-код (запрос).
- * Используется при привязке счёта СБП на нулевую сумму.
+ * Подтверждение привязки через QR (запрос).
+ * Для привязки счёта СБП на нулевую сумму.
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-without-payment/sbp
  */
 export interface PaymentMethodsConfirmationDataQr {
     type: 'qr'
-    /** Адрес страницы возврата после привязки. URI по стандарту RFC-3986, не более 2048 символов. */
+    /** URL возврата после привязки. RFC-3986, до 2048 символов */
     return_url?: string
 }
 
 // ========== Confirmation (ответ) ========== //
 
-/** Ответ с URL подтверждения привязки (редирект). */
+/** URL подтверждения привязки (редирект) */
 export interface PaymentMethodsConfirmationRedirect {
     type: 'redirect'
     confirmation_url: string
@@ -39,18 +39,18 @@ export interface PaymentMethodsConfirmationRedirect {
 }
 
 /**
- * Ответ с данными QR-кода для подтверждения привязки счёта СБП.
+ * Данные QR для подтверждения привязки счёта СБП.
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-without-payment/sbp
  */
 export interface PaymentMethodsConfirmationQr {
     type: 'qr'
-    /** Данные для генерации QR-кода. */
+    /** Данные для генерации QR-кода */
     confirmation_data: string
 }
 
 // ========== Card data ========== //
 
-/** Данные карты с CVC для сохранения способа оплаты. */
+/** Данные карты с CVC для сохранения способа оплаты */
 export interface CardRequestDataWithCsc {
     number: string
     expiry_year: string
@@ -61,11 +61,11 @@ export interface CardRequestDataWithCsc {
 
 // ========== SavePaymentMethodData (запрос POST /payment_methods) ========== //
 
-/** Запрос на создание привязки банковской карты. */
+/** Запрос привязки банковской карты */
 export interface SavePaymentMethodDataBankCard {
     type: 'bank_card'
     card: CardRequestDataWithCsc
-    /** Получатель по OpenAPI — только `gateway_id`. */
+    /** Получатель по OpenAPI — только `gateway_id` */
     holder: {
         gateway_id: string
     }
@@ -74,7 +74,7 @@ export interface SavePaymentMethodDataBankCard {
 }
 
 /**
- * Запрос на создание привязки счёта СБП на нулевую сумму.
+ * Запрос привязки счёта СБП на нулевую сумму.
  * @see https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments/save-payment-method/save-without-payment/sbp
  */
 export interface SavePaymentMethodDataSbp {
@@ -86,18 +86,18 @@ export interface SavePaymentMethodDataSbp {
     confirmation?: PaymentMethodsConfirmationDataRedirect | PaymentMethodsConfirmationDataQr
 }
 
-/** Тело POST /payment_methods (по спецификации — ветки oneOf). */
+/** Тело `POST /payment_methods` (ветки oneOf по спецификации) */
 export type SavePaymentMethodData = SavePaymentMethodDataBankCard | SavePaymentMethodDataSbp
 
 // ========== SavePaymentMethod (ответ GET /payment_methods/:id) ========== //
 
-/** Реквизиты счёта СБП, использованного при привязке. */
+/** Реквизиты счёта СБП при привязке */
 export interface SavePaymentMethodSbpPayerBankDetails {
-    /** Идентификатор банка в СБП. */
+    /** ID банка в СБП */
     bank_id: string
 }
 
-/** Сохранённая банковская карта (ответ API). */
+/** Сохранённая банковская карта (ответ API) */
 export interface SavePaymentMethodBankCard {
     type: 'bank_card'
     id: string
@@ -126,7 +126,7 @@ export interface SavePaymentMethodSbp {
         gateway_id?: string
     }
     title?: string
-    /** Реквизиты счёта. Присутствует для привязок в статусе `active`. */
+    /** Реквизиты счёта. Есть для привязок в статусе `active` */
     payer_bank_details?: SavePaymentMethodSbpPayerBankDetails
     confirmation?: PaymentMethodsConfirmationRedirect | PaymentMethodsConfirmationQr
 }

@@ -8,9 +8,9 @@
 
 > **parsePaymentNotification**(`body`): [`PaymentNotification`](../type-aliases/PaymentNotification.md)
 
-Defined in: [src/webhooks/notification.ts:296](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L296)
+Defined in: [src/webhooks/notification.ts:292](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L292)
 
-Типизированный парсер для уведомлений о платежах.
+Парсит уведомления о платежах.
 
 ## Parameters
 
@@ -18,14 +18,14 @@ Defined in: [src/webhooks/notification.ts:296](https://github.com/WEBzaytsev/yoo
 
 `unknown`
 
-Тело запроса
+— тело запроса
 
 ## Returns
 
 [`PaymentNotification`](../type-aliases/PaymentNotification.md)
 
-Уведомление с типизированным объектом платежа
+Уведомление с типизированным платежом
 
 ## Throws
 
-Если событие не относится к платежам
+Событие не относится к платежам

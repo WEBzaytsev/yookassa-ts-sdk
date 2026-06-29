@@ -6,11 +6,11 @@
 
 # Interface: IConfirmationQR
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L62)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentsConfirmation.type.ts#L64)
 
-***Сценарий подтверждения `QR-код`***
+**Сценарий QR-код**
 
-для подтверждения платежа пользователю необходимо просканировать QR-код. От вас требуется сгенерировать QR-код, используя любой доступный инструмент, и отобразить его на странице оплаты.
+Пользователь сканирует QR. Сгенерируйте QR из `confirmation_data` и покажите на странице оплаты.
 
 ## Extends
 
@@ -22,9 +22,9 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:62](https://github.
 
 > **confirmation\_data**: `string`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L65)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:67](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentsConfirmation.type.ts#L67)
 
-Данные для генерации QR-кода.
+Данные для генерации QR-кода
 
 ***
 
@@ -32,9 +32,9 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.
 
 > `optional` **locale?**: [`LocaleEnum`](../enumerations/LocaleEnum.md)
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L23)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentsConfirmation.type.ts#L23)
 
-Язык интерфейса, писем и смс, которые будет видеть или получать пользователь. Формат соответствует ISO/IEC 15897. Возможные значения: ru_RU, en_US. Регистр важен.
+Язык интерфейса, писем и SMS (ISO/IEC 15897): `ru_RU`, `en_US`. Регистр важен
 
 #### Inherited from
 
@@ -46,9 +46,9 @@ Defined in: [src/types/payments/paymentsConfirmation.type.ts:23](https://github.
 
 > **type**: `"qr"`
 
-Defined in: [src/types/payments/paymentsConfirmation.type.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentsConfirmation.type.ts#L63)
+Defined in: [src/types/payments/paymentsConfirmation.type.ts:65](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentsConfirmation.type.ts#L65)
 
-Код сценария подтверждения.
+Код сценария подтверждения
 
 #### Overrides
 

@@ -13,12 +13,12 @@ export interface InvoiceLineItem {
 
 export type InvoiceCart = InvoiceLineItem[]
 
-/** Получатель платежа по счёту (только gateway). */
+/** Получатель платежа по счёту (только `gateway`) */
 export interface InvoicePaymentRecipient {
     gateway_id: string
 }
 
-/** Данные платежа внутри выставленного счёта. */
+/** Данные платежа в выставленном счёте */
 export interface InvoicePaymentData {
     amount: IAmount
     receipt?: Receipts.ReceiptinPaymentType

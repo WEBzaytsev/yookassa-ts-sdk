@@ -6,7 +6,7 @@
 
 # Interface: PayoutStatementRecipientPersonalDataRequest
 
-Defined in: [src/types/personalData.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L30)
+Defined in: [src/types/personalData.type.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L30)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/personalData.type.ts:30](https://github.com/WEBzaytsev/yo
 
 > **birthdate**: `string`
 
-Defined in: [src/types/personalData.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L36)
+Defined in: [src/types/personalData.type.ts:36](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L36)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/personalData.type.ts:36](https://github.com/WEBzaytsev/yo
 
 > **first\_name**: `string`
 
-Defined in: [src/types/personalData.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L34)
+Defined in: [src/types/personalData.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L34)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/personalData.type.ts:34](https://github.com/WEBzaytsev/yo
 
 > **last\_name**: `string`
 
-Defined in: [src/types/personalData.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L33)
+Defined in: [src/types/personalData.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L33)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/types/personalData.type.ts:33](https://github.com/WEBzaytsev/yo
 
 > `optional` **metadata?**: [`Metadata`](Metadata.md)
 
-Defined in: [src/types/personalData.type.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L32)
+Defined in: [src/types/personalData.type.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L32)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/types/personalData.type.ts:32](https://github.com/WEBzaytsev/yo
 
 > `optional` **middle\_name?**: `string`
 
-Defined in: [src/types/personalData.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L35)
+Defined in: [src/types/personalData.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L35)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [src/types/personalData.type.ts:35](https://github.com/WEBzaytsev/yo
 
 > **type**: `"payout_statement_recipient"`
 
-Defined in: [src/types/personalData.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L31)
+Defined in: [src/types/personalData.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L31)

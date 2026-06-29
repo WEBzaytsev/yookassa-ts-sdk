@@ -6,19 +6,19 @@ import type { ElectronicCertificateRefundMethod, RefundMethod } from './refundMe
 
 export namespace Refunds {
     type RefundDealType = {
-        /** Идентификатор сделки. Берется из возвращаемого платежа. */
+        /** ID сделки из возвращаемого платежа */
         id: string
-        /**Данные о распределении денег. */
+        /** Распределение денег */
         refund_settlements: Payments.DealType['settlements']
     }
 
     type RefundCancelReason = keyof typeof refundCancelReasonMap
     export interface IRefundCancellationDetails {
-        /**Инициатор отмены возврата
+        /** Инициатор отмены возврата
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#declined-refunds-cancellation-details-party
          */
         party: 'yoo_money' | 'payment_network'
-        /**Причина отмены возврата
+        /** Причина отмены возврата
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#declined-refunds-cancellation-details-reason
          */
         reason: RefundCancelReason
@@ -26,92 +26,93 @@ export namespace Refunds {
 
     export interface IRefundSource {
         /**
-         * Идентификатор магазина, для которого вы хотите провести возврат. Выдается ЮKassa, отображается в разделе Продавцы личного кабинета (столбец shopId).
+         * ID магазина для возврата. Выдаёт ЮKassa, см. раздел «Продавцы» в ЛК (столбец shopId).
          */
         account_id: string
-        /**Сумма возврата. */
+        /** Сумма возврата */
         amount: IAmount
-        /** Комиссия, которую вы удержали при оплате, и хотите вернуть. */
+        /** Комиссия, удержанная при оплате и подлежащая возврату */
         platform_fee_amount?: IAmount
     }
 
     export type RefundStatus = 'pending' | 'succeeded' | 'canceled'
 
     /**
-     * ****Объект возврата****
-     * Объект возврата (`Refund`) содержит актуальную информацию о возврате успешного платежа.
-     * Он приходит в ответ на любой запрос, связанный с возвратами.
-     * Объект может содержать параметры и значения, не описанные в этом Справочнике API. Их следует игнорировать.
+     * **Объект возврата**
+     *
+     * Актуальная информация о возврате успешного платежа.
+     * Приходит в ответ на любой запрос по возвратам.
+     * Неописанные в справочнике поля игнорируйте.
      */
     export interface IRefund {
-        /** Идентификатор возврата платежа в ЮKassa. */
+        /** ID возврата в ЮKassa */
         readonly id: string
-        /** Идентификатор платежа в ЮKassa. */
+        /** ID платежа в ЮKassa */
         payment_id: string
         /**
-         * Статус возврата платежа. Возможные значения:
-         * - `pending` — возврат создан, но пока еще обрабатывается;
-         * - `succeeded` — возврат успешно завершен, указанная в запросе сумма переведена на платежное средство пользователя (финальный и неизменяемый статус);
-         * - `canceled` — возврат отменен, инициатор и причина отмены указаны в объекте cancellation_details (финальный и неизменяемый статус).
+         * Статус возврата:
+         * - `pending` — создан, обрабатывается;
+         * - `succeeded` — завершён, сумма переведена пользователю (финальный);
+         * - `canceled` — отменён, детали в `cancellation_details` (финальный).
          *
-         * В зависимости от вашего процесса часть статусов может быть пропущена, но их последовательность не меняется.
-         *
-         * Чтобы узнать статус возврата, периодически отправляйте запросы, чтобы получить информацию о возврате, или подождите, когда придет уведомление от ЮKassa.
+         * Часть статусов может пропускаться, порядок не меняется.
+         * Статус — опрос API или уведомление от ЮKassa.
          * @see https://yookassa.ru/developers/payment-acceptance/after-the-payment/refunds#status
          */
         readonly status: RefundStatus
-        /** Комментарий к статусу `canceled`: кто отменил возврат и по какой причине. */
+        /** Комментарий к `canceled`: кто и почему отменил */
         readonly cancellation_details?: IRefundCancellationDetails
         /**
-         * Статус регистрации чека. Возможные значения:
-         * - `pending` — данные в обработке;
-         * - `succeeded` — чек успешно зарегистрирован;
-         * - `canceled` — чек зарегистрировать не удалось; если используете Чеки от ЮKassa, обратитесь в техническую поддержку, в остальных случаях сформируйте чек вручную.
-         * Присутствует, если вы используете [решения ЮKassa для отправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/basics) в налоговую.
+         * Статус регистрации чека:
+         * - `pending` — в обработке;
+         * - `succeeded` — зарегистрирован;
+         * - `canceled` — не зарегистрирован; для Чеков ЮKassa — в поддержку, иначе — вручную.
+         * Есть при [отправке чеков через ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/basics).
          */
         readonly receipt_registration?: Receipts.ReceiptRegistrationStatus
         /**
-         * Время создания возврата. Указывается по UTC и передается в формате ISO 8601, например `2017-11-03T11:52:31.827Z`
+         * Время создания (UTC, ISO 8601). Пример: `2017-11-03T11:52:31.827Z`
          */
         readonly created_at: string
-        /** Сумма, возвращенная пользователю. */
+        /** Сумма, возвращённая пользователю */
         amount: IAmount
-        /** Основание для возврата денег пользователю. */
+        /** Основание возврата */
         description?: string
         /**
-         * Данные о том, с какого магазина и какую сумму нужно удержать для проведения возврата.
-         * Присутствует, если вы используете [Сплитование платежей](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics).
+         * Магазин и сумма удержания для возврата.
+         * Есть при [Сплитовании платежей](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics).
          */
         sources?: IRefundSource[]
-        /** Данные о сделке, в составе которой проходит возврат.
-         * Присутствует, если вы проводите [Безопасную сделку](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics).
+        /**
+         * Сделка возврата.
+         * Есть при [Безопасной сделке](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics).
          */
         deal?: RefundDealType
-        /**Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
+        /** Детали возврата — зависят от способа оплаты платежа */
         readonly refund_method?: RefundMethod
         /**
-         * Данные об авторизации возврата при оплате банковской картой.
-         * Присутствует для возвратов по платежам банковской картой.
+         * Авторизация возврата по банковской карте.
+         * Есть для возвратов по карточным платежам.
          */
         readonly refund_authorization_details?: {
-            /** Retrieval Reference Number — уникальный идентификатор транзакции в системе эмитента */
+            /** RRN — ID транзакции у эмитента */
             rrn?: string
         }
-        /** Любые дополнительные данные, которые нужны вам для работы. */
+        /** Произвольные данные */
         metadata?: Metadata
     }
 
     export type CreateRefundRequest = Pick<IRefund, 'payment_id' | 'amount' | 'description' | 'sources' | 'deal'> & {
         /**
-         * ***Данные для формирования чека.***
+         * **Данные для чека**
          *
-         * Необходимо передавать в этих случаях:
-         * - вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
-         * - вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [Сначала чек, потом платеж](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
-         * - вы самозанятый и используете решение ЮKassa для [автоотправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
+         * Передайте, если:
+         * - компания/ИП с [Чеками ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
+         * - компания/ИП со [сторонней кассой](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) по сценарию [платёж и чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [сначала чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
+         * - самозанятый с [автоотправкой чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
          */
         receipt?: Receipts.CreateReceiptType
-        /** Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа. */
+        /** Детали возврата — зависят от способа оплаты платежа */
         refund_method_data?: ElectronicCertificateRefundMethod
     }
 }

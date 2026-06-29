@@ -8,7 +8,7 @@
 
 > **CreateRefundRequest** = `Pick`\<[`IRefund`](../interfaces/IRefund.md), `"payment_id"` \| `"amount"` \| `"description"` \| `"sources"` \| `"deal"`\> & `object`
 
-Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refund.type.ts#L104)
+Defined in: [src/types/refunds/refund.type.ts:105](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refund.type.ts#L105)
 
 ## Type Declaration
 
@@ -16,15 +16,15 @@ Defined in: [src/types/refunds/refund.type.ts:104](https://github.com/WEBzaytsev
 
 > `optional` **receipt?**: [`CreateReceiptType`](../../Receipts/type-aliases/CreateReceiptType.md)
 
-***Данные для формирования чека.***
+**Данные для чека**
 
-Необходимо передавать в этих случаях:
-- вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
-- вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [Сначала чек, потом платеж](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
-- вы самозанятый и используете решение ЮKassa для [автоотправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
+Передайте, если:
+- компания/ИП с [Чеками ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
+- компания/ИП со [сторонней кассой](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) по сценарию [платёж и чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [сначала чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
+- самозанятый с [автоотправкой чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
 
 ### refund\_method\_data?
 
 > `optional` **refund\_method\_data?**: [`ElectronicCertificateRefundMethod`](../../../../type-aliases/ElectronicCertificateRefundMethod.md)
 
-Детали возврата. Зависят от способа оплаты, который использовался при проведении платежа.
+Детали возврата — зависят от способа оплаты платежа

@@ -69,10 +69,10 @@ const sdk = YooKassa({
 
 ## Instance Caching
 
-SDK automatically caches instances by a SHA-256 hash of all five credential fields (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Changing **any** of these fields produces a new instance. This allows:
+The SDK caches instances by a SHA-256 hash of all five credential fields (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Changing **any** of these fields creates a new instance. This enables:
 
 - Connection reuse
-- Working with multiple shops simultaneously
+- Working with multiple shops at the same time
 
 ```ts
 // Both calls return the same instance (identical credentials)
@@ -95,4 +95,3 @@ import { clearYooKassaCache } from '@webzaytsev/yookassa-ts-sdk';
 clearYooKassaCache('123'); // Remove specific shop
 clearYooKassaCache(); // Clear entire cache
 ```
-

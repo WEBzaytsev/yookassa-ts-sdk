@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataAlfaPay
 
-Defined in: [src/types/payments/paymentMethod.type.ts:512](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L512)
+Defined in: [src/types/payments/paymentMethod.type.ts:512](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L512)
 
 Данные для оплаты через Alfa Pay
 
@@ -16,4 +16,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:512](https://github.com/WE
 
 > **type**: `"alfa_pay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:513](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L513)
+Defined in: [src/types/payments/paymentMethod.type.ts:513](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L513)

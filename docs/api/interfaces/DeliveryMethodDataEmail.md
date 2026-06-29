@@ -6,7 +6,7 @@
 
 # Interface: DeliveryMethodDataEmail
 
-Defined in: [src/types/invoice.type.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L42)
+Defined in: [src/types/invoice.type.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L42)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/invoice.type.ts:42](https://github.com/WEBzaytsev/yookass
 
 > **email**: `string`
 
-Defined in: [src/types/invoice.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L44)
+Defined in: [src/types/invoice.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L44)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/types/invoice.type.ts:44](https://github.com/WEBzaytsev/yookass
 
 > **type**: `"email"`
 
-Defined in: [src/types/invoice.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L43)
+Defined in: [src/types/invoice.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L43)

@@ -6,7 +6,7 @@
 
 # Interface: StatementDeliveryMethod
 
-Defined in: [src/types/payments/payment.type.ts:228](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L228)
+Defined in: [src/types/payments/payment.type.ts:208](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L208)
 
 Способ доставки справки
 
@@ -16,9 +16,9 @@ Defined in: [src/types/payments/payment.type.ts:228](https://github.com/WEBzayts
 
 > **email**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:232](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L232)
+Defined in: [src/types/payments/payment.type.ts:212](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L212)
 
-Email для отправки квитанции
+Email для квитанции
 
 ***
 
@@ -26,6 +26,6 @@ Email для отправки квитанции
 
 > **type**: `"email"`
 
-Defined in: [src/types/payments/payment.type.ts:230](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L230)
+Defined in: [src/types/payments/payment.type.ts:210](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L210)
 
-Тип доставки (сейчас доступен только email)
+Тип доставки (сейчас только `email`)

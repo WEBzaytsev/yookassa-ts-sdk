@@ -8,11 +8,9 @@
 
 > **ReceiptStatus** = `"pending"` \| `"succeeded"` \| `"canceled"`
 
-Defined in: [src/types/receipt/receipt.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/receipt/receipt.type.ts#L27)
+Defined in: [src/types/receipt/receipt.type.ts:25](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/receipt/receipt.type.ts#L25)
 
-Статус доставки данных для чека в онлайн-кассу.
-
-Возможные значения:
-- `pending` — данные в обработке;
-- `succeeded` — чек успешно зарегистрирован;
-- `canceled` — чек зарегистрировать не удалось; если используете Чеки от ЮKassa, обратитесь в техническую поддержку, в остальных случаях сформируйте чек вручную.
+Статус доставки данных в онлайн-кассу:
+- `pending` — в обработке;
+- `succeeded` — зарегистрирован;
+- `canceled` — не зарегистрирован; для Чеков ЮKassa — в поддержку, иначе — чек вручную.

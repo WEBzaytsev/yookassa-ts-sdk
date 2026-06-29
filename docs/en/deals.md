@@ -1,6 +1,6 @@
 # Safe Deal
 
-[Safe Deal](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics) lets a marketplace hold buyer payments and pay out sellers after the deal is closed. The SDK exposes deal management via `sdk.deals.*`; link payments, refunds, and payouts to a deal with `deal: { id }`.
+[Safe Deal](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics) lets a marketplace hold buyer payments and pay out sellers after the deal closes. The SDK exposes deal management through `sdk.deals.*`. Link payments, refunds, and payouts to a deal with `deal: { id }`.
 
 ## Create deal
 
@@ -21,7 +21,7 @@ const same = await sdk.deals.create(dealData, 'your-unique-key');
 | Value | Description |
 | --- | --- |
 | `payment_succeeded` | Commission is charged when the payment succeeds |
-| `deal_closed` | Commission is charged when the deal is closed |
+| `deal_closed` | Commission is charged when the deal closes |
 
 ## Get deal
 
@@ -47,11 +47,11 @@ const deals = await sdk.deals.list({
 | `created_at` | Creation time (`gte`, `gt`, `lte`, `lt`) |
 | `expires_at` | Expiration time (`gte`, `gt`, `lte`, `lt`) |
 | `status` | `opened` or `closed` |
-| `full_text_search` | Full-text search by deal fields |
+| `full_text_search` | Full-text search across deal fields |
 | `limit` | Page size (1–100, default 10) |
 | `cursor` | Pagination cursor |
 
-List query parameters use dot notation (e.g. `created_at.gte`); the SDK serializes filters accordingly.
+List query parameters use dot notation (e.g. `created_at.gte`). The SDK serializes filters accordingly.
 
 ## Using a deal in payments, refunds, and payouts
 
@@ -108,14 +108,14 @@ const payout = await sdk.payouts.create({
 
 ## Webhook
 
-When a deal is closed, YooKassa sends a `deal.closed` event. See [Webhooks](webhooks.md) for handling incoming notifications.
+When a deal closes, YooKassa sends a `deal.closed` event. See [Webhooks](webhooks.md) for handling incoming notifications.
 
 ## API reference
 
 | Method | Description |
 | --- | --- |
-| `create(data, idempotenceKey?)` | Create deal |
-| `load(id)` | Get deal by ID |
+| `create(data, idempotenceKey?)` | Create a deal |
+| `load(id)` | Get a deal by ID |
 | `list(filter?)` | List deals |
 
 TypeScript types: [`SafeDeal`](../api/interfaces/SafeDeal.md), [`SafeDealRequest`](../api/interfaces/SafeDealRequest.md), [`GetDealListFilter`](../api/interfaces/GetDealListFilter.md).

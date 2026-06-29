@@ -31,10 +31,10 @@ const refunds = await sdk.refunds.list({
 
 | Фильтр | Описание |
 | --- | --- |
-| `created_at` | Фильтр по времени создания (`gte`, `gt`, `lte`, `lt`) |
-| `payment_id` | Фильтр по ID платежа |
-| `status` | Фильтр по статусу (`pending`, `succeeded`, `canceled`) |
-| `limit` | Количество результатов (1-100, по умолчанию: 10) |
+| `created_at` | Время создания (`gte`, `gt`, `lte`, `lt`) |
+| `payment_id` | ID платежа |
+| `status` | Статус (`pending`, `succeeded`, `canceled`) |
+| `limit` | Число результатов (1–100, по умолчанию: 10) |
 
 ## Справочник API
 
@@ -43,4 +43,3 @@ const refunds = await sdk.refunds.list({
 | `create(data, idempotenceKey?)` | Создать возврат |
 | `load(id)` | Получить возврат по ID |
 | `list(filter?)` | Список возвратов |
-

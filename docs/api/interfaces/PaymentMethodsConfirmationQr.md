@@ -6,9 +6,9 @@
 
 # Interface: PaymentMethodsConfirmationQr
 
-Defined in: [src/types/savedPaymentMethod.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L45)
+Defined in: [src/types/savedPaymentMethod.type.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L45)
 
-Ответ с данными QR-кода для подтверждения привязки счёта СБП.
+Данные QR для подтверждения привязки счёта СБП.
 
 ## See
 
@@ -20,9 +20,9 @@ https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-
 
 > **confirmation\_data**: `string`
 
-Defined in: [src/types/savedPaymentMethod.type.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L48)
+Defined in: [src/types/savedPaymentMethod.type.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L48)
 
-Данные для генерации QR-кода.
+Данные для генерации QR-кода
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [src/types/savedPaymentMethod.type.ts:48](https://github.com/WEBzayt
 
 > **type**: `"qr"`
 
-Defined in: [src/types/savedPaymentMethod.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L46)
+Defined in: [src/types/savedPaymentMethod.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L46)

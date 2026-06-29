@@ -10,15 +10,15 @@ export namespace Payouts {
     export interface PayoutToCardDestination {
         type: 'bank_card'
         card: {
-            /** Первые 6 цифр номера карты (BIN) */
+            /** Первые 6 цифр (BIN) */
             first6: string
-            /** Последние 4 цифры номера карты */
+            /** Последние 4 цифры */
             last4: string
-            /** Тип карты (MasterCard, Visa, Mir и т.д.) */
+            /** Тип карты (MasterCard, Visa, Mir и т. д.) */
             card_type: string
-            /** Код страны банка-эмитента (ISO 3166-1 alpha-2) */
+            /** Код страны эмитента (ISO 3166-1 alpha-2) */
             issuer_country?: string
-            /** Название банка-эмитента */
+            /** Банк-эмитент */
             issuer_name?: string
         }
     }
@@ -33,32 +33,32 @@ export namespace Payouts {
     /** Выплата через СБП (ответ) */
     export interface PayoutToSbpDestination {
         type: 'sbp'
-        /** Телефон получателя в формате ITU-T E.164, например 79000000000 */
+        /** Телефон получателя, ITU-T E.164. Пример: `79000000000` */
         phone: string
-        /** Идентификатор участника СБП (банка или платёжного сервиса), до 12 символов */
+        /** ID участника СБП (банк или сервис), до 12 символов */
         bank_id: string
         /**
-         * Идентификатор операции в СБП (НСПК).
-         * Обязателен для выплат в статусе `succeeded`.
+         * ID операции в СБП (НСПК).
+         * Обязателен для выплат в `succeeded`.
          */
         sbp_operation_id?: string
-        /** Выплата проходила с проверкой получателя */
+        /** Выплата с проверкой получателя */
         recipient_checked: boolean
     }
 
-    /** Назначение выплаты — куда переводятся деньги */
+    /** Назначение выплаты */
     export type PayoutDestination = PayoutToCardDestination | PayoutToYooMoneyDestination | PayoutToSbpDestination
 
     // ========== DestinationData (запрос) ========== //
 
-    /** Данные для выплаты на кошелёк ЮMoney */
+    /** Выплата на кошелёк ЮMoney (запрос) */
     export interface PayoutToYooMoneyDestinationData {
         type: 'yoo_money'
         /** Номер кошелька ЮMoney */
         account_number: string
     }
 
-    /** Данные для выплаты на банковскую карту */
+    /** Выплата на банковскую карту (запрос) */
     export interface PayoutToBankCardDestinationData {
         type: 'bank_card'
         card: {
@@ -67,16 +67,16 @@ export namespace Payouts {
         }
     }
 
-    /** Данные для выплаты через СБП */
+    /** Выплата через СБП (запрос) */
     export interface PayoutToSbpDestinationData {
         type: 'sbp'
-        /** Телефон получателя в формате ITU-T E.164, например 79000000000 */
+        /** Телефон получателя, ITU-T E.164. Пример: `79000000000` */
         phone: string
-        /** Идентификатор участника СБП, до 12 символов */
+        /** ID участника СБП, до 12 символов */
         bank_id: string
     }
 
-    /** Данные для выплаты (для запроса создания) */
+    /** Данные назначения выплаты (запрос создания) */
     export type PayoutDestinationData =
         | PayoutToYooMoneyDestinationData
         | PayoutToBankCardDestinationData
@@ -110,24 +110,24 @@ export namespace Payouts {
      * @see https://yookassa.ru/developers/api#payout_object
      */
     export interface IPayout {
-        /** Идентификатор выплаты */
+        /** ID выплаты */
         id: string
         /** Сумма выплаты */
         amount: IAmount
         /** Статус выплаты */
         status: PayoutStatus
-        /** Данные платёжного средства получателя */
+        /** Платёжное средство получателя */
         payout_destination: PayoutDestination
         /** Описание транзакции (до 128 символов) */
         description?: string
-        /** Время создания выплаты (ISO 8601) */
+        /** Время создания (ISO 8601) */
         created_at: string
         /**
-         * Время успешного проведения выплаты (ISO 8601).
-         * Обязателен для выплат в статусе `succeeded`.
+         * Время успешного проведения (ISO 8601).
+         * Обязательно для `succeeded`.
          */
         succeeded_at?: string
-        /** Сделка, в рамках которой проведена выплата (Безопасная сделка) */
+        /** Сделка Безопасной сделки */
         deal?: { id: string }
         /** Комментарий к статусу `canceled` */
         cancellation_details?: {
@@ -142,33 +142,33 @@ export namespace Payouts {
     // ========== Create request ========== //
 
     /**
-     * Данные для создания выплаты.
+     * Запрос создания выплаты.
      * @see https://yookassa.ru/developers/api#create_payout
      */
     export interface CreatePayoutRequest {
         /** Сумма выплаты */
         amount: IAmount
         /**
-         * Данные платёжного средства получателя.
-         * Обязателен, если не передан `payout_token` или `payment_method_id`.
+         * Платёжное средство получателя.
+         * Обязательно без `payout_token` и `payment_method_id`.
          */
         payout_destination_data?: PayoutDestinationData
         /**
-         * Токенизированные данные для выплаты (например, синоним банковской карты).
-         * Обязателен, если не передан `payout_destination_data` или `payment_method_id`.
+         * Токенизированные данные (например, синоним карты).
+         * Обязательно без `payout_destination_data` и `payment_method_id`.
          */
         payout_token?: string
         /**
-         * Идентификатор сохранённого способа оплаты.
-         * Обязателен, если не передан `payout_destination_data` или `payout_token`.
+         * ID сохранённого способа оплаты.
+         * Обязательно без `payout_destination_data` и `payout_token`.
          */
         payment_method_id?: string
         /** Описание транзакции (до 128 символов) */
         description?: string
-        /** Сделка (для Безопасной сделки) */
+        /** Сделка (Безопасная сделка) */
         deal?: { id: string }
         /**
-         * Персональные данные получателя выплаты.
+         * Персональные данные получателя.
          * Только для обычных выплат. От 1 до 2 записей.
          */
         personal_data?: Array<{ id: string }>

@@ -40,7 +40,6 @@ const refunds = await sdk.refunds.list({
 
 | Method                         | Description                |
 | ------------------------------ | -------------------------- |
-| `create(data, idempotenceKey?)` | Create refund             |
-| `load(id)`                      | Get refund by ID          |
+| `create(data, idempotenceKey?)` | Create a refund           |
+| `load(id)`                      | Get a refund by ID        |
 | `list(filter?)`                 | List refunds              |
-

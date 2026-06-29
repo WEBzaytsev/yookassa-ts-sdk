@@ -2,7 +2,7 @@
 
 ## Webhook Management (Partner API)
 
-> **Note:** Webhooks require an OAuth token. This functionality is only available as part of the [partner program](https://yookassa.ru/developers/partners-api/basics).
+> **Note:** Webhooks require an OAuth token. This functionality is available only through the [partner program](https://yookassa.ru/developers/partners-api/basics).
 
 ### Create Webhook
 
@@ -29,19 +29,19 @@ await sdk.webhooks.delete('webhook_id');
 
 | Method                          | Description               |
 | ------------------------------- | ------------------------- |
-| `create(data, idempotenceKey?)` | Create webhook            |
+| `create(data, idempotenceKey?)` | Create a webhook          |
 | `list()`                        | List webhooks             |
-| `delete(id)`                    | Delete webhook            |
+| `delete(id)`                    | Delete a webhook          |
 
 ---
 
 ## Incoming Webhooks (Notifications)
 
-SDK provides helpers for processing incoming webhook notifications from YooKassa.
+The SDK provides helpers for processing incoming webhook notifications from YooKassa.
 
 ### Verify Notification (Recommended)
 
-`sdk.webhooks.verify*` methods parse the incoming body and **re-fetch the object from the YooKassa API**, so the returned data is always authentic regardless of what was sent in the webhook body.
+`sdk.webhooks.verify*` methods parse the incoming body and **re-fetch the object from the YooKassa API**. The returned data is always authentic, regardless of what was sent in the webhook body.
 
 ```ts
 app.post('/webhook', async (req, res) => {
@@ -76,7 +76,7 @@ app.post('/webhook', async (req, res) => {
 })
 ```
 
-Use the typed variants when you only expect one event type:
+Use the typed variants when you expect only one event type:
 
 ```ts
 // Throws WebhookValidationError if body is not a payment.* event
@@ -179,4 +179,3 @@ isYooKassaIP('192.168.1.1')      // false
 | `payout.canceled` | Payout canceled |
 | `deal.closed` | Deal closed |
 | `payment_method.active` | Saved payment method became active (e.g. zero-amount binding completed) |
-

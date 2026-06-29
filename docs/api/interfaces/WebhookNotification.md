@@ -6,9 +6,9 @@
 
 # Interface: WebhookNotification\<T\>
 
-Defined in: [src/webhooks/notification.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L31)
+Defined in: [src/webhooks/notification.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L31)
 
-Входящее уведомление от YooKassa
+Входящее уведомление YooKassa
 
 ## Type Parameters
 
@@ -22,9 +22,9 @@ Defined in: [src/webhooks/notification.ts:31](https://github.com/WEBzaytsev/yook
 
 > **event**: `"payment.waiting_for_capture"` \| `"payment.succeeded"` \| `"payment.canceled"` \| `"refund.succeeded"` \| `"payout.succeeded"` \| `"payout.canceled"` \| `"deal.closed"` \| `"payment_method.active"`
 
-Defined in: [src/webhooks/notification.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L35)
+Defined in: [src/webhooks/notification.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L35)
 
-Событие, о котором уведомляет YooKassa
+Событие уведомления
 
 ***
 
@@ -32,9 +32,9 @@ Defined in: [src/webhooks/notification.ts:35](https://github.com/WEBzaytsev/yook
 
 > **object**: `T`
 
-Defined in: [src/webhooks/notification.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L37)
+Defined in: [src/webhooks/notification.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L37)
 
-Объект, связанный с событием (платёж, возврат, выплата, сделка)
+Связанный объект (платёж, возврат, выплата, сделка)
 
 ***
 
@@ -42,6 +42,6 @@ Defined in: [src/webhooks/notification.ts:37](https://github.com/WEBzaytsev/yook
 
 > **type**: `"notification"`
 
-Defined in: [src/webhooks/notification.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L33)
+Defined in: [src/webhooks/notification.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L33)
 
-Тип объекта — всегда 'notification'
+Тип объекта — всегда `notification`

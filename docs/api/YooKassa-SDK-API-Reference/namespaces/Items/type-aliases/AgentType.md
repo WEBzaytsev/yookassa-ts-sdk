@@ -8,14 +8,10 @@
 
 > **AgentType** = keyof *typeof* [`AgentTypeMap`](../../../../variables/AgentTypeMap.md)
 
-Defined in: [src/types/receipt/item.type.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/receipt/item.type.ts#L77)
+Defined in: [src/types/receipt/item.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/receipt/item.type.ts#L73)
 
-****Тип посредника****
-
-Тип посредника передается в запросе на создание чека  в массиве `items`, в параметре `agent_type`,
-если вы отправляете данные для формирования чека по "сценарию Сначала платеж, потом чек".
-Параметр `agent_type` нужно передавать, начиная с ФФД 1.1.
-Убедитесь, что ваша онлайн-касса обновлена до этой версии.
+Тип посредника. Передавайте в `items.agent_type` по сценарию «Сначала платёж, потом чек».
+Обязателен с ФФД 1.1 — проверьте версию кассы.
 
 ## See
 

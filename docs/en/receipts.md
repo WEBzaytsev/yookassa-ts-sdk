@@ -44,7 +44,6 @@ const receipts = await sdk.receipts.list({
 
 | Method                         | Description                |
 | ------------------------------ | -------------------------- |
-| `create(data, idempotenceKey?)` | Create receipt            |
-| `load(id)`                      | Get receipt by ID         |
+| `create(data, idempotenceKey?)` | Create a receipt          |
+| `load(id)`                      | Get a receipt by ID       |
 | `list(filter?)`                 | List receipts             |
-

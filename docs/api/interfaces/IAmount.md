@@ -6,9 +6,9 @@
 
 # Interface: IAmount
 
-Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L53)
+Defined in: [src/types/general.types.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L45)
 
-Сумма платежа. Иногда партнеры ЮKassa берут с пользователя дополнительную комиссию, которая не входит в эту сумму.
+Сумма платежа. Комиссия партнёра ЮKassa сверх этой суммы не входит.
 
 ## Properties
 
@@ -16,9 +16,9 @@ Defined in: [src/types/general.types.ts:53](https://github.com/WEBzaytsev/yookas
 
 > **currency**: [`CurrencyEnum`](../enumerations/CurrencyEnum.md)
 
-Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L60)
+Defined in: [src/types/general.types.ts:49](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L49)
 
-Трехбуквенный код валюты в формате ISO-4217. Пример: `RUB`. Должен соответствовать валюте субаккаунта (recipient.gateway_id), если вы разделяете потоки платежей, и валюте аккаунта (shopId в личном кабинете), если не разделяете.
+Код валюты ISO-4217. Пример: `RUB`. Должен совпадать с валютой субаккаунта (`recipient.gateway_id`) или аккаунта.
 
 ***
 
@@ -26,8 +26,6 @@ Defined in: [src/types/general.types.ts:60](https://github.com/WEBzaytsev/yookas
 
 > **value**: `string`
 
-Defined in: [src/types/general.types.ts:58](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L58)
+Defined in: [src/types/general.types.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L47)
 
-Сумма в выбранной валюте.
-
-Всегда дробное значение. Разделитель дробной части — точка, разделитель тысяч отсутствует. Количество знаков после точки зависит от выбранной валюты. Пример: `1000.00`.
+Сумма в валюте. Дробное число, точка как разделитель, без разделителя тысяч. Пример: `1000.00`.

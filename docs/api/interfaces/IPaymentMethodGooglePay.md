@@ -6,9 +6,9 @@
 
 # Interface: IPaymentMethodGooglePay
 
-Defined in: [src/types/payments/paymentMethod.type.ts:374](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L374)
+Defined in: [src/types/payments/paymentMethod.type.ts:374](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L374)
 
-Google Pay (обычно используется через payment_token)
+Google Pay — обычно через payment_token
 
 ## Extends
 
@@ -20,9 +20,9 @@ Google Pay (обычно используется через payment_token)
 
 > **id**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:217](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L217)
+Defined in: [src/types/payments/paymentMethod.type.ts:217](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L217)
 
-Идентификатор способа оплаты.
+Идентификатор способа оплаты
 
 #### Inherited from
 
@@ -34,9 +34,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:217](https://github.com/WE
 
 > **saved**: `boolean`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:219](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L219)
+Defined in: [src/types/payments/paymentMethod.type.ts:219](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L219)
 
-С помощью сохраненного способа оплаты можно проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
+Сохранённый способ оплаты позволяет проводить [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
 #### Inherited from
 
@@ -48,9 +48,9 @@ Defined in: [src/types/payments/paymentMethod.type.ts:219](https://github.com/WE
 
 > `optional` **title?**: `string`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:221](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L221)
+Defined in: [src/types/payments/paymentMethod.type.ts:221](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L221)
 
-Название способа оплаты.
+Название способа оплаты
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:221](https://github.com/WE
 
 > **type**: [`google_pay`](../enumerations/PaymentMethodsEnum.md#google_pay)
 
-Defined in: [src/types/payments/paymentMethod.type.ts:375](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L375)
+Defined in: [src/types/payments/paymentMethod.type.ts:375](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L375)
 
 #### Overrides
 

@@ -6,22 +6,22 @@ import { HttpsProxyAgent } from 'https-proxy-agent'
 import { YooKassaErr, type YooKassaErrResponse } from '../types/api.types'
 import { serializeYooKassaListParams } from './queryParams'
 
-/** Таймаут запроса по умолчанию (мс) */
+/** Таймаут запроса по умолчанию, мс */
 const DEFAULT_TIMEOUT = 5000
 
-/** Количество повторных попыток по умолчанию */
+/** Число повторных попыток по умолчанию */
 const DEFAULT_RETRIES = 5
 
-/** Задержка между повторными попытками (мс) */
+/** Пауза между повторными попытками, мс */
 const RETRY_DELAY = 1000
 
 /**
- * Конфигурация прокси-сервера (URL строка)
+ * URL прокси-сервера
  */
 export type ProxyConfig = string
 
 /**
- * Проверяет, можно ли повторить запрос (идемпотентные ошибки)
+ * Проверяет, допустим ли повтор запроса
  */
 function isRetryableError(error: AxiosError): boolean {
     // Сетевые ошибки
@@ -41,15 +41,15 @@ function isRetryableError(error: AxiosError): boolean {
 }
 
 /**
- * Задержка выполнения
+ * Пауза на указанное время
  */
 function delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 /**
- * Возвращает копию конфига с замаскированными чувствительными заголовками.
- * Предотвращает утечку `secret_key` и OAuth-токена в логи debug-режима.
+ * Возвращает копию конфига с замаскированными заголовками.
+ * Скрывает `secret_key` и OAuth-токен в логах debug-режима.
  */
 function redactSensitiveConfig(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
     const clone = { ...config }
@@ -168,9 +168,9 @@ interface IGenReqOpts<P> {
     method: 'GET' | 'POST' | 'DELETE'
     endpoint: string
     params?: P
-    /** Ключ идемпотентности. Если не указан, генерируется автоматически. */
+    /** Ключ идемпотентности; при отсутствии генерируется автоматически */
     requestId?: string
-    /** Использовать OAuth-токен вместо Basic Auth */
+    /** Авторизация OAuth-токеном вместо Basic Auth */
     useOAuth?: boolean
 }
 
@@ -250,10 +250,10 @@ export class Connector {
     protected secretKey: string
 
     constructor(init: ConnectorOpts) {
-        // Убираем trailing slash из endpoint
+        // Удаляем завершающий слэш у endpoint
         this.endpoint = (init.endpoint || 'https://api.yookassa.ru/v3').replace(/\/+$/, '')
 
-        // Требуем HTTPS, разрешая HTTP только для localhost в debug-режиме
+        // Требуем HTTPS; HTTP — только для localhost в debug-режиме
         const endpointUrl = new URL(this.endpoint)
         const isLocalhost = endpointUrl.hostname === 'localhost' || endpointUrl.hostname === '127.0.0.1'
         if (endpointUrl.protocol !== 'https:' && !(init.debug && isLocalhost)) {
@@ -275,29 +275,29 @@ export class Connector {
         const axiosConfig: AxiosRequestConfig = {
             baseURL: this.endpoint,
             timeout: this.timeout,
-            // Списки ЮKassa: created_at.gte, а не created_at[gte]
+            // Списки ЮKassa: `created_at.gte`, не `created_at[gte]`
             paramsSerializer: {
                 serialize: (p) => serializeYooKassaListParams((p ?? {}) as object),
             },
-            // auth НЕ устанавливаем здесь — передаём в каждом запросе явно,
-            // чтобы можно было отключить для OAuth
+            // auth не задаём здесь — передаём в каждом запросе,
+            // чтобы отключать для OAuth
             headers: {
                 'Content-Type': 'application/json',
                 'User-Agent': 'yookassa-ts-sdk',
             },
-            // Используем https-proxy-agent вместо встроенного axios proxy
-            // Это работает корректно в Next.js server actions
-            proxy: false, // Отключаем встроенный axios proxy
+            // https-proxy-agent вместо встроенного axios proxy
+            // Корректно работает в Next.js server actions
+            proxy: false, // Встроенный axios proxy отключён
             httpsAgent: init.proxy ? new HttpsProxyAgent(init.proxy) : undefined,
             httpAgent: init.proxy ? new HttpsProxyAgent(init.proxy) : undefined,
         }
 
-        // Создаём инстанс axios с rate limiting
+        // Axios с rate limiting
         this.axiosInstance = rateLimit(axios.create(axiosConfig), {
             maxRPS: this.maxRPS,
         })
 
-        // Логирование запросов и ответов в debug режиме
+        // Логи запросов и ответов в debug-режиме
         if (this.debug) {
             this.axiosInstance.interceptors.request.use(
                 (config) => AxiosLogger.requestLogger(redactSensitiveConfig(config)),
@@ -308,13 +308,12 @@ export class Connector {
     }
 
     /**
-     * Выполняет запрос к API с поддержкой retry и идемпотентности.
-     * При ошибке бросает YooKassaErr.
+     * Выполняет запрос к API с повторами и идемпотентностью.
      *
-     * @throws {YooKassaErr} При ошибке API или сети
+     * @throws {YooKassaErr} Ошибка API или сети
      */
     protected async request<Res, Data = object>(opts: RequestOpts<Data>): Promise<Res> {
-        // Генерируем или используем переданный Idempotence-Key
+        // Idempotence-Key: переданный или сгенерированный
         if (opts.requestId !== undefined && opts.requestId.length > 64) {
             throw new YooKassaErr({
                 type: 'error',
@@ -325,12 +324,12 @@ export class Connector {
         }
         const idempotenceKey = opts.requestId ?? randomBytes(16).toString('hex')
 
-        // Формируем заголовки
+        // Заголовки запроса
         const headers: Record<string, string> = {
             'Idempotence-Key': idempotenceKey,
         }
 
-        // OAuth авторизация для партнёрского API
+        // OAuth для партнёрского API
         if (opts.useOAuth) {
             if (!this.token) {
                 throw new YooKassaErr({
@@ -360,7 +359,7 @@ export class Connector {
             } catch (error) {
                 const axiosError = error as AxiosError
 
-                // Проверяем, является ли ответ валидным JSON от YooKassa API
+                // Ответ — валидный JSON ошибки YooKassa API
                 const responseData = axiosError.response?.data
                 const isValidYooKassaError =
                     responseData &&
@@ -368,14 +367,14 @@ export class Connector {
                     'type' in responseData &&
                     responseData.type === 'error'
 
-                // Если есть валидный ответ от API YooKassa и ошибка не retryable
+                // Валидная ошибка API без повтора
                 if (isValidYooKassaError && !isRetryableError(axiosError)) {
                     throw new YooKassaErr(responseData as YooKassaErrResponse)
                 }
 
                 lastError = axiosError
 
-                // Если это не последняя попытка и ошибка retryable
+                // Повтор при retryable-ошибке
                 if (attempt < this.retries && isRetryableError(axiosError)) {
                     const waitTime = RETRY_DELAY * 2 ** attempt // Exponential backoff
                     if (this.debug) {
@@ -385,7 +384,7 @@ export class Connector {
                     continue
                 }
 
-                // Последняя попытка или не retryable ошибка
+                // Последняя попытка или ошибка без повтора
                 if (isValidYooKassaError) {
                     throw new YooKassaErr(responseData as YooKassaErrResponse)
                 }
@@ -404,7 +403,7 @@ export class Connector {
             }
         }
 
-        // Если все попытки исчерпаны
+        // Все попытки исчерпаны
         throw new YooKassaErr({
             type: 'error',
             id: idempotenceKey,

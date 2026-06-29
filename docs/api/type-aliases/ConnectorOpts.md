@@ -8,7 +8,7 @@
 
 > **ConnectorOpts** = `object`
 
-Defined in: [src/client/connector.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L108)
+Defined in: [src/client/connector.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L108)
 
 Configuration options for YooKassa SDK.
 
@@ -52,7 +52,7 @@ const sdk = YooKassa({
 
 > `optional` **debug?**: `boolean`
 
-Defined in: [src/client/connector.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L131)
+Defined in: [src/client/connector.ts:131](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L131)
 
 Debug mode — logs all requests and responses
 
@@ -62,7 +62,7 @@ Debug mode — logs all requests and responses
 
 > `optional` **endpoint?**: `string`
 
-Defined in: [src/client/connector.ts:127](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L127)
+Defined in: [src/client/connector.ts:127](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L127)
 
 API endpoint URL (without trailing slash)
 
@@ -78,7 +78,7 @@ API endpoint URL (without trailing slash)
 
 > `optional` **maxRPS?**: `number`
 
-Defined in: [src/client/connector.ts:146](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L146)
+Defined in: [src/client/connector.ts:146](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L146)
 
 Maximum requests per second (rate limiting).
 
@@ -107,7 +107,7 @@ maxRPS: 2  // 2 * 5 = 10 total RPS
 
 > `optional` **proxy?**: [`ProxyConfig`](ProxyConfig.md)
 
-Defined in: [src/client/connector.ts:164](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L164)
+Defined in: [src/client/connector.ts:164](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L164)
 
 Proxy server URL (e.g., "http://user:pass@proxy.example.com:8080")
 
@@ -117,7 +117,7 @@ Proxy server URL (e.g., "http://user:pass@proxy.example.com:8080")
 
 > `optional` **retries?**: `number`
 
-Defined in: [src/client/connector.ts:160](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L160)
+Defined in: [src/client/connector.ts:160](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L160)
 
 Number of retry attempts on retryable errors (5xx, 429, network errors).
 
@@ -136,7 +136,7 @@ Idempotency key is preserved across retries, ensuring no duplicate payments.
 
 > **secret\_key**: `string`
 
-Defined in: [src/client/connector.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L116)
+Defined in: [src/client/connector.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L116)
 
 Secret key from YooKassa dashboard
 
@@ -146,7 +146,7 @@ Secret key from YooKassa dashboard
 
 > **shop\_id**: `string`
 
-Defined in: [src/client/connector.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L112)
+Defined in: [src/client/connector.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L112)
 
 Shop identifier from YooKassa dashboard
 
@@ -156,7 +156,7 @@ Shop identifier from YooKassa dashboard
 
 > `optional` **timeout?**: `number`
 
-Defined in: [src/client/connector.ts:151](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L151)
+Defined in: [src/client/connector.ts:151](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L151)
 
 Request timeout in milliseconds
 
@@ -172,7 +172,7 @@ Request timeout in milliseconds
 
 > `optional` **token?**: `string`
 
-Defined in: [src/client/connector.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/client/connector.ts#L122)
+Defined in: [src/client/connector.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/client/connector.ts#L122)
 
 OAuth token for partner API (webhooks, shop info).
 Required for `sdk.webhooks.*` and `sdk.shop.*` methods.

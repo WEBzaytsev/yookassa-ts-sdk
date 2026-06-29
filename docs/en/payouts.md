@@ -1,6 +1,6 @@
 # Payouts
 
-Payouts are available when your YooKassa account has [payouts](https://yookassa.ru/developers/payouts/overview) enabled. Use the **gateway** `shop_id` and `secret_key` (not necessarily the same as for accepting payments).
+Payouts are available when [payouts](https://yookassa.ru/developers/payouts/overview) are enabled for your YooKassa account. Use the **gateway** `shop_id` and `secret_key` — they may differ from the credentials used to accept payments.
 
 ## Create payout
 
@@ -25,7 +25,7 @@ const payout = await sdk.payouts.create({
 const same = await sdk.payouts.create(payoutData, 'your-unique-key');
 ```
 
-You can also use `payment_method_id` or `payout_token` instead of `payout_destination_data` when applicable — see the [API](https://yookassa.ru/developers/api#create_payout).
+Depending on your use case, you can also use `payment_method_id` or `payout_token` instead of `payout_destination_data`. See the [API](https://yookassa.ru/developers/api#create_payout) for details.
 
 ## Get payout
 
@@ -56,11 +56,11 @@ const items = await sdk.payouts.list({
 | `limit` | Page size (1–100, default 10) |
 | `cursor` | Pagination cursor |
 
-List query parameters use dot notation (e.g. `created_at.gte`); the SDK serializes filters accordingly.
+List query parameters use dot notation (e.g. `created_at.gte`). The SDK serializes filters accordingly.
 
 ## Search payouts
 
-`search` looks up payouts by `metadata` fields and/or `created_at` range. The `created_at` window is limited to the last **3 months**.
+`search` looks up payouts by `metadata` fields and/or a `created_at` range. The `created_at` window is limited to the last **3 months**.
 
 ```ts
 const items = await sdk.payouts.search({
@@ -82,9 +82,9 @@ const items = await sdk.payouts.search({
 
 | Method | Description |
 | --- | --- |
-| `create(data, idempotenceKey?)` | Create payout |
-| `load(id)` | Get payout by ID |
+| `create(data, idempotenceKey?)` | Create a payout |
+| `load(id)` | Get a payout by ID |
 | `list(filter?)` | List payouts |
-| `search(filter?)` | Search payouts by metadata and created_at (3-month window) |
+| `search(filter?)` | Search payouts by metadata and `created_at` (3-month window) |
 
 TypeScript types: `Payouts.IPayout`, `Payouts.CreatePayoutRequest`, `GetPayoutListFilter`, `GetPayoutSearchFilter`.

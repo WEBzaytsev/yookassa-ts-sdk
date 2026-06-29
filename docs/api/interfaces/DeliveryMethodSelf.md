@@ -6,7 +6,7 @@
 
 # Interface: DeliveryMethodSelf
 
-Defined in: [src/types/invoice.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L73)
+Defined in: [src/types/invoice.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L73)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/invoice.type.ts:73](https://github.com/WEBzaytsev/yookass
 
 > **type**: `"self"`
 
-Defined in: [src/types/invoice.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L74)
+Defined in: [src/types/invoice.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L74)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/types/invoice.type.ts:74](https://github.com/WEBzaytsev/yookass
 
 > `optional` **url?**: `string`
 
-Defined in: [src/types/invoice.type.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L75)
+Defined in: [src/types/invoice.type.ts:75](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L75)

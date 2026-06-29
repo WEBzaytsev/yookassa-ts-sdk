@@ -6,7 +6,7 @@
 
 # Class: YooKassaErr
 
-Defined in: [src/types/api.types.ts:97](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L97)
+Defined in: [src/types/api.types.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L90)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/types/api.types.ts:97](https://github.com/WEBzaytsev/yookassa-t
 
 > **new YooKassaErr**(`err`): `YooKassaErr`
 
-Defined in: [src/types/api.types.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L99)
+Defined in: [src/types/api.types.ts:92](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L92)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/types/api.types.ts:99](https://github.com/WEBzaytsev/yookassa-t
 
 > **id**: `string`
 
-Defined in: [src/types/api.types.ts:98](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L98)
+Defined in: [src/types/api.types.ts:91](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L91)
 
 ***
 

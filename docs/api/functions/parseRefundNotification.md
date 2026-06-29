@@ -8,9 +8,9 @@
 
 > **parseRefundNotification**(`body`): [`RefundNotification`](../type-aliases/RefundNotification.md)
 
-Defined in: [src/webhooks/notification.ts:313](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L313)
+Defined in: [src/webhooks/notification.ts:309](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L309)
 
-Типизированный парсер для уведомлений о возвратах.
+Парсит уведомления о возвратах.
 
 ## Parameters
 
@@ -18,14 +18,14 @@ Defined in: [src/webhooks/notification.ts:313](https://github.com/WEBzaytsev/yoo
 
 `unknown`
 
-Тело запроса
+— тело запроса
 
 ## Returns
 
 [`RefundNotification`](../type-aliases/RefundNotification.md)
 
-Уведомление с типизированным объектом возврата
+Уведомление с типизированным возвратом
 
 ## Throws
 
-Если событие не относится к возвратам
+Событие не относится к возвратам

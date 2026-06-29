@@ -6,7 +6,7 @@
 
 # Enumeration: BankCardTypeEnum
 
-Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L155)
+Defined in: [src/types/payments/paymentMethod.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L155)
 
 Тип банковской карты
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#payment_object_payment_method_card_card_type
 
 > **AmericanExpress**: `"AmericanExpress"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:161](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L161)
+Defined in: [src/types/payments/paymentMethod.type.ts:161](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L161)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:161](https://github.com/WE
 
 > **Dankort**: `"Dankort"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:167](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L167)
+Defined in: [src/types/payments/paymentMethod.type.ts:167](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L167)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:167](https://github.com/WE
 
 > **DinersClub**: `"DinersClub"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:162](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L162)
+Defined in: [src/types/payments/paymentMethod.type.ts:162](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L162)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:162](https://github.com/WE
 
 > **DiscoverCard**: `"DiscoverCard"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:163](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L163)
+Defined in: [src/types/payments/paymentMethod.type.ts:163](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L163)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:163](https://github.com/WE
 
 > **InstaPayment**: `"InstaPayment"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:164](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L164)
+Defined in: [src/types/payments/paymentMethod.type.ts:164](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L164)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:164](https://github.com/WE
 
 > **InstaPaymentTM**: `"InstaPaymentTM"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:165](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L165)
+Defined in: [src/types/payments/paymentMethod.type.ts:165](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L165)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:165](https://github.com/WE
 
 > **JCB**: `"JCB"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:160](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L160)
+Defined in: [src/types/payments/paymentMethod.type.ts:160](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L160)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:160](https://github.com/WE
 
 > **Laser**: `"Laser"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:166](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L166)
+Defined in: [src/types/payments/paymentMethod.type.ts:166](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L166)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:166](https://github.com/WE
 
 > **MasterCard**: `"MasterCard"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:156](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L156)
+Defined in: [src/types/payments/paymentMethod.type.ts:156](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L156)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:156](https://github.com/WE
 
 > **Mir**: `"Mir"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:158](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L158)
+Defined in: [src/types/payments/paymentMethod.type.ts:158](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L158)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:158](https://github.com/WE
 
 > **Solo**: `"Solo"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:168](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L168)
+Defined in: [src/types/payments/paymentMethod.type.ts:168](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L168)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:168](https://github.com/WE
 
 > **Switch**: `"Switch"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:169](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L169)
+Defined in: [src/types/payments/paymentMethod.type.ts:169](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L169)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:169](https://github.com/WE
 
 > **UnionPay**: `"UnionPay"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:159](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L159)
+Defined in: [src/types/payments/paymentMethod.type.ts:159](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L159)
 
 ***
 
@@ -124,7 +124,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:159](https://github.com/WE
 
 > **Unknown**: `"Unknown"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:170](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L170)
+Defined in: [src/types/payments/paymentMethod.type.ts:170](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L170)
 
 ***
 
@@ -132,4 +132,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:170](https://github.com/WE
 
 > **Visa**: `"Visa"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L157)
+Defined in: [src/types/payments/paymentMethod.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L157)

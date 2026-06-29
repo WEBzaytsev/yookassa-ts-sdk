@@ -8,14 +8,12 @@
 
 > `const` **AgentTypeMap**: `object`
 
-Defined in: [src/dictionaries.ts:134](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L134)
+Defined in: [src/dictionaries.ts:132](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/dictionaries.ts#L132)
 
-****Тип посредника****
+**Тип посредника**
 
-Тип посредника передается в запросе на создание чека  в массиве `items`, в параметре `agent_type`,
-если вы отправляете данные для формирования чека по "сценарию Сначала платеж, потом чек".
-Параметр `agent_type` нужно передавать, начиная с ФФД 1.1.
-Убедитесь, что ваша онлайн-касса обновлена до этой версии.
+Передаётся в `items.agent_type` при сценарии «Сначала платёж, потом чек».
+Обязателен с ФФД 1.1 — убедитесь, что онлайн-касса обновлена.
 
 ## Type Declaration
 
@@ -29,11 +27,11 @@ Defined in: [src/dictionaries.ts:134](https://github.com/WEBzaytsev/yookassa-ts-
 
 ### banking\_payment\_agent
 
-> **banking\_payment\_agent**: `string` = `'Банковский платежный агент'`
+> **banking\_payment\_agent**: `string` = `'Банковский платёжный агент'`
 
 ### banking\_payment\_subagent
 
-> **banking\_payment\_subagent**: `string` = `'Банковский платежный субагент'`
+> **banking\_payment\_subagent**: `string` = `'Банковский платёжный субагент'`
 
 ### commissioner
 
@@ -41,11 +39,11 @@ Defined in: [src/dictionaries.ts:134](https://github.com/WEBzaytsev/yookassa-ts-
 
 ### payment\_agent
 
-> **payment\_agent**: `string` = `'Платежный агент'`
+> **payment\_agent**: `string` = `'Платёжный агент'`
 
 ### payment\_subagent
 
-> **payment\_subagent**: `string` = `'Платежный субагент'`
+> **payment\_subagent**: `string` = `'Платёжный субагент'`
 
 ## See
 

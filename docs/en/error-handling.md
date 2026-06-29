@@ -35,7 +35,7 @@ try {
 
 ### Idempotency key too long
 
-The SDK validates custom idempotency keys before sending the request. If the key exceeds **64 characters**, a `YooKassaErr` with `code: 'invalid_request'` is thrown client-side before any network call is made. Auto-generated keys (when no key is passed) are always 32 characters and are safe.
+The SDK validates custom idempotency keys before sending a request. If the key exceeds **64 characters**, it throws a `YooKassaErr` with `code: 'invalid_request'` on the client side — before any network call. Auto-generated keys (when no key is passed) are always 32 characters and are safe.
 
 ```ts
 // Throws immediately — key is 65 chars
@@ -47,7 +47,7 @@ await sdk.payments.create(data)
 
 ### "Receipt is missing or illegal"
 
-This error occurs when fiscalization (mandatory receipt generation) is enabled in your YooKassa account, but the payment request:
+This error appears when fiscalization (mandatory receipt generation) is enabled in your YooKassa account, but the payment request:
 
 1. **Missing receipt data** — the `receipt` field is not provided
 2. **Invalid receipt data** — required fields are missing or values don't meet requirements
@@ -92,17 +92,17 @@ const payment = await sdk.payments.create({
 
 #### Option 2: Disable fiscalization (if not required)
 
-If you don't work under 54-FZ, you can disable mandatory receipt generation in YooKassa account settings:
+If you don't operate under 54-FZ, you can disable mandatory receipt generation in your YooKassa account settings:
 
-1. Log in to [YooKassa dashboard](https://yookassa.ru/my)
+1. Log in to the [YooKassa dashboard](https://yookassa.ru/my)
 2. Go to shop settings
 3. Disable mandatory receipt generation
 
-**Note:** Disabling fiscalization is only possible if you're not required to work under 54-FZ (not a company or individual entrepreneur).
+**Note:** Disabling fiscalization is only possible if you're not required to operate under 54-FZ (not a company or individual entrepreneur).
 
 #### Option 3: Create receipt separately ("Payment first, then receipt" scenario)
 
-If using a third-party cash register, you can create payment without receipt, then send receipt separately:
+If you use a third-party cash register, you can create a payment without a receipt and send the receipt separately:
 
 ```ts
 // 1. Create payment without receipt
@@ -143,13 +143,13 @@ if (payment.status === 'succeeded') {
 
 ### "Card binding error: invalid_request"
 
-This error occurs when working with card binding (saving payment methods for recurring payments) and indicates that one of the request parameters has an invalid value or format.
+This error occurs when working with card binding (saving payment methods for recurring payments). It indicates that one of the request parameters has an invalid value or format.
 
 **Possible causes:**
 
 #### 1. Incorrect use of `save_payment_method` and `payment_method_id`
 
-**Problem:** Both `save_payment_method` and `payment_method_id` are provided simultaneously, or `payment_method_id` has an invalid format.
+**Problem:** Both `save_payment_method` and `payment_method_id` are provided at the same time, or `payment_method_id` has an invalid format.
 
 **Solution:**
 
@@ -200,7 +200,7 @@ const recurringPayment = await sdk.payments.create({
 
 #### 3. Invalid currency
 
-**Problem:** Payment amount is specified in a currency other than RUB.
+**Problem:** The payment amount is specified in a currency other than RUB.
 
 **Solution:**
 
@@ -220,7 +220,7 @@ const payment = await sdk.payments.create({
 
 #### 4. Missing required parameters
 
-**Problem:** When using `save_payment_method: true`, required parameters are not specified.
+**Problem:** Required parameters are missing when using `save_payment_method: true`.
 
 **Solution:**
 
@@ -236,11 +236,11 @@ const payment = await sdk.payments.create({
 
 #### 5. Card saving feature not activated
 
-**Problem:** Payment method saving feature is not activated in your YooKassa account.
+**Problem:** Payment method saving is not activated in your YooKassa account.
 
 **Solution:**
 
-1. Contact YooKassa manager to activate recurring payments feature
+1. Contact your YooKassa manager to activate recurring payments
 2. Ensure your account supports payment method saving
 
 **Debugging checklist:**
@@ -258,7 +258,7 @@ const payment = await sdk.payments.create({
 
 ## Automatic Retries
 
-SDK automatically retries requests on:
+The SDK automatically retries requests on:
 
 - Network errors
 - Server errors (5xx)
@@ -274,4 +274,3 @@ const sdk = YooKassa({
     timeout: 10000,  // Request timeout in ms (default: 5000)
 });
 ```
-

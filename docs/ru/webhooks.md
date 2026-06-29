@@ -2,7 +2,7 @@
 
 ## Управление вебхуками (Партнёрское API)
 
-> **Важно:** Вебхуки требуют OAuth-токен. Функционал доступен только в рамках [партнёрской программы](https://yookassa.ru/developers/partners-api/basics).
+> **Важно:** для вебхуков нужен OAuth-токен. Функционал доступен только в [партнёрской программе](https://yookassa.ru/developers/partners-api/basics).
 
 ### Создание вебхука
 
@@ -41,7 +41,7 @@ SDK предоставляет хелперы для обработки вход
 
 ### Проверка уведомлений (рекомендуется)
 
-Методы `sdk.webhooks.verify*` разбирают тело запроса и **перезагружают объект из API YooKassa**, поэтому возвращаемые данные всегда актуальны независимо от содержимого webhook-тела.
+Методы `sdk.webhooks.verify*` разбирают тело запроса и **перезагружают объект из API YooKassa** — возвращаемые данные актуальны независимо от содержимого webhook-тела.
 
 ```ts
 app.post('/webhook', async (req, res) => {
@@ -57,11 +57,11 @@ app.post('/webhook', async (req, res) => {
 
         switch (notification.event) {
             case 'payment.succeeded':
-                // notification.object — это IPayment, загруженный свежо из API
+                // notification.object — IPayment, загруженный из API
                 console.log('Платёж успешен:', notification.object.id)
                 break
             case 'refund.succeeded':
-                // notification.object — это IRefund
+                // notification.object — IRefund
                 console.log('Возврат успешен:', notification.object.id)
                 break
         }
@@ -79,16 +79,16 @@ app.post('/webhook', async (req, res) => {
 Используйте типизированные варианты, если ожидается только один тип события:
 
 ```ts
-// Выбросит WebhookValidationError, если тело не является событием payment.*
+// Выбросит WebhookValidationError, если тело не относится к событию payment.*
 const paymentNotification = await sdk.webhooks.verifyPayment(req.body)
-// paymentNotification.object — это IPayment
+// paymentNotification.object — IPayment
 
-// Выбросит WebhookValidationError, если тело не является событием refund.*
+// Выбросит WebhookValidationError, если тело не относится к событию refund.*
 const refundNotification = await sdk.webhooks.verifyRefund(req.body)
-// refundNotification.object — это IRefund
+// refundNotification.object — IRefund
 ```
 
-> **Важно:** События `payment_method.*` (например, `payment_method.active`) не обрабатываются методами `verify*`. Загрузите сохранённый способ оплаты вручную: `await sdk.paymentMethods.load(body.object.id)`.
+> **Важно:** события `payment_method.*` (например, `payment_method.active`) методы `verify*` не обрабатывают. Загрузите сохранённый способ оплаты вручную: `await sdk.paymentMethods.load(body.object.id)`.
 
 ### Парсинг уведомлений (низкоуровневый)
 
@@ -134,18 +134,18 @@ app.post('/webhook', (req, res) => {
 
 ### Типизированные парсеры (низкоуровневые)
 
-Эти функции только разбирают и валидируют формат тела — они **не** перезагружают объект из API.
+Эти функции только разбирают и валидируют формат тела — объект из API **не** перезагружают.
 
 ```ts
 import { parsePaymentNotification, parseRefundNotification } from '@webzaytsev/yookassa-ts-sdk'
 
 // Только для событий платежей
 const paymentNotification = parsePaymentNotification(req.body)
-// paymentNotification.object — это IPayment
+// paymentNotification.object — IPayment
 
 // Только для событий возвратов
 const refundNotification = parseRefundNotification(req.body)
-// refundNotification.object — это IRefund
+// refundNotification.object — IRefund
 ```
 
 ### IP-адреса YooKassa
@@ -160,7 +160,7 @@ console.log(YOOKASSA_IP_RANGES)
 console.log(YOOKASSA_IPV6_RANGE)
 // '2a02:5180::/32'
 
-// Проверить, принадлежит ли IP адрес YooKassa (поддерживает IPv4 и IPv6)
+// Проверить, принадлежит ли IP адрес YooKassa (IPv4 и IPv6)
 isYooKassaIP('185.71.76.1')      // true
 isYooKassaIP('77.75.156.11')     // true (точное совпадение)
 isYooKassaIP('2a02:5180::1')     // true (IPv6)
@@ -179,4 +179,3 @@ isYooKassaIP('192.168.1.1')      // false
 | `payout.canceled` | Выплата отменена |
 | `deal.closed` | Сделка закрыта |
 | `payment_method.active` | Сохранённый способ оплаты стал активным (например, завершена привязка на нулевую сумму) |
-

@@ -1,6 +1,6 @@
 # Выплаты
 
-Выплаты доступны, если в ЮKassa у вас подключено решение [«Выплаты»](https://yookassa.ru/developers/payouts/overview). Для API нужны **shop_id** и **secret_key шлюза** (могут отличаться от магазина приёма платежей).
+Выплаты доступны при подключённом решении [«Выплаты»](https://yookassa.ru/developers/payouts/overview) в ЮKassa. Для API нужны **shop_id** и **secret_key шлюза** — они могут отличаться от учётных данных магазина приёма платежей.
 
 ## Создание выплаты
 
@@ -25,7 +25,7 @@ const payout = await sdk.payouts.create({
 const same = await sdk.payouts.create(payoutData, 'your-unique-key');
 ```
 
-Вместо `payout_destination_data` при необходимости можно передать `payment_method_id` или `payout_token` — см. [API](https://yookassa.ru/developers/api#create_payout).
+Вместо `payout_destination_data` при необходимости передайте `payment_method_id` или `payout_token` — см. [API](https://yookassa.ru/developers/api#create_payout).
 
 ## Информация о выплате
 
@@ -56,7 +56,7 @@ const items = await sdk.payouts.list({
 | `limit` | Размер страницы (1–100, по умолчанию 10) |
 | `cursor` | Курсор пагинации |
 
-Параметры списков передаются в точечной нотации (`created_at.gte` и т.д.); SDK сериализует объект фильтра в нужный вид.
+Параметры списков передаются в точечной нотации (`created_at.gte` и т. п.); SDK сериализует объект фильтра в нужный вид.
 
 ## Поиск выплат
 

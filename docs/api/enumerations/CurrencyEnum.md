@@ -6,7 +6,7 @@
 
 # Enumeration: CurrencyEnum
 
-Defined in: [src/types/general.types.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L16)
+Defined in: [src/types/general.types.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L16)
 
 Supported currencies in ISO-4217 format.
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#payment_object_amount_currency
 
 > **BYN**: `"BYN"`
 
-Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L26)
+Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L26)
 
 Белорусский рубль
 
@@ -30,7 +30,7 @@ Defined in: [src/types/general.types.ts:26](https://github.com/WEBzaytsev/yookas
 
 > **EUR**: `"EUR"`
 
-Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L20)
+Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L20)
 
 Евро
 
@@ -40,7 +40,7 @@ Defined in: [src/types/general.types.ts:20](https://github.com/WEBzaytsev/yookas
 
 > **KZT**: `"KZT"`
 
-Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L24)
+Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L24)
 
 Казахстанский тенге
 
@@ -50,7 +50,7 @@ Defined in: [src/types/general.types.ts:24](https://github.com/WEBzaytsev/yookas
 
 > **RUB**: `"RUB"`
 
-Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L18)
+Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L18)
 
 Российский рубль
 
@@ -60,7 +60,7 @@ Defined in: [src/types/general.types.ts:18](https://github.com/WEBzaytsev/yookas
 
 > **UAH**: `"UAH"`
 
-Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L28)
+Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L28)
 
 Украинская гривна
 
@@ -70,7 +70,7 @@ Defined in: [src/types/general.types.ts:28](https://github.com/WEBzaytsev/yookas
 
 > **USD**: `"USD"`
 
-Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L22)
+Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L22)
 
 Доллар США
 
@@ -80,6 +80,6 @@ Defined in: [src/types/general.types.ts:22](https://github.com/WEBzaytsev/yookas
 
 > **UZS**: `"UZS"`
 
-Defined in: [src/types/general.types.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/general.types.ts#L30)
+Defined in: [src/types/general.types.ts:30](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/general.types.ts#L30)
 
 Узбекский сум

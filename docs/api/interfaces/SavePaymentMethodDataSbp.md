@@ -6,9 +6,9 @@
 
 # Interface: SavePaymentMethodDataSbp
 
-Defined in: [src/types/savedPaymentMethod.type.ts:80](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L80)
+Defined in: [src/types/savedPaymentMethod.type.ts:80](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L80)
 
-Запрос на создание привязки счёта СБП на нулевую сумму.
+Запрос привязки счёта СБП на нулевую сумму.
 
 ## See
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-
 
 > `optional` **client\_ip?**: `string`
 
-Defined in: [src/types/savedPaymentMethod.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L85)
+Defined in: [src/types/savedPaymentMethod.type.ts:85](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L85)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/types/savedPaymentMethod.type.ts:85](https://github.com/WEBzayt
 
 > `optional` **confirmation?**: [`PaymentMethodsConfirmationDataRedirect`](PaymentMethodsConfirmationDataRedirect.md) \| [`PaymentMethodsConfirmationDataQr`](PaymentMethodsConfirmationDataQr.md)
 
-Defined in: [src/types/savedPaymentMethod.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L86)
+Defined in: [src/types/savedPaymentMethod.type.ts:86](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L86)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/types/savedPaymentMethod.type.ts:86](https://github.com/WEBzayt
 
 > `optional` **holder?**: `object`
 
-Defined in: [src/types/savedPaymentMethod.type.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L82)
+Defined in: [src/types/savedPaymentMethod.type.ts:82](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L82)
 
 #### gateway\_id?
 
@@ -48,4 +48,4 @@ Defined in: [src/types/savedPaymentMethod.type.ts:82](https://github.com/WEBzayt
 
 > **type**: `"sbp"`
 
-Defined in: [src/types/savedPaymentMethod.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/savedPaymentMethod.type.ts#L81)
+Defined in: [src/types/savedPaymentMethod.type.ts:81](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/savedPaymentMethod.type.ts#L81)

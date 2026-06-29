@@ -46,13 +46,13 @@ const payments = await sdk.payments.list({
 
 | Фильтр | Описание |
 | --- | --- |
-| `created_at` | Фильтр по времени создания (`gte`, `gt`, `lte`, `lt`) |
-| `captured_at` | Фильтр по времени подтверждения |
-| `status` | Фильтр по статусу (`pending`, `waiting_for_capture`, `succeeded`, `canceled`) |
-| `payment_method` | Фильтр по коду способа оплаты |
-| `limit` | Количество результатов (1-100, по умолчанию: 10) |
+| `created_at` | Время создания (`gte`, `gt`, `lte`, `lt`) |
+| `captured_at` | Время подтверждения |
+| `status` | Статус (`pending`, `waiting_for_capture`, `succeeded`, `canceled`) |
+| `payment_method` | Код способа оплаты |
+| `limit` | Число результатов (1–100, по умолчанию: 10) |
 
-Вложенные фильтры по времени уходят в query в виде `created_at.gte` и т.п., как требует [API списков](https://yookassa.ru/developers/using-api/lists).
+Вложенные фильтры по времени уходят в query как `created_at.gte` и т. п. — по правилам [API списков](https://yookassa.ru/developers/using-api/lists).
 
 ## Оплата ЖКУ
 
@@ -91,10 +91,10 @@ const payment = await sdk.payments.cancel('payment_id');
 
 ## Двухстадийные платежи
 
-Для дорогих заказов используйте [двухстадийные платежи](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#two-stage) — сначала холдирование, затем подтверждение или отмена.
+Для дорогих заказов используйте [двухстадийные платежи](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#two-stage): сначала холдирование, затем подтверждение или отмена.
 
 ```ts
-// Стадия 1: Создание платежа с capture: false (холдирование)
+// Стадия 1: платёж с capture: false (холдирование)
 const payment = await sdk.payments.create({
     amount: { value: '5000.00', currency: 'RUB' },
     confirmation: { type: 'redirect', return_url: 'https://example.com' },
@@ -102,10 +102,10 @@ const payment = await sdk.payments.create({
     description: 'Заказ #456',
 });
 
-// Стадия 2a: Подтверждение платежа (после проверки наличия товара и т.д.)
+// Стадия 2a: подтверждение (после проверки наличия товара и т. п.)
 const captured = await sdk.payments.capture(payment.id);
 
-// Стадия 2b: Или отмена при необходимости
+// Стадия 2b: отмена при необходимости
 const canceled = await sdk.payments.cancel(payment.id);
 ```
 
@@ -117,7 +117,7 @@ SDK поддерживает все [сценарии подтверждения
 
 ### Redirect (по умолчанию)
 
-Пользователь перенаправляется на страницу YooKassa или банка:
+Перенаправление пользователя на страницу YooKassa или банка:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -125,7 +125,7 @@ const payment = await sdk.payments.create({
     confirmation: {
         type: 'redirect',
         return_url: 'https://example.com/return',
-        locale: 'ru_RU', // Опционально: язык интерфейса
+        locale: 'ru_RU', // Язык интерфейса (опционально)
     },
 });
 
@@ -143,7 +143,7 @@ const payment = await sdk.payments.create({
     confirmation: { type: 'embedded' },
 });
 
-// Используйте токен для инициализации виджета
+// Токен для инициализации виджета
 console.log(payment.confirmation.confirmation_token);
 ```
 
@@ -158,13 +158,13 @@ const payment = await sdk.payments.create({
     confirmation: { type: 'qr' },
 });
 
-// Сгенерируйте QR-код из этих данных
+// Сгенерировать QR-код из этих данных
 console.log(payment.confirmation.confirmation_data);
 ```
 
 ### Мобильное приложение
 
-Для SberPay, T-Pay и других мобильных платежей:
+SberPay, T-Pay и другие мобильные платежи:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -181,7 +181,7 @@ console.log(payment.confirmation.confirmation_url);
 
 ## Платёжные токены
 
-Для интеграции с [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) или [Mobile SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics):
+Интеграция с [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) или [Mobile SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -195,7 +195,7 @@ const payment = await sdk.payments.create({
 
 ## Автоплатежи (рекуррентные платежи)
 
-SDK поддерживает [автоплатежи](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) — автоматические списания без подтверждения пользователем.
+SDK поддерживает [автоплатежи](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) — списания без подтверждения пользователем.
 
 ### Поддерживаемые способы оплаты
 
@@ -209,12 +209,12 @@ SDK поддерживает [автоплатежи](https://yookassa.ru/develo
 
 > **Безусловное сохранение** (`save_payment_method: true`) — пользователь не может отказаться от сохранения.
 >
-> **Условное сохранение** — пользователь сам решает, сохранять ли способ оплаты на форме ЮKassa.
+> **Условное сохранение** — пользователь сам решает на форме ЮKassa, сохранять ли способ оплаты.
 
 ### Сохранение способа оплаты
 
 ```ts
-// Первый платёж — сохраняем способ оплаты для будущих списаний
+// Первый платёж — сохранить способ оплаты для будущих списаний
 const payment = await sdk.payments.create({
     amount: { value: '100.00', currency: 'RUB' },
     confirmation: { type: 'redirect', return_url: 'https://example.com' },
@@ -222,8 +222,8 @@ const payment = await sdk.payments.create({
     description: 'Оплата подписки',
 });
 
-// После успешного платежа будет доступен payment_method.id
-console.log(payment.payment_method.id); // Используйте для будущих списаний
+// После успешного платежа доступен payment_method.id
+console.log(payment.payment_method.id); // ID для будущих списаний
 ```
 
 ### Списание по сохранённому методу
@@ -244,7 +244,7 @@ const recurringPayment = await sdk.payments.create({
 const payment = await sdk.payments.load('payment_id');
 
 if (payment.payment_method?.saved) {
-    // Метод сохранён, можно использовать для автоплатежей
+    // Метод сохранён — можно использовать для автоплатежей
     console.log('ID сохранённого метода:', payment.payment_method.id);
 }
 ```
@@ -253,7 +253,7 @@ if (payment.payment_method?.saved) {
 
 ## Авиабилеты
 
-Для продажи авиабилетов банковскими картами передайте [данные авиабилета](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/airline-tickets):
+При продаже авиабилетов банковскими картами передайте [данные авиабилета](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/airline-tickets):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -330,7 +330,7 @@ const payment = await sdk.payments.create({
         {
             account_id: 'seller_shop_id_1',
             amount: { value: '600.00', currency: 'RUB' },
-            platform_fee_amount: { value: '50.00', currency: 'RUB' }, // Ваша комиссия
+            platform_fee_amount: { value: '50.00', currency: 'RUB' }, // Комиссия площадки
         },
         {
             account_id: 'seller_shop_id_2',
@@ -345,7 +345,7 @@ const payment = await sdk.payments.create({
 
 ## Метаданные
 
-Прикрепляйте пользовательские данные к платежам (до 16 ключей, возвращаются в ответах и вебхуках):
+Прикрепляйте пользовательские данные к платежам (до 16 ключей; возвращаются в ответах и вебхуках):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -358,8 +358,7 @@ const payment = await sdk.payments.create({
     },
 });
 
-// Позже получите метаданные
+// Получить метаданные позже
 const loaded = await sdk.payments.load(payment.id);
 console.log(loaded.metadata.order_id); // 'order-123'
 ```
-

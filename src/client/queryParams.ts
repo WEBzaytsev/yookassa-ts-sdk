@@ -1,6 +1,6 @@
 /**
- * Сериализация query-параметров для списков ЮKassa: `created_at.gte`, `payout_destination.type`, а не `created_at[gte]`.
- * Для поиска по metadata (`/payouts/search`) — формат `metadata[key]=value` (deepObject).
+ * Сериализует query-параметры списков ЮKassa в точечной нотации: `created_at.gte`, `payout_destination.type` (не `created_at[gte]`).
+ * Для `/payouts/search` по metadata — формат `metadata[key]=value` (deepObject).
  * @see https://yookassa.ru/developers/using-api/lists
  */
 export function serializeYooKassaListParams(params: object): string {

@@ -8,11 +8,9 @@
 
 > **DateFilter** = `object`
 
-Defined in: [src/types/api.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L9)
+Defined in: [src/types/api.types.ts:6](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L6)
 
-Фильтр по времени
-
-Время указывается в формате ISO 8601. Пример: `created_at.gte=2018-07-18T10:51:18.139Z`
+Фильтр по времени. Формат ISO 8601. Пример: `created_at.gte=2018-07-18T10:51:18.139Z`
 
 ## Properties
 
@@ -20,9 +18,9 @@ Defined in: [src/types/api.types.ts:9](https://github.com/WEBzaytsev/yookassa-ts
 
 > `optional` **gt?**: `string`
 
-Defined in: [src/types/api.types.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L13)
+Defined in: [src/types/api.types.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L10)
 
-время должно быть больше указанного значения
+Позже указанного момента
 
 ***
 
@@ -30,9 +28,9 @@ Defined in: [src/types/api.types.ts:13](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **gte?**: `string`
 
-Defined in: [src/types/api.types.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L11)
+Defined in: [src/types/api.types.ts:8](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L8)
 
-время должно быть больше указанного значения или равно ему («с такого-то момента включительно»).
+Не раньше указанного момента (включительно)
 
 ***
 
@@ -40,9 +38,9 @@ Defined in: [src/types/api.types.ts:11](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **lt?**: `string`
 
-Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L17)
+Defined in: [src/types/api.types.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L14)
 
-Время должно быть меньше указанного значения
+Раньше указанного момента
 
 ***
 
@@ -50,6 +48,6 @@ Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **lte?**: `string`
 
-Defined in: [src/types/api.types.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L15)
+Defined in: [src/types/api.types.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L12)
 
-время должно быть меньше указанного значения или равно ему
+Не позже указанного момента (включительно)

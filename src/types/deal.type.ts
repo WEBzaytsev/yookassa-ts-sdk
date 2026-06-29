@@ -7,7 +7,7 @@ export type FeeMoment = 'payment_succeeded' | 'deal_closed'
 
 export type DealStatus = 'opened' | 'closed'
 
-/** Запрос на создание безопасной сделки. */
+/** Запрос на создание Безопасной сделки */
 export interface SafeDealRequest {
     type: SafeDealType
     fee_moment: FeeMoment
@@ -15,7 +15,7 @@ export interface SafeDealRequest {
     description?: string
 }
 
-/** Объект безопасной сделки. */
+/** Объект Безопасной сделки */
 export interface SafeDeal {
     type: SafeDealType
     id: string
@@ -30,7 +30,7 @@ export interface SafeDeal {
     test: boolean
 }
 
-/** Фильтр списка сделок (GET /deals). */
+/** Фильтр списка сделок (`GET /deals`) */
 export interface GetDealListFilter {
     created_at?: DateFilter
     expires_at?: DateFilter

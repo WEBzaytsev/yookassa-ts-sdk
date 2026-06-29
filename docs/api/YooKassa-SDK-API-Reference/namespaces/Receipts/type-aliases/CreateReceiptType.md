@@ -8,7 +8,7 @@
 
 > **CreateReceiptType** = `Pick`\<[`IReceipt`](../interfaces/IReceipt.md), `"type"` \| `"payment_id"` \| `"refund_id"` \| `"items"` \| `"tax_system_code"` \| `"receipt_industry_details"` \| `"receipt_operational_details"` \| `"on_behalf_of"`\> & `object`
 
-Defined in: [src/types/receipt/receipt.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/receipt/receipt.type.ts#L100)
+Defined in: [src/types/receipt/receipt.type.ts:96](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/receipt/receipt.type.ts#L96)
 
 ## Type Declaration
 
@@ -16,38 +16,34 @@ Defined in: [src/types/receipt/receipt.type.ts:100](https://github.com/WEBzaytse
 
 > `optional` **additional\_user\_props?**: `object`
 
-Дополнительный реквизит пользователя (тег в 54 ФЗ — 1084).
-Можно передавать, если вы отправляете данные для формирования чека по сценарию Сначала платеж, потом чек
+Дополнительный реквизит пользователя (тег 54 ФЗ — 1084). Для сценария «Сначала платёж, потом чек»
 
 #### additional\_user\_props.name
 
 > **name**: `string`
 
-Наименование дополнительного реквизита пользователя (тег в 54 ФЗ — 1085). Не более 64 символов.
+Наименование дополнительного реквизита (тег 54 ФЗ — 1085). До 64 символов
 
 #### additional\_user\_props.value
 
 > **value**: `string`
 
-Значение дополнительного реквизита пользователя (тег в 54 ФЗ — 1086). Не более 234 символов.
+Значение дополнительного реквизита (тег 54 ФЗ — 1086). До 234 символов
 
 ### customer
 
 > **customer**: [`Customer`](../../../../type-aliases/Customer.md)
 
-Информация о пользователе.
-
-Необходимо указать как минимум контактные данные: для Чеков от ЮKassa — электронную почту (`customer.email`),
-в остальных случаях — электронную почту (`customer.email`) или номер телефона (`customer.phone`).
+Данные пользователя. Минимум контактов: для Чеков ЮKassa — `customer.email`; иначе — `customer.email` или `customer.phone`.
 
 ### send
 
 > **send**: `true`
 
-Формирование чека в онлайн-кассе сразу после создания объекта чека. Сейчас можно передать только значение `true`.
+Регистрация чека в кассе сразу после создания. Передавайте только `true`
 
 ### settlements
 
 > **settlements**: [`Settlement`](Settlement.md)[]
 
-Перечень совершенных расчетов.
+Совершённые расчёты

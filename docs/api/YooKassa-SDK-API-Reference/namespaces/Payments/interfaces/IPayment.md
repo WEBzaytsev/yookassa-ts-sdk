@@ -6,13 +6,12 @@
 
 # Interface: IPayment
 
-Defined in: [src/types/payments/payment.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L104)
+Defined in: [src/types/payments/payment.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L100)
 
-**Объект платежа***
+**Объект платежа**
 
-Объект платежа (`Payment`) содержит всю информацию о платеже, актуальную на текущий момент времени.
-Он формируется при создании платежа и приходит в ответ на любой запрос, связанный с платежами.
-Объект может содержать параметры и значения, не описанные в Справочнике API. Их следует игнорировать.
+Актуальная информация о платеже. Формируется при создании,
+приходит в любом ответе по платежам. Неописанные поля игнорируйте.
 
 ## Properties
 
@@ -20,9 +19,9 @@ Defined in: [src/types/payments/payment.type.ts:104](https://github.com/WEBzayts
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:114](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L114)
+Defined in: [src/types/payments/payment.type.ts:106](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L106)
 
-Сумма платежа. Иногда партнеры ЮKassa берут с пользователя дополнительную комиссию, которая не входит в эту сумму.
+Сумма платежа. Комиссия партнёра сверх суммы не входит
 
 ***
 
@@ -30,14 +29,9 @@ Defined in: [src/types/payments/payment.type.ts:114](https://github.com/WEBzayts
 
 > `readonly` `optional` **authorization\_details?**: [`AuthorizationDetails`](../type-aliases/AuthorizationDetails.md)
 
-Defined in: [src/types/payments/payment.type.ts:186](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L186)
+Defined in: [src/types/payments/payment.type.ts:161](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L161)
 
-Данные об авторизации платежа при оплате банковской картой.
-Присутствуют только для этих способов оплаты:
-- банковская карта
-- Mir Pay
-- SberPay
-- T-Pay.
+Авторизация при оплате картой, Mir Pay, SberPay, T-Pay
 
 ***
 
@@ -45,12 +39,13 @@ Defined in: [src/types/payments/payment.type.ts:186](https://github.com/WEBzayts
 
 > `readonly` `optional` **cancellation\_details?**: [`PaymentCancellationDetails`](PaymentCancellationDetails.md)
 
-Defined in: [src/types/payments/payment.type.ts:177](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L177)
+Defined in: [src/types/payments/payment.type.ts:159](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L159)
 
-Комментарий к статусу `canceled`
- кто отменил платеж и по какой причине.
+Комментарий к `canceled`.
 
-[Подробнее про неуспешные платежи](https://yookassa.ru/developers/payment-acceptance/after-the-payment/declined-payments)
+#### See
+
+[Неуспешные платежи](https://yookassa.ru/developers/payment-acceptance/after-the-payment/declined-payments)
 
 ***
 
@@ -58,13 +53,9 @@ Defined in: [src/types/payments/payment.type.ts:177](https://github.com/WEBzayts
 
 > `readonly` `optional` **captured\_at?**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:135](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L135)
+Defined in: [src/types/payments/payment.type.ts:125](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L125)
 
-Время подтверждения платежа.
-
-Указывается по [UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)
-и передается в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
-
+Время подтверждения ([UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F), [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).
 Пример: `2017-11-03T11:52:31.827Z`
 
 ***
@@ -73,10 +64,13 @@ Defined in: [src/types/payments/payment.type.ts:135](https://github.com/WEBzayts
 
 > `optional` **confirmation?**: [`IConfirmation`](../../../../type-aliases/IConfirmation.md)
 
-Defined in: [src/types/payments/payment.type.ts:155](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L155)
+Defined in: [src/types/payments/payment.type.ts:141](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L141)
 
-Выбранный способ подтверждения платежа. Присутствует, когда платеж ожидает подтверждения от пользователя.
-[Подробнее](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#user-confirmation) о сценариях подтверждения.
+Сценарий подтверждения при ожидании действий пользователя.
+
+#### See
+
+[Подтверждение](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#user-confirmation)
 
 ***
 
@@ -84,12 +78,9 @@ Defined in: [src/types/payments/payment.type.ts:155](https://github.com/WEBzayts
 
 > `readonly` **created\_at**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:142](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L142)
+Defined in: [src/types/payments/payment.type.ts:130](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L130)
 
-Время создания заказа.
-Указывается по [UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)
-и передается в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
-
+Время создания ([UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F), [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).
 Пример: `2017-11-03T11:52:31.827Z`
 
 ***
@@ -98,9 +89,9 @@ Defined in: [src/types/payments/payment.type.ts:142](https://github.com/WEBzayts
 
 > `optional` **deal?**: [`DealType`](../type-aliases/DealType.md)
 
-Defined in: [src/types/payments/payment.type.ts:192](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L192)
+Defined in: [src/types/payments/payment.type.ts:169](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L169)
 
-Данные о сделке, в составе которой проходит платеж. Присутствует, если вы проводите [Безопасную сделку](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics)
+Сделка платежа. Есть при [Безопасной сделке](https://yookassa.ru/developers/solutions-for-platforms/safe-deal/basics).
 
 ***
 
@@ -108,10 +99,10 @@ Defined in: [src/types/payments/payment.type.ts:192](https://github.com/WEBzayts
 
 > `optional` **description?**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L122)
+Defined in: [src/types/payments/payment.type.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L116)
 
-Описание транзакции (не более 128 символов), которое вы увидите в личном кабинете ЮKassa, а пользователь — при оплате.
-Например: `«Оплата заказа № 72 для user@yoomoney.ru»`.
+Описание транзакции (до 128 символов) в ЛК и при оплате.
+Пример: «Оплата заказа № 72 для user@yoomoney.ru».
 
 ***
 
@@ -119,13 +110,10 @@ Defined in: [src/types/payments/payment.type.ts:122](https://github.com/WEBzayts
 
 > `readonly` `optional` **expires\_at?**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:150](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L150)
+Defined in: [src/types/payments/payment.type.ts:136](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L136)
 
-Время, до которого вы можете бесплатно отменить или подтвердить платеж. В указанное время платеж в статусе `waiting_for_capture` будет автоматически отменен.
-
-Указывается по [UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)
-и передается в формате [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
-
+Срок бесплатной отмены или подтверждения. После — автоотмена `waiting_for_capture`.
+([UTC](https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F), [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).
 Пример: `2017-11-03T11:52:31.827Z`
 
 ***
@@ -134,9 +122,9 @@ Defined in: [src/types/payments/payment.type.ts:150](https://github.com/WEBzayts
 
 > `readonly` **id**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:108](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L108)
+Defined in: [src/types/payments/payment.type.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L102)
 
-Идентификатор платежа в ЮKassa.
+ID платежа в ЮKassa
 
 ***
 
@@ -144,10 +132,10 @@ Defined in: [src/types/payments/payment.type.ts:108](https://github.com/WEBzayts
 
 > `readonly` `optional` **income\_amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L118)
+Defined in: [src/types/payments/payment.type.ts:111](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L111)
 
-Сумма платежа, которую получит магазин, — значение amount за вычетом комиссии ЮKassa.
-Если вы партнер и для аутентификации запросов используете OAuth-токен, запросите у магазина право на получение информации о комиссиях при платежах.
+Сумма к зачислению магазину (`amount` минус комиссия ЮKassa).
+При OAuth запросите у магазина право на данные о комиссиях.
 
 ***
 
@@ -155,15 +143,15 @@ Defined in: [src/types/payments/payment.type.ts:118](https://github.com/WEBzayts
 
 > `readonly` `optional` **invoice\_details?**: `object`
 
-Defined in: [src/types/payments/payment.type.ts:203](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L203)
+Defined in: [src/types/payments/payment.type.ts:183](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L183)
 
-Данные о выставленном счете, в рамках которого проведен платеж.
+Счёт, в рамках которого проведён платёж
 
 #### id?
 
 > `optional` **id?**: `string`
 
-Идентификатор счета
+ID счёта
 
 ***
 
@@ -171,9 +159,10 @@ Defined in: [src/types/payments/payment.type.ts:203](https://github.com/WEBzayts
 
 > `optional` **merchant\_customer\_id?**: `string`
 
-Defined in: [src/types/payments/payment.type.ts:194](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L194)
+Defined in: [src/types/payments/payment.type.ts:174](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L174)
 
-Идентификатор покупателя в вашей системе, например электронная почта или номер телефона. Не более 200 символов. Присутствует, если вы хотите запомнить банковскую карту и отобразить ее при повторном платеже в [виджете ЮKassa](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics)
+ID покупателя в вашей системе (email, телефон). До 200 символов.
+Для сохранения карты в [виджете](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics).
 
 ***
 
@@ -181,13 +170,10 @@ Defined in: [src/types/payments/payment.type.ts:194](https://github.com/WEBzayts
 
 > `optional` **metadata?**: [`Metadata`](../../../../interfaces/Metadata.md)
 
-Defined in: [src/types/payments/payment.type.ts:171](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L171)
+Defined in: [src/types/payments/payment.type.ts:154](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L154)
 
-Любые дополнительные данные, которые нужны вам для работы (например, ваш внутренний идентификатор заказа).
-Передаются в виде набора пар «ключ-значение» и возвращаются в ответе от ЮKassa.
-
-***Ограничения***: максимум 16 ключей, имя ключа не больше 32 символов,
-значение ключа не больше 512 символов, тип данных — строка в формате UTF-8.
+Произвольные данные в парах «ключ–значение». ЮKassa возвращает их в ответе.
+До 16 ключей; имя — до 32 символов; значение — до 512; UTF-8.
 
 ***
 
@@ -195,9 +181,9 @@ Defined in: [src/types/payments/payment.type.ts:171](https://github.com/WEBzayts
 
 > `readonly` **paid**: `boolean`
 
-Defined in: [src/types/payments/payment.type.ts:161](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L161)
+Defined in: [src/types/payments/payment.type.ts:147](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L147)
 
-Признак оплаты заказа.
+Признак оплаты заказа
 
 ***
 
@@ -205,9 +191,9 @@ Defined in: [src/types/payments/payment.type.ts:161](https://github.com/WEBzayts
 
 > `readonly` `optional` **payment\_method?**: [`IPaymentMethod`](../../../../type-aliases/IPaymentMethod.md)
 
-Defined in: [src/types/payments/payment.type.ts:126](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L126)
+Defined in: [src/types/payments/payment.type.ts:120](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L120)
 
-[Способ оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all), который был использован для этого платежа.
+[Способ оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all)
 
 ***
 
@@ -215,12 +201,12 @@ Defined in: [src/types/payments/payment.type.ts:126](https://github.com/WEBzayts
 
 > `readonly` `optional` **receipt\_registration?**: `"pending"` \| `"succeeded"` \| `"canceled"`
 
-Defined in: [src/types/payments/payment.type.ts:201](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L201)
+Defined in: [src/types/payments/payment.type.ts:181](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L181)
 
-Статус регистрации чека. Присутствует, если вы используете решения ЮKassa для отправки чеков.
-- `pending` — данные в обработке
-- `succeeded` — чек успешно зарегистрирован
-- `canceled` — чек зарегистрировать не удалось
+Статус регистрации чека:
+- `pending` — в обработке;
+- `succeeded` — зарегистрирован;
+- `canceled` — не зарегистрирован.
 
 ***
 
@@ -228,9 +214,9 @@ Defined in: [src/types/payments/payment.type.ts:201](https://github.com/WEBzayts
 
 > `optional` **recipient?**: [`IRecipient`](IRecipient.md)
 
-Defined in: [src/types/payments/payment.type.ts:124](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L124)
+Defined in: [src/types/payments/payment.type.ts:118](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L118)
 
-Получатель платежа.
+Получатель платежа
 
 ***
 
@@ -238,9 +224,9 @@ Defined in: [src/types/payments/payment.type.ts:124](https://github.com/WEBzayts
 
 > `readonly` **refundable**: `boolean`
 
-Defined in: [src/types/payments/payment.type.ts:163](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L163)
+Defined in: [src/types/payments/payment.type.ts:149](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L149)
 
-Возможность провести возврат по API.
+Возможность возврата по API
 
 ***
 
@@ -248,9 +234,9 @@ Defined in: [src/types/payments/payment.type.ts:163](https://github.com/WEBzayts
 
 > `readonly` `optional` **refunded\_amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:159](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L159)
+Defined in: [src/types/payments/payment.type.ts:145](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L145)
 
-Сумма, которая вернулась пользователю. Присутствует, если у этого платежа есть успешные возвраты.
+Сумма успешных возвратов
 
 ***
 
@@ -258,9 +244,9 @@ Defined in: [src/types/payments/payment.type.ts:159](https://github.com/WEBzayts
 
 > `readonly` **status**: [`PaymentStatus`](../type-aliases/PaymentStatus.md)
 
-Defined in: [src/types/payments/payment.type.ts:112](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L112)
+Defined in: [src/types/payments/payment.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L104)
 
-Статус платежа. Возможные значения: `pending`, `waiting_for_capture`, `succeeded` и `canceled`.
+Статус: `pending`, `waiting_for_capture`, `succeeded`, `canceled`
 
 ***
 
@@ -268,9 +254,9 @@ Defined in: [src/types/payments/payment.type.ts:112](https://github.com/WEBzayts
 
 > `readonly` **test**: `boolean`
 
-Defined in: [src/types/payments/payment.type.ts:157](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L157)
+Defined in: [src/types/payments/payment.type.ts:143](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L143)
 
-Признак тестовой операции.
+Тестовая операция
 
 ***
 
@@ -278,6 +264,6 @@ Defined in: [src/types/payments/payment.type.ts:157](https://github.com/WEBzayts
 
 > `optional` **transfers?**: [`TransferPayment`](../type-aliases/TransferPayment.md)[]
 
-Defined in: [src/types/payments/payment.type.ts:190](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L190)
+Defined in: [src/types/payments/payment.type.ts:165](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L165)
 
-Данные о распределении денег — сколько и в какой магазин нужно перевести. Присутствует, если вы используете [Сплитование платежей](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics)
+Распределение денег. Есть при [Сплитовании](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics).

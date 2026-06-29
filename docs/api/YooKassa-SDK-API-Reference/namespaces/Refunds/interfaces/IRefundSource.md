@@ -6,7 +6,7 @@
 
 # Interface: IRefundSource
 
-Defined in: [src/types/refunds/refund.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refund.type.ts#L27)
+Defined in: [src/types/refunds/refund.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refund.type.ts#L27)
 
 ## Properties
 
@@ -14,9 +14,9 @@ Defined in: [src/types/refunds/refund.type.ts:27](https://github.com/WEBzaytsev/
 
 > **account\_id**: `string`
 
-Defined in: [src/types/refunds/refund.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refund.type.ts#L31)
+Defined in: [src/types/refunds/refund.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refund.type.ts#L31)
 
-Идентификатор магазина, для которого вы хотите провести возврат. Выдается ЮKassa, отображается в разделе Продавцы личного кабинета (столбец shopId).
+ID магазина для возврата. Выдаёт ЮKassa, см. раздел «Продавцы» в ЛК (столбец shopId).
 
 ***
 
@@ -24,9 +24,9 @@ Defined in: [src/types/refunds/refund.type.ts:31](https://github.com/WEBzaytsev/
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/refunds/refund.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refund.type.ts#L33)
+Defined in: [src/types/refunds/refund.type.ts:33](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refund.type.ts#L33)
 
-Сумма возврата.
+Сумма возврата
 
 ***
 
@@ -34,6 +34,6 @@ Defined in: [src/types/refunds/refund.type.ts:33](https://github.com/WEBzaytsev/
 
 > `optional` **platform\_fee\_amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/refunds/refund.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refund.type.ts#L35)
+Defined in: [src/types/refunds/refund.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refund.type.ts#L35)
 
-Комиссия, которую вы удержали при оплате, и хотите вернуть.
+Комиссия, удержанная при оплате и подлежащая возврату

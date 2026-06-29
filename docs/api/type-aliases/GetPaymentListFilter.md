@@ -8,7 +8,7 @@
 
 > **GetPaymentListFilter** = `object`
 
-Defined in: [src/types/api.types.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L20)
+Defined in: [src/types/api.types.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L17)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/types/api.types.ts:20](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **captured\_at?**: [`DateFilter`](DateFilter.md)
 
-Defined in: [src/types/api.types.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L24)
+Defined in: [src/types/api.types.ts:21](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L21)
 
 Фильтр по времени подтверждения
 
@@ -26,7 +26,7 @@ Defined in: [src/types/api.types.ts:24](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **created\_at?**: [`DateFilter`](DateFilter.md)
 
-Defined in: [src/types/api.types.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L22)
+Defined in: [src/types/api.types.ts:19](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L19)
 
 Фильтр по времени создания
 
@@ -36,22 +36,20 @@ Defined in: [src/types/api.types.ts:22](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **cursor?**: `string`
 
-Defined in: [src/types/api.types.ts:48](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L48)
+Defined in: [src/types/api.types.ts:42](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L42)
 
-Указатель на следующий фрагмент списка. В качестве указателя необходимо использовать
-значение параметра `next_cursor`, полученное в ответе на предыдущий запрос.
-Используется, если в списке больше объектов, чем может поместиться в выдаче (`limit`),
-и конец выдачи не достигнут.
+Указатель на следующий фрагмент списка — значение `next_cursor` из предыдущего ответа.
+Используйте, если объектов больше, чем `limit`.
 
 #### Example
 
 ```ts
-Пример: `cursor=37a5c87d-3984-51e8-a7f3-8de646d39ec15`
+`cursor=37a5c87d-3984-51e8-a7f3-8de646d39ec15`
 ```
 
 #### See
 
-[Пример использования](https://yookassa.ru/developers/using-api/lists#pagination)
+[Пагинация](https://yookassa.ru/developers/using-api/lists#pagination)
 
 ***
 
@@ -59,21 +57,20 @@ Defined in: [src/types/api.types.ts:48](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **limit?**: `number`
 
-Defined in: [src/types/api.types.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L39)
+Defined in: [src/types/api.types.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L35)
 
-Размер выдачи результатов запроса — количество объектов, передаваемых в ответе.
-Возможные значения: от 1 до 100.
+Число объектов в ответе: от 1 до 100.
 
 #### Example
 
 ```ts
-Пример: limit=50
+`limit=50`
 ```
 
 #### Default
 
 ```ts
-10 Значение по умолчанию: 10
+10
 ```
 
 ***
@@ -82,14 +79,14 @@ Defined in: [src/types/api.types.ts:39](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **payment\_method?**: [`PaymentMethodsEnum`](../enumerations/PaymentMethodsEnum.md)
 
-Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L29)
+Defined in: [src/types/api.types.ts:26](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L26)
 
-Фильтр по коду [способа оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all).
+Фильтр по [способу оплаты](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-methods#all)
 
 #### Example
 
 ```ts
-Пример: `payment_method=bank_card`
+`payment_method=bank_card`
 ```
 
 ***
@@ -98,12 +95,12 @@ Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **status?**: [`PaymentStatus`](../YooKassa-SDK-API-Reference/namespaces/Payments/type-aliases/PaymentStatus.md)
 
-Defined in: [src/types/api.types.ts:32](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L32)
+Defined in: [src/types/api.types.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L29)
 
-Фильтр по статусу платежа.
+Фильтр по статусу платежа
 
 #### Example
 
 ```ts
-status=succeeded
+`status=succeeded`
 ```

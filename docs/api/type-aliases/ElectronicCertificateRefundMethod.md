@@ -8,7 +8,7 @@
 
 > **ElectronicCertificateRefundMethod** = `IRefundMethodGeneral` & `object`
 
-Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/refunds/refundMethod.type.ts#L43)
+Defined in: [src/types/refunds/refundMethod.type.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/refunds/refundMethod.type.ts#L39)
 
 ## Type Declaration
 
@@ -16,14 +16,14 @@ Defined in: [src/types/refunds/refundMethod.type.ts:43](https://github.com/WEBza
 
 > **articles**: `IArticle`[]
 
-Корзина возврата — список возвращаемых товаров, для оплаты которых использовался электронный сертификат.
-Присутствует, если оплата была на готовой странице ЮKassa.
+Корзина возврата — товары, оплаченные электронным сертификатом.
+Есть при оплате на готовой странице ЮKassa
 
 ### electronic\_certificate?
 
 > `optional` **electronic\_certificate?**: `IElectronicCertificate`
 
-Данные от ФЭС НСПК для возврата на электронный сертификат.
+Данные ФЭС НСПК для возврата на сертификат
 
 ### type
 

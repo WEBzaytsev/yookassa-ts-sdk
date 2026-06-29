@@ -7,18 +7,18 @@
 
 [English README](README.md) | [Документация](docs/ru/)
 
-Современный TypeScript SDK для интеграции с [API YooKassa](https://yookassa.ru/developers/api). Поддерживает платежи, возвраты, чеки, вебхуки и многое другое.
+TypeScript SDK для [API YooKassa](https://yookassa.ru/developers/api): платежи, возвраты, чеки, вебхуки и другие операции.
 
 ## Возможности
 
-- 🚀 **Полная поддержка TypeScript** — типы по путям OpenAPI ЮKassa, которые покрывает SDK
+- 🚀 **Полная поддержка TypeScript** — типы по путям OpenAPI ЮKassa из покрываемой спецификации
 - 🔄 **Автоматические повторы** — экспоненциальная задержка при сетевых ошибках
 - 🔑 **Идемпотентность** — автоматическая генерация `Idempotence-Key`
 - 🌐 **Поддержка прокси** — настройка HTTP/HTTPS прокси
 - ⚡ **Ограничение запросов** — встроенный rate limiting
 - 🕐 **Таймауты** — настраиваемые таймауты запросов
-- 📦 **Кэширование инстансов** — эффективное переиспользование соединений
-- 🔧 **Мультирантайм** — работает с Node.js, Bun и другими средами
+- 📦 **Кэширование инстансов** — переиспользование соединений
+- 🔧 **Мультирантайм** — Node.js, Bun и другие среды
 
 ## Установка
 
@@ -45,7 +45,7 @@ const sdk = YooKassa({
     secret_key: 'ваш_secret_key',
 });
 
-// Создание платежа
+// Создать платёж
 const payment = await sdk.payments.create({
     amount: { value: '100.00', currency: 'RUB' },
     confirmation: { type: 'redirect', return_url: 'https://example.com' },
@@ -59,13 +59,13 @@ console.log(payment.confirmation.confirmation_url);
 
 | Раздел | Описание |
 | --- | --- |
-| [Начало работы](docs/ru/getting-started.md) | Конфигурация, кэширование инстансов |
+| [Начало работы](docs/ru/getting-started.md) | Конфигурация и кэширование инстансов |
 | [Платежи](docs/ru/payments.md) | Создание, подтверждение, отмена, список платежей |
 | [Возвраты](docs/ru/refunds.md) | Создание и список возвратов |
-| [Выплаты](docs/ru/payouts.md) | Выплаты: создание, загрузка, список (учётные данные шлюза) |
-| [Безопасная сделка](docs/ru/deals.md) | Безопасная сделка: создание, загрузка, список |
+| [Выплаты](docs/ru/payouts.md) | Создание, загрузка и список выплат (учётные данные шлюза) |
+| [Безопасная сделка](docs/ru/deals.md) | Создание, загрузка и список сделок |
 | [Вебхуки](docs/ru/webhooks.md) | Управление вебхуками и входящие уведомления |
-| [Обработка ошибок](docs/ru/error-handling.md) | Коды ошибок, повторы |
+| [Обработка ошибок](docs/ru/error-handling.md) | Коды ошибок и повторы |
 | [API Reference](docs/api/) | TypeScript типы, интерфейсы, enums |
 
 ## Справочник API
@@ -103,8 +103,8 @@ console.log(payment.confirmation.confirmation_url);
 | Метод | Описание |
 | --- | --- |
 | `sdk.payouts.create(data, idempotenceKey?)` | Создать выплату |
-| `sdk.payouts.load(id)` | Информация о выплате по ID |
-| `sdk.payouts.list(filter?)` | Список выплат (в т.ч. `succeeded_at`, `payout_destination.type`) |
+| `sdk.payouts.load(id)` | Получить выплату по ID |
+| `sdk.payouts.list(filter?)` | Список выплат (в т. ч. `succeeded_at`, `payout_destination.type`) |
 | `sdk.payouts.search(filter?)` | Поиск выплат по `metadata` и `created_at` (до 3 месяцев) |
 
 ### Банки СБП
@@ -117,15 +117,15 @@ console.log(payment.confirmation.confirmation_url);
 
 | Метод | Описание |
 | --- | --- |
-| `sdk.paymentMethods.create(data, idempotenceKey?)` | Создать сохранённый способ оплаты (привязка карты и т.п.) |
-| `sdk.paymentMethods.load(id)` | Информация о способе оплаты по ID |
+| `sdk.paymentMethods.create(data, idempotenceKey?)` | Создать сохранённый способ оплаты (привязка карты и т. п.) |
+| `sdk.paymentMethods.load(id)` | Получить способ оплаты по ID |
 
 ### Персональные данные (выплаты)
 
 | Метод | Описание |
 | --- | --- |
 | `sdk.personalData.create(data, idempotenceKey?)` | Создать объект персональных данных |
-| `sdk.personalData.load(id)` | Информация о персональных данных по ID |
+| `sdk.personalData.load(id)` | Получить персональные данные по ID |
 
 ### Сделки (безопасная сделка)
 
@@ -133,18 +133,18 @@ console.log(payment.confirmation.confirmation_url);
 | --- | --- |
 | `sdk.deals.create(data, idempotenceKey?)` | Создать сделку |
 | `sdk.deals.list(filter?)` | Список сделок |
-| `sdk.deals.load(id)` | Информация о сделке по ID |
+| `sdk.deals.load(id)` | Получить сделку по ID |
 
 ### Счета (инвойсы)
 
 | Метод | Описание |
 | --- | --- |
 | `sdk.invoices.create(data, idempotenceKey?)` | Создать счёт |
-| `sdk.invoices.load(id)` | Информация о счёте по ID |
+| `sdk.invoices.load(id)` | Получить счёт по ID |
 
 ### Вебхуки
 
-Методы управления (`create`, `list`, `delete`) требуют OAuth-токен. Методы `verify*` работают со стандартным секретным ключом.
+Управление (`create`, `list`, `delete`) — через OAuth-токен. Методы `verify*` — со стандартным секретным ключом.
 
 | Метод | Описание |
 | --- | --- |
@@ -189,9 +189,9 @@ try {
 
 ## Благодарности
 
-Проект является форком [yookassa-sdk](https://github.com/awardix/yookassa-sdk) от **Aleksey Aleksyuk** ([@awardix](https://github.com/awardix)).
+Проект — форк [yookassa-sdk](https://github.com/awardix/yookassa-sdk) от **Aleksey Aleksyuk** ([@awardix](https://github.com/awardix)).
 
-Изначальный проект основан на [yookassa-sdk](https://github.com/googlesheets-ru/yookassa-sdk) от **Dmitriy** ([@Mityayka1](https://github.com/Mityayka1)). Спасибо за исходную реализацию!
+Исходный код восходит к [yookassa-sdk](https://github.com/googlesheets-ru/yookassa-sdk) от **Dmitriy** ([@Mityayka1](https://github.com/Mityayka1)). Спасибо за первую реализацию!
 
 ## Лицензия
 

@@ -96,16 +96,16 @@ export class YooKassaSdk extends Connector {
             endpoint: `/payments/${id}`,
         })
     }
-    /** ****Получить список платежей****
+    /** **Список платежей**
      *
-     * Запрос позволяет получить список платежей, отфильтрованный по заданным критериям. [Подробнее о работе со списками](https://yookassa.ru/developers/using-api/lists)
+     * Возвращает платежи по фильтру. [Работа со списками](https://yookassa.ru/developers/using-api/lists)
      */
     protected getPaymentList = async (filter?: Omit<GetPaymentListFilter, 'cursor'>): Promise<Payments.IPayment[]> => {
         return this.fetchList<Payments.IPayment, GetPaymentListFilter>('/payments', filter)
     }
-    /** Создать платеж
-     * @param newPayment - данные для создания платежа
-     * @param idempotenceKey - ключ идемпотентности (опционально, генерируется автоматически)
+    /** Создаёт платёж
+     * @param newPayment — данные платежа
+     * @param idempotenceKey — ключ идемпотентности (опционально, генерируется автоматически)
      */
     protected createPayment = async (
         newPayment: Payments.CreatePaymentRequest,
@@ -119,10 +119,10 @@ export class YooKassaSdk extends Connector {
         })
     }
 
-    /** Подтвердить платеж по идентификатору
-     * @param paymentId - идентификатор платежа
-     * @param payload - данные для подтверждения (сумма, чек, данные авиабилетов, распределение)
-     * @param idempotenceKey - ключ идемпотентности (опционально)
+    /** Подтверждает платёж по ID
+     * @param paymentId — ID платежа
+     * @param payload — сумма, чек, авиабилеты, распределение
+     * @param idempotenceKey — ключ идемпотентности (опционально)
      */
     protected capturePaymentById = async (
         paymentId: string,
@@ -137,9 +137,9 @@ export class YooKassaSdk extends Connector {
         })
     }
 
-    /** Отменить платеж по идентификатору
-     * @param paymentId - идентификатор платежа
-     * @param idempotenceKey - ключ идемпотентности (опционально)
+    /** Отменяет платёж по ID
+     * @param paymentId — ID платежа
+     * @param idempotenceKey — ключ идемпотентности (опционально)
      */
     protected cancelPaymentById = async (paymentId: string, idempotenceKey?: string): Promise<Payments.IPayment> => {
         return this.request<Payments.IPayment>({
@@ -162,9 +162,9 @@ export class YooKassaSdk extends Connector {
         return this.fetchList<Refunds.IRefund, GetRefundListFilter>('/refunds', filter)
     }
 
-    /** Создать возврат
-     * @param newRefund - данные для создания возврата
-     * @param idempotenceKey - ключ идемпотентности (опционально)
+    /** Создаёт возврат
+     * @param newRefund — данные возврата
+     * @param idempotenceKey — ключ идемпотентности (опционально)
      */
     protected createRefund = async (
         newRefund: Refunds.CreateRefundRequest,
@@ -186,9 +186,9 @@ export class YooKassaSdk extends Connector {
         })
     }
 
-    /** Создать чек
-     * @param newReceipt - данные для создания чека
-     * @param idempotenceKey - ключ идемпотентности (опционально)
+    /** Создаёт чек
+     * @param newReceipt — данные чека
+     * @param idempotenceKey — ключ идемпотентности (опционально)
      */
     protected createReceipt = async (
         newReceipt: Receipts.CreateReceiptType,
@@ -209,8 +209,8 @@ export class YooKassaSdk extends Connector {
 
     // ========== Webhook verify ========== //
     /**
-     * Верифицирует входящее уведомление (payment или refund), перезапрашивая объект через API.
-     * Возвращает полную нотификацию с актуальным состоянием объекта из API.
+     * Верифицирует уведомление (payment или refund): перезапрашивает объект через API.
+     * Возвращает нотификацию с актуальным состоянием из API.
      */
     protected verifyWebhookNotification = async (body: unknown): Promise<PaymentNotification | RefundNotification> => {
         const notification = parseNotification(body)
@@ -233,9 +233,9 @@ export class YooKassaSdk extends Connector {
     }
 
     /**
-     * Верифицирует входящее уведомление о платеже, перезапрашивая объект через API.
-     * Отвергает события, не относящиеся к платежам (`refund.*` и прочие).
-     * Возвращает полную нотификацию с актуальным состоянием платежа из API.
+     * Верифицирует уведомление о платеже: перезапрашивает объект через API.
+     * Отклоняет события вне `payment.*`.
+     * Возвращает нотификацию с актуальным платежом из API.
      */
     protected verifyPaymentNotification = async (body: unknown): Promise<PaymentNotification> => {
         const notification = parsePaymentNotification(body)
@@ -247,9 +247,9 @@ export class YooKassaSdk extends Connector {
     }
 
     /**
-     * Верифицирует входящее уведомление о возврате, перезапрашивая объект через API.
-     * Отвергает события, не относящиеся к возвратам (`payment.*` и прочие).
-     * Возвращает полную нотификацию с актуальным состоянием возврата из API.
+     * Верифицирует уведомление о возврате: перезапрашивает объект через API.
+     * Отклоняет события вне `refund.*`.
+     * Возвращает нотификацию с актуальным возвратом из API.
      */
     protected verifyRefundNotification = async (body: unknown): Promise<RefundNotification> => {
         const notification = parseRefundNotification(body)
@@ -262,9 +262,9 @@ export class YooKassaSdk extends Connector {
     // ========== Webhook verify end ========== //
 
     // ========== Webhooks ========== //
-    /** Создать вебхук (требуется OAuth-токен)
-     * @param webhook - данные для создания вебхука
-     * @param idempotenceKey - ключ идемпотентности (опционально)
+    /** Создаёт вебхук (нужен OAuth-токен)
+     * @param webhook — данные вебхука
+     * @param idempotenceKey — ключ идемпотентности (опционально)
      */
     protected createWebhook = async (webhook: CreateWebhookRequest, idempotenceKey?: string): Promise<IWebhook> => {
         return this.request<IWebhook>({
@@ -276,7 +276,7 @@ export class YooKassaSdk extends Connector {
         })
     }
 
-    /** Получить список вебхуков (требуется OAuth-токен) */
+    /** Возвращает список вебхуков (нужен OAuth-токен) */
     protected getWebhookList = async (): Promise<IWebhook[]> => {
         const response = await this.request<WebhookList>({
             method: 'GET',
@@ -286,8 +286,8 @@ export class YooKassaSdk extends Connector {
         return response.items
     }
 
-    /** Удалить вебхук по идентификатору (требуется OAuth-токен)
-     * @param webhookId - идентификатор вебхука
+    /** Удаляет вебхук по ID (нужен OAuth-токен)
+     * @param webhookId — ID вебхука
      */
     protected deleteWebhook = async (webhookId: string): Promise<void> => {
         await this.request<Record<string, never>>({
@@ -420,7 +420,7 @@ export class YooKassaSdk extends Connector {
     // ========== Invoices end ========== //
 
     // ========== Shop ========== //
-    /** Получить информацию о магазине (требуется OAuth-токен) */
+    /** Возвращает данные магазина (нужен OAuth-токен) */
     protected getShopInfo = async (): Promise<IShopInfo> => {
         return this.request<IShopInfo>({
             method: 'GET',
@@ -430,7 +430,7 @@ export class YooKassaSdk extends Connector {
     }
     // ========== Shop end ========== //
 
-    /** Методы для работы с платежами */
+    /** Методы работы с платежами */
     public readonly payments = {
         /**
          * Creates a new payment.
@@ -476,86 +476,36 @@ export class YooKassaSdk extends Connector {
             idempotenceKey?: string,
         ) => Promise<Payments.IPayment>,
         /**
-         * ****Информация о платеже****
+         * **Платёж**
          *
-         * Запрос позволяет получить информацию о текущем состоянии платежа по его уникальному идентификатору.
+         * Возвращает актуальное состояние платежа по ID.
          *
-         * [Документация](https://yookassa.ru/developers/api#get_payment)
+         * @see https://yookassa.ru/developers/api#get_payment
          */
         load: this.getPaymentById,
 
         /**
-         * ****Список платежей****
+         * **Список платежей**
          *
-         * Запрос позволяет получить список платежей, отфильтрованный по заданным критериям.
+         * Возвращает платежи по фильтру.
          *
-         * Retrieves a list of payments filtered by the specified criteria.
-         *
-         * @param {Omit<GetPaymentListFilter, 'cursor'>} params - The parameters for filtering the payments.
-         * @return {Promise<Payments.IPayment[]>} A promise that resolves to the list of payments.
-         *
-         * [API Documentation](https://yookassa.ru/developers/api#get_payment)
-         *
-         * [Working with lists documentation](https://yookassa.ru/developers/using-api/lists)
-         *
-         * **PaymentListParams**
-         *
-         * These are the parameters that can be used to filter the payments.
-         *
-         * **created_at**
-         * - `gte` (optional): Filter by the creation time. The time should be greater than or equal to the specified value. Format: ISO 8601. Example: `created_at.gte=2018-07-18T10:51:18.139Z`
-         * - `gt` (optional): Filter by the creation time. The time should be greater than the specified value. Format: ISO 8601. Example: `created_at.gt=2018-07-18T10:51:18.139Z`
-         * - `lte` (optional): Filter by the creation time. The time should be less than or equal to the specified value. Format: ISO 8601. Example: `created_at.lte=2018-07-18T10:51:18.139Z`
-         * - `lt` (optional): Filter by the creation time. The time should be less than the specified value. Format: ISO 8601. Example: `created_at.lt=2018-07-18T10:51:18.139Z`
-         *
-         * **captured_at**
-         * - `gte` (optional): Filter by the time of payment confirmation. The time should be greater than or equal to the specified value. Format: ISO 8601. Example: `captured_at.gte=2018-07-18T10:51:18.139Z`
-         * - `gt` (optional): Filter by the time of payment confirmation. The time should be greater than the specified value. Format: ISO 8601. Example: `captured_at.gt=2018-07-18T10:51:18.139Z`
-         * - `lte` (optional): Filter by the time of payment confirmation. The time should be less than or equal to the specified value. Format: ISO 8601. Example: `captured_at.lte=2018-07-18T10:51:18.139Z`
-         * - `lt` (optional): Filter by the time of payment confirmation. The time should be less than the specified value. Format: ISO 8601. Example: `captured_at.lt=2018-07-18T10:51:18.139Z`
-         *
-         * **payment_method**
-         * - `string` (optional): Filter by payment method code. Example: `payment_method=bank_card`
-         *
-         * **status**
-         * - `string` (optional): Filter by payment status. Example: `status=succeeded`
-         *
-         * **limit**
-         * - `number` (optional): The number of objects returned in the response. Possible values: from 1 to 100. Example: `limit=50`
-         * - Default value: `10`
-         *
-         * **cursor**
-         * - `string` (optional): Used to retrieve the next fragment of the list. Example: `cursor=37a5c87d-3984-51e8-a7f3-8de646d39ec15`
-         * - Used as an indicator to retrieve the next fragment of the list. This should be used if there are more objects in the list than the number specified in the limit parameter. An example of how to use it is provided in the "Working with lists" documentation.
-         *
-         * **PaymentList**
-         *
-         * This is the response structure for the list of payments.
-         *
-         * **next_cursor**
-         * - `string` (optional): Used to retrieve the next fragment of the list.
-         *
-         * **payments**
-         * - `Payments.Payment[]` (optional): The list of payments.
+         * @see https://yookassa.ru/developers/api#get_payment
+         * @see https://yookassa.ru/developers/using-api/lists
          */
         list: this.getPaymentList,
 
         /**
-         * ****Подтверждение платежа***
+         * **Подтверждение платежа**
          *
-         * Подтверждает вашу готовность принять платеж.
-         * После подтверждения платеж перейдет в статус `succeeded`.
-         * Это значит, что вы можете выдать товар или оказать услугу пользователю.
-         * Подтвердить можно только платеж в статусе `waiting_for_capture`
-         * и только в течение определенного времени (зависит от способа оплаты).
-         * Если вы не подтвердите платеж в отведенное время, он автоматически
-         * перейдет в статус `canceled`, и деньги вернутся пользователю.
+         * Подтверждает готовность принять платёж. После подтверждения статус — `succeeded`.
+         * Доступно только для `waiting_for_capture` в пределах срока способа оплаты.
+         * По истечении срока платёж перейдёт в `canceled`, деньги вернутся пользователю.
          *
-         * [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel)
+         * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel
          *
-         * @param paymentId - идентификатор платежа
-         * @param payload - данные для подтверждения (сумма, чек, авиабилеты, распределение)
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param paymentId — ID платежа
+         * @param payload — сумма, чек, авиабилеты, распределение
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          */
         capture: this.capturePaymentById as (
             paymentId: string,
@@ -563,32 +513,28 @@ export class YooKassaSdk extends Connector {
             idempotenceKey?: string,
         ) => Promise<Payments.IPayment>,
         /**
-         * ****Отмена платежа****
+         * **Отмена платежа**
          *
-         * Отменяет платеж, находящийся в статусе `waiting_for_capture`.
-         * Отмена платежа значит, что вы не готовы выдать пользователю товар или оказать услугу.
-         * Как только вы отменяете платеж, мы начинаем возвращать деньги на счет плательщика.
-         * Для платежей банковскими картами, из кошелька ЮMoney или через SberPay отмена происходит мгновенно.
-         * Для остальных способов оплаты возврат может занимать до нескольких дней.
+         * Отменяет платёж в статусе `waiting_for_capture`. ЮKassa вернёт деньги плательщику.
+         * Для карт, ЮMoney и SberPay — мгновенно; для остальных способов — до нескольких дней.
          *
-         * [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel)
+         * @see https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-and-cancel
          *
-         * @param paymentId - идентификатор платежа
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param paymentId — ID платежа
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          */
         cancel: this.cancelPaymentById as (paymentId: string, idempotenceKey?: string) => Promise<Payments.IPayment>,
     }
-    /** Методы для работы с возвратами */
+    /** Методы работы с возвратами */
     public readonly refunds = {
         /**
-         * ****Создание возврата****
+         * **Создание возврата**
          *
-         * Создает возврат успешного платежа на указанную сумму.
-         * Платеж можно вернуть только в течение трех лет с момента его создания.
-         * Комиссия ЮKassa за проведение платежа не возвращается.
+         * Возвращает успешный платёж на указанную сумму. Срок — до трёх лет с создания платежа.
+         * Комиссия ЮKassa не возвращается.
          *
-         * @param refund - данные возврата
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param refund — данные возврата
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          * @see https://yookassa.ru/developers/api#create_refund
          */
         create: this.createRefund as (
@@ -596,38 +542,38 @@ export class YooKassaSdk extends Connector {
             idempotenceKey?: string,
         ) => Promise<Refunds.IRefund>,
         /**
-         * ****Информация о возврате****
+         * **Возврат**
          *
-         * Запрос позволяет получить информацию о текущем состоянии возврата по его уникальному идентификатору.
+         * Возвращает актуальное состояние возврата по ID.
          * @see https://yookassa.ru/developers/api#get_refund
          */
         load: this.getRefundById,
         /**
-         * ****Список возвратов****
+         * **Список возвратов**
          *
-         * Запрос позволяет получить список возвратов, отфильтрованный по заданным критериям.
+         * Возвращает возвраты по фильтру.
          *
-         * [Подробнее о работе со списками](https://yookassa.ru/developers/using-api/lists)
+         * @see https://yookassa.ru/developers/using-api/lists
          * @see https://yookassa.ru/developers/api#get_refunds_list
          */
         list: this.getRefundList,
     }
     /**
-     * ****Методы для работы с чеками****
+     * **Методы работы с чеками**
      *
-     * С помощью API можно получать информацию о чеках, для которых вы отправили данные через ЮKassa.
+     * Получение информации о чеках, отправленных через ЮKassa.
      * @see https://yookassa.ru/developers/api#receipt
      */
     public readonly receipts = {
         /**
-         * ****Создание чека****
+         * **Создание чека**
          *
-         * Используйте этот запрос при оплате с соблюдением требований 54-ФЗ, чтобы создать чек зачета предоплаты.
-         * Если вы работаете по сценарию [Сначала платеж, потом чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#receipt-after-payment),
-         * в запросе также нужно передавать данные для формирования чека прихода и чека возврата прихода.
+         * Создаёт чек зачёта предоплаты по 54-ФЗ. При сценарии
+         * [Сначала платёж, потом чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#receipt-after-payment)
+         * передайте также данные чека прихода и возврата прихода.
          *
-         * @param receipt - данные чека
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param receipt — данные чека
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          * @see https://yookassa.ru/developers/api#create_receipt
          */
         create: this.createReceipt as (
@@ -635,39 +581,38 @@ export class YooKassaSdk extends Connector {
             idempotenceKey?: string,
         ) => Promise<Receipts.IReceipt>,
         /**
-         * ****Информация о чеке****
+         * **Чек**
          *
-         * Запрос позволяет получить информацию о текущем состоянии чека по его уникальному идентификатору.
+         * Возвращает актуальное состояние чека по ID.
          */
         load: this.getReceiptById,
         /**
-         * ****Список чеков****
+         * **Список чеков**
          *
-         * Запрос позволяет получить список чеков, отфильтрованный по заданным критериям.
-         * Можно запросить чеки по конкретному платежу, чеки по конкретному возврату или все чеки магазина.
+         * Возвращает чеки по фильтру: по платежу, возврату или все чеки магазина.
          *
-         * [Подробнее о работе со списками](https://yookassa.ru/developers/using-api/lists)
+         * @see https://yookassa.ru/developers/using-api/lists
          * @see https://yookassa.ru/developers/api#get_receipts_list
          */
         list: this.getReceiptList,
     }
 
     /**
-     * ****Методы для работы с выплатами****
+     * **Методы работы с выплатами**
      *
-     * Позволяет создавать выплаты физическим лицам и получать информацию о них.
-     * Доступно при использовании обычных выплат или в рамках Безопасной сделки.
+     * Создание выплат физлицам и получение информации о них.
+     * Доступно для обычных выплат и Безопасной сделки.
      *
      * @see https://yookassa.ru/developers/payouts/overview
      */
     public readonly payouts = {
         /**
-         * ****Создание выплаты****
+         * **Создание выплаты**
          *
-         * Создаёт выплату физическому лицу на указанное платёжное средство.
+         * Создаёт выплату физлицу на указанное платёжное средство.
          *
-         * @param payout - данные выплаты
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param payout — данные выплаты
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          * @see https://yookassa.ru/developers/api#create_payout
          */
         create: this.createPayout as (
@@ -675,39 +620,38 @@ export class YooKassaSdk extends Connector {
             idempotenceKey?: string,
         ) => Promise<Payouts.IPayout>,
         /**
-         * ****Информация о выплате****
+         * **Выплата**
          *
-         * Возвращает информацию о текущем состоянии выплаты по её идентификатору.
+         * Возвращает актуальное состояние выплаты по ID.
          *
          * @see https://yookassa.ru/developers/api#get_payout
          */
         load: this.getPayoutById,
         /**
-         * ****Список выплат****
+         * **Список выплат**
          *
-         * Возвращает список выплат, отфильтрованный по заданным критериям.
-         * Поддерживает фильтрацию по `created_at` и `succeeded_at`.
+         * Возвращает выплаты по фильтру (`created_at`, `succeeded_at`).
          *
          * @see https://yookassa.ru/developers/api#get_payouts_list
          */
         list: this.getPayoutList,
         /**
-         * ****Поиск выплат****
+         * **Поиск выплат**
          *
-         * Поиск по `metadata` и периоду `created_at` (только за последние 3 месяца).
+         * Ищет по `metadata` и периоду `created_at` (последние 3 месяца).
          *
          * @see https://yookassa.ru/developers/api#search_payouts
          */
         search: this.searchPayouts as (filter?: Omit<GetPayoutSearchFilter, 'cursor'>) => Promise<Payouts.IPayout[]>,
     }
 
-    /** Участники СБП (справочник для выплат через СБП). */
+    /** Участники СБП — справочник для выплат через СБП */
     public readonly sbpBanks = {
         /** @see https://yookassa.ru/developers/api#get_sbp_banks */
         list: this.getSbpBanks as () => Promise<SbpParticipantBank[]>,
     }
 
-    /** Создание и получение сохранённых способов оплаты (привязка карты и т.п.). */
+    /** Создание и получение сохранённых способов оплаты (привязка карты и т. п.) */
     public readonly paymentMethods = {
         /**
          * @see https://yookassa.ru/developers/api#create_payment_method
@@ -722,7 +666,7 @@ export class YooKassaSdk extends Connector {
         load: this.getSavedPaymentMethodById as (paymentMethodId: string) => Promise<SavePaymentMethod>,
     }
 
-    /** Персональные данные получателя (выплаты с проверкой / выписки). */
+    /** Персональные данные получателя (выплаты с проверкой, выписки) */
     public readonly personalData = {
         /**
          * @see https://yookassa.ru/developers/api#create_personal_data
@@ -766,98 +710,98 @@ export class YooKassaSdk extends Connector {
     }
 
     /**
-     * ****Методы для работы с вебхуками****
+     * **Методы работы с вебхуками**
      *
-     * Вебхуки позволяют получать уведомления о событиях в ЮKassa.
-     * **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
+     * Уведомления о событиях ЮKassa.
+     * **Нужен OAuth-токен** — только в партнёрской программе.
      *
      * @see https://yookassa.ru/developers/api#webhook
      */
     public readonly webhooks = {
         /**
-         * ****Создание вебхука****
+         * **Создание вебхука**
          *
-         * Создаёт вебхук для получения уведомлений о событиях.
+         * Регистрирует вебхук для уведомлений о событиях.
          *
-         * @param webhook - данные вебхука (event, url)
-         * @param idempotenceKey - ключ идемпотентности (опционально)
+         * @param webhook — `event`, `url`
+         * @param idempotenceKey — ключ идемпотентности (опционально)
          * @see https://yookassa.ru/developers/api#create_webhook
          */
         create: this.createWebhook as (webhook: CreateWebhookRequest, idempotenceKey?: string) => Promise<IWebhook>,
         /**
-         * ****Список вебхуков****
+         * **Список вебхуков**
          *
-         * Возвращает список созданных вебхуков.
+         * Возвращает зарегистрированные вебхуки.
          * @see https://yookassa.ru/developers/api#get_webhook_list
          */
         list: this.getWebhookList as () => Promise<IWebhook[]>,
         /**
-         * ****Удаление вебхука****
+         * **Удаление вебхука**
          *
-         * Удаляет вебхук по идентификатору.
+         * Удаляет вебхук по ID.
          *
-         * @param webhookId - идентификатор вебхука
+         * @param webhookId — ID вебхука
          * @see https://yookassa.ru/developers/api#delete_webhook
          */
         delete: this.deleteWebhook as (webhookId: string) => Promise<void>,
         /**
-         * ****Верификация уведомления (payment или refund)****
+         * **Верификация уведомления (payment или refund)**
          *
-         * Подтверждает подлинность входящего уведомления, **перезапрашивая объект через API**.
-         * Единственный надёжный способ убедиться, что уведомление действительно пришло от ЮKassa.
+         * Подтверждает подлинность уведомления **перезапросом объекта через API**.
+         * Единственный надёжный способ убедиться, что уведомление от ЮKassa.
          *
-         * Возвращает полную нотификацию с актуальным состоянием объекта:
-         * - `payment.*` → `PaymentNotification` с `IPayment` из API
-         * - `refund.*`  → `RefundNotification` с `IRefund` из API
+         * Возвращает нотификацию с актуальным объектом:
+         * - `payment.*` → `PaymentNotification` с `IPayment`
+         * - `refund.*` → `RefundNotification` с `IRefund`
          *
-         * @param body - тело запроса (`req.body`)
-         * @throws {WebhookValidationError} Если тело некорректно или тип события не поддерживается
+         * @param body — тело запроса (`req.body`)
+         * @throws {WebhookValidationError} Некорректное тело или неподдерживаемый тип события
          */
         verify: this.verifyWebhookNotification,
         /**
-         * ****Верификация уведомления о платеже****
+         * **Верификация уведомления о платеже**
          *
-         * Аналогично `verify`, но принимает **только** `payment.*` события.
-         * Отвергает `refund.*` и прочие — бросает `WebhookValidationError`.
-         * Возвращает `PaymentNotification` с актуальным `IPayment` из API.
+         * Как `verify`, но принимает только `payment.*`.
+         * Отклоняет `refund.*` и прочие — `WebhookValidationError`.
+         * Возвращает `PaymentNotification` с актуальным `IPayment`.
          *
-         * @param body - тело запроса (`req.body`)
-         * @throws {WebhookValidationError} Если тело некорректно или событие не является payment.*
+         * @param body — тело запроса (`req.body`)
+         * @throws {WebhookValidationError} Некорректное тело или событие не `payment.*`
          */
         verifyPayment: this.verifyPaymentNotification,
         /**
-         * ****Верификация уведомления о возврате****
+         * **Верификация уведомления о возврате**
          *
-         * Аналогично `verify`, но принимает **только** `refund.*` события.
-         * Отвергает `payment.*` и прочие — бросает `WebhookValidationError`.
-         * Возвращает `RefundNotification` с актуальным `IRefund` из API.
+         * Как `verify`, но принимает только `refund.*`.
+         * Отклоняет `payment.*` и прочие — `WebhookValidationError`.
+         * Возвращает `RefundNotification` с актуальным `IRefund`.
          *
-         * @param body - тело запроса (`req.body`)
-         * @throws {WebhookValidationError} Если тело некорректно или событие не является refund.*
+         * @param body — тело запроса (`req.body`)
+         * @throws {WebhookValidationError} Некорректное тело или событие не `refund.*`
          */
         verifyRefund: this.verifyRefundNotification,
     }
 
     /**
-     * ****Информация о магазине****
+     * **Магазин**
      *
-     * Позволяет получить информацию о подключённом магазине.
-     * **Требуется OAuth-токен** — функционал доступен только в рамках партнёрской программы.
+     * Данные подключённого магазина.
+     * **Нужен OAuth-токен** — только в партнёрской программе.
      *
      * @see https://yookassa.ru/developers/api#get_me
      */
     public readonly shop = {
         /**
-         * ****Получить информацию о магазине****
+         * **Данные магазина**
          *
-         * Возвращает информацию об аккаунте: идентификатор, статус, доступные способы оплаты и т.д.
+         * Возвращает аккаунт: ID, статус, способы оплаты и т. д.
          * @see https://yookassa.ru/developers/api#get_me
          */
         info: this.getShopInfo as () => Promise<IShopInfo>,
     }
 }
 
-/** Кэш инстансов SDK по shop_id */
+/** Кэш экземпляров SDK по `shop_id` */
 const clientCache = new Map<string, YooKassaSdk>()
 
 /**
@@ -905,10 +849,10 @@ export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
 }
 
 /**
- * Очищает кэш инстансов SDK.
+ * Очищает кэш экземпляров SDK.
  * Полезно при смене credentials или для освобождения памяти.
  *
- * @param shopId - ID магазина для удаления из кэша. Если не указан, очищается весь кэш.
+ * @param shopId — ID магазина для удаления из кэша; без параметра — очистка всего кэша
  */
 export function clearYooKassaCache(shopId?: string): void {
     if (shopId) {

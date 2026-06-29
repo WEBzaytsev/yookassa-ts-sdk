@@ -8,10 +8,10 @@
 
 > **CanceledPayment** = [`IPayment`](../interfaces/IPayment.md) & `object`
 
-Defined in: [src/types/payments/payment.type.ts:214](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L214)
+Defined in: [src/types/payments/payment.type.ts:194](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L194)
 
-Платёж в статусе отмены. У отменённого платежа всегда есть cancellation_details с причиной
-(например insufficient_funds, expired_on_confirmation). Используйте с type guard isCanceledPayment.
+Платёж в статусе `canceled` с `cancellation_details` (например `insufficient_funds`, `expired_on_confirmation`).
+Используйте type guard `isCanceledPayment`.
 
 ## Type Declaration
 

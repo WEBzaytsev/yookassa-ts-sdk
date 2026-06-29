@@ -6,7 +6,7 @@
 
 # Interface: PayoutToSbpDestination
 
-Defined in: [src/types/payouts/payout.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L34)
+Defined in: [src/types/payouts/payout.type.ts:34](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L34)
 
 Выплата через СБП (ответ)
 
@@ -16,9 +16,9 @@ Defined in: [src/types/payouts/payout.type.ts:34](https://github.com/WEBzaytsev/
 
 > **bank\_id**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L39)
+Defined in: [src/types/payouts/payout.type.ts:39](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L39)
 
-Идентификатор участника СБП (банка или платёжного сервиса), до 12 символов
+ID участника СБП (банк или сервис), до 12 символов
 
 ***
 
@@ -26,9 +26,9 @@ Defined in: [src/types/payouts/payout.type.ts:39](https://github.com/WEBzaytsev/
 
 > **phone**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L37)
+Defined in: [src/types/payouts/payout.type.ts:37](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L37)
 
-Телефон получателя в формате ITU-T E.164, например 79000000000
+Телефон получателя, ITU-T E.164. Пример: `79000000000`
 
 ***
 
@@ -36,9 +36,9 @@ Defined in: [src/types/payouts/payout.type.ts:37](https://github.com/WEBzaytsev/
 
 > **recipient\_checked**: `boolean`
 
-Defined in: [src/types/payouts/payout.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L46)
+Defined in: [src/types/payouts/payout.type.ts:46](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L46)
 
-Выплата проходила с проверкой получателя
+Выплата с проверкой получателя
 
 ***
 
@@ -46,10 +46,10 @@ Defined in: [src/types/payouts/payout.type.ts:46](https://github.com/WEBzaytsev/
 
 > `optional` **sbp\_operation\_id?**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L44)
+Defined in: [src/types/payouts/payout.type.ts:44](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L44)
 
-Идентификатор операции в СБП (НСПК).
-Обязателен для выплат в статусе `succeeded`.
+ID операции в СБП (НСПК).
+Обязателен для выплат в `succeeded`.
 
 ***
 
@@ -57,4 +57,4 @@ Defined in: [src/types/payouts/payout.type.ts:44](https://github.com/WEBzaytsev/
 
 > **type**: `"sbp"`
 
-Defined in: [src/types/payouts/payout.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L35)
+Defined in: [src/types/payouts/payout.type.ts:35](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L35)

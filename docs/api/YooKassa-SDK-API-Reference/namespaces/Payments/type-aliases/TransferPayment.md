@@ -8,9 +8,9 @@
 
 > **TransferPayment** = `Pick`\<[`IPayment`](../interfaces/IPayment.md), `"amount"` \| `"description"` \| `"metadata"`\> & `object`
 
-Defined in: [src/types/payments/payment.type.ts:77](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L77)
+Defined in: [src/types/payments/payment.type.ts:73](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L73)
 
-Данные о распределении денег — сколько и в какой магазин нужно перевести.
+Распределение денег между магазинами
 
 ## Type Declaration
 
@@ -18,16 +18,16 @@ Defined in: [src/types/payments/payment.type.ts:77](https://github.com/WEBzaytse
 
 > **account\_id**: `string`
 
-Идентификатор магазина, в пользу которого вы принимаете оплату. Выдается ЮKassa, отображается в разделе [Продавцы](https://yookassa.ru/my/marketplace/sellers) личного кабинета (столбец shopId).
+ID магазина-получателя. См. [Продавцы](https://yookassa.ru/my/marketplace/sellers) в ЛК (shopId)
 
 ### platform\_fee\_amount
 
 > **platform\_fee\_amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Комиссия за проданные товары и услуги, которая удерживается с магазина в вашу пользу.
+Комиссия платформы, удерживаемая с магазина
 
 ### status
 
 > **status**: [`PaymentStatus`](PaymentStatus.md)
 
-Статус распределения денег между магазинами. Возможные значения: `pending`, `waiting_for_capture`, `succeeded`, `canceled`.
+Статус распределения: `pending`, `waiting_for_capture`, `succeeded`, `canceled`

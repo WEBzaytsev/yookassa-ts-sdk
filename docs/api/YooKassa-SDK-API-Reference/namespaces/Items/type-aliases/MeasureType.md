@@ -8,6 +8,6 @@
 
 > **MeasureType** = keyof *typeof* [`measureTypeMap`](../../../../variables/measureTypeMap.md)
 
-Defined in: [src/types/receipt/item.type.ts:122](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/receipt/item.type.ts#L122)
+Defined in: [src/types/receipt/item.type.ts:116](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/receipt/item.type.ts#L116)
 
-Мера количества предмета расчета, передается в массиве `items`, в параметре `measure`.
+Мера количества предмета расчёта. Передавайте в `items.measure`

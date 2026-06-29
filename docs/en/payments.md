@@ -56,7 +56,7 @@ Nested time filters are sent as query parameters in dot notation (`created_at.gt
 
 ## Utility payments (housing & utilities)
 
-For [utility (ЖКХ) payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-payments), include `payment_order_data` in `sdk.payments.create(...)`. See the exported type `PaymentOrderData` / `PaymentOrderDataUtilities`.
+For [utility (ЖКХ) payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-payments), include `payment_order_data` in `sdk.payments.create(...)`. See the exported types `PaymentOrderData` and `PaymentOrderDataUtilities`.
 
 ## Capture Payment
 
@@ -91,7 +91,7 @@ const payment = await sdk.payments.cancel('payment_id');
 
 ## Two-Stage Payments
 
-For high-value orders, use [two-stage payments](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#two-stage) — first hold funds, then capture or cancel.
+For high-value orders, use [two-stage payments](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#two-stage): hold funds first, then capture or cancel.
 
 ```ts
 // Stage 1: Create payment with capture: false (hold funds)
@@ -113,11 +113,11 @@ const canceled = await sdk.payments.cancel(payment.id);
 
 ## Confirmation Scenarios
 
-SDK supports all YooKassa [confirmation types](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#confirmation-scenarios):
+The SDK supports all YooKassa [confirmation types](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#confirmation-scenarios):
 
 ### Redirect (default)
 
-User is redirected to YooKassa or bank page:
+The user is redirected to a YooKassa or bank payment page:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -135,7 +135,7 @@ console.log(payment.confirmation.confirmation_url);
 
 ### Embedded (Widget)
 
-Payment via [YooKassa widget](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics):
+Payment through the [YooKassa widget](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/widget/basics):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -149,7 +149,7 @@ console.log(payment.confirmation.confirmation_token);
 
 ### QR Code (SBP)
 
-Payment via QR code for SBP:
+Payment via QR code using SBP:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -164,7 +164,7 @@ console.log(payment.confirmation.confirmation_data);
 
 ### Mobile Application
 
-For SberPay, T-Pay and other mobile payments:
+For SberPay, T-Pay, and other mobile payment methods:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -181,7 +181,7 @@ console.log(payment.confirmation.confirmation_url);
 
 ## Payment Tokens
 
-For integration with [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) or [Mobile SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics):
+For integration with [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) or the [Mobile SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -195,7 +195,7 @@ const payment = await sdk.payments.create({
 
 ## Recurring Payments (Auto-debiting)
 
-SDK supports [recurring payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) — automatic charges without user confirmation.
+The SDK supports [recurring payments](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) — automatic charges without user confirmation.
 
 ### Supported Payment Methods
 
@@ -207,9 +207,9 @@ SDK supports [recurring payments](https://yookassa.ru/developers/payment-accepta
 | T-Pay | ✅ | ❌ | |
 | SBP | ✅ | ❌ | [Not all banks supported](https://sbp.nspk.ru/participants/) |
 
-> **Mandatory save** (`save_payment_method: true`) — user cannot refuse to save the payment method.
+> **Mandatory save** (`save_payment_method: true`) — the user cannot decline to save the payment method.
 >
-> **Optional save** — user decides whether to save the payment method on YooKassa form.
+> **Optional save** — the user chooses whether to save the payment method on the YooKassa form.
 
 ### Save Payment Method
 
@@ -253,7 +253,7 @@ if (payment.payment_method?.saved) {
 
 ## Airline Tickets
 
-For selling airline tickets with bank cards, pass [airline data](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/airline-tickets):
+When selling airline tickets with bank cards, pass [airline data](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/airline-tickets):
 
 ```ts
 const payment = await sdk.payments.create({
@@ -320,7 +320,7 @@ const payment = await sdk.payments.create({
 
 ## Split Payments
 
-For [marketplaces](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics) — distribute payment between multiple sellers:
+For [marketplaces](https://yookassa.ru/developers/solutions-for-platforms/split-payments/basics) — distribute a payment between multiple sellers:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -345,7 +345,7 @@ const payment = await sdk.payments.create({
 
 ## Metadata
 
-Attach custom data to payments (up to 16 keys, returned in responses and webhooks):
+Attach custom data to payments (up to 16 keys). Metadata is returned in API responses and webhooks:
 
 ```ts
 const payment = await sdk.payments.create({
@@ -362,4 +362,3 @@ const payment = await sdk.payments.create({
 const loaded = await sdk.payments.load(payment.id);
 console.log(loaded.metadata.order_id); // 'order-123'
 ```
-

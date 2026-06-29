@@ -1,4 +1,4 @@
-/** Участник СБП (банк / НСПК) для выплат через СБП. @see https://yookassa.ru/developers/api#get_sbp_banks */
+/** Участник СБП (банк / НСПК) для выплат. @see https://yookassa.ru/developers/api#get_sbp_banks */
 export interface SbpParticipantBank {
     bank_id: string
     name: string

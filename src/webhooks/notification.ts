@@ -3,37 +3,37 @@ import type { Refunds } from '../types/refunds'
 import type { WebhookEvent } from '../types/webhook.type'
 
 /**
- * IP-адреса и диапазоны, с которых YooKassa отправляет уведомления.
- * Используйте для валидации входящих запросов.
+ * IP-адреса и диапазоны, с которых YooKassa шлёт уведомления.
+ * Используйте для проверки входящих запросов.
  *
  * @see https://yookassa.ru/developers/using-api/webhooks#ip
  */
 export const YOOKASSA_IP_RANGES = [
-    // IPv4 диапазоны
+    // IPv4-диапазоны
     '185.71.76.0/27',
     '185.71.77.0/27',
     '77.75.153.0/25',
     '77.75.154.128/25',
-    // Отдельные IPv4 адреса
+    // Отдельные IPv4-адреса
     '77.75.156.11',
     '77.75.156.35',
 ] as const
 
 /**
- * IPv6 диапазон YooKassa
+ * IPv6-диапазон YooKassa
  * @see https://yookassa.ru/developers/using-api/webhooks#ip
  */
 export const YOOKASSA_IPV6_RANGE = '2a02:5180::/32'
 
 /**
- * Входящее уведомление от YooKassa
+ * Входящее уведомление YooKassa
  */
 export interface WebhookNotification<T = Payments.IPayment | Refunds.IRefund> {
-    /** Тип объекта — всегда 'notification' */
+    /** Тип объекта — всегда `notification` */
     type: 'notification'
-    /** Событие, о котором уведомляет YooKassa */
+    /** Событие уведомления */
     event: WebhookEvent
-    /** Объект, связанный с событием (платёж, возврат, выплата, сделка) */
+    /** Связанный объект (платёж, возврат, выплата, сделка) */
     object: T
 }
 
@@ -53,7 +53,7 @@ export class WebhookValidationError extends Error {
     ) {
         super(message)
         this.name = 'WebhookValidationError'
-        // Сохраняем оригинальный stack trace
+        // Сохраняем исходный stack trace
         if (Error.captureStackTrace) {
             Error.captureStackTrace(this, WebhookValidationError)
         }
@@ -61,18 +61,16 @@ export class WebhookValidationError extends Error {
 }
 
 /**
- * Проверяет, является ли IP-адрес адресом YooKassa.
+ * Проверяет, принадлежит ли IP-адрес YooKassa.
  *
- * **⚠️ Важно о надёжности:** проверка IP **не является достаточной защитой**, если перед вашим
- * сервером стоит reverse-proxy (nginx, Cloudflare, AWS ALB и т.п.). Заголовок `x-forwarded-for`
- * легко подделать: клиент может передать произвольный IP в этом заголовке, и прокси добавит его
- * в список. Используйте `req.socket.remoteAddress` (реальный IP соединения) только при условии,
- * что ваш прокси настроен доверять только реальным IP ЮKassa.
+ * **⚠️ Надёжность:** проверка IP **не защищает** за reverse-proxy (nginx, Cloudflare, AWS ALB и т. п.).
+ * Заголовок `x-forwarded-for` легко подделать. Используйте `req.socket.remoteAddress` только если
+ * прокси доверяет реальным IP ЮKassa.
  *
- * Для надёжной верификации используйте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
+ * Для надёжной верификации вызывайте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
  *
- * @param ip - IP-адрес для проверки (например, из req.ip или x-forwarded-for)
- * @returns true, если IP принадлежит YooKassa
+ * @param ip — IP для проверки (например, `req.ip` или `x-forwarded-for`)
+ * @returns `true`, если IP принадлежит YooKassa
  *
  * @example
  * ```ts
@@ -88,15 +86,15 @@ export class WebhookValidationError extends Error {
  * ```
  */
 export function isYooKassaIP(ip: string): boolean {
-    // Убираем IPv6 prefix если есть (::ffff:192.168.1.1)
+    // Убираем IPv6-префикс (::ffff:192.168.1.1)
     const cleanIP = ip.replace(/^::ffff:/, '')
 
-    // Проверяем IPv6
+    // IPv6
     if (cleanIP.includes(':')) {
         return isIPv6InRange(cleanIP, YOOKASSA_IPV6_RANGE)
     }
 
-    // Проверяем IPv4
+    // IPv4
     for (const range of YOOKASSA_IP_RANGES) {
         if (isIPv4Match(cleanIP, range)) {
             return true
@@ -106,15 +104,15 @@ export function isYooKassaIP(ip: string): boolean {
 }
 
 /**
- * Проверяет, соответствует ли IPv4 адрес диапазону CIDR или отдельному IP
+ * Сопоставляет IPv4-адрес с CIDR-диапазоном или отдельным IP
  */
 function isIPv4Match(ip: string, rangeOrIP: string): boolean {
-    // Если это отдельный IP (без маски)
+    // Отдельный IP без маски
     if (!rangeOrIP.includes('/')) {
         return ip === rangeOrIP
     }
 
-    // CIDR диапазон
+    // CIDR-диапазон
     const [rangeIP, bits] = rangeOrIP.split('/')
     const prefixBits = parseInt(bits, 10)
     if (Number.isNaN(prefixBits) || prefixBits < 0 || prefixBits > 32) {
@@ -133,7 +131,7 @@ function isIPv4Match(ip: string, rangeOrIP: string): boolean {
 }
 
 /**
- * Проверяет, входит ли IPv6 адрес в CIDR диапазон
+ * Проверяет вхождение IPv6-адреса в CIDR-диапазон
  */
 function isIPv6InRange(ip: string, cidr: string): boolean {
     const [rangeIP, bits] = cidr.split('/')
@@ -150,7 +148,7 @@ function isIPv6InRange(ip: string, cidr: string): boolean {
         return false
     }
 
-    // Сравниваем побитово
+    // Побитовое сравнение
     let bitsToCompare = prefixBits
     for (let i = 0; i < 8 && bitsToCompare > 0; i++) {
         const bitsInThisPart = Math.min(16, bitsToCompare)
@@ -167,7 +165,7 @@ function isIPv6InRange(ip: string, cidr: string): boolean {
 }
 
 /**
- * Разворачивает сокращённый IPv6 адрес в массив из 8 чисел
+ * Разворачивает сокращённый IPv6 в массив из 8 чисел
  */
 function expandIPv6(ip: string): number[] | null {
     // Обработка :: (сокращение нулей)
@@ -200,7 +198,7 @@ function expandIPv6(ip: string): number[] | null {
 }
 
 /**
- * Преобразует IP-адрес в число
+ * Преобразует IPv4-адрес в число
  */
 function ipToNumber(ip: string): number | null {
     const parts = ip.split('.')
@@ -220,18 +218,16 @@ function ipToNumber(ip: string): number | null {
 }
 
 /**
- * Парсит и валидирует входящее уведомление от YooKassa.
+ * Парсит и валидирует входящее уведомление YooKassa.
  *
- * **⚠️ Важно:** эта функция проверяет только **формат** объекта (наличие полей `type`, `event`, `object`).
- * Она **не подтверждает подлинность** уведомления — злоумышленник может отправить корректно
- * оформленное тело с чужим `payment.id`.
+ * **⚠️ Важно:** функция проверяет только **формат** (поля `type`, `event`, `object`).
+ * Она **не подтверждает подлинность** — злоумышленник может отправить корректное тело с чужим `payment.id`.
  *
- * Для надёжной верификации используйте `sdk.webhooks.verify(body)`, который перезапрашивает
- * объект через API ЮKassa и возвращает его актуальное состояние.
+ * Для надёжной верификации вызывайте `sdk.webhooks.verify(body)` — перезапрос объекта через API ЮKassa.
  *
- * @param body - Тело запроса (req.body)
+ * @param body — тело запроса (`req.body`)
  * @returns Типизированное уведомление (только форма, не аутентичность)
- * @throws {WebhookValidationError} Если формат уведомления некорректен
+ * @throws {WebhookValidationError} Некорректный формат
  *
  * @example
  * ```ts
@@ -287,11 +283,11 @@ export function parseNotification(body: unknown): WebhookNotification {
 }
 
 /**
- * Типизированный парсер для уведомлений о платежах.
+ * Парсит уведомления о платежах.
  *
- * @param body - Тело запроса
- * @returns Уведомление с типизированным объектом платежа
- * @throws {WebhookValidationError} Если событие не относится к платежам
+ * @param body — тело запроса
+ * @returns Уведомление с типизированным платежом
+ * @throws {WebhookValidationError} Событие не относится к платежам
  */
 export function parsePaymentNotification(body: unknown): PaymentNotification {
     const notification = parseNotification(body)
@@ -304,11 +300,11 @@ export function parsePaymentNotification(body: unknown): PaymentNotification {
 }
 
 /**
- * Типизированный парсер для уведомлений о возвратах.
+ * Парсит уведомления о возвратах.
  *
- * @param body - Тело запроса
- * @returns Уведомление с типизированным объектом возврата
- * @throws {WebhookValidationError} Если событие не относится к возвратам
+ * @param body — тело запроса
+ * @returns Уведомление с типизированным возвратом
+ * @throws {WebhookValidationError} Событие не относится к возвратам
  */
 export function parseRefundNotification(body: unknown): RefundNotification {
     const notification = parseNotification(body)

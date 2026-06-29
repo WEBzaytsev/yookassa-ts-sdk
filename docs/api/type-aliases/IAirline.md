@@ -8,6 +8,6 @@
 
 > **IAirline** = `IAirlineWithTicketNumber` \| `IAirlineWithBookingReference`
 
-Defined in: [src/types/payments/airline.type.ts:52](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/airline.type.ts#L52)
+Defined in: [src/types/payments/airline.type.ts:47](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/airline.type.ts#L47)
 
-Объект с данными для продажи авиабилетов. Используется только для платежей банковской картой.
+Данные продажи авиабилетов. Только для оплаты банковской картой.

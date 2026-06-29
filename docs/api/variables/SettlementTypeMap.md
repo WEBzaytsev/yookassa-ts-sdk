@@ -8,15 +8,15 @@
 
 > `const` **SettlementTypeMap**: `object`
 
-Defined in: [src/dictionaries.ts:177](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/dictionaries.ts#L177)
+Defined in: [src/dictionaries.ts:175](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/dictionaries.ts#L175)
 
-Тип расчета передается в запросе на создание чека в массиве 'settlements', в параметре 'type'.
+Тип расчёта. Передаётся в `settlements.type` при создании чека.
 
 ## Type Declaration
 
 ### cashless
 
-> **cashless**: `string` = `'Безналичный расчет'`
+> **cashless**: `string` = `'Безналичный расчёт'`
 
 ### consideration
 
@@ -24,8 +24,8 @@ Defined in: [src/dictionaries.ts:177](https://github.com/WEBzaytsev/yookassa-ts-
 
 ### postpayment
 
-> **postpayment**: `string` = `'Постоплата(кредит)'`
+> **postpayment**: `string` = `'Постоплата (кредит)'`
 
 ### prepayment
 
-> **prepayment**: `string` = `'Предоплата(аванс)'`
+> **prepayment**: `string` = `'Предоплата (аванс)'`

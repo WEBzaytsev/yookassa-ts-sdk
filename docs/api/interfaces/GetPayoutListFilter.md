@@ -6,9 +6,9 @@
 
 # Interface: GetPayoutListFilter
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L11)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:11](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L11)
 
-Фильтр для получения списка выплат.
+Фильтр списка выплат.
 
 ## See
 
@@ -20,7 +20,7 @@ https://yookassa.ru/developers/api#get_payouts_list
 
 > `optional` **created\_at?**: [`DateFilter`](../type-aliases/DateFilter.md)
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L13)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L13)
 
 Фильтр по времени создания
 
@@ -30,7 +30,7 @@ Defined in: [src/types/payouts/payoutListFilter.type.ts:13](https://github.com/W
 
 > `optional` **cursor?**: `string`
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:31](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L31)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L29)
 
 Указатель на следующий фрагмент списка
 
@@ -40,9 +40,9 @@ Defined in: [src/types/payouts/payoutListFilter.type.ts:31](https://github.com/W
 
 > `optional` **limit?**: `number`
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:29](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L29)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:27](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L27)
 
-Количество объектов в ответе (от 1 до 100).
+Число объектов в ответе: от 1 до 100.
 
 #### Default
 
@@ -56,9 +56,9 @@ Defined in: [src/types/payouts/payoutListFilter.type.ts:29](https://github.com/W
 
 > `optional` **payout\_destination?**: `object`
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L22)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:20](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L20)
 
-Фильтр по типу назначения выплаты в query: `payout_destination.type`.
+Фильтр по `payout_destination.type` в query
 
 #### type?
 
@@ -70,7 +70,7 @@ Defined in: [src/types/payouts/payoutListFilter.type.ts:22](https://github.com/W
 
 > `optional` **status?**: [`PayoutStatus`](../YooKassa-SDK-API-Reference/namespaces/Payouts/type-aliases/PayoutStatus.md)
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:24](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L24)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:22](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L22)
 
 Фильтр по статусу выплаты
 
@@ -80,9 +80,9 @@ Defined in: [src/types/payouts/payoutListFilter.type.ts:24](https://github.com/W
 
 > `optional` **succeeded\_at?**: [`DateFilter`](../type-aliases/DateFilter.md)
 
-Defined in: [src/types/payouts/payoutListFilter.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payoutListFilter.type.ts#L18)
+Defined in: [src/types/payouts/payoutListFilter.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payoutListFilter.type.ts#L18)
 
-Фильтр по времени успешного проведения выплаты (`succeeded_at` в объекте выплаты).
+Фильтр по `succeeded_at` в объекте выплаты.
 
 #### See
 

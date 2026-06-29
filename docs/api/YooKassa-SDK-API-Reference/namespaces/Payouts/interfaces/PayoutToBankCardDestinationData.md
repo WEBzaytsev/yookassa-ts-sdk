@@ -6,9 +6,9 @@
 
 # Interface: PayoutToBankCardDestinationData
 
-Defined in: [src/types/payouts/payout.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L62)
+Defined in: [src/types/payouts/payout.type.ts:62](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L62)
 
-Данные для выплаты на банковскую карту
+Выплата на банковскую карту (запрос)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payouts/payout.type.ts:62](https://github.com/WEBzaytsev/
 
 > **card**: `object`
 
-Defined in: [src/types/payouts/payout.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L64)
+Defined in: [src/types/payouts/payout.type.ts:64](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L64)
 
 #### number
 
@@ -30,4 +30,4 @@ Defined in: [src/types/payouts/payout.type.ts:64](https://github.com/WEBzaytsev/
 
 > **type**: `"bank_card"`
 
-Defined in: [src/types/payouts/payout.type.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L63)
+Defined in: [src/types/payouts/payout.type.ts:63](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L63)

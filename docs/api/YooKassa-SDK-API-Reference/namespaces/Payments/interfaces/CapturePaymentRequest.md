@@ -6,10 +6,9 @@
 
 # Interface: CapturePaymentRequest
 
-Defined in: [src/types/payments/payment.type.ts:306](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L306)
+Defined in: [src/types/payments/payment.type.ts:293](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L293)
 
-Запрос на подтверждение платежа.
-Используется при двухстадийной оплате для списания денег.
+Подтверждение двухстадийного платежа (списание).
 
 ## See
 
@@ -21,10 +20,9 @@ https://yookassa.ru/developers/api#capture_payment
 
 > `optional` **airline?**: [`IAirline`](../../../../type-aliases/IAirline.md)
 
-Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L319)
+Defined in: [src/types/payments/payment.type.ts:302](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L302)
 
-Данные для продажи авиабилетов.
-Используется только при оплате банковской картой.
+Данные авиабилетов. Только для карты
 
 ***
 
@@ -32,11 +30,10 @@ Defined in: [src/types/payments/payment.type.ts:319](https://github.com/WEBzayts
 
 > `optional` **amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L311)
+Defined in: [src/types/payments/payment.type.ts:298](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L298)
 
-Сумма к списанию.
-Можно списать сумму меньше, чем была авторизована (частичное подтверждение).
-Если не передано, списывается полная сумма платежа.
+Сумма списания. Меньше авторизованной — частичное подтверждение.
+Без поля — полная сумма.
 
 ***
 
@@ -44,10 +41,9 @@ Defined in: [src/types/payments/payment.type.ts:311](https://github.com/WEBzayts
 
 > `optional` **receipt?**: [`ReceiptinPaymentType`](../../Receipts/type-aliases/ReceiptinPaymentType.md)
 
-Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L315)
+Defined in: [src/types/payments/payment.type.ts:300](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L300)
 
-Данные для формирования чека.
-Передаются, если вы работаете по 54-ФЗ.
+Данные чека по 54-ФЗ
 
 ***
 
@@ -55,37 +51,36 @@ Defined in: [src/types/payments/payment.type.ts:315](https://github.com/WEBzayts
 
 > `optional` **transfers?**: `object`[]
 
-Defined in: [src/types/payments/payment.type.ts:323](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L323)
+Defined in: [src/types/payments/payment.type.ts:304](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L304)
 
-Данные о распределении денег между магазинами.
-Используется при сплитовании платежей.
+Распределение при сплитовании
 
 #### account\_id
 
 > **account\_id**: `string`
 
-Идентификатор магазина, в пользу которого принимается оплата
+ID магазина-получателя
 
 #### amount
 
 > **amount**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Сумма, которую необходимо перечислить магазину
+Сумма перевода
 
 #### description?
 
 > `optional` **description?**: `string`
 
-Описание транзакции (до 128 символов)
+Описание (до 128 символов)
 
 #### metadata?
 
 > `optional` **metadata?**: [`Metadata`](../../../../interfaces/Metadata.md)
 
-Любые дополнительные данные
+Произвольные данные
 
 #### platform\_fee\_amount?
 
 > `optional` **platform\_fee\_amount?**: [`IAmount`](../../../../interfaces/IAmount.md)
 
-Комиссия за проданные товары и услуги, удерживаемая с магазина
+Комиссия платформы

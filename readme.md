@@ -7,18 +7,18 @@
 
 [README на русском](README.ru.md) | [Documentation](docs/en/)
 
-Modern TypeScript SDK for [YooKassa API](https://yookassa.ru/developers/api) integration. Supports payments, refunds, receipts, webhooks and more.
+A modern TypeScript SDK for integrating with the [YooKassa API](https://yookassa.ru/developers/api). It covers payments, refunds, receipts, webhooks, and more.
 
 ## Features
 
-- 🚀 **Full TypeScript support** — typings aligned with the published YooKassa OpenAPI paths covered by this SDK
-- 🔄 **Automatic retries** — exponential backoff on network errors
+- 🚀 **Full TypeScript support** — types aligned with the YooKassa OpenAPI paths covered by this SDK
+- 🔄 **Automatic retries** — exponential backoff on network failures
 - 🔑 **Idempotency** — automatic `Idempotence-Key` generation
 - 🌐 **Proxy support** — HTTP/HTTPS proxy configuration
 - ⚡ **Rate limiting** — built-in request throttling
 - 🕐 **Timeouts** — configurable request timeouts
 - 📦 **Instance caching** — efficient connection reuse
-- 🔧 **Multi-runtime** — works with Node.js, Bun, and other runtimes
+- 🔧 **Multi-runtime** — runs on Node.js, Bun, and other runtimes
 
 ## Installation
 
@@ -57,14 +57,14 @@ console.log(payment.confirmation.confirmation_url);
 
 | Section | Description |
 | --- | --- |
-| [Getting Started](docs/en/getting-started.md) | Configuration, instance caching |
-| [Payments](docs/en/payments.md) | Create, capture, cancel, list payments |
+| [Getting Started](docs/en/getting-started.md) | Configuration and instance caching |
+| [Payments](docs/en/payments.md) | Create, capture, cancel, and list payments |
 | [Refunds](docs/en/refunds.md) | Create and list refunds |
-| [Payouts](docs/en/payouts.md) | Payouts: create, load, list (gateway credentials) |
-| [Deals](docs/en/deals.md) | Safe Deal: create, load, list |
-| [Webhooks](docs/en/webhooks.md) | Webhook management & incoming notifications |
-| [Error Handling](docs/en/error-handling.md) | Error codes, retries |
-| [API Reference](docs/api/) | TypeScript types, interfaces, enums |
+| [Payouts](docs/en/payouts.md) | Create, load, and list payouts (gateway credentials) |
+| [Deals](docs/en/deals.md) | Safe Deal: create, load, and list |
+| [Webhooks](docs/en/webhooks.md) | Webhook management and incoming notifications |
+| [Error Handling](docs/en/error-handling.md) | Error codes and retries |
+| [API Reference](docs/api/) | TypeScript types, interfaces, and enums |
 
 ## API Reference
 
@@ -72,26 +72,26 @@ console.log(payment.confirmation.confirmation_url);
 
 | Method | Description |
 | --- | --- |
-| `sdk.payments.create(data, idempotenceKey?)` | Create payment |
-| `sdk.payments.load(id)` | Get payment by ID |
+| `sdk.payments.create(data, idempotenceKey?)` | Create a payment |
+| `sdk.payments.load(id)` | Get a payment by ID |
 | `sdk.payments.list(filter?)` | List payments |
-| `sdk.payments.capture(id, payload?, key?)` | Capture payment |
-| `sdk.payments.cancel(id, idempotenceKey?)` | Cancel payment |
+| `sdk.payments.capture(id, payload?, key?)` | Capture a payment |
+| `sdk.payments.cancel(id, idempotenceKey?)` | Cancel a payment |
 
 ### Refunds
 
 | Method | Description |
 | --- | --- |
-| `sdk.refunds.create(data, idempotenceKey?)` | Create refund |
-| `sdk.refunds.load(id)` | Get refund by ID |
+| `sdk.refunds.create(data, idempotenceKey?)` | Create a refund |
+| `sdk.refunds.load(id)` | Get a refund by ID |
 | `sdk.refunds.list(filter?)` | List refunds |
 
 ### Receipts
 
 | Method | Description |
 | --- | --- |
-| `sdk.receipts.create(data, idempotenceKey?)` | Create receipt |
-| `sdk.receipts.load(id)` | Get receipt by ID |
+| `sdk.receipts.create(data, idempotenceKey?)` | Create a receipt |
+| `sdk.receipts.load(id)` | Get a receipt by ID |
 | `sdk.receipts.list(filter?)` | List receipts |
 
 ### Payouts
@@ -100,9 +100,9 @@ Use the **payout gateway** `shop_id` and `secret_key` from your YooKassa dashboa
 
 | Method | Description |
 | --- | --- |
-| `sdk.payouts.create(data, idempotenceKey?)` | Create payout |
-| `sdk.payouts.load(id)` | Get payout by ID |
-| `sdk.payouts.list(filter?)` | List payouts (supports `succeeded_at`, `payout_destination.type`, etc.) |
+| `sdk.payouts.create(data, idempotenceKey?)` | Create a payout |
+| `sdk.payouts.load(id)` | Get a payout by ID |
+| `sdk.payouts.list(filter?)` | List payouts (supports `succeeded_at`, `payout_destination.type`, and more) |
 | `sdk.payouts.search(filter?)` | Search payouts by `metadata` and `created_at` (last 3 months) |
 
 ### SBP banks
@@ -115,30 +115,30 @@ Use the **payout gateway** `shop_id` and `secret_key` from your YooKassa dashboa
 
 | Method | Description |
 | --- | --- |
-| `sdk.paymentMethods.create(data, idempotenceKey?)` | Create saved payment method (e.g. bank card binding) |
-| `sdk.paymentMethods.load(id)` | Get saved payment method by ID |
+| `sdk.paymentMethods.create(data, idempotenceKey?)` | Create a saved payment method (e.g. bank card binding) |
+| `sdk.paymentMethods.load(id)` | Get a saved payment method by ID |
 
 ### Personal data (payouts)
 
 | Method | Description |
 | --- | --- |
-| `sdk.personalData.create(data, idempotenceKey?)` | Create personal data object |
+| `sdk.personalData.create(data, idempotenceKey?)` | Create a personal data object |
 | `sdk.personalData.load(id)` | Get personal data by ID |
 
 ### Deals (Safe Deal)
 
 | Method | Description |
 | --- | --- |
-| `sdk.deals.create(data, idempotenceKey?)` | Create deal |
+| `sdk.deals.create(data, idempotenceKey?)` | Create a deal |
 | `sdk.deals.list(filter?)` | List deals |
-| `sdk.deals.load(id)` | Get deal by ID |
+| `sdk.deals.load(id)` | Get a deal by ID |
 
 ### Invoices
 
 | Method | Description |
 | --- | --- |
-| `sdk.invoices.create(data, idempotenceKey?)` | Create invoice |
-| `sdk.invoices.load(id)` | Get invoice by ID |
+| `sdk.invoices.create(data, idempotenceKey?)` | Create an invoice |
+| `sdk.invoices.load(id)` | Get an invoice by ID |
 
 ### Webhooks
 
@@ -146,12 +146,12 @@ CRUD methods (`create`, `list`, `delete`) require an OAuth token. `verify*` meth
 
 | Method | Description |
 | --- | --- |
-| `sdk.webhooks.create(data, idempotenceKey?)` | Create webhook (OAuth) |
+| `sdk.webhooks.create(data, idempotenceKey?)` | Create a webhook (OAuth) |
 | `sdk.webhooks.list()` | List webhooks (OAuth) |
-| `sdk.webhooks.delete(id)` | Delete webhook (OAuth) |
-| `sdk.webhooks.verify(body)` | Parse and re-fetch notification (payment or refund) |
-| `sdk.webhooks.verifyPayment(body)` | Parse and re-fetch payment notification |
-| `sdk.webhooks.verifyRefund(body)` | Parse and re-fetch refund notification |
+| `sdk.webhooks.delete(id)` | Delete a webhook (OAuth) |
+| `sdk.webhooks.verify(body)` | Parse and re-fetch a notification (payment or refund) |
+| `sdk.webhooks.verifyPayment(body)` | Parse and re-fetch a payment notification |
+| `sdk.webhooks.verifyRefund(body)` | Parse and re-fetch a refund notification |
 
 ### Shop (OAuth required)
 
@@ -189,7 +189,7 @@ try {
 
 This project is a fork of [yookassa-sdk](https://github.com/awardix/yookassa-sdk) by **Aleksey Aleksyuk** ([@awardix](https://github.com/awardix)).
 
-Original project based on [yookassa-sdk](https://github.com/googlesheets-ru/yookassa-sdk) by **Dmitriy** ([@Mityayka1](https://github.com/Mityayka1)). Thanks for the original implementation!
+The original project was based on [yookassa-sdk](https://github.com/googlesheets-ru/yookassa-sdk) by **Dmitriy** ([@Mityayka1](https://github.com/Mityayka1)). Thanks for the original implementation!
 
 ## License
 

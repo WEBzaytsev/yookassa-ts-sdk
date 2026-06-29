@@ -8,16 +8,14 @@
 
 > **parseNotification**(`body`): [`WebhookNotification`](../interfaces/WebhookNotification.md)
 
-Defined in: [src/webhooks/notification.ts:265](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L265)
+Defined in: [src/webhooks/notification.ts:261](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L261)
 
-Парсит и валидирует входящее уведомление от YooKassa.
+Парсит и валидирует входящее уведомление YooKassa.
 
-**⚠️ Важно:** эта функция проверяет только **формат** объекта (наличие полей `type`, `event`, `object`).
-Она **не подтверждает подлинность** уведомления — злоумышленник может отправить корректно
-оформленное тело с чужим `payment.id`.
+**⚠️ Важно:** функция проверяет только **формат** (поля `type`, `event`, `object`).
+Она **не подтверждает подлинность** — злоумышленник может отправить корректное тело с чужим `payment.id`.
 
-Для надёжной верификации используйте `sdk.webhooks.verify(body)`, который перезапрашивает
-объект через API ЮKassa и возвращает его актуальное состояние.
+Для надёжной верификации вызывайте `sdk.webhooks.verify(body)` — перезапрос объекта через API ЮKassa.
 
 ## Parameters
 
@@ -25,7 +23,7 @@ Defined in: [src/webhooks/notification.ts:265](https://github.com/WEBzaytsev/yoo
 
 `unknown`
 
-Тело запроса (req.body)
+— тело запроса (`req.body`)
 
 ## Returns
 
@@ -35,7 +33,7 @@ Defined in: [src/webhooks/notification.ts:265](https://github.com/WEBzaytsev/yoo
 
 ## Throws
 
-Если формат уведомления некорректен
+Некорректный формат
 
 ## Example
 

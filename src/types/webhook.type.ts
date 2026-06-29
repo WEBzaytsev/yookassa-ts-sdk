@@ -1,4 +1,4 @@
-/** События для вебхуков */
+/** События вебхуков */
 export enum WebhookEventEnum {
     /** Платёж ожидает подтверждения */
     'payment.waiting_for_capture' = 'payment.waiting_for_capture',
@@ -14,29 +14,29 @@ export enum WebhookEventEnum {
     'payout.canceled' = 'payout.canceled',
     /** Сделка закрыта */
     'deal.closed' = 'deal.closed',
-    /** Способ оплаты стал активным (привязка на нулевую сумму завершена) */
+    /** Способ оплаты активен (привязка на нулевую сумму завершена) */
     'payment_method.active' = 'payment_method.active',
 }
 
 export type WebhookEvent = `${WebhookEventEnum}`
 
-/** Вебхук для получения уведомлений о событиях */
+/** Вебхук для уведомлений о событиях */
 export interface IWebhook {
-    /** Идентификатор вебхука */
+    /** ID вебхука */
     id: string
-    /** Событие, о котором уведомляет вебхук */
+    /** Событие уведомления */
     event: WebhookEvent
-    /** URL для уведомлений */
+    /** URL уведомлений */
     url: string
 }
 
 /** Запрос на создание вебхука */
 export interface CreateWebhookRequest {
-    /** Событие, о котором нужно уведомлять
+    /** Событие для уведомления
      * @see https://yookassa.ru/developers/api#create_webhook
      */
     event: WebhookEvent
-    /** URL, на который ЮKassa будет отправлять уведомления */
+    /** URL, на который ЮKassa шлёт уведомления */
     url: string
 }
 

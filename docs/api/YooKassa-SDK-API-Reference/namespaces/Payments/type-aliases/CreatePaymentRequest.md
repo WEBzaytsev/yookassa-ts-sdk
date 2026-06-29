@@ -8,9 +8,9 @@
 
 > **CreatePaymentRequest** = `Pick`\<[`IPayment`](../interfaces/IPayment.md), `"amount"` \| `"description"` \| `"recipient"` \| `"confirmation"` \| `"metadata"` \| `"transfers"` \| `"deal"` \| `"merchant_customer_id"`\> & `object`
 
-Defined in: [src/types/payments/payment.type.ts:248](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/payment.type.ts#L248)
+Defined in: [src/types/payments/payment.type.ts:229](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/payment.type.ts#L229)
 
-Чтобы принять оплату, необходимо создать объект платежа — `Payment`. Он содержит всю необходимую информацию для проведения оплаты (сумму, валюту и статус). У платежа линейный жизненный цикл, он последовательно переходит из статуса в статус.
+Запрос создания платежа. Платёж последовательно переходит из статуса в статус.
 
 ## Type Declaration
 
@@ -18,39 +18,38 @@ Defined in: [src/types/payments/payment.type.ts:248](https://github.com/WEBzayts
 
 > `optional` **airline?**: [`IAirline`](../../../../type-aliases/IAirline.md)
 
-Объект с данными для продажи авиабилетов. Используется только для платежей банковской картой.
+Данные авиабилетов. Только для оплаты картой
 
 ### capture?
 
 > `optional` **capture?**: `boolean`
 
-[Автоматический прием](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-true) поступившего платежа.
+[Автоприём](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process#capture-true) платежа
 
 ### client\_ip?
 
 > `optional` **client\_ip?**: `string`
 
-IPv4 или IPv6-адрес пользователя. Если не указан, используется IP-адрес TCP-подключения.
+IPv4 или IPv6 пользователя. По умолчанию — IP TCP-соединения
 
 ### payment\_method\_data?
 
 > `optional` **payment\_method\_data?**: [`PaymentMethodData`](../../../../type-aliases/PaymentMethodData.md)
 
-Данные для оплаты конкретным [способом](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/basics#integration-options) (`payment_method`).
-
-Вы можете не передавать этот объект в запросе. В этом случае пользователь будет выбирать способ оплаты на стороне ЮKassa.
+Данные [конкретного способа](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/basics#integration-options).
+Без поля пользователь выберет способ на стороне ЮKassa.
 
 ### payment\_method\_id?
 
 > `optional` **payment\_method\_id?**: `string`
 
-Идентификатор [сохраненного способа оплаты](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
+ID [сохранённого способа оплаты](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments)
 
 ### payment\_order\_data?
 
 > `optional` **payment\_order\_data?**: [`PaymentOrderData`](../../../../type-aliases/PaymentOrderData.md)
 
-Платёжное поручение для оплаты жилищно-коммунальных услуг (ЖКХ).
+Платёжное поручение ЖКХ.
 
 #### See
 
@@ -60,39 +59,39 @@ https://yookassa.ru/developers/payment-acceptance/scenario-extensions/utility-pa
 
 > `optional` **payment\_token?**: `string`
 
-Одноразовый токен для проведения оплаты, сформированный с помощью [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics) или [мобильного SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics).
-
+Токен оплаты из [Checkout.js](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/checkout-js/basics)
+или [мобильного SDK](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/mobile-sdks/basics).
 Пример: `+u7PDjMTkf08NtD66P6+eYWa2yjU3gsSIhOOO+OWsOg=`
 
 ### receipt?
 
 > `optional` **receipt?**: [`ReceiptinPaymentType`](../../Receipts/type-aliases/ReceiptinPaymentType.md)
 
-***Данные для формирования чека.***
+**Данные для чека**
 
-Необходимо передавать в этих случаях:
-- вы компания или ИП и для оплаты с соблюдением требований 54-ФЗ используете [Чеки от ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
-- вы компания или ИП, для оплаты с соблюдением требований 54-ФЗ используете [стороннюю онлайн-кассу](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) и отправляете данные для чеков по одному из сценариев: [Платеж и чек одновременно](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [Сначала чек, потом платеж](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
-- вы самозанятый и используете решение ЮKassa для [автоотправки чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
+Передайте, если:
+- компания/ИП с [Чеками ЮKassa](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/yoomoney/basics);
+- компания/ИП со [сторонней кассой](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics) по сценарию [платёж и чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-and-receipt) или [сначала чек](https://yookassa.ru/developers/payment-acceptance/receipts/54fz/other-services/basics#payment-after-receipt);
+- самозанятый с [автоотправкой чеков](https://yookassa.ru/developers/payment-acceptance/receipts/self-employed/basics).
 
 ### receiver?
 
 > `optional` **receiver?**: [`Receiver`](../../../../type-aliases/Receiver.md)
 
-Реквизиты получателя оплаты при [пополнении электронного кошелька, банковского счета или баланса телефона](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/receiver-data)
+Реквизиты получателя при [пополнении кошелька, счёта или баланса телефона](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/receiver-data)
 
 ### save\_payment\_method?
 
 > `optional` **save\_payment\_method?**: `boolean`
 
-Сохранение платежных данных (с их помощью можно проводить повторные [безакцептные списания](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments) ). Значение `true` инициирует создание многоразового `payment_method`.
+Сохранение платёжных данных для [безакцептных списаний](https://yookassa.ru/developers/payment-acceptance/scenario-extensions/recurring-payments).
+`true` создаёт многоразовый `payment_method`.
 
 ### statements?
 
 > `optional` **statements?**: [`Statement`](../interfaces/Statement.md)[]
 
-Данные для отправки квитанции по платежу на email пользователя.
-Доступно для оплаты банковской картой, SberPay или СБП.
+Квитанция на email. Для карты, SberPay, СБП.
 
 #### See
 

@@ -6,7 +6,7 @@
 
 # Interface: PaymentMethodDataCard
 
-Defined in: [src/types/payments/paymentMethod.type.ts:406](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L406)
+Defined in: [src/types/payments/paymentMethod.type.ts:406](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L406)
 
 Данные банковской карты для создания платежа
 
@@ -16,7 +16,7 @@ Defined in: [src/types/payments/paymentMethod.type.ts:406](https://github.com/WE
 
 > `optional` **card?**: `object`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:409](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L409)
+Defined in: [src/types/payments/paymentMethod.type.ts:409](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L409)
 
 Данные банковской карты
 
@@ -36,13 +36,13 @@ Defined in: [src/types/payments/paymentMethod.type.ts:409](https://github.com/WE
 
 > `optional` **expiry\_month?**: `string`
 
-Срок действия, месяц, MM
+Срок действия — месяц, MM
 
 #### expiry\_year?
 
 > `optional` **expiry\_year?**: `string`
 
-Срок действия, год, YYYY
+Срок действия — год, YYYY
 
 #### number?
 
@@ -56,4 +56,4 @@ Defined in: [src/types/payments/paymentMethod.type.ts:409](https://github.com/WE
 
 > **type**: `"bank_card"`
 
-Defined in: [src/types/payments/paymentMethod.type.ts:407](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentMethod.type.ts#L407)
+Defined in: [src/types/payments/paymentMethod.type.ts:407](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentMethod.type.ts#L407)

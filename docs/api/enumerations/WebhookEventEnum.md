@@ -6,9 +6,9 @@
 
 # Enumeration: WebhookEventEnum
 
-Defined in: [src/types/webhook.type.ts:2](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L2)
+Defined in: [src/types/webhook.type.ts:2](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L2)
 
-События для вебхуков
+События вебхуков
 
 ## Enumeration Members
 
@@ -16,7 +16,7 @@ Defined in: [src/types/webhook.type.ts:2](https://github.com/WEBzaytsev/yookassa
 
 > **deal.closed**: `"deal.closed"`
 
-Defined in: [src/types/webhook.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L16)
+Defined in: [src/types/webhook.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L16)
 
 Сделка закрыта
 
@@ -26,9 +26,9 @@ Defined in: [src/types/webhook.type.ts:16](https://github.com/WEBzaytsev/yookass
 
 > **payment\_method.active**: `"payment_method.active"`
 
-Defined in: [src/types/webhook.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L18)
+Defined in: [src/types/webhook.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L18)
 
-Способ оплаты стал активным (привязка на нулевую сумму завершена)
+Способ оплаты активен (привязка на нулевую сумму завершена)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/types/webhook.type.ts:18](https://github.com/WEBzaytsev/yookass
 
 > **payment.canceled**: `"payment.canceled"`
 
-Defined in: [src/types/webhook.type.ts:8](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L8)
+Defined in: [src/types/webhook.type.ts:8](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L8)
 
 Платёж отменён
 
@@ -46,7 +46,7 @@ Defined in: [src/types/webhook.type.ts:8](https://github.com/WEBzaytsev/yookassa
 
 > **payment.succeeded**: `"payment.succeeded"`
 
-Defined in: [src/types/webhook.type.ts:6](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L6)
+Defined in: [src/types/webhook.type.ts:6](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L6)
 
 Платёж успешно завершён
 
@@ -56,7 +56,7 @@ Defined in: [src/types/webhook.type.ts:6](https://github.com/WEBzaytsev/yookassa
 
 > **payment.waiting\_for\_capture**: `"payment.waiting_for_capture"`
 
-Defined in: [src/types/webhook.type.ts:4](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L4)
+Defined in: [src/types/webhook.type.ts:4](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L4)
 
 Платёж ожидает подтверждения
 
@@ -66,7 +66,7 @@ Defined in: [src/types/webhook.type.ts:4](https://github.com/WEBzaytsev/yookassa
 
 > **payout.canceled**: `"payout.canceled"`
 
-Defined in: [src/types/webhook.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L14)
+Defined in: [src/types/webhook.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L14)
 
 Выплата отменена
 
@@ -76,7 +76,7 @@ Defined in: [src/types/webhook.type.ts:14](https://github.com/WEBzaytsev/yookass
 
 > **payout.succeeded**: `"payout.succeeded"`
 
-Defined in: [src/types/webhook.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L12)
+Defined in: [src/types/webhook.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L12)
 
 Выплата успешно завершена
 
@@ -86,6 +86,6 @@ Defined in: [src/types/webhook.type.ts:12](https://github.com/WEBzaytsev/yookass
 
 > **refund.succeeded**: `"refund.succeeded"`
 
-Defined in: [src/types/webhook.type.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/webhook.type.ts#L10)
+Defined in: [src/types/webhook.type.ts:10](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/webhook.type.ts#L10)
 
 Возврат успешно завершён

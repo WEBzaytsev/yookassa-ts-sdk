@@ -1,29 +1,27 @@
 import type { IAmount } from '../general.types'
 
 interface IElectronicCertificate {
-    /** Идентификатор корзины возврата, сформированной в НСПК. */
+    /** ID корзины возврата в НСПК */
     basket_id: string
-    /** Сумма, которая вернется на электронный сертификат. */
+    /** Сумма возврата на электронный сертификат */
     amount: IAmount
 }
 
 interface IArticle {
-    /** Порядковый номер товара в корзине возврата. От 1 до 999 включительно. */
+    /** Порядковый номер товара в корзине возврата (1–999) */
     article_number: number
-    /** Порядковый номер товара в одобренной корзине покупки (`article_number` в объекте платежа). От 1 до 999 включительно. */
+    /** Номер товара в одобренной корзине покупки (`article_number` платежа, 1–999) */
     payment_article_number: number
     /**
-     * Код ТРУ. 30 символов, две группы цифр, разделенные точкой.
-     * Формат: `NNNNNNNNN.NNNNNNNNNYYYYMMMMZZZ`,
-     * где `NNNNNNNNN.NNNNNNNNN` — код вида ТРУ по Перечню ТРУ,
-     * `YYYY` — код производителя, `MMMM` — код модели, `ZZZ` — код страны производителя.
+     * Код ТРУ: 30 символов, `NNNNNNNNN.NNNNNNNNNYYYYMMMMZZZ`
+     * (`NNNNNNNNN.NNNNNNNNN` — вид ТРУ, `YYYY` — производитель, `MMMM` — модель, `ZZZ` — страна).
      *
      * Пример: `329921120.06001010200080001643`
      *
-     * [Как сформировать код ТРУ](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/other/electronic-certificate#payments-preparation-tru-code)
+     * @see [Код ТРУ](https://yookassa.ru/developers/payment-acceptance/integration-scenarios/manual-integration/other/electronic-certificate#payments-preparation-tru-code)
      */
     tru_code: string
-    /** Количество возвращаемых единиц товара. Формат: целое положительное число. */
+    /** Количество возвращаемых единиц. Целое положительное число */
     quantity: number
 }
 
@@ -33,20 +31,17 @@ interface IRefundMethodGeneral {
 }
 type SbpRefundMethod = IRefundMethodGeneral & {
     type: 'sbp'
-    /** Идентификатор операции в СБП (НСПК).
-     * Пример: `1027088AE4CB48CB81287833347A8777`.
-     * Обязательный параметр для возвратов в статусе `succeeded`.
-     * В остальных случаях может отсутствовать. */
+    /** ID операции в СБП (НСПК). Пример: `1027088AE4CB48CB81287833347A8777`.
+     * Обязателен для возвратов в `succeeded` */
     sbp_operation_id?: string
 }
 
 export type ElectronicCertificateRefundMethod = IRefundMethodGeneral & {
     type: 'electronic_certificate'
-    /** Корзина возврата — список возвращаемых товаров, для оплаты которых использовался электронный сертификат.
-     * Присутствует, если оплата была на готовой странице ЮKassa.
-     */
+    /** Корзина возврата — товары, оплаченные электронным сертификатом.
+     * Есть при оплате на готовой странице ЮKassa */
     articles: IArticle[]
-    /** Данные от ФЭС НСПК для возврата на электронный сертификат. */
+    /** Данные ФЭС НСПК для возврата на сертификат */
     electronic_certificate?: IElectronicCertificate
 }
 

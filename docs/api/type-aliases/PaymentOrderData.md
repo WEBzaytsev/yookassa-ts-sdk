@@ -8,6 +8,6 @@
 
 > **PaymentOrderData** = [`PaymentOrderDataUtilities`](../interfaces/PaymentOrderDataUtilities.md)
 
-Defined in: [src/types/payments/paymentOrder.type.ts:104](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payments/paymentOrder.type.ts#L104)
+Defined in: [src/types/payments/paymentOrder.type.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payments/paymentOrder.type.ts#L101)
 
-Платёжное поручение (сейчас поддерживается только тип `utilities`)
+Платёжное поручение (сейчас только `utilities`)

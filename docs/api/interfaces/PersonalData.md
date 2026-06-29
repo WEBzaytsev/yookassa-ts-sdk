@@ -6,7 +6,7 @@
 
 # Interface: PersonalData
 
-Defined in: [src/types/personalData.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L12)
+Defined in: [src/types/personalData.type.ts:12](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L12)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/personalData.type.ts:12](https://github.com/WEBzaytsev/yo
 
 > `optional` **cancellation\_details?**: [`PersonalDataCancellationDetails`](PersonalDataCancellationDetails.md)
 
-Defined in: [src/types/personalData.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L16)
+Defined in: [src/types/personalData.type.ts:16](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L16)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/personalData.type.ts:16](https://github.com/WEBzaytsev/yo
 
 > **created\_at**: `string`
 
-Defined in: [src/types/personalData.type.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L17)
+Defined in: [src/types/personalData.type.ts:17](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L17)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/personalData.type.ts:17](https://github.com/WEBzaytsev/yo
 
 > `optional` **expires\_at?**: `string`
 
-Defined in: [src/types/personalData.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L18)
+Defined in: [src/types/personalData.type.ts:18](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L18)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/types/personalData.type.ts:18](https://github.com/WEBzaytsev/yo
 
 > **id**: `string`
 
-Defined in: [src/types/personalData.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L13)
+Defined in: [src/types/personalData.type.ts:13](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L13)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/types/personalData.type.ts:13](https://github.com/WEBzaytsev/yo
 
 > `optional` **metadata?**: [`Metadata`](Metadata.md)
 
-Defined in: [src/types/personalData.type.ts:19](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L19)
+Defined in: [src/types/personalData.type.ts:19](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L19)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/types/personalData.type.ts:19](https://github.com/WEBzaytsev/yo
 
 > **status**: [`PersonalDataStatus`](../type-aliases/PersonalDataStatus.md)
 
-Defined in: [src/types/personalData.type.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L15)
+Defined in: [src/types/personalData.type.ts:15](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L15)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [src/types/personalData.type.ts:15](https://github.com/WEBzaytsev/yo
 
 > **type**: [`PersonalDataType`](../type-aliases/PersonalDataType.md)
 
-Defined in: [src/types/personalData.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/personalData.type.ts#L14)
+Defined in: [src/types/personalData.type.ts:14](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/personalData.type.ts#L14)

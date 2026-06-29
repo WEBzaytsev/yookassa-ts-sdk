@@ -8,17 +8,15 @@
 
 > **isYooKassaIP**(`ip`): `boolean`
 
-Defined in: [src/webhooks/notification.ts:90](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/webhooks/notification.ts#L90)
+Defined in: [src/webhooks/notification.ts:88](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/webhooks/notification.ts#L88)
 
-Проверяет, является ли IP-адрес адресом YooKassa.
+Проверяет, принадлежит ли IP-адрес YooKassa.
 
-**⚠️ Важно о надёжности:** проверка IP **не является достаточной защитой**, если перед вашим
-сервером стоит reverse-proxy (nginx, Cloudflare, AWS ALB и т.п.). Заголовок `x-forwarded-for`
-легко подделать: клиент может передать произвольный IP в этом заголовке, и прокси добавит его
-в список. Используйте `req.socket.remoteAddress` (реальный IP соединения) только при условии,
-что ваш прокси настроен доверять только реальным IP ЮKassa.
+**⚠️ Надёжность:** проверка IP **не защищает** за reverse-proxy (nginx, Cloudflare, AWS ALB и т. п.).
+Заголовок `x-forwarded-for` легко подделать. Используйте `req.socket.remoteAddress` только если
+прокси доверяет реальным IP ЮKassa.
 
-Для надёжной верификации используйте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
+Для надёжной верификации вызывайте `sdk.webhooks.verify(body)` — перезапрос объекта через API.
 
 ## Parameters
 
@@ -26,13 +24,13 @@ Defined in: [src/webhooks/notification.ts:90](https://github.com/WEBzaytsev/yook
 
 `string`
 
-IP-адрес для проверки (например, из req.ip или x-forwarded-for)
+— IP для проверки (например, `req.ip` или `x-forwarded-for`)
 
 ## Returns
 
 `boolean`
 
-true, если IP принадлежит YooKassa
+`true`, если IP принадлежит YooKassa
 
 ## Example
 

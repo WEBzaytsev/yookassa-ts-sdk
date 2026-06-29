@@ -6,9 +6,9 @@
 
 # Interface: PayoutToSbpDestinationData
 
-Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L71)
+Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L71)
 
-Данные для выплаты через СБП
+Выплата через СБП (запрос)
 
 ## Properties
 
@@ -16,9 +16,9 @@ Defined in: [src/types/payouts/payout.type.ts:71](https://github.com/WEBzaytsev/
 
 > **bank\_id**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L76)
+Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L76)
 
-Идентификатор участника СБП, до 12 символов
+ID участника СБП, до 12 символов
 
 ***
 
@@ -26,9 +26,9 @@ Defined in: [src/types/payouts/payout.type.ts:76](https://github.com/WEBzaytsev/
 
 > **phone**: `string`
 
-Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L74)
+Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L74)
 
-Телефон получателя в формате ITU-T E.164, например 79000000000
+Телефон получателя, ITU-T E.164. Пример: `79000000000`
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/types/payouts/payout.type.ts:74](https://github.com/WEBzaytsev/
 
 > **type**: `"sbp"`
 
-Defined in: [src/types/payouts/payout.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/payouts/payout.type.ts#L72)
+Defined in: [src/types/payouts/payout.type.ts:72](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/payouts/payout.type.ts#L72)

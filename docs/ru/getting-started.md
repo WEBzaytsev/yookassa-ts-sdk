@@ -19,7 +19,7 @@ interface ConnectorOpts {
     /** Таймаут запроса в мс (по умолчанию: 5000) */
     timeout?: number;
 
-    /** Количество повторных попыток при ошибках (по умолчанию: 5) */
+    /** Число повторных попыток при ошибках (по умолчанию: 5) */
     retries?: number;
 
     /** Максимум запросов в секунду (по умолчанию: 5) */
@@ -59,7 +59,7 @@ const sdk = YooKassa({
     proxy: 'http://user:password@proxy.example.com:8080',
 });
 
-// С OAuth токеном (для вебхуков и информации о магазине)
+// С OAuth-токеном (вебхуки и информация о магазине)
 const sdk = YooKassa({
     shop_id: '123456',
     secret_key: 'live_secret_key',
@@ -69,13 +69,13 @@ const sdk = YooKassa({
 
 ## Кэширование инстансов
 
-SDK автоматически кэширует инстансы по SHA-256-хэшу всех пяти полей учётных данных (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Изменение **любого** из этих полей создаёт новый инстанс. Это позволяет:
+SDK кэширует инстансы по SHA-256-хэшу пяти полей учётных данных (`shop_id`, `secret_key`, `token`, `endpoint`, `proxy`). Изменение **любого** поля создаёт новый инстанс. Это даёт:
 
-- Переиспользовать соединения
-- Работать с несколькими магазинами одновременно
+- переиспользование соединений;
+- работу с несколькими магазинами одновременно.
 
 ```ts
-// Оба вызова вернут один и тот же инстанс (одинаковые учётные данные)
+// Оба вызова вернут один инстанс (одинаковые учётные данные)
 const sdk1 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 const sdk2 = YooKassa({ shop_id: '123', secret_key: 'key1' });
 console.log(sdk1 === sdk2); // true
@@ -87,12 +87,11 @@ const shop2 = YooKassa({ shop_id: '222', secret_key: 'key2' });
 // Изменение любого поля (например, добавление токена) создаёт новый инстанс
 const sdkWithOAuth = YooKassa({ shop_id: '123', secret_key: 'key1', token: 'oauth_token' });
 
-// Принудительно создать новый инстанс (минуя кэш)
+// Создать новый инстанс, минуя кэш
 const newSdk = YooKassa({ shop_id: '123', secret_key: 'new_key' }, true);
 
 // Очистить кэш
 import { clearYooKassaCache } from '@webzaytsev/yookassa-ts-sdk';
-clearYooKassaCache('123'); // Удалить конкретный магазин
+clearYooKassaCache('123'); // Удалить инстансы конкретного магазина
 clearYooKassaCache(); // Очистить весь кэш
 ```
-

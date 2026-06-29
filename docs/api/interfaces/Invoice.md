@@ -6,7 +6,7 @@
 
 # Interface: Invoice
 
-Defined in: [src/types/invoice.type.ts:93](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L93)
+Defined in: [src/types/invoice.type.ts:93](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L93)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/invoice.type.ts:93](https://github.com/WEBzaytsev/yookass
 
 > `optional` **cancellation\_details?**: [`InvoiceCancellationDetails`](InvoiceCancellationDetails.md)
 
-Defined in: [src/types/invoice.type.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L102)
+Defined in: [src/types/invoice.type.ts:102](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L102)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/invoice.type.ts:102](https://github.com/WEBzaytsev/yookas
 
 > **cart**: [`InvoiceCart`](../type-aliases/InvoiceCart.md)
 
-Defined in: [src/types/invoice.type.ts:96](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L96)
+Defined in: [src/types/invoice.type.ts:96](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L96)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/invoice.type.ts:96](https://github.com/WEBzaytsev/yookass
 
 > **created\_at**: `string`
 
-Defined in: [src/types/invoice.type.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L99)
+Defined in: [src/types/invoice.type.ts:99](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L99)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/types/invoice.type.ts:99](https://github.com/WEBzaytsev/yookass
 
 > `optional` **delivery\_method?**: [`InvoiceDeliveryMethod`](../type-aliases/InvoiceDeliveryMethod.md)
 
-Defined in: [src/types/invoice.type.ts:97](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L97)
+Defined in: [src/types/invoice.type.ts:97](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L97)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/types/invoice.type.ts:97](https://github.com/WEBzaytsev/yookass
 
 > `optional` **description?**: `string`
 
-Defined in: [src/types/invoice.type.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L101)
+Defined in: [src/types/invoice.type.ts:101](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L101)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/types/invoice.type.ts:101](https://github.com/WEBzaytsev/yookas
 
 > `optional` **expires\_at?**: `string`
 
-Defined in: [src/types/invoice.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L100)
+Defined in: [src/types/invoice.type.ts:100](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L100)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [src/types/invoice.type.ts:100](https://github.com/WEBzaytsev/yookas
 
 > **id**: `string`
 
-Defined in: [src/types/invoice.type.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L94)
+Defined in: [src/types/invoice.type.ts:94](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L94)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [src/types/invoice.type.ts:94](https://github.com/WEBzaytsev/yookass
 
 > `optional` **metadata?**: [`Metadata`](Metadata.md)
 
-Defined in: [src/types/invoice.type.ts:103](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L103)
+Defined in: [src/types/invoice.type.ts:103](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L103)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [src/types/invoice.type.ts:103](https://github.com/WEBzaytsev/yookas
 
 > `optional` **payment\_details?**: [`InvoicePaymentDetails`](InvoicePaymentDetails.md)
 
-Defined in: [src/types/invoice.type.ts:98](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L98)
+Defined in: [src/types/invoice.type.ts:98](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L98)
 
 ***
 
@@ -86,4 +86,4 @@ Defined in: [src/types/invoice.type.ts:98](https://github.com/WEBzaytsev/yookass
 
 > **status**: [`InvoiceStatus`](../type-aliases/InvoiceStatus.md)
 
-Defined in: [src/types/invoice.type.ts:95](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/invoice.type.ts#L95)
+Defined in: [src/types/invoice.type.ts:95](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/invoice.type.ts#L95)

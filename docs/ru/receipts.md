@@ -37,8 +37,8 @@ const receipts = await sdk.receipts.list({
 
 | Фильтр | Описание |
 | --- | --- |
-| `payment_id` | Фильтр по ID платежа |
-| `refund_id` | Фильтр по ID возврата |
+| `payment_id` | ID платежа |
+| `refund_id` | ID возврата |
 
 ## Справочник API
 
@@ -47,4 +47,3 @@ const receipts = await sdk.receipts.list({
 | `create(data, idempotenceKey?)` | Создать чек |
 | `load(id)` | Получить чек по ID |
 | `list(filter?)` | Список чеков |
-

@@ -8,7 +8,7 @@
 
 > **GetRefundListFilter** = `Omit`\<[`GetPaymentListFilter`](GetPaymentListFilter.md), `"captured_at"` \| `"payment_method"`\> & `object`
 
-Defined in: [src/types/api.types.ts:51](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/68213df35b1bd37cf2487dbe032adb060a39ca67/src/types/api.types.ts#L51)
+Defined in: [src/types/api.types.ts:45](https://github.com/WEBzaytsev/yookassa-ts-sdk/blob/a54dd4a4021888ce493b2f0fc27787905ddee7f3/src/types/api.types.ts#L45)
 
 ## Type Declaration
 
@@ -16,19 +16,19 @@ Defined in: [src/types/api.types.ts:51](https://github.com/WEBzaytsev/yookassa-t
 
 > `optional` **payment\_id?**: `string`
 
-Фильтр по идентификатору платежа (получить все возвраты по платежу).
+ID платежа — все возвраты по платежу.
 
 #### Example
 
 ```ts
-payment_id=1da5c87d-0984-50e8-a7f3-8de646dd9ec9
+`payment_id=1da5c87d-0984-50e8-a7f3-8de646dd9ec9`
 ```
 
 ### status?
 
 > `optional` **status?**: [`RefundStatus`](../YooKassa-SDK-API-Reference/namespaces/Refunds/type-aliases/RefundStatus.md)
 
-Статус возврата платежа. Возможные значения:
-- `pending` — возврат создан, но пока еще обрабатывается;
-- `succeeded` — возврат успешно завершен, указанная в запросе сумма переведена на платежное средство пользователя (финальный и неизменяемый статус);
-- `canceled` — возврат отменен, инициатор и причина отмены указаны в объекте cancellation_details (финальный и неизменяемый статус).
+Статус возврата:
+- `pending` — создан, обрабатывается;
+- `succeeded` — завершён, сумма переведена пользователю (финальный);
+- `canceled` — отменён, детали в `cancellation_details` (финальный).

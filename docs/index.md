@@ -1,6 +1,6 @@
 # YooKassa TypeScript SDK
 
-Modern TypeScript SDK for [YooKassa Payment API](https://yookassa.ru/developers/api).
+A modern TypeScript SDK for the [YooKassa Payment API](https://yookassa.ru/developers/api).
 
 ## Installation
 
@@ -8,7 +8,7 @@ Modern TypeScript SDK for [YooKassa Payment API](https://yookassa.ru/developers/
 npm install @webzaytsev/yookassa-ts-sdk
 ```
 
-To work on the SDK locally, clone the repo and run `corepack enable`, `pnpm install`, and `pnpm run check`.
+To work on the SDK locally, clone the repository and run `corepack enable`, `pnpm install`, and `pnpm run check`.
 
 ## Quick Start
 
@@ -30,7 +30,7 @@ const payment = await sdk.payments.create({
 
 ### Guides
 - [Getting Started](en/getting-started.md) - Configuration and initialization
-- [Payments](en/payments.md) - Create, capture, cancel payments
+- [Payments](en/payments.md) - Create, capture, and cancel payments
 - [Refunds](en/refunds.md) - Create and manage refunds
 - [Payouts](en/payouts.md) - Create, load, and list payouts
 - [Deals](en/deals.md) - Safe Deal: create, load, and list deals
@@ -39,20 +39,20 @@ const payment = await sdk.payments.create({
 - [Error Handling](en/error-handling.md) - Error codes and retry logic
 
 ### API Reference
-- [Full API Documentation](api/) - TypeScript types, interfaces, enums
+- [Full API Documentation](api/) - TypeScript types, interfaces, and enums
 
 ### Examples
 - [Examples Directory](../examples/) - Working code examples
 
 ## Features
 
-- Full TypeScript support for client methods and entities aligned with the published REST paths used by this SDK
+- Full TypeScript support for client methods and entities aligned with the REST paths used by this SDK
 - Automatic retries with exponential backoff
 - Built-in idempotency key generation
 - Proxy support (HTTP/HTTPS)
 - Rate limiting
 - Webhook signature validation
-- Instance caching for multi-store support
+- Instance caching for multi-store setups
 
 ## Links
 
