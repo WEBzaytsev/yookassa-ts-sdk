@@ -64,6 +64,10 @@ function redactSensitiveConfig(config: InternalAxiosRequestConfig): InternalAxio
             const prefix = authValue.startsWith('Bearer') ? 'Bearer' : 'Basic'
             clone.headers.set('Authorization', `${prefix} ***`)
         }
+        const idempotenceKey = clone.headers.get('Idempotence-Key')
+        if (typeof idempotenceKey === 'string') {
+            clone.headers.set('Idempotence-Key', '***')
+        }
     }
 
     return clone
@@ -250,6 +254,23 @@ export class Connector {
     protected secretKey: string
 
     constructor(init: ConnectorOpts) {
+        if (!init.shop_id?.trim()) {
+            throw new YooKassaErr({
+                type: 'error',
+                id: 'init',
+                code: 'invalid_credentials',
+                description: 'shop_id is required and must not be empty',
+            })
+        }
+        if (!init.secret_key?.trim()) {
+            throw new YooKassaErr({
+                type: 'error',
+                id: 'init',
+                code: 'invalid_credentials',
+                description: 'secret_key is required and must not be empty',
+            })
+        }
+
         // Удаляем завершающий слэш у endpoint
         this.endpoint = (init.endpoint || 'https://api.yookassa.ru/v3').replace(/\/+$/, '')
 
@@ -303,7 +324,11 @@ export class Connector {
                 (config) => AxiosLogger.requestLogger(redactSensitiveConfig(config)),
                 AxiosLogger.errorLogger,
             )
-            this.axiosInstance.interceptors.response.use(AxiosLogger.responseLogger, AxiosLogger.errorLogger)
+            this.axiosInstance.interceptors.response.use(
+                (response) =>
+                    AxiosLogger.responseLogger({ ...response, config: redactSensitiveConfig(response.config) }),
+                AxiosLogger.errorLogger,
+            )
         }
     }
 

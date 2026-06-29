@@ -801,8 +801,8 @@ export class YooKassaSdk extends Connector {
     }
 }
 
-/** Кэш экземпляров SDK по `shop_id` */
-const clientCache = new Map<string, YooKassaSdk>()
+/** Кэш экземпляров SDK по хэшу credentials */
+const clientCache = new Map<string, { client: YooKassaSdk; shopId: string }>()
 
 /**
  * Creates or returns a cached YooKassaSdk instance.
@@ -840,11 +840,11 @@ export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
 
     const cached = clientCache.get(cacheKey)
     if (!forceNew && cached) {
-        return cached
+        return cached.client
     }
 
     const client = new YooKassaSdk(init)
-    clientCache.set(cacheKey, client)
+    clientCache.set(cacheKey, { client, shopId: init.shop_id })
     return client
 }
 
@@ -855,9 +855,13 @@ export function YooKassa(init: ConnectorOpts, forceNew = false): YooKassaSdk {
  * @param shopId — ID магазина для удаления из кэша; без параметра — очистка всего кэша
  */
 export function clearYooKassaCache(shopId?: string): void {
-    if (shopId) {
-        clientCache.delete(shopId)
-    } else {
+    if (!shopId) {
         clientCache.clear()
+        return
+    }
+    for (const [key, entry] of clientCache) {
+        if (entry.shopId === shopId) {
+            clientCache.delete(key)
+        }
     }
 }
